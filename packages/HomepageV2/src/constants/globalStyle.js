@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import size from './size'
 import { createGlobalStyle } from 'styled-components'
 
 const Style = createGlobalStyle`

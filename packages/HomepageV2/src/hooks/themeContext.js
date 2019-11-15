@@ -18,8 +18,8 @@ const useEffectDarkMode = () => {
   })
 
   useEffect(() => {
-    const lsDark = localStorage.getItem('dark') === 'true'
-    setThemeState({ ...themeState, dark: lsDark, hasThemeMounted: true })
+    const dark = localStorage.getItem('dark') === 'true'
+    setThemeState({ ...themeState, dark, hasThemeMounted: true })
   }, [])
   return [themeState, setThemeState]
 }
