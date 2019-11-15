@@ -5,6 +5,7 @@ import { createGlobalStyle } from 'styled-components'
 const Style = createGlobalStyle`
   *::selection{
     color: white;
+    background-color: ${({ theme }) => theme.main};
   }
   body{
     padding: 0;
@@ -12,6 +13,7 @@ const Style = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     transition: 0.4s background-color;
     overflow-x: hidden;
+    background-color: #fafafa;
   }
   h1,h2,h3,h4,h5,h6,p,a,button,label,input,div,textarea{
     font-family: 'Poppins', sans-serif;
@@ -20,6 +22,12 @@ const Style = createGlobalStyle`
     outline: 0;
     border: 0;
     transition: 0.4s color;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: ${({ theme }) => theme.title};
+  }
+  p,label,input,div,textarea{
+    color: ${({ theme }) => theme.text};
   }
   a{
     text-decoration: none;
