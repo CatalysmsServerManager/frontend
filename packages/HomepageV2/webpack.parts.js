@@ -38,10 +38,10 @@ exports.devServer = ({ host, port } = {}) => ({
     compress:           true,
     historyApiFallback: true, // path changes react router dom.,
     after:              () => console.log('Development server has been started.'),
-    proxy: [
+    proxy:              [
       {
         context: ['/status'],
-        target: process.env.API
+        target:  process.env.API
       }
     ]
   }
