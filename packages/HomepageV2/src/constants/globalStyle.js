@@ -7,6 +7,9 @@ const Style = createGlobalStyle`
     color: white;
     background-color: ${({ theme }) => theme.main};
   }
+  :root{
+    font-size: 16px;
+  }
   body{
     padding: 0;
     margin: 0;
