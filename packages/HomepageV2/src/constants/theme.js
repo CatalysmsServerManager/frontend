@@ -3,7 +3,7 @@
 const main = '#28B766'
 const shade = '#EAF8F0'
 const text = '#8d96A7'
-const title = '3A46763'
+const title = '#3A4763'
 
 const lightTheme = {
   main,

@@ -39,6 +39,9 @@ const Style = createGlobalStyle`
   input{
      display: block;
   }
+  button{
+    cursor: pointer;
+  }
   button, button:active, button:focus button::-moz-focus-inner, a,
   input[type="reset"]::-moz-focus-inner,
   input[type="button"]::-moz-focus-inner,
