@@ -9,10 +9,12 @@ import Button from '../layout/Button'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 650px;
-  width: 400px;
+  height: 550px;
+  width: 300px;
   border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.title) : theme.shade};
   border-radius: 20px;
+  margin-top: 25px;
+  margin-bottom: px;
 `
 const Name = styled.div`
   display: flex;
@@ -75,9 +77,10 @@ const Details = styled.div`
   p{
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 0.8rem;
   }
   button{
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 110%;
   }
 `
@@ -87,7 +90,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   padding-bottom: 25px;
   button{
-    font-size: 125%;
+    font-size: 110%;
   }
 `
 

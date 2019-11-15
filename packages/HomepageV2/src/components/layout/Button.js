@@ -17,7 +17,7 @@ const StyledButton = styled.button`
   }
 `
 
-export default function Button({ alt = false, children }){
+export default function Button({ alt, children }){
   return (
     <StyledButton alt={alt}>
       { children }

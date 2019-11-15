@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import iconBlack from '../../images/icon-black.svg'
+import iconBlack from '../../../images/icon-black.svg'
 
 const Container = styled.div`
   width: 100%;

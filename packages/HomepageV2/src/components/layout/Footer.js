@@ -42,10 +42,10 @@ export default function Footer(){
   return (
     <Container>
       <IconNav>
-        <Link>
+        <Link isExternal to="/something">
           <img alt="dit nog aanpassen" src={discord}/>
         </Link>
-        <Link>
+        <Link isExternal to="/something">
           <img alt="dit nog aanpassen" src={mail}/>
         </Link>
       </IconNav>

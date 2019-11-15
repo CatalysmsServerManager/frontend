@@ -44,7 +44,8 @@ const plandata = [{
   teleports:      '100',
   location:       '1 week',
   inventory:      '5 days',
-  analytics:      '1 week'
+  analytics:      '1 week',
+  isPopular:      true
 },
 {
   name:           'Premium',
