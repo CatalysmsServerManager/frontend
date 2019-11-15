@@ -29,8 +29,9 @@ const Block = styled.div`
     height: auto;
   }
   h3{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 25px 0;
+    font-weight: 500;
   }
   p{
     font-size: 1rem;

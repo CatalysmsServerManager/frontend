@@ -42,8 +42,12 @@ export default function Footer(){
   return (
     <Container>
       <IconNav>
-        <img alt="dit nog aanpassen" src={discord}/>
-        <img alt="dit nog aanpassen" src={mail}/>
+        <Link>
+          <img alt="dit nog aanpassen" src={discord}/>
+        </Link>
+        <Link>
+          <img alt="dit nog aanpassen" src={mail}/>
+        </Link>
       </IconNav>
       <div style={{ width: '33%' }}>
         <p>Copyright csmm © {new Date().getFullYear()} | All rights reserved</p>

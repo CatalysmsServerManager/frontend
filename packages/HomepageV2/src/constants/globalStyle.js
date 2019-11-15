@@ -16,7 +16,6 @@ const Style = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     transition: 0.4s background-color;
     overflow-x: hidden;
-    background-color: #fafafa;
   }
   h1,h2,h3,h4,h5,h6,p,a,button,label,input,div,textarea{
     font-family: 'Poppins', sans-serif;
