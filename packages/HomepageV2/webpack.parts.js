@@ -40,7 +40,7 @@ exports.devServer = ({ host, port } = {}) => ({
     after:              () => console.log('Development server has been started.'),
     proxy: [
       {
-        context: ['/post'],
+        context: ['/status'],
         target: process.env.API
       }
     ]
