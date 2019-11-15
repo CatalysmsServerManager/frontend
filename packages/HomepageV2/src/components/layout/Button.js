@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { lighten } from 'polished'
 
 const StyledButton = styled.button`
   background-color: ${({ theme, alt }) => alt ? theme.title : theme.main};
@@ -9,6 +10,11 @@ const StyledButton = styled.button`
   padding: 5px 20px;
   border-radius: 3px;
   box-shadow: 6px 3px 6px -3px rgba(0,0,0,0.16);
+  transition: background-color .2s ease-in-out;
+
+  &:hover{
+    background-color: ${({ theme }) => lighten(0.03, theme.main)}
+  }
 `
 
 export default function Button({ alt = false, children }){
