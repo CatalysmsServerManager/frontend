@@ -7,13 +7,14 @@ import mail from '../../images/mail.svg'
 
 const Container = styled.footer`
   width: 100%;
-  height: 145px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   padding: 0 50px;
   color: ${({ theme }) => theme.text};
+  background-color: #fafafa;
 `
 const IconNav = styled.nav`
   width: 33%;

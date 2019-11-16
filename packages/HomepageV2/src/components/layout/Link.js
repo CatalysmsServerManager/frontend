@@ -8,18 +8,21 @@ const StyledLink = styled(ReactRouterLink)`
   color: ${({ theme }) => theme.title};
   font-weight: 500;
   transition: color .1s ease-in-out;
+  transition: transform .2s ease-in-out;
 
   &:hover{
     color: ${({ theme }) => lighten(0.2, theme.title)};
+    transform: translateY(-3px);
   }
 `
 const StyledAnchor = styled.a`
   color: ${({ theme }) => theme.title};
   font-weight: 500;
   transition: color .1s ease-in-out;
-
+  transition: transform .2s ease-in-out;
   &:hover{
     color: ${({ theme }) => lighten(0.2, theme.title)};
+    transform: translateY(-5px);
   }
 `
 

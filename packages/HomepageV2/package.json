@@ -19,11 +19,15 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "history": "^4.10.1",
+    "koa": "^2.11.0",
+    "koa-logger": "^3.2.1",
+    "koa-static": "^5.0.0",
     "node-sass": "4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.2.2",
+    "react-responsive-carousel": "^3.1.51",
     "react-router-dom": "^5.1.2",
     "styled-components": "^4.4.0"
   },

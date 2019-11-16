@@ -11,9 +11,11 @@ const StyledButton = styled.button`
   border-radius: 3px;
   box-shadow: 6px 3px 6px -3px rgba(0,0,0,0.16);
   transition: background-color .2s ease-in-out;
+  transition: transform .2s ease-in-out;
 
   &:hover{
-    background-color: ${({ theme, alt }) => lighten(0.05, alt ? theme.title : theme.main)}
+    background-color: ${({ theme, alt }) => lighten(0.05, alt ? theme.title : theme.main)};
+    transform: translateY(-3px);
   }
 `
 

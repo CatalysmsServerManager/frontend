@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Header from '../layout/Header'
 import Landing from '../layout/blocks/Landing'
+import Feature from '../layout/blocks/Feature'
 import Pricing from '../layout/blocks/Pricing'
 import Info from '../layout/Info'
 import Footer from '../layout/Footer'
@@ -19,6 +20,7 @@ export default function Home(){
       <Body>
         <Landing/>
         <Info/>
+        <Feature/>
         <Pricing/>
       </Body>
       <Footer/>
