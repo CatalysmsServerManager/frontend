@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Link from './Link'
 import Button from './Button'
+import StatusCircle from './StatusCircle'
 import icon from '../../images/icon.svg'
 
 const Container = styled.header`
@@ -49,7 +50,7 @@ export default function Header(){
     <Container>
       <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
-        <Link to="/status">Status</Link>
+        <Link to="/status"> <StatusCircle/> Status</Link>
         <Link to="/pricing">Pricing</Link>
         <Link to="/contact">Contact</Link>
         <Button>Premium</Button>
