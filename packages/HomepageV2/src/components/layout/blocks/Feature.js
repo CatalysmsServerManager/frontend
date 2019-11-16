@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-const Container = styled.div`
+const Container = styled.section`
   width: 100%;
   height: 800px;
   margin-top: 200px;

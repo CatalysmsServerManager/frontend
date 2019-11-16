@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   transition: transform .2s ease-in-out;
 
   &:hover{
-    background-color: ${({ theme, alt }) => lighten(0.05, alt ? theme.title : theme.main)};
+    background-color: ${({ theme, alt }) => lighten(0.05, alt ? theme.title : theme.main)}!important;
     transform: translateY(-3px);
   }
 `

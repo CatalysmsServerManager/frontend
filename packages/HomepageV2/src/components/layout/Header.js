@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { lighten } from 'polished'
 
 import Link from './Link'
 import Button from './Button'
@@ -42,18 +43,40 @@ const Nav = styled.nav`
   }
   button {
     margin-left: 45px;
+    a{
+      color: white;
+      &:hover{
+        color: white;
+      }
+    }
+  }
+`
+
+const OnPageLink = styled.div`
+  color: ${({ theme }) => theme.title};
+  font-weight: 500;
+  transition: color .1s ease-in-out;
+  cursor: pointer;
+  &:hover{
+    color: ${({ theme }) => lighten(0.2, theme.title)};
   }
 `
 
 export default function Header(){
+  function scrollToPricing(e){
+    console.log('this works')
+    e.preventDefault()
+    window.scrollTo({ top: document.getElementById('pricing').getBoundingClientRect().top, behavior: 'smooth' })
+  }
+
   return (
     <Container>
       <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
-        <Link to="/status"> <StatusCircle/> Status</Link>
-        <Link to="/pricing">Pricing</Link>
-        <Link to="/contact">Contact</Link>
-        <Button>Premium</Button>
+        <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
+        <OnPageLink onClick={scrollToPricing} to="#pricing" >Pricing</OnPageLink>
+        <Link to="/contact" >Contact</Link>
+        <Button><Link isExternal to="https://www.patreon.com/bePatron?c=1523282">Premium</Link></Button>
       </Nav>
     </Container>
   )

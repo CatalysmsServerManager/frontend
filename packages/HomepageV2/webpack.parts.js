@@ -38,12 +38,12 @@ exports.devServer = ({ host, port } = {}) => ({
     compress:           true,
     historyApiFallback: true, // path changes react router dom.,
     after:              () => console.log('Development server has been started.'),
-    proxy:              [
-      {
-        context: ['/status'],
-        target:  process.env.API
-      }
-    ]
+    //proxy:              [
+    //  {
+    //    context: [''],
+    //    target:  process.env.API
+    //  }
+    // ] as we have no api, we don't need one
   }
 })
 exports.generateFavicon = () => ({

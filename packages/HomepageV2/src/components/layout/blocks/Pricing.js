@@ -24,7 +24,7 @@ const PlanContainer = styled.div`
 
 export default function Pricing(){
   return (
-    <Container>
+    <Container id="pricing">
       <h2 className="intro">Pricing.</h2>
       <p className="intro">The money is used for rent, electricity, water, basic living costs. Instead of getting a part time job, I can spend my time workign on my applications.</p>
       <PlanContainer>
