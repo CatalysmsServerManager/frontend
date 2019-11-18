@@ -45,22 +45,22 @@ export default function Info(){
   return (
     <Container>
       <Block>
-        <img alt="later nog aanpassen" src={vr}/>
+        <img alt="csmm ingame features icon" src={vr} title="7 Days to Die feature"/>
         <h3>Ingame features</h3>
         <p>Economy, teleports, custom commands, support tickets, server automation</p>
       </Block>
       <Block>
-        <img alt="later nog aanpassen" src={statistics}/>
+        <img alt="csmm statistics icon" src={statistics} title="7 Days to Die feature"/>
         <h3>Statistics</h3>
         <p>Economy, teleports, custom commands, support tickets, server automation</p>
       </Block>
       <Block>
-        <img alt="later nog aanpassen" src={pin}/>
+        <img alt="csmm player tracking icon" src={pin} title="7 Days to Die feature"/>
         <h3>Player tracking</h3>
         <p>Catch cheaters and raiders like never before. Search for player, location and/or timeframe to find the data you need.</p>
       </Block>
       <Block>
-        <img alt="later nog aanpassen" src={discordBot}/>
+        <img alt="csmm discord bot icon" src={discordBot} title="7 Days to Die feature"/>
         <h3>Discord bot</h3>
         <p>CSMM comes with a powerful Discord bot that lets you execute server commands from Discord, create a Discord channel and send notifications</p>
       </Block>

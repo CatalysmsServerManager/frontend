@@ -5,6 +5,7 @@ import Header from '../layout/Header'
 import Landing from '../layout/blocks/Landing'
 import Feature from '../layout/blocks/Feature'
 import Pricing from '../layout/blocks/Pricing'
+import Server from '../layout/blocks/Server'
 import Info from '../layout/Info'
 import Footer from '../layout/Footer'
 
@@ -22,6 +23,7 @@ export default function Home(){
         <Info/>
         <Feature/>
         <Pricing/>
+        <Server/>
       </Body>
       <Footer/>
     </Fragment>

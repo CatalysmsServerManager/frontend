@@ -71,7 +71,7 @@ export default function Header(){
 
   return (
     <Container>
-      <Name><img alt="change me later" src={icon}/><Link to="/"><h2>csmm</h2></Link></Name>
+      <Name><img alt="csmm 7 Days to Die Server Monitor Logo" src={icon} title="csmm 7 Days to Die Server Monitor logo"/><Link to="/"><h2>csmm</h2></Link></Name>
       <Nav>
         <Link isExternal to="https://status.csmm.app"> <StatusCircle/> Status</Link>
         <OnPageLink onClick={scrollToPricing} to="#pricing" >Pricing</OnPageLink>

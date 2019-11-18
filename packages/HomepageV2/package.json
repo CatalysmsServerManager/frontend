@@ -18,6 +18,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@nivo/line": "^0.59.3",
     "dotenv": "^8.2.0",
     "history": "^4.10.1",
     "koa": "^2.11.0",

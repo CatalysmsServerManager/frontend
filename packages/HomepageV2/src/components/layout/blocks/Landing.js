@@ -69,7 +69,7 @@ export default function Landing(){
       <TextContainer>
         <h1>The best 7 days to Die server manager.</h1>
         <p>CSMM gives admins unprecedent control over 7 Days to Die and insight into users 7 days to Die servers. because csmm for 7 days to Die is highly customizable. You can make your server.</p>
-        <img alt="later nog aanpassen" className="icon" src={iconBlack}/>
+        <img alt="csmm - 7 Days to Die Server Monitor icon" className="icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
       </TextContainer>
       <Window>
         <div className="circles"><div/><div/><div/></div>

@@ -44,10 +44,10 @@ export default function Footer(){
     <Container>
       <IconNav>
         <Link isExternal to="/https://discordapp.com/invite/%45wy%44d%4E%41">
-          <img alt="dit nog aanpassen" src={discord}/>
+          <img alt="csmm 7 Days to Die discord icon" src={discord} title="csmm 7 Days to Die discord"/>
         </Link>
         <Link isExternal to="mailto:info@csmm.app">
-          <img alt="dit nog aanpassen" data-tip="info@csmm.app" src={mail}/>
+          <img alt="csmm mail" data-tip="info@csmm.app" src={mail} title="csmm 7 Days to Die mail"/>
           <ReactTooltip effect="solid"/>
         </Link>
       </IconNav>
