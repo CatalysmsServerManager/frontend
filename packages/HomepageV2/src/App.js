@@ -10,6 +10,7 @@ export default function App(){
     <ThemeProvider>
       <Helmet>
         <meta charset="UTF-8"/>
+        <base href="/"/>
         <meta content="ie=edge" httpEquiv="X-UA-Compatible"/>
         <meta content="true" name="HandHeldFriendly"/>
         <meta content="index, follow" name="robots"/>
