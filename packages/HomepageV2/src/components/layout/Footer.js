@@ -6,8 +6,10 @@ import ReactTooltip from 'react-tooltip'
 import Link from './Link'
 import discord from '../../images/discord.svg'
 import mail from '../../images/mail.svg'
+import massief from '../../images/massief.svg'
 
 const Container = styled.footer`
+  position: relative;
   width: 100%;
   height: 125px;
   display: grid;
@@ -20,10 +22,6 @@ const Container = styled.footer`
     height: 75px;
     padding: 25px 0;
     grid-template-columns: auto;
-  }
-  @media ${size.xs}{
-    width: 90%;
-    margin: 0 auto;
   }
 `
 const IconNav = styled.nav`
@@ -43,8 +41,33 @@ const CopyrightContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  p{
+    display: block;
+  }
+  @media ${size.lg}{
+    flex-direction: column;
+    .divider{
+      display: none;
+    }
+  }
 `
 
+const Massief = styled.a`
+  position: absolute;
+  width: 25px;
+  bottom: 5px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  .icon{
+    width: 15px;
+    height: auto;
+  }
+  @media ${size.md}{
+    margin-left: auto;
+    margin-right: 5px;
+  }
+`
 const LinkNav = styled.nav`
   display: flex;
   align-items: center;
@@ -64,7 +87,6 @@ const LinkNav = styled.nav`
     display: none;
   }
 `
-
 export default function Footer(){
   return (
     <Container>
@@ -78,13 +100,16 @@ export default function Footer(){
         </Link>
       </IconNav>
       <CopyrightContainer>
-        <p style={{ textAlign: 'center' }}>Copyright <strong>csmm</strong> © {new Date().getFullYear()} | All rights reserved</p>
+        <p>Copyright <strong>csmm</strong> © {new Date().getFullYear()} </p> <div className="divider">&nbsp;|&nbsp;</div><p>All rights reserved</p>
       </CopyrightContainer>
       <LinkNav>
         <Link to="/termsofservice">Terms of service</Link>
         <Link isExternal to="https://docs.csmm.app/">Documentation</Link>
         <Link isExternal to="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager">Source code</Link>
       </LinkNav>
+      <Massief isExternal to="https://massief.biz/">
+        <img alt="icon massief" className="icon" src={massief}/>
+      </Massief>
     </Container>
   )
 }
