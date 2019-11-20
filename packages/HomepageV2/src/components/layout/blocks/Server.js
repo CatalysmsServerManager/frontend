@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import size from '../../../constants/size'
 import { darken } from 'polished'
+import Loading from '../Loading'
 import Chart from '../Chart'
 
 const Container = styled.section`
@@ -139,7 +140,7 @@ export default function Server(){
     <Container>
       <h2>Servers & Players.</h2>
       <Regions>{REGIONS.map((region) => <Region key={region} className="region" data-region={region} onClick={setSelectRegion}>{region}</Region>)}</Regions>
-      <Inner>{chartData.loading ? <div>loading..</div> : <Chart data={chartData.data}/>}
+      <Inner>{chartData.loading ? <Loading/> : <Chart data={chartData.data}/>}
       </Inner>
     </Container>
   )
