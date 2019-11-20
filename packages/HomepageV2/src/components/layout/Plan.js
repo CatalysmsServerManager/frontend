@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import size from '../../constants/size'
 import { lighten } from 'polished'
 
 import icon from '../../images/icon.svg'
@@ -14,8 +15,11 @@ const Container = styled.div`
   width: 300px;
   border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.title) : theme.shade};
   border-radius: 20px;
-  margin-top: 25px;
-  margin-bottom: px;
+
+  @media ${size.xxs}{
+    width: 260px;
+  }
+
 `
 const Name = styled.div`
   display: flex;

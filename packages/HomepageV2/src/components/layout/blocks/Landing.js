@@ -1,22 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../../constants/size'
 
 import iconBlack from '../../../images/icon-black.svg'
+import Window from '../Window'
 
-const Container = styled.div`
-  width: 100%;
-  height: calc(100vh - 270px);
+const Container = styled.section`
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - 220px);
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  @media ${size.xl}{
+    width: 90%;
+  }
+  @media ${size.lg}{
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 const TextContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 50%;
   h1 {
@@ -26,41 +36,52 @@ const TextContainer = styled.div`
     font-weight: 500;
   }
   p{
+    text-align: left;
+    width: 60%;
+  }
+  @media ${size.lg}{
+    height: calc(100vh - 100px);
+    width: 100%;
+    align-items: center;
     text-align: center;
-    width: 50%;
+
+    h1{
+      font-size: 2rem;
+    }
+    p{
+      font-size: 1.2rem;
+      width: 80%;
+      text-align: center;
+    }
   }
 
-  .icon{
-    position: absolute;
-    width: 250%;
-    height: 250%;
-    opacity: 0.05;
-    z-index: -1;
+  @media ${size.xs}{
+    h1{font-size: 1.5rem;}
+    p{ font-size: 1rem;}
   }
 `
-const Window = styled.div`
-  width: 600px;
-  height: 450px;
-  background-color: ${({ theme }) => theme.shade};
-  border-radius: 10px;
-  padding: calc(25px - 15px) 25px calc(25px + 15px ) 25px;
-  .circles {
-    div{
-      margin-left: 5px;
-      margin-right: 5px;
-      display: inline-block;
-      width: 9px;
-      height: 9px;
-      background-color: ${({ theme }) => theme.main};
-      border-radius: 50%;
-    }
- }
-`
-const Inner = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  border-radius: 10px;
+
+const BackgroundIcon = styled.img`
+  position: absolute;
+  width: 500px;
+  opacity: 0.04;
+  z-index: -1;
+
+  @media ${size.xl}{
+    width: 400px;
+  }
+  @media ${size.lg}{
+    width: 600px;
+  }
+  @media ${size.sm}{
+    width: 400px;
+  }
+  @media ${size.xs}{
+    width: 300px;
+  }
+  @media ${size.xxs}{
+    width: 250px;
+  }
 `
 
 export default function Landing(){
@@ -68,15 +89,10 @@ export default function Landing(){
     <Container>
       <TextContainer>
         <h1>The best 7 days to Die server manager.</h1>
-        <p>CSMM gives admins unprecedent control over 7 Days to Die and insight into users 7 days to Die servers. because csmm for 7 days to Die is highly customizable. You can make your server.</p>
-        <img alt="csmm - 7 Days to Die Server Monitor icon" className="icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
+        <p>CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with csmms advanced features! Join <strong>hundreds</strong> of other servers in a new generation of server management.</p>
+        <BackgroundIcon alt="csmm - 7 Days to Die Server Monitor icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
       </TextContainer>
-      <Window>
-        <div className="circles"><div/><div/><div/></div>
-        <Inner>
-
-        </Inner>
-      </Window>
+      <Window/>
     </Container>
   )
 }

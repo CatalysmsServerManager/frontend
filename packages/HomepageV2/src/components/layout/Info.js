@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import size from '../../constants/size'
 
 import vr from '../../images/vr.svg'
 import statistics from '../../images/statistics.svg'
@@ -7,18 +8,24 @@ import pin from '../../images/pin.svg'
 import discordBot from '../../images/comment.svg'
 
 const Container = styled.section`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   width: 100%;
-  height: 200px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  height: 100%;
+  margin: 50 0;
+
+  @media ${size.lg}{
+    margin: 100px 0;
+    grid-template-columns: auto auto;
+    grid-gap: 25px;
+  }
+  @media ${size.sm}{
+    grid-template-columns: auto;
+  }
 `
 const Block = styled.div`
-  width: 25%;
-  height: 200px;
+  min-width: 25%;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +45,12 @@ const Block = styled.div`
     width: 80%;
     margin: 0 auto;
     text-align: center;
+  }
+  @media ${size.sm}{
+    height: 200px;
+  }
+  @media ${size.xxs}{
+    height: 250px;
   }
 `
 

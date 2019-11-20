@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import size from '../../../constants/size'
 import { darken } from 'polished'
 import Chart from '../Chart'
 
@@ -8,6 +9,16 @@ const Container = styled.section`
   width: 80%;
   h2{
     font-size: 3rem;
+    @media ${size.xs}{
+    font-size: 2rem;
+    text-align: center;
+    }
+    @media ${size.xxs}{
+      font-size: 1.5rem;
+    }
+  }
+  @media ${size.lg}{
+    width: 100%;
   }
 `
 
@@ -18,6 +29,12 @@ const Regions = styled.div`
   align-items: center;
   justify-content:flex-end;
   margin-bottom: 30px;
+
+  @media ${size.sm}{
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 35px;
+  }
 `
 const Region = styled.div`
   font-weight: 600;
@@ -45,19 +62,22 @@ const Inner = styled.div`
   justify-content: center;
   background-color: #fafafa;
   border-radius: 10px;
-`
 
+  @media ${size.xl}{
+    width: 100%;
+  }
+  @media ${size.sm}{
+    height: 300px;
+  }
+`
 export default function Server(){
   let dataset = {}
   const REGIONS = ['eu', 'us', 'au']
   const [chartData, setChartData] = useState({loading: true})
 
   useEffect(() => {
-
-
     // make eu the default selected region
     document.querySelector('.region').classList.add('selected')
-
     // calculate date 30 days ago
     let d = new Date()
     d.setMonth(d.getMonth()-1)
@@ -67,9 +87,7 @@ export default function Server(){
   }, [])
 
   async function getChartData(){
-
     const regions = await getSelectedRegions()
-    console.log(regions)
 
     if(regions.length>1){
       // optellen
@@ -91,7 +109,6 @@ export default function Server(){
       })
     }
   }
-
 
   async function getStats(date,region){
     let res = await fetch(`https://${region}.csmm.app/api/stats?since=${date.valueOf()}`)
@@ -118,19 +135,11 @@ export default function Server(){
     return r
   }
 
-
   return (
     <Container>
       <h2>Servers & Players.</h2>
-      <Regions>
-        {
-          REGIONS.map((region) => <Region key={region} className="region" data-region={region} onClick={setSelectRegion}>{region}</Region>)
-        }
-      </Regions>
-      <Inner>
-        {
-          chartData.loading ? <div>loading..</div> : <Chart data={chartData.data}/>
-        }
+      <Regions>{REGIONS.map((region) => <Region key={region} className="region" data-region={region} onClick={setSelectRegion}>{region}</Region>)}</Regions>
+      <Inner>{chartData.loading ? <div>loading..</div> : <Chart data={chartData.data}/>}
       </Inner>
     </Container>
   )

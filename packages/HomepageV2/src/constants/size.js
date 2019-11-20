@@ -1,5 +1,6 @@
 const size = {
-  xl:   '(max-width: 1921px)',
+  xxl:  '(max-width: 1921px)',
+  xl:   '(max-width: 1500px)',
   lg:   '(max-width: 1200px)',
   md:   '(max-width: 992px)',
   sm:   '(max-width: 768px)',

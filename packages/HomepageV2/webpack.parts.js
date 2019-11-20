@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
@@ -37,7 +36,7 @@ exports.devServer = ({ host, port } = {}) => ({
     overlay:            true,
     compress:           true,
     historyApiFallback: true, // path changes react router dom.,
-    after:              () => console.log('Development server has been started.'),
+    after:              () => console.log('Development server has been started.')
     //proxy:              [
     //  {
     //    context: [''],
