@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 import size from '../../constants/size'
-
+import MobileNav from './MobileNav'
+import Hamburger from './Hamburger'
 import Link from './Link'
 import Button from './Button'
 import StatusCircle from './StatusCircle'
 import icon from '../../images/icon.svg'
-import menu from '../../images/menu.svg'
 
 const Container = styled.header`
   width: 100%;
@@ -93,28 +93,6 @@ const Nav = styled.nav`
     display: none;
   }
 `
-
-const MobileNav = styled.nav`
-  display: none;
-  cursor: pointer;
-
-  @media ${size.md}{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 100px;
-    width: 50%;
-    img{
-      width: 25px;
-      height: 25px;
-    }
-  }
-  @media ${size.xxs}{
-    padding-right: 50px;
-  }
-
-`
-
 const OnPageLink = styled.div`
   color: ${({ theme }) => theme.title};
   font-weight: 500;
@@ -125,6 +103,8 @@ const OnPageLink = styled.div`
   }
 `
 export default function Header(){
+  const [isOpen, toggleOpen] = useState(false)
+
   function scrollToPricing(e){
     console.log('this works')
     e.preventDefault()
@@ -139,9 +119,8 @@ export default function Header(){
         <Link to="/contact" >Contact</Link>
         <Link isExternal to="https://www.patreon.com/bePatron?c=1523282"><Button> Premium </Button></Link>
       </Nav>
-      <MobileNav>
-        <img alt="hamburger menu icon" src={menu} title="menu icon"/>
-      </MobileNav>
+      <Hamburger isOpen={isOpen} toggleOpen={toggleOpen}/>
+      <MobileNav isOpen={isOpen}/>
     </Container>
   )
 }

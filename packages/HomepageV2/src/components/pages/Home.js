@@ -17,7 +17,6 @@ const Body = styled.div`
   @media ${size.xs}{
     width: 90%;
   }
-
 `
 
 export default function Home(){

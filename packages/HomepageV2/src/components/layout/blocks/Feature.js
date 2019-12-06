@@ -154,7 +154,7 @@ export default function Feature(){
                 <Block key={uuid()}>
                   {
                     featureData.map((feature, index) => (
-                      <FeatureBlock key={`feature-${feature[index]}`}>
+                      <FeatureBlock key={`feature-${index}`}>
                         <h3>{feature[0]}</h3>
                         <p>{feature[1]}</p>
                       </FeatureBlock>
@@ -171,7 +171,7 @@ export default function Feature(){
           <Block>
             {
               featureData[1].map((feature, index) => (
-                <FeatureBlock key={`feature-mobile-${feature[index]}`}>
+                <FeatureBlock key={`feature-mobile-${index}`}>
                   <h3>{feature[0]}</h3>
                   <p>{feature[1]}</p>
                 </FeatureBlock>

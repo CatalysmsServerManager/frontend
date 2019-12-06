@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Circle = styled.div`
@@ -18,8 +19,7 @@ export default function StatusCircle(){
     showState()
   }, [])
 
-  async function showState(){
-    // fetch here
+  async function showState({ coloredBackground = false }){
     const urls = ['https://us.csmm.app/api/stats','https://eu.csmm.app/api/stats','https://au.csmm.app/api/stats']
     let serversUp = 0
     for (let i=0; i<urls.length; i++){
@@ -27,17 +27,23 @@ export default function StatusCircle(){
       const json = await data.json()
       serversUp += json.length // max return value is 150 (50 per region)
     }
-    if(serversUp > 125){
-      setServerState('#28B766')
-    }
-    if(serversUp < 125 && serversUp > 100){
-      setServerState('#FF4500')
-    }
-    if(serversUp < 100){
-      setServerState('#DC143C')
+    switch(serversUp){
+      case serversUp > 125:
+        coloredBackground ? setServerState('#FFFFFF') : setServerState('#28B766')
+        break;
+      case serversUp < 125 && serversUp > 100:
+        setServerState('#FF4500')
+        break;
+      case serversUp < 100:
+        setServerState('#DC143C')
+        break;
     }
   }
   return (
-    <Circle color={ss} />
+    <Circle color={ss}/>
   )
+}
+
+StatusCircle.propTypes = {
+  coloredBackground: PropTypes.bool
 }

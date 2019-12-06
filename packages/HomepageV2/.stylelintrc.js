@@ -8,10 +8,8 @@ module.exports = {
   ],
   'rules':      {
     // general
-    'font-family-no-duplicate-names': true,
     'font-weight-notation':           'numeric',
     'max-empty-lines':                1,
-    'no-empty-first-line':            true,
     'no-eol-whitespace':              true,
 
     // hex
