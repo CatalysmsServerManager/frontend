@@ -1,8 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { Fragment } from 'react'
+
+import Header from '../../components/layout/Header'
+import Terms from '../../components/layout/Terms'
+import Footer from '../../components/layout/Footer'
 
 export default function TermsOfService(){
   return (
-    <div>the terms</div>
+    <Fragment>
+      <Header/>
+      <Terms/>
+      <Footer/>
+    </Fragment>
   )
 }

@@ -44,6 +44,9 @@ const Style = createGlobalStyle`
   button{
     cursor: pointer;
   }
+  li::marker{
+    color: ${({ theme }) => theme.main};
+  }
   button, button:active, button:focus button::-moz-focus-inner, a,
   input[type="reset"]::-moz-focus-inner,
   input[type="button"]::-moz-focus-inner,
