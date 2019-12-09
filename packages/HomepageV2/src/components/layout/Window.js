@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import size from '../../constants/size'
 
@@ -73,13 +74,19 @@ const Inner = styled.div`
   border-radius: 10px;
 `
 
-export default function Window(){
+export default function Window({ children }){
   return (
     <Container>
       <Dot className="first"/>
       <Dot className="second"/>
       <Dot className="third"/>
-      <Inner/>
+      <Inner>
+        {children}
+      </Inner>
     </Container>
   )
+}
+
+Window.propTypes = {
+  children: PropTypes.node
 }

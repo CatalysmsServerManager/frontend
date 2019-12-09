@@ -2,8 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import size from '../../../constants/size'
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from 'react-responsive-carousel'
+
 import iconBlack from '../../../images/icon-black.svg'
 import Window from '../Window'
+
+import landing1 from '../../../images/landing-1.png'
+import landing2 from '../../../images/landing-2.png'
+import landing3 from '../../../images/landing-3.png'
 
 const Container = styled.section`
   width: 80%;
@@ -84,6 +91,14 @@ const BackgroundIcon = styled.img`
   }
 `
 
+const Block = styled.div`
+  max-height: 100%;
+
+  img{
+    height: 100%;
+  }
+`
+
 export default function Landing(){
   return (
     <Container>
@@ -92,7 +107,19 @@ export default function Landing(){
         <p>CSMM is a web based server manager for 7 Days to die. Bring your server(s) to the next level with csmms advanced features! Join <strong>hundreds</strong> of other servers in a new generation of server management.</p>
         <BackgroundIcon alt="csmm - 7 Days to Die Server Monitor icon" src={iconBlack} title="7 Days to Die Server Monitor icon"/>
       </TextContainer>
-      <Window/>
+      <Window>
+        <Carousel>
+          <Block>
+            <img alt="landing-1" src={landing1}/>
+          </Block>
+          <Block>
+            <img alt="landing-2" src={landing2}/>
+          </Block>
+          <Block>
+            <img alt="landing-2" src={landing3}/>
+          </Block>
+        </Carousel>
+      </Window>
     </Container>
   )
 }
