@@ -19,15 +19,15 @@ const StyledButton = styled.button`
   }
 `
 
-export default function Button({ alt, children }){
+export default function Button({ alt, children }) {
   return (
-    <StyledButton alt={alt}>
-      { children }
+    <StyledButton alt={`${alt}`}>
+      {children}
     </StyledButton>
   )
 }
 
 Button.propTypes = {
-  alt:      PropTypes.bool,
+  alt: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
