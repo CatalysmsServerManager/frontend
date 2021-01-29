@@ -4,11 +4,16 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
     ],
+    rules: {
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-var-requires": "off"
+    },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
     ],
     env: {
-        "node": true
+        "node": true,
+        "mocha": true
     },
 };
