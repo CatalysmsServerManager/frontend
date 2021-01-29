@@ -7,7 +7,7 @@ import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import productsRouter from './routes/products';
 
-const app = express();
+export const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,11 +19,11 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   return res.send(createError(404))
 });
 
-const errorHandler: ErrorRequestHandler = function (err, req, res, next: any) {
+const errorHandler: ErrorRequestHandler = function (err, req, res) {
   return res.send(createError(err.status || 500))
 }
 
