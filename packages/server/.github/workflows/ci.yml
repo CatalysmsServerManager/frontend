@@ -42,5 +42,9 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run db:migrate
+        env:
+          DATABASE_URL: "postgresql://jefke:example@127.0.0.1:5432/csmm-payments?schema=public"
       - run: npm run lint
       - run: npm test
+        env:
+          DATABASE_URL: "postgresql://jefke:example@127.0.0.1:5432/csmm-payments?schema=public"
