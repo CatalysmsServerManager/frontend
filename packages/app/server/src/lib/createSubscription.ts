@@ -1,4 +1,4 @@
-import { PrismaClient, Product, User } from "@prisma/client";
+/* import { PrismaClient, Product, User } from "@prisma/client";
 
 import mollie from './mollieClient';
 
@@ -25,4 +25,4 @@ export async function createSubscription(user: User, product: Product) {
             console.log(error);
         });
 
-}
+} */
