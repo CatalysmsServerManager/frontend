@@ -29,10 +29,10 @@ describe('ROUTER Users', () => {
         app = require('../app').getApp();
     })
 
-    describe('POST /users', () => {
+    describe('POST /api/users', () => {
         it('Happy path yay', async () => {
             return supertest(app)
-                .post('/users/')
+                .post('/api/users/')
                 .send({ email: 'test@example.com', name: 'john' })
                 .expect(200)
                 .then(() => prisma.user.findUnique({ where: { id: 'test-user' } }))
@@ -43,7 +43,7 @@ describe('ROUTER Users', () => {
         })
         xit('Redirects when user is not logged in', async () => {
             return supertest(app)
-                .post('/users/')
+                .post('/api/users/')
                 .expect(302)
                 .expect('Location', '/auth/steam')
         })
@@ -51,19 +51,19 @@ describe('ROUTER Users', () => {
 
         it('Rejects bad email addresses', async () => {
             return supertest(app)
-                .post('/users/')
+                .post('/api/users/')
                 .send({ email: 'not an email', name: 'john' })
                 .expect(400)
         })
         it('Rejects when no email given', async () => {
             return supertest(app)
-                .post('/users/')
+                .post('/api/users/')
                 .send({ name: 'john' })
                 .expect(400)
         })
         it('Rejects when no name given', async () => {
             return supertest(app)
-                .post('/users/')
+                .post('/api/users/')
                 .send({ email: 'test@example.com', })
                 .expect(400)
         })

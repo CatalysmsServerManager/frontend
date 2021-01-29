@@ -24,10 +24,10 @@ describe('ROUTER Products', () => {
         app = require('../app').getApp();
     })
 
-    describe('GET /product', () => {
+    describe('GET /api/product', () => {
         it('Happy path yay', async () => {
             return supertest(app)
-                .get('/product/')
+                .get('/api/product/')
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200)
