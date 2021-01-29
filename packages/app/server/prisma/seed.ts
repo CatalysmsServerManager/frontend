@@ -17,6 +17,7 @@ async function main() {
         create: {
             description: 'A test product',
             name: 'CSMM 10',
+            price: 1000
         },
         update: {},
     })
