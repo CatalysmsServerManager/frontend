@@ -6,22 +6,33 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const router = express.Router();
 
-interface SteamUser extends Express.User {
+export interface SteamUser {
     id: string
     displayName: string
 }
 
-passport.serializeUser(function (user, done) {
-    return done(null, user);
-});
+passport.serializeUser(async function (user, done) {
+    const dbUser = await prisma.user.findUnique({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        where: { steamId: user.id }
+    });
 
-passport.deserializeUser(function (user, done) {
-
-    if (!user) {
+    if (!dbUser) {
         return done(new Error('Unknown user'))
     }
 
-    return done(null, user as Express.User);
+    return done(null, dbUser.id);
+});
+
+passport.deserializeUser(async function (user: any, done) {
+    if (!user) {
+        return done(new Error('Unknown user'))
+    }
+    const dbUser = await prisma.user.findUnique({
+        where: { id: user }
+    });
+    return done(null, dbUser as Express.User);
 });
 
 passport.use(new SteamStrategy({
@@ -41,14 +52,11 @@ router.get('/steam',
     });
 
 router.get('/steam/return', passport.authenticate('steam'), async (req, res) => {
-    console.log('return route');
-
     if (!req.user) {
         throw new Error('Unknown user')
     }
 
     const user: SteamUser = req.user as SteamUser;
-    console.log(user);
 
     await prisma.user.upsert({
         where: { steamId: user.id },

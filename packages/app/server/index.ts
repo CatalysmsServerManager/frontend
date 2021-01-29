@@ -6,8 +6,10 @@
 
 import * as dotenv from 'dotenv'
 dotenv.config()
-import { app } from './src/app';
+import { getApp } from './src/app';
 import http from 'http';
+
+const app = getApp();
 
 /**
  * Get port from environment and store in Express.
@@ -29,6 +31,7 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
 
 /**
  * Normalize a port into a number, string, or false.
