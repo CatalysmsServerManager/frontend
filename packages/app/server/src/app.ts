@@ -9,6 +9,7 @@ import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import productsRouter from './routes/product';
 import authRouter from './routes/auth';
+import subscriptionsRouter from './routes/subscriptions';
 
 
 export const getApp = (): Express => {
@@ -28,6 +29,7 @@ export const getApp = (): Express => {
   app.use('/users', usersRouter);
   app.use('/product', productsRouter);
   app.use('/auth', authRouter);
+  app.use('/subscription', subscriptionsRouter);
 
   app.use(function (req, res) {
     return res.send(createError(404))
