@@ -7,7 +7,7 @@ import passport from 'passport'
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
-import productsRouter from './routes/products';
+import productsRouter from './routes/product';
 import authRouter from './routes/auth';
 
 
@@ -26,7 +26,7 @@ export const getApp = (): Express => {
 
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
-  app.use('/products', productsRouter);
+  app.use('/product', productsRouter);
   app.use('/auth', authRouter);
 
   app.use(function (req, res) {
