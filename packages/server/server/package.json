@@ -9,7 +9,7 @@
     "db:migrate": "prisma migrate dev --preview-feature",
     "db:studio": "prisma studio",
     "lint": "eslint .",
-    "test": "mocha -r ts-node/register 'src/**/*.spec.ts' --exit"
+    "test": "mocha -r ts-node/register --file test/setup.ts 'src/**/*.spec.ts' --exit"
   },
   "dependencies": {
     "@mollie/api-client": "^3.4.0",
