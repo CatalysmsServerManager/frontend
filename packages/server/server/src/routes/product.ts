@@ -1,10 +1,16 @@
 import express from 'express';
-import { createCustomer } from '../lib/createCustomer';
 const router = express.Router();
+import { PrismaClient } from '@prisma/client'
+import { asyncRoute } from '../lib/asyncRoute';
 
-router.get('/', function (req, res) {
-  res.send(req.body);
-});
+const prisma = new PrismaClient()
+
+router.get('/', asyncRoute(async function (req, res) {
+  const products = await prisma.product.findMany();
+  return res.send(products);
+}));
+
+
 
 router.post('/webhook', function (req, res) {
   console.log('WEBHOOK WAS CALLED');
@@ -15,7 +21,7 @@ router.post('/webhook', function (req, res) {
   res.status(200)
 });
 
-router.get('/buy', async function (req, res) {
+router.get('/buy', asyncRoute(async function (req, res) {
 
   // getCustomer() // We need a mollie ID to create payment
   // if customer === undefined => Error
@@ -23,6 +29,6 @@ router.get('/buy', async function (req, res) {
   // Wait for webhook or smth...
 
   //res.send('respond with a product');
-});
+}));
 
 export default router;
