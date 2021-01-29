@@ -28,8 +28,8 @@ model Subscription {
 
 model User {
   id           String         @id @default(uuid())
-  email        String         @unique
-  discordId    String         @unique
+  email        String?        @unique
+  discordId    String?        @unique
   steamId      String         @unique
   name         String
   Subscription Subscription[]
