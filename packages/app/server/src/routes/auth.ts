@@ -29,7 +29,7 @@ passport.use(new SteamStrategy({
     realm: `${process.env.HOSTNAME}/`,
     apiKey: process.env.STEAM_API_KEY
 },
-    function (identifier: any, profile: any, done: (arg0: any, arg1: any) => any) {
+    function (identifier: string, profile: SteamUser, done: (arg0: Error | null, arg1: SteamUser) => unknown) {
         return done(null, profile)
     }
 ));
