@@ -2,6 +2,7 @@ import express from 'express';
 import passport from 'passport'
 import { Strategy as SteamStrategy } from 'passport-steam'
 import { PrismaClient } from '@prisma/client'
+import mollieClient from '../lib/mollieClient';
 
 const prisma = new PrismaClient()
 const router = express.Router();
@@ -59,7 +60,7 @@ router.get('/steam/return', passport.authenticate('steam'), async (req, res) => 
 
     const user: SteamUser = req.user as SteamUser;
 
-    await prisma.user.upsert({
+    const dbUser = await prisma.user.upsert({
         where: { steamId: user.id },
         create: {
             name: user.displayName,
@@ -68,7 +69,19 @@ router.get('/steam/return', passport.authenticate('steam'), async (req, res) => 
         update: {
             name: user.displayName
         },
-    })
+    });
+
+    console.log(`User ${dbUser.id} logged in`);
+
+
+    const mollieParams = { name: dbUser.name, metadata: { internalId: dbUser.id } };
+    if (!dbUser.mollieId) {
+        console.log(`User ${dbUser.id} has no Mollie ID yet, creating`);
+        const customer = await mollieClient.customers.create(mollieParams);
+        await prisma.user.update({ where: { id: dbUser.id }, data: { mollieId: customer.id } })
+    } else {
+        await mollieClient.customers.update(dbUser.mollieId, mollieParams)
+    }
 
     res.status(200)
     res.redirect('/redirect')
