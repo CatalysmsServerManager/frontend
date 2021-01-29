@@ -25,7 +25,9 @@ export const getApp = (): Express => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use('/', indexRouter);
+  //app.use('/', indexRouter);
+
+  app.use('/', express.static('../app/build'))
 
   const apiRouter = express.Router();
 
@@ -37,6 +39,8 @@ export const getApp = (): Express => {
   app.use('/api/', apiRouter)
 
   app.use(function (req, res) {
+    console.log('404');
+
     return res.send(createError(404))
   });
 
