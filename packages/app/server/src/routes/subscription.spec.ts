@@ -74,10 +74,10 @@ describe('ROUTER Subscriptions', () => {
         app = require('../app').getApp();
     })
 
-    describe('GET /subscription', () => {
+    describe('GET /api/subscription', () => {
         it('Happy path yay', async () => {
             return supertest(app)
-                .get('/subscription/')
+                .get('/api/subscription/')
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200)
@@ -88,7 +88,7 @@ describe('ROUTER Subscriptions', () => {
 
         it('Only returns the subscriptions of the current user', async () => {
             return supertest(app)
-                .get('/subscription/')
+                .get('/api/subscription/')
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200)

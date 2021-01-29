@@ -26,10 +26,15 @@ export const getApp = (): Express => {
   app.use(passport.session());
 
   app.use('/', indexRouter);
-  app.use('/users', usersRouter);
-  app.use('/product', productsRouter);
-  app.use('/auth', authRouter);
-  app.use('/subscription', subscriptionsRouter);
+
+  const apiRouter = express.Router();
+
+  apiRouter.use('/users', usersRouter);
+  apiRouter.use('/product', productsRouter);
+  apiRouter.use('/auth', authRouter);
+  apiRouter.use('/subscription', subscriptionsRouter);
+
+  app.use('/api/', apiRouter)
 
   app.use(function (req, res) {
     return res.send(createError(404))
