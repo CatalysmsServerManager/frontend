@@ -26,14 +26,6 @@ describe('ROUTER Users', () => {
             }
         })
 
-        loggedInStub = sinon
-            .stub(auth, 'loggedIn')
-            .callsFake((req: Request, res: Response, next: NextFunction) => next())
-
-        sinon
-            .stub(auth, 'getUserFromRequest')
-            .returns({ id: 'test-user' })
-
         app = require('../app').getApp();
     })
 
