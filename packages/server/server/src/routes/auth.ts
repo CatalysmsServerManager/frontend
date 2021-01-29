@@ -12,6 +12,7 @@ export interface SteamUser {
 }
 
 passport.serializeUser(async function (user, done) {
+
     const dbUser = await prisma.user.findUnique({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -70,7 +71,7 @@ router.get('/steam/return', passport.authenticate('steam'), async (req, res) => 
     })
 
     res.status(200)
-    res.redirect('/')
+    res.redirect('/redirect')
 
 });
 
