@@ -8,7 +8,6 @@ const prisma = new PrismaClient()
 
 router.get('/', loggedIn, asyncRoute(async function (req, res) {
     const subs = await prisma.subscription.findMany({
-        // @ts-expect-error user id
         where: { userId: { equals: getUserFromRequest(req).id } },
         include: {
             product: { select: { name: true, price: true } },
