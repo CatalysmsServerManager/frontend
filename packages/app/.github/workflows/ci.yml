@@ -54,3 +54,5 @@ jobs:
           SESSION_SECRET: "secret!"
           DATABASE_URL: "postgresql://jefke:example@127.0.0.1:5432/csmm-payments?schema=public"
           MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+          PTERODACTYL_API_KEY: "whatever"
+          PTERODACTYL_PANEL_URL: "some actual url"
