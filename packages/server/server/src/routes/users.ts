@@ -28,8 +28,6 @@ router.post('/', loggedIn, async function (req, res, next) {
 
   try {
     await prisma.user.update({
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       where: { id: getUserFromRequest(req).id },
       data: {
         email,

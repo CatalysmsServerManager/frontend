@@ -5,7 +5,7 @@ import logger from 'morgan';
 import session from 'express-session'
 import passport from 'passport'
 
-import indexRouter from './routes/index';
+import mollieRouter from './routes/mollie';
 import usersRouter from './routes/users';
 import productsRouter from './routes/product';
 import authRouter from './routes/auth';
@@ -25,7 +25,6 @@ export const getApp = (): Express => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  //app.use('/', indexRouter);
 
   app.use('/', express.static('../app/build'))
 
@@ -35,6 +34,7 @@ export const getApp = (): Express => {
   apiRouter.use('/product', productsRouter);
   apiRouter.use('/auth', authRouter);
   apiRouter.use('/subscription', subscriptionsRouter);
+  apiRouter.use('/mollie', mollieRouter);
 
   app.use('/api/', apiRouter)
 

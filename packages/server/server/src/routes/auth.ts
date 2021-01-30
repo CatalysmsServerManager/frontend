@@ -38,7 +38,7 @@ passport.deserializeUser(async function (user: any, done) {
 });
 
 passport.use(new SteamStrategy({
-    returnURL: `${process.env.HOSTNAME}/auth/steam/return`,
+    returnURL: `${process.env.HOSTNAME}/api/auth/steam/return`,
     realm: `${process.env.HOSTNAME}/`,
     apiKey: process.env.STEAM_API_KEY
 },
@@ -72,7 +72,6 @@ router.get('/steam/return', passport.authenticate('steam'), async (req, res) => 
     });
 
     console.log(`User ${dbUser.id} logged in`);
-
 
     const mollieParams = { name: dbUser.name, metadata: { internalId: dbUser.id } };
     if (!dbUser.mollieId) {

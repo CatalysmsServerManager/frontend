@@ -25,6 +25,9 @@ model Subscription {
   user      User    @relation(fields: [userId], references: [id])
   productId String
   userId    String
+  mandateId String?
+
+  @@unique([productId, userId])
 }
 
 model User {
