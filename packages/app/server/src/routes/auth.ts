@@ -14,16 +14,20 @@ export interface SteamUser {
 
 passport.serializeUser(async function (user, done) {
 
-    const dbUser = await prisma.user.findUnique({
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        where: { steamId: user.id }
+    const dbUser = await prisma.user.upsert({
+        // @ts-expect-error Express.User stuff
+        where: { steamId: user.id },
+        create: {
+            // @ts-expect-error Express.User stuff
+            steamId: user.id,
+            // @ts-expect-error Express.User stuff
+            name: user.displayName
+        },
+        update: {
+            // @ts-expect-error Express.User stuff
+            name: user.displayName
+        },
     });
-
-    if (!dbUser) {
-        return done(new Error('Unknown user'))
-    }
-
     return done(null, dbUser.id);
 });
 
