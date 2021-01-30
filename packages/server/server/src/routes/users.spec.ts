@@ -1,31 +1,13 @@
 import supertest from 'supertest';
-import sinon from 'sinon';
-import { Express, NextFunction, Request, Response } from 'express'
-import * as auth from '../lib/middleware/auth'
+import { Express } from 'express'
 import { PrismaClient } from '@prisma/client'
 import { expect } from 'chai';
 
 const prisma = new PrismaClient()
 
 describe('ROUTER Users', () => {
-    let loggedInStub: any;
     let app: Express;
     before(async () => {
-
-        await prisma.user.upsert({
-            where: { id: 'test-user' },
-            update: {
-                id: 'test-user',
-                name: 'jos',
-                steamId: '5465465',
-            },
-            create: {
-                id: 'test-user',
-                name: 'jos',
-                steamId: '5465465',
-            }
-        })
-
         app = require('../app').getApp();
     })
 

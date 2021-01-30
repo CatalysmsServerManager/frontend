@@ -8,21 +8,6 @@ const prisma = new PrismaClient()
 describe('ROUTER Subscriptions', () => {
     let app: Express;
     before(async () => {
-
-        await prisma.user.upsert({
-            where: { id: 'test-user' },
-            update: {
-                id: 'test-user',
-                name: 'jos',
-                steamId: '5465465',
-            },
-            create: {
-                id: 'test-user',
-                name: 'jos',
-                steamId: '5465465',
-            }
-        });
-
         await prisma.user.upsert({
             where: { id: 'test-user2' },
             update: {
