@@ -47,6 +47,16 @@ passport.use(new SteamStrategy({
     }
 ));
 
+router.get('/logout',
+    function (req, res, next) {
+        req.session.destroy((err) => {
+            if (err) {
+                return next(err)
+            }
+            res.redirect('/');
+        })
+    });
+
 router.get('/steam',
     passport.authenticate('steam'),
     function (req, res) {
