@@ -57,3 +57,4 @@ jobs:
           MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
           PTERODACTYL_API_KEY: "whatever"
           PTERODACTYL_PANEL_URL: "some actual url"
+          HOSTNAME: "http://127.0.0.1:3000"
