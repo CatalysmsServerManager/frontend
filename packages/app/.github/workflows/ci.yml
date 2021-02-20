@@ -57,3 +57,5 @@ jobs:
           PTERODACTYL_API_KEY: "whatever"
           PTERODACTYL_PANEL_URL: "some actual url"
           HOSTNAME: "http://127.0.0.1:3000"
+          DISCORD_CLIENT_ID: "client-id"
+          DISCORD_CLIENT_SECRET: "secret!"
