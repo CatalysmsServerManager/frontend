@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Helmet } from 'react-helmet';
+import * as React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const Home: React.FC = () => (
   <React.Fragment>
@@ -8,4 +8,4 @@ export const Home: React.FC = () => (
     </Helmet>
     <div>dit is de homepage</div>
   </React.Fragment>
-);
+)

@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lerna": "lerna",
-    "lint": "eslint packages/**/*.{js,ts}",
-    "lint:css": "stylelint src/**/*.js"
+    "lint": "eslint packages/**/*.{js,ts,jsx,tsx}",
+    "lint:css": "stylelint src/**/*.js",
+    "build": "lerna run build"
   },
   "author": "",
   "license": "ISC",
