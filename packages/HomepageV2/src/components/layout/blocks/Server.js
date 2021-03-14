@@ -148,7 +148,7 @@ export default function Server() {
     <Container>
       <h2>Servers & Players.</h2>
       <Regions>{REGIONS.map((region) => <Region className="region" data-region={region} key={region} onClick={setSelectRegion}>{region}</Region>)}</Regions>
-      <Inner>{chartData.loading ? <Loading /> : <Chart data={chartData.data} />}
+      <Inner>{chartData.loading ? <Loading/> : <Chart data={chartData.data}/>}
       </Inner>
     </Container>
   )

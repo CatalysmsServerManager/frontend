@@ -28,6 +28,6 @@ export default function Button({ alt, children }) {
 }
 
 Button.propTypes = {
-  alt: PropTypes.bool,
+  alt:      PropTypes.bool,
   children: PropTypes.node.isRequired
 }

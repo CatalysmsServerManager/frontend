@@ -1,15 +1,22 @@
 {
-  "name": "monorepo",
+  "name": "@csmm/monorepo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "lint": "eslint packages/**/*.{js,ts}",
+    "lint:css": "stylelint src/**/*.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@typescript-eslint/parser": "^4.17.0",
+    "eslint": "^7.22.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "lerna": "^4.0.0",
+    "typescript": "^4.2.3"
   }
 }

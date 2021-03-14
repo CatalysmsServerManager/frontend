@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -22,21 +22,21 @@ export default function StatusCircle(){
   async function showState({ coloredBackground = false }){
     const urls = ['https://us.csmm.app/api/stats','https://eu.csmm.app/api/stats','https://au.csmm.app/api/stats']
     let serversUp = 0
-    for (let i=0; i<urls.length; i++){
+    for (let i = 0; i < urls.length; i++){
       const data = await fetch(urls[i])
       const json = await data.json()
       serversUp += json.length // max return value is 150 (50 per region)
     }
-    switch(serversUp){
+    switch (serversUp){
       case serversUp > 125:
         coloredBackground ? setServerState('#FFFFFF') : setServerState('#28B766')
-        break;
+        break
       case serversUp < 125 && serversUp > 100:
         setServerState('#FF4500')
-        break;
+        break
       case serversUp < 100:
         setServerState('#DC143C')
-        break;
+        break
     }
   }
   return (

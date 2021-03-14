@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ResponsiveLine } from '@nivo/line'
-import styled from 'styled-components'
 
-export default function Chart({ data }){
+export default function Chart({ data }) {
   return (
     <ResponsiveLine
 
@@ -19,14 +18,13 @@ export default function Chart({ data }){
         legendOffset:   30,
         legendPosition: 'middle'
       }}
-      colors={['#000','#FF99FF']}
+      colors={['#000', '#FF99FF']}
       curve="natural"
       data={data}
       enableGridX={false}
       enableGridY={false}
       useMesh
-      xScale={{ type: 'point' }}
-      />
+      xScale={{ type: 'point' }}/>
   )
 }
 Chart.propTypes = {

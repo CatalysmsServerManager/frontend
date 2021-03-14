@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import size from '../../../constants/size'
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 
 import iconBlack from '../../../images/icon-black.svg'
