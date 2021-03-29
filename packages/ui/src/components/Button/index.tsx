@@ -1,50 +1,73 @@
-import { FC, ReactElement, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
-import { Spinner } from '../Spinner';
-import { Link } from 'react-router-dom';
-import { ButtonContainer } from './style';
+import { FC, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
+import { Spinner } from 'components';
+import { Small, Medium, Large } from './style';
 
 export interface ButtonProps {
-  active?: boolean;
-  className?: string;
-  onClick?: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => any;
+  disabled?: boolean;
+  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => any;
   isLoading?: boolean;
-  to?: string;
   icon?: ReactNode;
-  type?: 'submit' | 'reset' | 'button'
+  size?: 'small' | 'medium' | 'large';
+  type?: 'submit' | 'reset' | 'button';
+  outline?: boolean
+  text: string;
 }
 
 export const Button: FC<ButtonProps> = ({
-  active = true,
-  children,
-  className,
   icon,
+  size = 'medium',
   type = 'button',
-  to,
   isLoading = false,
+  text,
+  disabled = false,
+  outline = false,
   onClick,
 }) => {
-  function toLink(el: ReactElement): ReactElement {
-    if (to) {
-      return (<Link to={to}>{el}</Link>);
-    }
-    return el;
+  function content(): JSX.Element {
+    return (
+      <>
+        { isLoading ? <Spinner /> : icon}
+        <span>{text}</span>
+      </>
+    );
   }
 
-  return (
-    toLink(
-      <ButtonContainer
-        active={active}
-        className={className}
-        hasIcon={icon ? true : false}
-        isLoading={isLoading}
-        onClick={(e: ReactMouseEvent<HTMLButtonElement, MouseEvent>): void => (typeof onClick === 'function' ? onClick(e) : null)}
-        type={type}
-      >
-        {isLoading ? <Spinner /> : icon}
-        <span>
-          {children}
-        </span>
-      </ButtonContainer>
-    )
-  );
+  switch (size) {
+    case 'small':
+      return (
+        <Small
+          disabled={disabled}
+          icon={!!icon}
+          isLoading={isLoading}
+          onClick={disabled ? undefined : onClick}
+          outline={outline}
+        >
+          {content()}
+        </Small>
+      );
+    case 'medium':
+      return (
+        <Medium
+          disabled={disabled}
+          icon={!!icon}
+          isLoading={isLoading}
+          onClick={disabled ? undefined : onClick}
+          outline={outline}
+        >
+          {content()}
+        </Medium>
+      );
+    case 'large':
+      return (
+        <Large
+          disabled={disabled}
+          icon={!!icon}
+          isLoading={isLoading}
+          onClick={disabled ? undefined : onClick}
+          outline={outline}
+        >
+          {content()}
+        </Large>
+      );
+  };
 };

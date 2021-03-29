@@ -1,38 +1,57 @@
 import { styled } from '../../styled';
 
-interface ButtonProps {
-  active: boolean;
-  hasIcon: boolean;
-  isLoading: boolean;
-}
-
-export const ButtonContainer = styled.button<ButtonProps>`
-  position: relative;
+export const Template = styled.button<{ icon: boolean, isLoading: boolean, outline: boolean }>`
   display: flex;
-  flex-direction: row;
   align-items: center;
   width: fit-content;
-  height: fit-content;
+  border-radius: 2.5rem;
+  background: ${({ theme, outline }): string => outline ? 'transparent' : theme.gradient};
+  border: none;
+  background-size: 200% auto;
+  color: ${({ theme, outline }) => outline ? theme.secondary : 'white'};
+  font-weight: 900;
+  border: 2px solid ${({ theme, outline }) => outline ? theme.secondary : 'none'};
+  cursor: pointer;
+  line-height: 19px;
+  letter-spacing: 0;
+  box-shadow: ${({ theme }): string => theme.shadow};
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+
+  &:disabled{
+    cursor: default;
+    background: ${({ theme, outline }) => outline ? 'transparent' : theme.gray};
+    border-color: ${({ theme, outline }) => outline ? theme.gray : 'transparent'};
+    color: ${({ theme, outline }) => outline ? theme.gray : 'white'};
+  }
+  &:focus { outline: 0; }
+  &:hover {
+    background-position: right center;
+    span { color: ${({ outline, theme }): string => outline ? theme.secondary : 'white'}; }
+  }
+
   svg {
-    display: ${({ hasIcon, isLoading }): string => hasIcon || isLoading ? 'block' : 'none'};
+    display: ${({ icon, isLoading }): string => icon || isLoading ? 'block' : 'none'};
     cursor: pointer;
     fill: white;
   }
 
   span {
-    margin-left: ${({ hasIcon, isLoading }): string => hasIcon || isLoading ? '10px' : '0px'};
+    margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
     color: white;
     font-size: 1.1rem;
     font-weight: 800;
   }
+`;
 
-  background-color: ${({ theme, active }): string => (active ? theme.primary : theme.gray)};
-  transition: 0.2s width ease-in-out, 0.2s transform ease-in-out;
-  padding: ${({ hasIcon, isLoading }): string => hasIcon || isLoading ? '7px 12px' : '9px 20px'};
+export const Small = styled(Template)`
+  padding: 6px 15px;
+`;
 
-  &:hover {
-    color: white;
-    transform: translateY(-5px);
-    background-color: ${({ theme, active }): string => (active ? theme.primary : '#939393')}A3;
-  }
+export const Medium = styled(Template)`
+  padding: 10px 18px;
+`;
+
+export const Large = styled(Template)`
+  padding: 15px 22px;
 `;
