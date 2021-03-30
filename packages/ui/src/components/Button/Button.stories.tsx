@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react/types-6-0';
 import { styled } from 'styled';
-import { Button, ButtonProps } from '.';
+import { Button } from '.';
 
 const Wrapper = styled.div`
   display: grid;
@@ -20,7 +20,6 @@ export default {
   component: Button,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Default = () => (
   <>
