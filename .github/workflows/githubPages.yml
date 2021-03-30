@@ -11,10 +11,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - run: cd packages/ui
-      - run: pwd
-      - run: npm ci
-      - run: npm run build:storybook
+      - name: Deploy
+        run: |
+          cd packages/ui
+          npm ci
+          npm run build:storybook
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
