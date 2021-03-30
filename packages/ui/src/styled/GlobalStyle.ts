@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     user-select: none;
     padding: 0;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.gray};
   }
 
   h2 {

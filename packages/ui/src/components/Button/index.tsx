@@ -11,6 +11,7 @@ export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button';
   outline?: boolean
   text: string;
+  white?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ export const Button: FC<ButtonProps> = ({
   isLoading = false,
   text,
   disabled = false,
+  white = false,
   outline = false,
   onClick,
 }) => {
@@ -41,6 +43,8 @@ export const Button: FC<ButtonProps> = ({
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
           outline={outline}
+          type={type}
+          white={white}
         >
           {content()}
         </Small>
@@ -53,6 +57,8 @@ export const Button: FC<ButtonProps> = ({
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
           outline={outline}
+          type={type}
+          white={white}
         >
           {content()}
         </Medium>
@@ -65,6 +71,8 @@ export const Button: FC<ButtonProps> = ({
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
           outline={outline}
+          type={type}
+          white={white}
         >
           {content()}
         </Large>

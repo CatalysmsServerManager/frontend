@@ -1,16 +1,15 @@
 import { styled } from '../../styled';
 
-export const Template = styled.button<{ icon: boolean, isLoading: boolean, outline: boolean }>`
+export const Template = styled.button<{ white: boolean, icon: boolean, isLoading: boolean, outline: boolean }>`
   display: flex;
   align-items: center;
   width: fit-content;
   border-radius: 2.5rem;
-  background: ${({ theme, outline }): string => outline ? 'transparent' : theme.gradient};
+  background: ${({ theme, outline, white }): string => outline ? 'transparent' : white ? 'white' : theme.gradient};
   border: none;
   background-size: 200% auto;
-  color: ${({ theme, outline }) => outline ? theme.secondary : 'white'};
   font-weight: 900;
-  border: 2px solid ${({ theme, outline }) => outline ? theme.secondary : 'none'};
+  border: 2px solid ${({ theme, outline, white }) => white ? 'white' : outline ? theme.secondary : 'none'};
   cursor: pointer;
   line-height: 19px;
   letter-spacing: 0;
@@ -23,24 +22,37 @@ export const Template = styled.button<{ icon: boolean, isLoading: boolean, outli
     background: ${({ theme, outline }) => outline ? 'transparent' : theme.gray};
     border-color: ${({ theme, outline }) => outline ? theme.gray : 'transparent'};
     color: ${({ theme, outline }) => outline ? theme.gray : 'white'};
+
+    span {
+      color: ${({ theme, outline }) => outline ? theme.gray : 'white'};
+    }
+    &:hover {
+      span {
+        color: ${({ theme, outline }): string => outline ? theme.gray : 'white'};
+      }
+    }
   }
+
   &:focus { outline: 0; }
   &:hover {
     background-position: right center;
-    span { color: ${({ outline, theme }): string => outline ? theme.secondary : 'white'}; }
   }
 
   svg {
     display: ${({ icon, isLoading }): string => icon || isLoading ? 'block' : 'none'};
     cursor: pointer;
-    fill: white;
+    fill: ${({ theme, outline, white }): string => outline ? theme.secondary : white ? theme.secondary : 'white'};
+    stroke: ${({ theme, outline, white }): string => outline ? white ? 'white' : theme.secondary : white ? theme.secondary : 'white'};
   }
 
   span {
     margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
-    color: white;
+    color: ${({ theme, outline, white }) => outline ? white ? 'white' : theme.secondary : white ? theme.secondary : 'white'};
     font-size: 1.1rem;
     font-weight: 800;
+    &:hover {
+      color: ${({ outline, theme, white }): string => white ? 'white' : outline ? theme.secondary : 'white'};
+    }
   }
 `;
 
@@ -53,5 +65,5 @@ export const Medium = styled(Template)`
 `;
 
 export const Large = styled(Template)`
-  padding: 15px 22px;
+  padding: 14px 22px;
 `;
