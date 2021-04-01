@@ -3,29 +3,34 @@ import { styled } from 'styled';
 
 const Template = styled.div<{ gradient: boolean }>`
   background: ${({ theme, gradient }) => gradient ? theme.gradient : 'white'};
-  padding: 1rem 1.1rem;
   border-radius: .6rem;
   margin: 1rem;
   box-shadow: ${({ theme }) => theme.shadow};
   color: ${({ theme, gradient }) => gradient ? 'white' : theme.text};
 
-  & > h1, & > h2,& > h3, & > h4, & > h5, & > h6,& >p , & > div, & > button, & > span {
-    color: ${({ theme, gradient }) => gradient ? 'white' : theme.text};
+  h1,h2,h3,h4,h5,h6,p,div{
+    color: ${({ theme, gradient }) => gradient ? 'white' : theme.text}!important;
   }
 `;
 
-const Small = styled(Template)``;
-const Medium = styled(Template)``;
+const Small = styled(Template)`
+  padding: .5rem;
+`;
+const Medium = styled(Template)`
+  padding: 1.5rem;
+`;
 const Large = styled(Template)`
-  min-height: 250px;
-  padding: 2rem;
+  padding: 2.5rem;
 `;
 
 interface CardProps {
   gradient?: boolean;
   size?: 'small' | 'medium' | 'large';
+  loading?: boolean;
 }
-export const Card: FC<CardProps> = ({ children, gradient = false, size = 'medium' }) => {
+
+// TODO: implement skeleton loading
+export const Card: FC<CardProps> = ({ children, loading = false, gradient = false, size = 'medium' }) => {
   switch (size) {
     case 'small':
       return (

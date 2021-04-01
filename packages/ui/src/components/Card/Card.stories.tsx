@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react/types-6-0';
 import { Card } from '.';
 import { styled } from 'styled';
-import { Button } from 'components';
+import { Button, Empty } from 'components';
+import milk from 'images/milk.png';
 
 const WrapperDecorator = styled.div`
   padding: 5rem;
@@ -20,16 +21,16 @@ export default {
 
 export const Default = () => (
   <>
-    <Card>content here</Card>
-    <Card gradient size="large">content here</Card>
+    <Card>Blank Default Card</Card>
+    <Card gradient size="large">Gradient Card</Card>
   </>
 );
 
 export const Sizes = () => (
   <>
-    <Card size="small">content here</Card>
-    <Card size="medium">content here</Card>
-    <Card size="large">content here</Card>
+    <Card size="small"><Empty description="Small Card" /></Card>
+    <Card size="medium"><Empty description="Medium Card" /></Card>
+    <Card size="large"><Empty description="Large Card" /></Card>
   </>
 );
 
@@ -38,15 +39,6 @@ const Container = styled.div`
   border-radius: 1rem;
   background-color: white;
   padding: 2rem;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-  }
-  p {
-    font-weight: 600;
-  }
 `;
 
 const ButtonContainer = styled.div`
@@ -60,18 +52,45 @@ const ButtonContainer = styled.div`
   }
 `;
 
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-weight: 600;
+  }
+`;
+
+const ImageContainer = styled.div`
+
+img {
+  width: 350px;
+  height: auto;
+}
+`;
+
 export const Example = () => (
   <Container>
     <Card gradient size="large">
-      <h2>This is a sick title</h2>
-      <p>This is a very interesting and super cool explanation that is just awesome, like yeah...</p>
-      <p>This is a very interesting and super cool explanation that is just awesome.</p>
-      <p>This is a very interesting and super cool explanation that is just awesome.</p>
-      <p>This is a very interesting and super cool explanation that is just awesome, like yeah...</p>
-      <ButtonContainer>
-        <Button onClick={() => { }} text="button one" white />
-        <Button onClick={() => { }} outline text="button two" white />
-      </ButtonContainer>
+      <FlexContainer>
+        <div>
+          <h2>Drink milk, it is good for you!</h2>
+          <p>Reduced Fat and Low Fat Milk (also know as 2% or 1% milk) have the same amount of calcium, protein, vitamins and minerals as whole milk, just less fat and fewer calories.</p>
+          <ButtonContainer>
+            <Button onClick={() => { }} text="button one" white />
+            <Button onClick={() => { }} outline text="button two" white />
+          </ButtonContainer>
+        </div>
+        <ImageContainer>
+          <img alt="milk" src={milk} />
+        </ImageContainer>
+      </FlexContainer>
     </Card>
   </Container>
 );
