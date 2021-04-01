@@ -20,6 +20,6 @@ export const Default = () => (
   <>
     <Empty />
     <Empty description="custom description" />
-    <Empty description={<span className="custom-styled-span">custom description</span>} />
+    <Empty description={<span className="custom-styled-span">custom description with custom styling</span>} />
   </>
 );
