@@ -9,7 +9,7 @@ export interface ButtonProps {
   icon?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   type?: 'submit' | 'reset' | 'button';
-  outline?: boolean
+  outline?: boolean;
   text: string;
   white?: boolean;
 }
