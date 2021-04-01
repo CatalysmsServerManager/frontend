@@ -1,11 +1,14 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { ThemeType } from 'styled/theme';
 
 export interface LoadingProps {
   fill?: string;
 }
 
-/* TODO: get color from theme not default export */
-export const Loading: FC<LoadingProps> = ({ fill = '#3CCD6A' }) => {
+export const Loading: FC<LoadingProps> = ({ fill = undefined }) => {
+  const themeContext = useContext<ThemeType>(ThemeContext);
+  if (!fill) { fill = themeContext.primary; }
   return (
     <svg
       fill={fill}
