@@ -1,18 +1,31 @@
-import { FC, useState, ReactElement, ReactNode } from 'react';
+import { FC, useState, ReactElement, ReactNode, useContext } from 'react';
 import { styled } from 'styled';
+import { theme, ThemeType } from 'styled/theme';
 import { motion, AnimateSharedLayout } from 'framer-motion';
+import { ThemeContext } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const List = styled.ul`
+const List = styled.ul<{ color: string }>`
   display: flex;
   align-items: center;
   width: fit-content;
   justify-content: space-between;
-  border: 3px solid ${({ theme }): string => theme.gray};
+  ${({ theme, color }) => {
+    switch (color) {
+      case 'primary':
+        return `border: 4px solid ${theme.primary};`;
+      case 'secondary':
+        return `border: 4px solid ${theme.secondary};`;
+      case 'white':
+        return 'border: 4px solid white;';
+      case 'gradient':
+        return 'border: 4px solid none;';
+    }
+  }}
   border-radius: 2rem;
   color: ${({ theme }): string => theme.text};
   margin-bottom: 50px;
@@ -24,16 +37,18 @@ const Content = styled.div`
 
 export interface TabSwitchProps {
   children: Array<ReactElement<{ label: string, children: ReactNode }>>;
+  color?: 'primary' | 'secondary' | 'gradient' | 'white';
 }
 
-export const TabSwitch: FC<TabSwitchProps> = ({ children }) => {
+export const TabSwitch: FC<TabSwitchProps> = ({ children, color = 'primary' }) => {
   const [selected, setSelected] = useState<string>(children[0].props.label);
   return (
     <Container>
       <AnimateSharedLayout>
-        <List>
+        <List color={color}>
           {children.map((child) => (
             <TabItem
+              color={color}
               isSelected={selected === child.props.label}
               key={child.props.label}
               label={child.props.label}
@@ -51,7 +66,7 @@ export const TabSwitch: FC<TabSwitchProps> = ({ children }) => {
 
 /* TAB COMPONENT */
 
-const Item = styled.li<{ selected: boolean }>`
+const Item = styled.li<{ selected: boolean, white: boolean }>`
   cursor: pointer;
   text-align: center;
   flex: 1 1 0;
@@ -66,7 +81,7 @@ const Item = styled.li<{ selected: boolean }>`
     position: relative;
     font-size: 1.2rem;
     z-index: 1;
-    color: ${({ theme, selected }): string => selected ? theme.primary : theme.text};
+    color: ${({ theme, selected, white }): string => selected ? white ? theme.gray : 'white' : theme.gray};
   }
   &:first-child{
     margin-right: 7.5px;
@@ -85,28 +100,28 @@ const Background = styled(motion.div)`
   height: 100%;
   background-color: transparent;
 `;
-
 export interface TabProps {
   isSelected: boolean;
   label: string;
   onClick: () => void;
+  color: 'primary' | 'secondary' | 'gradient' | 'white';
 }
 
-const TabItem: FC<TabProps> = ({ isSelected, label, onClick }) => {
+const TabItem: FC<TabProps> = ({ isSelected, label, onClick, color }) => {
+  const themeContext = useContext<ThemeType>(ThemeContext);
+
   return (
-    <Item onClick={onClick} selected={isSelected} >
+    <Item onClick={onClick} selected={isSelected} white={color === 'white'} >
       {isSelected && (
         <Background
-          animate={{ backgroundColor: '#ffffff' }}
+          animate={{ background: color === 'white' ? 'white' : themeContext[color] }}
           initial={false}
           layoutId="background"
           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         >
         </Background>
       )}
-      <span>
-        {label}
-      </span>
+      <span>{label}</span>
     </Item>
   );
 };
