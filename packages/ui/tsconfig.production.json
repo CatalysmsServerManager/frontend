@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig",
-  "include": ["./src/*"],
+  "include": ["src"],
   "exclude": ["./**/*.stories.*", ".storybook"],
   "compilerOptions": {
     "outDir": "build",

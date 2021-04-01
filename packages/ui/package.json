@@ -10,7 +10,7 @@
     "build": "npm run build:tsc && npm run build:storybook",
     "build:tsc": "tsc --project ./tsconfig.production.json && npm run copypackage",
     "copypackage": "cp -rf package.json build",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build:storybook": "build-storybook"
   },
   "dependencies": {

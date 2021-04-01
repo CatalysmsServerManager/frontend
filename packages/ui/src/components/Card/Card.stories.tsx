@@ -83,8 +83,8 @@ export const Example = () => (
           <h2>Drink milk, it is good for you!</h2>
           <p>Reduced Fat and Low Fat Milk (also know as 2% or 1% milk) have the same amount of calcium, protein, vitamins and minerals as whole milk, just less fat and fewer calories.</p>
           <ButtonContainer>
-            <Button onClick={() => { }} text="button one" white />
-            <Button onClick={() => { }} outline text="button two" white />
+            <Button onClick={() => { }} text="Drink milk now" white />
+            <Button onClick={() => { }} text="Drink milk later" variant="outline" white />
           </ButtonContainer>
         </div>
         <ImageContainer>
