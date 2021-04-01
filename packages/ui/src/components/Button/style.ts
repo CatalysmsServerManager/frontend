@@ -3,6 +3,7 @@ import { styled } from '../../styled';
 export const Template = styled.button<{ white: boolean, icon: boolean, isLoading: boolean, outline: boolean }>`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: fit-content;
   border-radius: 2.5rem;
   background: ${({ theme, outline, white }): string => outline ? 'transparent' : white ? 'white' : theme.gradient};
@@ -51,7 +52,7 @@ export const Template = styled.button<{ white: boolean, icon: boolean, isLoading
     font-size: 1.1rem;
     font-weight: 800;
     &:hover {
-      color: ${({ outline, theme, white }): string => white ? 'white' : outline ? theme.secondary : 'white'};
+      color: ${({ outline, theme, white }): string => white ? outline ? 'white' : theme.secondary : outline ? theme.secondary : 'white'};
     }
   }
 `;

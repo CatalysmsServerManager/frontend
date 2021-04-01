@@ -9,7 +9,7 @@ export interface ButtonProps {
   icon?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   type?: 'submit' | 'reset' | 'button';
-  outline?: boolean;
+  variant?: 'default' | 'outline';
   text: string;
   white?: boolean;
 }
@@ -22,7 +22,7 @@ export const Button: FC<ButtonProps> = ({
   text,
   disabled = false,
   white = false,
-  outline = false,
+  variant = 'default',
   onClick,
 }) => {
   function content(): JSX.Element {
@@ -42,7 +42,7 @@ export const Button: FC<ButtonProps> = ({
           icon={!!icon}
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
-          outline={outline}
+          outline={variant === 'outline'}
           type={type}
           white={white}
         >
@@ -56,7 +56,7 @@ export const Button: FC<ButtonProps> = ({
           icon={!!icon}
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
-          outline={outline}
+          outline={variant === 'outline'}
           type={type}
           white={white}
         >
@@ -70,7 +70,7 @@ export const Button: FC<ButtonProps> = ({
           icon={!!icon}
           isLoading={isLoading}
           onClick={disabled ? undefined : onClick}
-          outline={outline}
+          outline={variant === 'outline'}
           type={type}
           white={white}
         >

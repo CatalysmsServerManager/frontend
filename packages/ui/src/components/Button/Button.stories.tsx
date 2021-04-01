@@ -27,25 +27,25 @@ export const Default = () => (
     <Button disabled onClick={() => { }} text="white disabled button" white />
     <Button isLoading onClick={() => { }} text="white loading button" white />
 
-    <Button onClick={() => { }} size="small" text="small button" />
-    <Button onClick={() => { }} size="medium" text="medium button" />
-    <Button onClick={() => { }} size="large" text="large button" />
+    <Button onClick={() => { }} size="small" text="small default button" />
+    <Button onClick={() => { }} size="medium" text="medium default button" />
+    <Button onClick={() => { }} size="large" text="large default button" />
   </>
 );
 
 export const Outline = () => (
   <>
-    <Button onClick={() => { }} outline text="outline button" />
-    <Button disabled onClick={() => { }} outline text="disabled outline button" />
-    <Button isLoading onClick={() => { }} outline text="loading outline button" />
+    <Button onClick={() => { }} text="outline button" variant="outline" />
+    <Button disabled onClick={() => { }} text="disabled outline button" variant="outline" />
+    <Button isLoading onClick={() => { }} text="loading outline button" variant="outline" />
 
-    <Button onClick={() => { }} outline text="white outline button" white />
-    <Button disabled onClick={() => { }} outline text="white disabled button" white />
-    <Button isLoading onClick={() => { }} outline text="white loading button" white />
+    <Button onClick={() => { }} text="white outline button" variant="outline" white />
+    <Button disabled onClick={() => { }} text="white disabled button" variant="outline" white />
+    <Button isLoading onClick={() => { }} text="white loading button" variant="outline" white />
 
-    <Button onClick={() => { }} outline size="small" text="small button" />
-    <Button onClick={() => { }} outline size="medium" text="medium button" />
-    <Button onClick={() => { }} outline size="large" text="large button" />
+    <Button onClick={() => { }} size="small" text="small outlined button" variant="outline" />
+    <Button onClick={() => { }} size="medium" text="medium outlined button" variant="outline" />
+    <Button onClick={() => { }} size="large" text="large outlined button" variant="outline" />
   </>
 );
 
