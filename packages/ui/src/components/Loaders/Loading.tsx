@@ -8,7 +8,7 @@ export interface LoadingProps {
 
 export const Loading: FC<LoadingProps> = ({ fill = undefined }) => {
   const themeContext = useContext<ThemeType>(ThemeContext);
-  if (!fill) { fill = themeContext.primary; }
+  if (!fill) { fill = themeContext.colors.primary; }
   return (
     <svg
       fill={fill}

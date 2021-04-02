@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/react/types-6-0';
-import { Empty } from '.';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Empty, EmptyProps } from 'components';
 import { styled } from 'styled';
 
 const Wrapper = styled.div`
@@ -16,7 +16,10 @@ export default {
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
 
-export const Default = () => (
+const Template: Story<EmptyProps> = (args) => <Empty {...args} />;
+export const Basic = Template.bind({});
+
+export const Example = () => (
   <>
     <Empty />
     <Empty description="custom description" />

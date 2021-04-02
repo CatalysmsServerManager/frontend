@@ -1,13 +1,13 @@
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { styled } from 'styled';
-import { Avatar, Chip } from 'components';
+import { Avatar, Chip, ChipProps } from 'components';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-gap: 2rem;
   padding: 5rem;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.colors.background};
   border-radius: 1rem;
   text-align: left;
 `;
@@ -18,33 +18,31 @@ export default {
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
 
-export const Default = () => (
+const Template: Story<ChipProps> = (args) => <Chip {...args} />;
+export const Basic = Template.bind({});
+Basic.args = {
+  label: 'basic',
+  color: 'default',
+  variant: 'default',
+  onDelete: undefined,
+  onClick: undefined
+};
+
+export const Examples = () => (
   <>
     <Chip label="Default Chip" />
-    <Chip disabled label="Disabled Chip" />
-
-    <Chip label="Clickable Chip" onClick={() => { }} />
-    <Chip label="Deletable Chip" onDelete={() => { }} />
-
-    <Chip avatar={<Avatar alt="avatar" size="small">NC</Avatar>} label="Avatar Chip" />
-
     <Chip color="primary" label="Primary Chip" />
     <Chip color="secondary" label="Secondary Chip" />
     <Chip color="gradient" label="Gradient Chip" />
 
-  </>
-);
-
-export const Outline = () => (
-  <>
     <Chip label="Outlined Chip" variant="outline" />
-    <Chip disabled label="Outlined Disabled Chip" variant="outline" />
+    <Chip color="primary" label="Primary Chip" variant="outline" />
+    <Chip color="secondary" label="Secondary Chip" variant="outline" />
+    <Chip color="gradient" label="Gradient Chip" variant="outline" />
 
-    <Chip label="Clickable Outlined Chip" onClick={() => { }} />
-    <Chip label="Deletable Outlined Chip" onDelete={() => { }} />
+    <Chip label="Clickable Chip" onClick={() => { }} />
+    <Chip label="Deletable Chip" onDelete={() => { }} />
+    <Chip avatar={<Avatar alt="avatar" size="small">NC</Avatar>} label="Avatar Chip" />
 
-    <Chip color="primary" label="Primary Outlined Chip" variant="outline" />
-    <Chip color="secondary" label="Secondary Outlined Chip" variant="outline" />
-    <Chip color="gradient" label="Gradient Outlined Chip" variant="outline" />
   </>
 );
