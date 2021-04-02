@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto auto;
   grid-gap: 2rem;
   padding: 5rem;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.colors.background};
   border-radius: 1rem;
   text-align: left;
 
@@ -48,7 +48,7 @@ export const TabSwitchThreeItems = () => (
   <TabSwitch>
     <Tab label="Tab 1">this is the first tabs content</Tab>
     <Tab label="Tab 2">this is the second tabs content</Tab>
-    <Tab label="Tab 3">this is the second tabs content</Tab>
+    <Tab label="Tab 3">this is the third tabs content</Tab>
   </TabSwitch>
 );
 

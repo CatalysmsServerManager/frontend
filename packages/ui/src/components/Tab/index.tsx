@@ -1,6 +1,6 @@
 import { FC, useState, ReactElement, ReactNode, useContext } from 'react';
 import { styled } from 'styled';
-import { theme, ThemeType } from 'styled/theme';
+import { ThemeType } from 'styled/theme';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { ThemeContext } from 'styled-components';
 
@@ -17,9 +17,9 @@ const List = styled.ul<{ color: string }>`
   ${({ theme, color }) => {
     switch (color) {
       case 'primary':
-        return `border: 4px solid ${theme.primary};`;
+        return `border: 4px solid ${theme.colors.primary};`;
       case 'secondary':
-        return `border: 4px solid ${theme.secondary};`;
+        return `border: 4px solid ${theme.colors.secondary};`;
       case 'white':
         return 'border: 4px solid white;';
       case 'gradient':
@@ -27,14 +27,13 @@ const List = styled.ul<{ color: string }>`
     }
   }}
   border-radius: 2rem;
-  color: ${({ theme }): string => theme.text};
+  color: ${({ theme }): string => theme.colors.text};
   margin-bottom: 50px;
 `;
 
 const Content = styled.div`
   width: 100%;
 `;
-
 export interface TabSwitchProps {
   children: Array<ReactElement<{ label: string, children: ReactNode }>>;
   color?: 'primary' | 'secondary' | 'gradient' | 'white';
@@ -65,7 +64,6 @@ export const TabSwitch: FC<TabSwitchProps> = ({ children, color = 'primary' }) =
 };
 
 /* TAB COMPONENT */
-
 const Item = styled.li<{ selected: boolean, white: boolean }>`
   cursor: pointer;
   text-align: center;
@@ -74,30 +72,23 @@ const Item = styled.li<{ selected: boolean, white: boolean }>`
   font-weight: 800;
   flex-grow:1;
   flex-basis: 0;
-  border-radius: 2rem;
+  border-radius: 1.225rem;
   transition: all .2s ease-in-out;
   position: relative;
   span {
     position: relative;
     font-size: 1.2rem;
     z-index: 1;
-    color: ${({ theme, selected, white }): string => selected ? white ? theme.gray : 'white' : theme.gray};
-  }
-  &:first-child{
-    margin-right: 7.5px;
-  }
-  &:last-child{
-    margin-left: 7.5px;
+    color: ${({ theme, selected, white }): string => selected ? white ? theme.colors.gray : 'white' : theme.colors.gray};
   }
 `;
-
 const Background = styled(motion.div)`
   position: absolute;
-  border-radius: 2rem;
-  width: 100%;
+  border-radius: 1.5rem;
+  width: 101%;
   top: 0;
   left: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   background-color: transparent;
 `;
 export interface TabProps {
@@ -110,14 +101,25 @@ export interface TabProps {
 const TabItem: FC<TabProps> = ({ isSelected, label, onClick, color }) => {
   const themeContext = useContext<ThemeType>(ThemeContext);
 
+  function getColor() {
+    switch (color) {
+      case 'white':
+        return 'white';
+      case 'primary': case 'secondary':
+        return themeContext.colors[color];
+      case 'gradient':
+        return themeContext.gradient['primary'];
+    }
+  }
+
   return (
     <Item onClick={onClick} selected={isSelected} white={color === 'white'} >
       {isSelected && (
         <Background
-          animate={{ background: color === 'white' ? 'white' : themeContext[color] }}
+          animate={{ background: getColor() }}
           initial={false}
           layoutId="background"
-          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+          transition={{ type: 'spring', stiffness: 500, damping: 50 }}
         >
         </Background>
       )}
