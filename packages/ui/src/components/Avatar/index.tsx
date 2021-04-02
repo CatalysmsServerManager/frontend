@@ -15,19 +15,25 @@ const Template = styled.div<{ src?: string }>`
       ?
       `background-image: url(${src})`
       :
-      `background-color: ${theme.secondary}`;
+      `background-color: ${theme.colors.secondary}`;
   }}
+`;
+
+const Tiny = styled(Template)`
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: .5rem;
 `;
 
 const Small = styled(Template)`
   width: 1.825rem;
   height: 1.825rem;
-  font-size: .8rem;
+  font-size: .725rem;
 `;
 const Medium = styled(Template)`
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.2rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.125rem;
 `;
 
 const Large = styled(Template)`
@@ -36,22 +42,19 @@ const Large = styled(Template)`
   font-size: 1.3rem;
 `;
 
-interface Name {
-  firstName: string;
-  lastName: string;
-}
-
 export interface AvatarProps {
   alt: string;
   src?: string;
-  size: 'small' | 'medium' | 'large'
-  /* Will take initial of name (first 2/3 letters)*/
-  name?: Name;
+  size: 'tiny' | 'small' | 'medium' | 'large'
   // TODO: skeleton loading
 }
 
 export const Avatar: FC<AvatarProps> = ({ size, alt, src = undefined, children }) => {
   switch (size) {
+    case 'tiny':
+      return (
+        <Tiny aria-label={alt} role="img" src={src}>{children}</Tiny>
+      );
     case 'small':
       return (
         <Small aria-label={alt} role="img" src={src}>{children}</Small>
