@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { styled } from 'styled';
+import { Icon } from 'components';
 
 const Container = styled.div<{ disabled: boolean, color: string, outline: boolean, hasAvatar: boolean, clickable: boolean }>`
   display: flex;
@@ -10,6 +11,27 @@ const Container = styled.div<{ disabled: boolean, color: string, outline: boolea
   border-radius: 1.5rem;
   cursor: ${({ clickable }): string => clickable ? 'pointer' : 'auto'};
 
+
+  svg {
+    transform: rotate(45deg);
+    ${({ theme, color, outline }) => {
+    if (!outline) {
+      return 'fill: white; stroke: white;';
+    }
+
+    switch (color) {
+      case 'default':
+        return 'fill: white; stroke: white;';
+      case 'primary':
+        return `fill: ${theme.colors.primary}; stroke: ${theme.colors.primary}`;
+      case 'secondary':
+        return `fill: ${theme.colors.secondary}; stroke: ${theme.colors.secondary}`;
+      case 'gradient':
+        return 'fill: white; stroke: white;';
+    }
+  }}
+  }
+
   ${({ theme, color, outline }): string => {
     if (!outline) {
       return 'border: 2px solid transparent;';
@@ -17,15 +39,15 @@ const Container = styled.div<{ disabled: boolean, color: string, outline: boolea
 
     switch (color) {
       case 'default':
-        return `border: 2px solid ${theme.gray};`;
+        return `border: 2px solid ${theme.colors.gray};`;
       case 'primary':
-        return `border: 2px solid ${theme.primary};`;
+        return `border: 2px solid ${theme.colors.primary};`;
       case 'secondary':
-        return `border: 2px solid ${theme.secondary};`;
+        return `border: 2px solid ${theme.colors.secondary};`;
       case 'gradient':
-        return `border: 2px solid ${theme.gradient};`;
+        return `border: 2px solid ${theme.gradient.primary};`;
     }
-    return `border: 2px solid ${theme.primary};`;
+    return `border: 2px solid ${theme.colors.primary};`;
   }}
 
   span {
@@ -39,13 +61,13 @@ const Container = styled.div<{ disabled: boolean, color: string, outline: boolea
 
     switch (color) {
       case 'default':
-        return `color: ${theme.gray};`;
+        return `color: ${theme.colors.gray};`;
       case 'primary':
-        return `color: ${theme.primary};`;
+        return `color: ${theme.colors.primary};`;
       case 'secondary':
-        return `color: ${theme.secondary};`;
+        return `color: ${theme.colors.secondary};`;
       case 'gradient':
-        return `color: ${theme.gradient};`;
+        return `color: ${theme.gradient.primary};`;
     }
   }}
   }
@@ -59,15 +81,15 @@ const Container = styled.div<{ disabled: boolean, color: string, outline: boolea
 
     switch (color) {
       case 'default':
-        return `background-color: ${theme.gray};`;
+        return `background-color: ${theme.colors.gray};`;
       case 'primary':
-        return `background-color: ${theme.primary};`;
+        return `background-color: ${theme.colors.primary};`;
       case 'secondary':
-        return `background-color: ${theme.secondary};`;
+        return `background-color: ${theme.colors.secondary};`;
       case 'gradient':
-        return `background: ${theme.gradient};`;
+        return `background: ${theme.gradient.primary};`;
     }
-    return `background-color: ${theme.gray};`;
+    return `background-color: ${theme.colors.gray};`;
   }}
 `;
 
@@ -84,7 +106,7 @@ export interface ChipProps {
 export const Chip: FC<ChipProps> = ({ avatar, color = 'default', variant = 'default', label, disabled = false, onClick, onDelete }) => {
   return (
     <Container
-      clickable={!!onClick}
+      clickable={onClick !== undefined}
       color={color}
       disabled={disabled}
       hasAvatar={!!avatar}
@@ -93,7 +115,7 @@ export const Chip: FC<ChipProps> = ({ avatar, color = 'default', variant = 'defa
     >
       {avatar}
       <span>{label}</span>
-      {/* TODO: delete icon onDelete={onDelete ? onDelete : undefined} */}
+      { onDelete && <Icon glyph="plus" onClick={onDelete} />}
     </Container>
   );
 };
