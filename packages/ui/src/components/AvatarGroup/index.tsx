@@ -11,6 +11,7 @@ const Container = styled.div`
     :first-child{
       margin-left: 0;
     }
+    border: 2px solid ${({ theme }) => theme.colors.background};
     margin-left:-10px;
   }
 `;

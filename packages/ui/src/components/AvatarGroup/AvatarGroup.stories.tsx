@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto auto;
   grid-gap: 2rem;
   padding: 5rem;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.colors.background};
   border-radius: 1rem;
 `;
 
