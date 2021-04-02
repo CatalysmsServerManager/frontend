@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from '../src/styled';
 import { MemoryRouter } from 'react-router-dom';
+import { viewports } from './viewports';
 
 export const decorators = [
   Story => (
