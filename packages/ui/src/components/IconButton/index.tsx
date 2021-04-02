@@ -1,75 +1,73 @@
-import { FC, ReactNode } from 'react';
-// import { Icon } from '../icons';
+import { FC } from 'react';
+import { Icon } from 'components';
 import { styled } from 'styled';
 
 const Template = styled.button<{ outline: boolean }>`
-  background: ${({ theme, outline }) => outline ? 'transparent' : theme.gradient};
-  border-radius: 1.5rem;
-  border: 3px solid ${({ theme, outline }) => outline ? theme.primary : 'transparent'};
+  background: ${({ theme, outline }) => outline ? 'transparent' : theme.gradient.primary};
+  border-radius: 50%;
+  border: 3px solid ${({ theme, outline }) => outline ? theme.colors.primary : 'transparent'};
   background-clip: padding-box;
   cursor: pointer;
-  transition: all .3s ease-in-out;
-  box-shadow: ${({ theme }): string => theme.shadow};
-  line-height: 19px;
-  letter-spacing: 0;
+  box-shadow: ${({ theme }): string => theme.colors.shadow};
   display: flex;
   align-items: center;
   justify-content: center;
   align-items: center;
-  transition: all .3s ease-in-out;
+  width: 50px;
+  height: 50px;
   svg {
-    fill: ${({ theme, outline }) => outline ? theme.primary : 'white'}!important;
-    stroke: ${({ theme, outline }) => outline ? theme.primary : 'white'}!important;
-  }
-  &:hover {
-    transform: translateY(-3px);
+    cursor: pointer;
+    path {
+      fill: ${({ theme, outline }) => outline ? theme.colors.primary : 'white'}!important;
+      stroke: ${({ theme, outline }) => outline ? theme.colors.primary : 'white'}!important;
+    }
   }
 `;
 const Small = styled(Template)`
   padding: 8px;
 `;
 const Medium = styled(Template)`
-  padding: 12px;
+  padding: 25px;
 `;
 const Large = styled(Template)`
-  padding: 15px;
+  padding: 32px;
 `;
 
 export interface IconButtonProps {
-  icon: ReactNode;
-  size: 'small' | 'medium' | 'large';
-  outline: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => any;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'gradient';
+  outline?: boolean;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => any;
   glyph: string;
 }
 
-export const IconButton: FC<IconButtonProps> = ({ icon, size, outline, onClick, glyph }) => {
+export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = 'medium', outline = false, onClick, glyph }) => {
   switch (size) {
     case 'small':
       return (
         <Small
-          onClick={(e: React.MouseEvent<HTMLButtonElement>): void => (typeof onClick === 'function' ? onClick(e) : null)}
+          onClick={onClick}
           outline={outline}
         >
-          {/* <Icon glyph={glyph} size={24} /> */}
+          <Icon glyph={glyph} />
         </Small>
       );
     case 'medium':
       return (
         <Medium
-          onClick={(e: React.MouseEvent<HTMLButtonElement>): void => (typeof onClick === 'function' ? onClick(e) : null)}
+          onClick={onClick}
           outline={outline}
         >
-          { /* <Icon glyph={glyph} size={32} /> */}
+          <Icon glyph={glyph} />
         </Medium>
       );
     case 'large':
       return (
         <Large
-          onClick={(e: React.MouseEvent<HTMLButtonElement>): void => (typeof onClick === 'function' ? onClick(e) : null)}
+          onClick={onClick}
           outline={outline}
         >
-          { /* <Icon glyph={glyph} size={48} /> */}
+          <Icon glyph={glyph} />
         </Large>
       );
   };
