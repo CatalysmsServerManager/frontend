@@ -6,30 +6,30 @@ export const Template = styled.button<{ white: boolean, icon: boolean, isLoading
   justify-content: center;
   width: fit-content;
   border-radius: 2.5rem;
-  background: ${({ theme, outline, white }): string => outline ? 'transparent' : white ? 'white' : theme.gradient};
+  background: ${({ theme, outline, white }): string => outline ? 'transparent' : white ? 'white' : theme.gradient.primary};
   border: none;
   background-size: 200% auto;
   font-weight: 900;
-  border: 2px solid ${({ theme, outline, white }) => white ? 'white' : outline ? theme.secondary : 'none'};
+  border: 2px solid ${({ theme, outline, white }) => white ? 'white' : outline ? theme.colors.secondary : 'none'};
   cursor: pointer;
   line-height: 19px;
   letter-spacing: 0;
-  box-shadow: ${({ theme }): string => theme.shadow};
+  box-shadow: ${({ theme }): string => theme.colors.shadow};
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
 
   &:disabled{
     cursor: default;
-    background: ${({ theme, outline }) => outline ? 'transparent' : theme.gray};
-    border-color: ${({ theme, outline }) => outline ? theme.gray : 'transparent'};
-    color: ${({ theme, outline }) => outline ? theme.gray : 'white'};
+    background: ${({ theme, outline }) => outline ? 'transparent' : theme.colors.gray};
+    border-color: ${({ theme, outline }) => outline ? theme.colors.gray : 'transparent'};
+    color: ${({ theme, outline }) => outline ? theme.colors.gray : 'white'};
 
     span {
-      color: ${({ theme, outline }) => outline ? theme.gray : 'white'};
+      color: ${({ theme, outline }) => outline ? theme.colors.gray : 'white'};
     }
     &:hover {
       span {
-        color: ${({ theme, outline }): string => outline ? theme.gray : 'white'};
+        color: ${({ theme, outline }): string => outline ? theme.colors.gray : 'white'};
       }
     }
   }
@@ -42,17 +42,18 @@ export const Template = styled.button<{ white: boolean, icon: boolean, isLoading
   svg {
     display: ${({ icon, isLoading }): string => icon || isLoading ? 'block' : 'none'};
     cursor: pointer;
-    fill: ${({ theme, outline, white }): string => outline ? theme.secondary : white ? theme.secondary : 'white'};
-    stroke: ${({ theme, outline, white }): string => outline ? white ? 'white' : theme.secondary : white ? theme.secondary : 'white'};
+    fill: ${({ theme, outline, white }): string => outline ? theme.colors.secondary : white ? theme.colors.secondary : 'white'};
+    stroke: ${({ theme, outline, white }): string => outline ? white ? 'white' : theme.colors.secondary : white ? theme.colors.secondary : 'white'};
+
   }
 
   span {
     margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
-    color: ${({ theme, outline, white }) => outline ? white ? 'white' : theme.secondary : white ? theme.secondary : 'white'};
+    color: ${({ theme, outline, white }) => outline ? white ? 'white' : theme.colors.secondary : white ? theme.colors.secondary : 'white'};
     font-size: 1.1rem;
     font-weight: 800;
     &:hover {
-      color: ${({ outline, theme, white }): string => white ? outline ? 'white' : theme.secondary : outline ? theme.secondary : 'white'};
+      color: ${({ outline, theme, white }): string => white ? outline ? 'white' : theme.colors.secondary : outline ? theme.colors.secondary : 'white'};
     }
   }
 `;
