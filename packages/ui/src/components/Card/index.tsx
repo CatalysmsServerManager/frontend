@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { styled } from 'styled';
 
 const Template = styled.div<{ gradient: boolean }>`
-  background: ${({ theme, gradient }) => gradient ? theme.gradient : 'white'};
+  background: ${({ theme, gradient }) => gradient ? theme.gradient.primary : 'white'};
   border-radius: .6rem;
   margin: 1rem;
-  box-shadow: ${({ theme }) => theme.shadow};
-  color: ${({ theme, gradient }) => gradient ? 'white' : theme.text};
+  box-shadow: ${({ theme }) => theme.colors.shadow};
+  color: ${({ theme, gradient }) => gradient ? 'white' : theme.colors.text};
 
   h1,h2,h3,h4,h5,h6,p,div{
-    color: ${({ theme, gradient }) => gradient ? 'white' : theme.text}!important;
+    color: ${({ theme, gradient }) => gradient ? 'white' : theme.colors.text}!important;
   }
 `;
 
@@ -23,7 +23,7 @@ const Large = styled(Template)`
   padding: 2.5rem;
 `;
 
-interface CardProps {
+export interface CardProps {
   gradient?: boolean;
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
