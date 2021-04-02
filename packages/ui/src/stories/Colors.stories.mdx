@@ -1,0 +1,25 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { styled } from 'styled';
+import { theme } from 'styled/theme';
+
+<Meta title="Colors" />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem title="theme.colors.primary" colors={[theme.colors.primary]} />
+  <ColorItem title="theme.colors.secondary" colors={[theme.colors.secondary]} />
+  <ColorItem title="theme.colors.tertiary" colors={[theme.colors.tertiary]} />
+  <ColorItem title="theme.colors.quaternary" colors={[theme.colors.quaternary]} />
+  <ColorItem title="theme.colors.error" colors={[theme.colors.error]} />
+
+  ## Gradients
+  <ColorItem title="theme.colors.gradient.primary" colors={[theme.gradient.primary]} />
+  <ColorItem title="theme.colors.secondaryGradient" colors={[theme.gradient.secondary]} />
+
+  ## Text
+  <ColorItem title="theme.colors.text" colors={[theme.colors.text]} />
+  <ColorItem title="theme.colors.gray" colors={[theme.colors.gray]} />
+  <ColorItem title="theme.colors.background" colors={[theme.colors.background]} />
+
+</ColorPalette>
