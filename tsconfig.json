@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "lib": [ "esnext", "dom", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "strict":true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": false,
+    "allowJs": true,
+    "paths": {
+      "@csmm/lib": ["./packages/lib/src"],
+      "@csmm/lib/*": ["./packages/lib/src/*"],
+
+      "@csmm/homepage": ["./packages/homepage/src"],
+      "@csmm/homepage/*": ["./packages/homepage/src/*"],
+
+      "@csmm/payments": ["./packages/payments/src"],
+      "@csmm/payments/*": ["./packages/payments/src/*"],
+    },
+    "types": ["node", "react"],
+  },
+    "exclude": ["**/.*/", "**/build", "**/node_modules", "**/dist"]
+}
