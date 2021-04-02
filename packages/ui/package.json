@@ -10,17 +10,12 @@
     "build": "npm run build:tsc && npm run build:storybook",
     "build:tsc": "tsc --project ./tsconfig.production.json && npm run copypackage",
     "copypackage": "cp -rf package.json build",
-    "start": "start-storybook -p 6006",
-    "build:storybook": "build-storybook"
+    "start": "start-storybook -p 6006 --no-manager-cache",
+    "build:storybook": "build-storybook --no-manager-cache",
+    "lint:package": "sort-package-json"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/history": "^4.7.8",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@storybook/addon-viewport": "^6.2.2",
     "framer-motion": "^4.0.3",
     "history": "^5.0.0",
     "react": "^17.0.2",
@@ -32,12 +27,18 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.2.2",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/node-logger": "^6.1.21",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.1.21",
-    "@types/styled-components": "^5.1.9"
+    "@types/history": "^4.7.8",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.9",
+    "sort-package-json": "^1.49.0"
   }
 }
