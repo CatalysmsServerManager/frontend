@@ -21,7 +21,7 @@ export const Inner = styled.span<{ isChecked: boolean }>`
   display: block;
   width: 100%;
   height: 9px;
-  background: ${({ theme, isChecked }): string => isChecked ? theme.gradient : theme.gray};
+  background: ${({ theme, isChecked }): string => isChecked ? theme.gradient.primary : theme.colors.gray};
   ${({ isChecked }) => isChecked ? 'transition: background 0.2s ease-in-out .2s;' : null}
 `;
 
@@ -29,8 +29,8 @@ export const Dot = styled.span<{ isChecked: boolean, disabled: boolean }>`
   display: block;
   width: 18px;
   height: 18px;
-  background-color: ${({ theme, disabled }) => disabled ? theme.gray : theme.secondary};
-  box-shadow: ${({ theme }) => theme.shadow};
+  background-color: ${({ theme, disabled }) => disabled ? theme.colors.gray : theme.colors.secondary};
+  box-shadow: ${({ theme }) => theme.colors.shadow};
   position: absolute;
   margin-top: -4.5px;
   top: 0;

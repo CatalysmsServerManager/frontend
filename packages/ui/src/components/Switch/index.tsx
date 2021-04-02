@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { Container, Dot, Inner, Label } from './style';
 
 export interface SwitchProps {
+  /* Unique name, required to toggle the switch */
   name: string;
   defaultChecked?: boolean;
   disabled?: boolean;
