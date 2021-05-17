@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
-import { Icon } from 'components';
+import { AiOutlineCheck as Icon } from 'react-icons/ai';
 
 export interface CheckboxProps {
   name: string;
@@ -63,7 +63,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
       {labelPosition === 'left' && labelText ? <Label onClick={onCheck}>{labelText}</Label> : null}
       <CheckboxContainer isChecked={isChecked} onClick={onCheck} >
         <CheckMarkContainer isChecked={isChecked}>
-          <Icon glyph="checkmark" />
+          <Icon size={18} />
         </CheckMarkContainer>
         <Input
           checked={isChecked}

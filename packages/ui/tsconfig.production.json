@@ -4,6 +4,7 @@
   "exclude": ["./**/*.stories.*", ".storybook"],
   "compilerOptions": {
     "outDir": "build",
-    "declaration": true
+    "declaration": true,
+    "baseUrl": "./src"
   },
 }

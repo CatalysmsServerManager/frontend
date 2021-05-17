@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Icon } from 'components';
 import styled from 'styled';
 
 const Template = styled.button<{ outline: boolean }>`
@@ -49,7 +48,6 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
-          <Icon glyph={glyph} />
         </Small>
       );
     case 'medium':
@@ -58,7 +56,6 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
-          <Icon glyph={glyph} />
         </Medium>
       );
     case 'large':
@@ -67,7 +64,6 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
-          <Icon glyph={glyph} />
         </Large>
       );
   };

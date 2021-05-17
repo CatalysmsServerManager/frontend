@@ -1,7 +1,7 @@
 import { FC, useState, useEffect, useContext } from 'react';
 import styled from 'styled';
 import { ThemeType } from 'styled/theme';
-import { Icon } from 'components';
+import { AiOutlineCopy as Icon } from 'react-icons/ai';
 import { ThemeContext } from 'styled-components';
 
 const Container = styled.div<{ maxWidth: number }>`
@@ -73,7 +73,7 @@ export const ClipBoard: FC<ClipBoardProps> = ({ text, maxWidth }) => {
 
         {
           copied ?
-            <Icon fill={themeContext.colors.secondary} glyph={'checkmark'} size={20} />
+            <Icon size={20} />
             :
             <ClipBoardIcon onClick={handleCopy} />
         }

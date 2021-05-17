@@ -11,7 +11,7 @@
     "build:tsc": "tsc --project ./tsconfig.production.json && npm run copypackage",
     "copypackage": "cp -rf package.json build",
     "start": "start-storybook -p 6006 --no-manager-cache",
-    "build:storybook": "build-storybook --no-manager-cache",
+    "build:storybook": "build-storybook",
     "lint:package": "sort-package-json"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.1",

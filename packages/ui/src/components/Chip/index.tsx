@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled';
-import { Icon } from 'components';
+import { AiOutlineClose as Icon } from 'react-icons/ai';
 
 const Container = styled.div<{ disabled: boolean, color: string, outline: boolean, hasAvatar: boolean, clickable: boolean }>`
   display: flex;
@@ -115,7 +115,7 @@ export const Chip: FC<ChipProps> = ({ avatar, color = 'default', variant = 'defa
     >
       {avatar}
       <span>{label}</span>
-      { onDelete && <Icon glyph="plus" onClick={onDelete} />}
+      { onDelete && <Icon onClick={onDelete} size={14} />}
     </Container>
   );
 };
