@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { styled } from 'styled';
+import styled from 'styled';
 import { Avatar, Chip, ChipProps } from 'components';
 
 const Wrapper = styled.div`

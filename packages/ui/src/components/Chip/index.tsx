@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 import { Icon } from 'components';
 
 const Container = styled.div<{ disabled: boolean, color: string, outline: boolean, hasAvatar: boolean, clickable: boolean }>`

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react/types-6-0';
 import { TabSwitch } from 'components';
-import { styled } from 'styled';
+import styled from 'styled';
 
 const Wrapper = styled.div`
   display: grid;

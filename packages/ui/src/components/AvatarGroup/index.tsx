@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 import { Avatar, AvatarProps } from 'components';
 
 const Container = styled.div`

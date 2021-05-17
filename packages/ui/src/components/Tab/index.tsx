@@ -1,5 +1,5 @@
 import { FC, useState, ReactElement, ReactNode, useContext } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 import { ThemeType } from 'styled/theme';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { ThemeContext } from 'styled-components';

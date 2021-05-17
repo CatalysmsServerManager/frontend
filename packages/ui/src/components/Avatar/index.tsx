@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 
 const Template = styled.div<{ src?: string }>`
   border-radius: 50%;
