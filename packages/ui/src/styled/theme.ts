@@ -7,17 +7,31 @@ export const theme = {
     gray: '#d3d3d3',
     background: '#e8edf5',
     shadow: 'rgb(0 0 0 / 10%) 0px 15px 45px 0px',
-    error: '#FF4252',
     text: '#d5dae0',
+
+    info: '#f6d365',
+    success: '#2ea26f',
+    warning: '#f57c00',
+    error: '#FF4252',
+
   },
   gradient: {
     primary: 'linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%)',
-    secondary: 'linear-gradient(to right, #65f6e8 0%,#be81f6  51%, #65f6e8 100%)'
+    secondary: 'linear-gradient(to right, #65f6e8 0%,#be81f6  51%, #65f6e8 100%)',
+    white: 'linear-gradient(180deg, #fff 0%, #fff 100%)', // compatibility reasons
   },
   spacing: {
     small: '1rem',
     medium: '1.5rem',
     large: '2rem'
+  },
+  fontSize: {
+    tiny: '1rem',
+    small: '1.3rem',
+    medium: '1.825rem',
+    mediumLarge: '2.825rem',
+    large: '4.25rem',
+    huge: '6rem'
   }
 };
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import { styled } from 'styled';
+import styled from 'styled';
 import { motion } from 'framer-motion';
 
 export const Overlay = styled.div`

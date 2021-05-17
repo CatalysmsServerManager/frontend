@@ -1,48 +1,49 @@
 export { Button } from './Button';
-export type ButtonProps = import('./Button').ButtonProps;
+export type { ButtonProps } from './Button';
 
 export { Loading, Spinner } from './Loaders';
-export type LoadingProps = import('./Loaders/Loading').LoadingProps;
+export type { LoadingProps } from './Loaders/Loading';
 
 export { Empty } from './Empty';
-export type EmptyProps = import('./Empty').EmptyProps;
+export type { EmptyProps } from './Empty';
 
 export { TabSwitch as Tab } from './Tab';
-export type TabProps = import('./Tab').TabSwitchProps;
+export type { TabProps } from './Tab';
 
 export { Avatar } from './Avatar';
-export type AvatarProps = import('./Avatar').AvatarProps
+export type { AvatarProps } from './Avatar';
 
 export { AvatarGroup } from './AvatarGroup';
-export type AvatarGroupProps = import('./AvatarGroup').AvatarGroupProps;
+export type { AvatarGroupProps } from './AvatarGroup';
 
 export { Chip } from './Chip';
-export type ChipProps = import('./Chip').ChipProps;
+export type { ChipProps } from './Chip';
 
 export { Card } from './Card';
-export type CardProps = import('./Card').CardProps;
+export type { CardProps } from './Card';
 
 export { TabSwitch } from './Tab';
-export type TabSwitchProps = import('./Tab').TabSwitchProps;
+export type { TabSwitchProps } from './Tab';
 
 export { Checkbox } from './Checkbox';
-export type CheckboxProps = import('./Checkbox').CheckboxProps;
+export type { CheckboxProps } from './Checkbox';
 
+// TODO: replace this with react-icons instead of own custom icons.
 export { Icon, glyphs } from './icons';
 export type IconProps = import('./icons').IconProps;
 export type Glyphs = import('./icons').Glyphs;
 
 export { Switch } from './Switch';
-export type SwitchProps = import('./Switch').SwitchProps;
+export { SwitchProps } from './Switch';
 
 export { ClipBoard } from './ClipBoard';
-export type ClipBoardProps = import('./ClipBoard').ClipBoardProps;
+export type { ClipBoardProps } from './ClipBoard';
 
 export { IconButton } from './IconButton';
-export type IconButtonProps = import('./IconButton').IconButtonProps;
+export type { IconButtonProps } from './IconButton';
 
 export { Toggle } from './Toggle';
-export type ToggleProps = import('./Toggle').ToggleProps;
+export type { ToggleProps } from './Toggle';
 
 export { Divider } from './Divider';
-export type DividerProps = import('./Divider').DividerProps;
+export type { DividerProps } from './Divider';

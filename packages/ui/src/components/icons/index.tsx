@@ -7,7 +7,7 @@
 */
 
 import { FC, useContext } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 import { ThemeContext } from 'styled-components';
 import { ThemeType } from 'styled/theme';
 

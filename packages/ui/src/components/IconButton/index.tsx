@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Icon } from 'components';
-import { styled } from 'styled';
+import styled from 'styled';
 
 const Template = styled.button<{ outline: boolean }>`
   background: ${({ theme, outline }) => outline ? 'transparent' : theme.gradient.primary};

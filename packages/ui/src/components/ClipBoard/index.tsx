@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, useContext } from 'react';
-import { styled } from 'styled';
+import styled from 'styled';
 import { ThemeType } from 'styled/theme';
 import { Icon } from 'components';
 import { ThemeContext } from 'styled-components';

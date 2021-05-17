@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { styled } from 'styled';
+import styled from 'styled';
 import { ClipBoard, ClipBoardProps } from 'components';
 
 const Wrapper = styled.div`
