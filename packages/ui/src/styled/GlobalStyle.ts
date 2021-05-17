@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { ThemeType } from './theme';
+import { SnackBarStyles } from './Snackbar';
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   *::selection {
@@ -93,40 +94,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     }
   }
 
-
-  // snackbar related
-  #notistack-snackbar {
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif
-  }
-
-  .mui-snackbar {
-    color: white;
-  }
-
- .MuiSnackbarContent-root {
-    background-color: ${({ theme }): string => theme.colors.primary};
-    color: white;
-  }
-
-  #notistack-snackbar {
-    color: white;
-  }
-
-  div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantWarning-'] {
-    background-color: ${({ theme }): string => theme.colors.error}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantSuccess-'] {
-    background-color: ${({ theme }): string => theme.colors.primary}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantError-'], div[class*='SnackbarItem-variantError-'] {
-    background-color: ${({ theme }): string => theme.colors.error}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantInfo-'], div[class*='SnackbarItem-variantInfo-'] {
-    background-color: ${({ theme }): string => theme.colors.secondary}!important;
-    color: white;
-  }
+  // notistack snackbar styling
+  ${SnackBarStyles}
 `;
