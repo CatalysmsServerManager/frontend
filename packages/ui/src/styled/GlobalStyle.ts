@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     user-select: none;
     padding: 0;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.gray};
+    color: ${({ theme }) => theme.colors.gray};
   }
 
   h2 {
@@ -105,7 +105,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   }
 
  .MuiSnackbarContent-root {
-    background-color: ${({ theme }): string => theme.primary};
+    background-color: ${({ theme }): string => theme.colors.primary};
     color: white;
   }
 
@@ -114,19 +114,19 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   }
 
   div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantWarning-'] {
-    background-color: ${({ theme }): string => theme.error}!important;
+    background-color: ${({ theme }): string => theme.colors.error}!important;
     color: white;
   }
   div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantSuccess-'] {
-    background-color: ${({ theme }): string => theme.primary}!important;
+    background-color: ${({ theme }): string => theme.colors.primary}!important;
     color: white;
   }
   div[class^='SnackbarItem-variantError-'], div[class*='SnackbarItem-variantError-'] {
-    background-color: ${({ theme }): string => theme.error}!important;
+    background-color: ${({ theme }): string => theme.colors.error}!important;
     color: white;
   }
   div[class^='SnackbarItem-variantInfo-'], div[class*='SnackbarItem-variantInfo-'] {
-    background-color: ${({ theme }): string => theme.complement}!important;
+    background-color: ${({ theme }): string => theme.colors.secondary}!important;
     color: white;
   }
 `;

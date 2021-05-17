@@ -1,3 +1,5 @@
+import baseStyled, { ThemedStyledInterface } from 'styled-components';
+
 export const theme = {
   colors: {
     primary: '#f6d365',
@@ -36,3 +38,4 @@ export const theme = {
 };
 
 export type ThemeType = typeof theme;
+export const styled = baseStyled as ThemedStyledInterface<ThemeType>;
