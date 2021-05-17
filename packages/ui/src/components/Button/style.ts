@@ -1,4 +1,4 @@
-import { styled } from '../../styled';
+import styled from 'styled';
 
 export const Template = styled.button<{ white: boolean, icon: boolean, isLoading: boolean, outline: boolean }>`
   display: flex;

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
 import { Button, ButtonProps, Icon as I } from 'components';
 
@@ -35,18 +35,17 @@ Basic.args = {
 };
 
 export const Examples = () => (
-  <>
+  <div>
     <Button onClick={() => { }} text="White Button" white />
     <Button icon={<I glyph="dashboard" />} onClick={() => { }} text="Icon Button" />
     <Button disabled onClick={() => { }} text="Disabled Button" />
     <Button isLoading onClick={() => { }} text="Loading Button" />
-
     {/* Outline */}
     <Button onClick={() => { }} text="Outlined Button" variant="outline" />
     <Button icon={<I glyph="dashboard" />} onClick={() => { }} text="Icon Button" variant="outline" />
     <Button disabled onClick={() => { }} text="Disabled Button" variant="outline" />
     <Button isLoading onClick={() => { }} text="Loading Button" variant="outline" />
-  </>
+  </div >
 );
 
 /* ===================================

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react';
 import { Card } from '.';
 import styled from 'styled';
 import { Button } from 'components';

@@ -11,7 +11,7 @@ export interface ToggleProps {
   items: string[];
   onClick: (index: number) => void;
 }
-export const Toggle: FC<ToggleProps> = ({ size, items, onClick }) => {
+export const Toggle: FC<ToggleProps> = ({ items, onClick }) => {
   const [selected, setSelected] = useState<number>(0);
 
   return (
