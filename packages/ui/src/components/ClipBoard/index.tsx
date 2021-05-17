@@ -3,6 +3,7 @@ import styled from 'styled';
 import { ThemeType } from 'styled/theme';
 import { AiOutlineCopy as Icon } from 'react-icons/ai';
 import { ThemeContext } from 'styled-components';
+import { useSnackbar } from 'notistack';
 
 const Container = styled.div<{ maxWidth: number }>`
   position: relative;
@@ -45,6 +46,7 @@ export interface ClipBoardProps {
 export const ClipBoard: FC<ClipBoardProps> = ({ text, maxWidth }) => {
   const [copied, setCopied] = useState(false);
   const themeContext = useContext<ThemeType>(ThemeContext);
+  const { enqueueSnackbar } = useSnackbar();
 
   function handleCopy() {
     setCopied(true);
@@ -55,6 +57,7 @@ export const ClipBoard: FC<ClipBoardProps> = ({ text, maxWidth }) => {
     /* If it was copied, show a checkmark for 2.5s thn make it possible to copy again */
     if (copied) {
       setTimeout(() => {
+        enqueueSnackbar('Successfully copied to clipboard', { variant: 'info' });
         setCopied(false);
       }, 2500);
     }

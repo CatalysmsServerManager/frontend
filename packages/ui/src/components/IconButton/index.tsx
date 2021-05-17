@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styled from 'styled';
 
 const Template = styled.button<{ outline: boolean }>`
@@ -37,10 +37,10 @@ export interface IconButtonProps {
   variant?: 'primary' | 'secondary' | 'gradient';
   outline?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => any;
-  glyph: string;
+  icon: ReactNode;
 }
 
-export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = 'medium', outline = false, onClick, glyph }) => {
+export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', icon, size = 'medium', outline = false, onClick }) => {
   switch (size) {
     case 'small':
       return (
@@ -48,6 +48,7 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
+          {icon}
         </Small>
       );
     case 'medium':
@@ -56,6 +57,7 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
+          {icon}
         </Medium>
       );
     case 'large':
@@ -64,6 +66,7 @@ export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', size = '
           onClick={onClick}
           outline={outline}
         >
+          {icon}
         </Large>
       );
   };
