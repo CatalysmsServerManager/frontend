@@ -6,18 +6,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lerna": "lerna",
-    "lint": "eslint packages/**/*.{js,ts,jsx,tsx}",
-    "lint:css": "stylelint src/**/*.js",
+    "lint": "eslint . --cache --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
+    "stylelint": "stylelint --reportInvalidScopeDisables --reportNeedlessDisables 'packages/**/*.{js,jsx,ts,tsx}'",
+    "typescript": "lerna run --no-bail --parallel typescript",
     "build": "lerna run build"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/parser": "^4.17.0",
-    "eslint": "^7.22.0",
-    "eslint-plugin-react": "^7.22.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "lerna": "^4.0.0",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
     "typescript": "^4.2.3"
   }
 }
