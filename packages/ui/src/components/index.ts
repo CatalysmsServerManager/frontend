@@ -10,6 +10,9 @@ export type { EmptyProps } from './Empty';
 export { TabSwitch as Tab } from './Tab';
 export type { TabProps } from './Tab';
 
+export type { FieldProps } from './Field';
+export { TextField } from './TextField';
+
 export { Avatar } from './Avatar';
 export type { AvatarProps } from './Avatar';
 
