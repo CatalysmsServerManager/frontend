@@ -1,4 +1,0 @@
-User-agent:*
-Disallow:
-
-SITEMAP: https://www.csmm.app/sitemap.xml
