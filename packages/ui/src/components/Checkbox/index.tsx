@@ -1,39 +1,36 @@
-import * as React from 'react';
+import { FC, useState } from 'react';
 import { CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
 import { AiOutlineCheck as Icon } from 'react-icons/ai';
+import { Control, useController } from 'react-hook-form';
 
 export interface CheckboxProps {
   name: string;
+  control: Control<any>;
   loading?: boolean;
-  defaultChecked?: boolean;
+  defaultValue?: boolean;
   readOnly?: boolean;
-  readOnlyMessage?: string;
   labelText?: string;
   labelPosition?: 'left' | 'right';
   onChange?: (e: React.MouseEvent<HTMLDivElement | HTMLLabelElement>) => void;
 }
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
-  defaultChecked = false,
+export const Checkbox: FC<CheckboxProps> = ({
+  control,
+  defaultValue = false,
   readOnly = false,
   labelText,
   labelPosition = 'right',
   name,
-  readOnlyMessage,
   loading = false,
   onChange
-}, ref) => {
-  const [isChecked, setChecked] = React.useState<boolean>(defaultChecked);
-
-  React.useEffect(() => {
-    setChecked(defaultChecked);
-  }, [defaultChecked]);
+}) => {
+  const [isChecked, setChecked] = useState<boolean>(defaultValue);
+  const { field: { ref, ...inputProps } } = useController({ name, control, defaultValue: defaultValue });
 
   function onCheck(e: React.MouseEvent<HTMLDivElement | HTMLLabelElement>): void {
     if (readOnly) {
       return;
     }
-
     setChecked(!isChecked);
 
     // check if parent function is defined
@@ -66,10 +63,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
           <Icon size={18} />
         </CheckMarkContainer>
         <Input
+          {...inputProps}
           checked={isChecked}
           id={name}
           name={name}
           onChange={(): void => { }} /* required to make it controlled */
+          readOnly={readOnly}
           ref={ref}
           type="checkbox"
         />
@@ -79,4 +78,4 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
       }
     </Container>
   );
-});
+};
