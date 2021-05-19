@@ -1,6 +1,13 @@
 import styled from 'styled';
+import { Size } from 'styled/types';
 
-export const Template = styled.button<{ white: boolean, icon: boolean, isLoading: boolean, outline: boolean }>`
+export const Container = styled.button<{
+  size: Size;
+  white: boolean,
+  icon: boolean,
+  isLoading: boolean,
+  outline: boolean
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +54,7 @@ export const Template = styled.button<{ white: boolean, icon: boolean, isLoading
 
   }
 
+
   span {
     margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
     color: ${({ theme, outline, white }) => outline ? white ? 'white' : theme.colors.secondary : white ? theme.colors.secondary : 'white'};
@@ -56,16 +64,32 @@ export const Template = styled.button<{ white: boolean, icon: boolean, isLoading
       color: ${({ outline, theme, white }): string => white ? outline ? 'white' : theme.colors.secondary : outline ? theme.colors.secondary : 'white'};
     }
   }
-`;
 
-export const Small = styled(Template)`
-  padding: 6px 15px;
-`;
-
-export const Medium = styled(Template)`
-  padding: 10px 18px;
-`;
-
-export const Large = styled(Template)`
-  padding: 14px 22px;
+  ${({ size }) => {
+    switch (size) {
+      case 'tiny':
+        return `
+          padding: 4px 12px;
+        `;
+      case 'small':
+        return `
+          padding: 6px 15px;
+        `;
+      case 'medium':
+        return `
+          padding: 10px 18px;
+        `;
+      case 'large':
+        return `
+          padding: 14px 22px;
+        `;
+      case 'huge':
+        return `
+          span {
+            font-size: 105%;
+          }
+          padding: 16px 24px;
+        `;
+    }
+  }}
 `;

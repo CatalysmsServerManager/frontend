@@ -1,15 +1,16 @@
 import { FC, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { Spinner } from 'components';
-import { Small, Medium, Large } from './style';
+import { Container } from './style';
+import { Size, Variant } from 'styled/types';
 
 export interface ButtonProps {
   disabled?: boolean;
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => any;
   isLoading?: boolean;
   icon?: ReactNode;
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
   type?: 'submit' | 'reset' | 'button';
-  variant?: 'default' | 'outline';
+  variant?: Variant;
   text: string;
   white?: boolean;
 }
@@ -34,48 +35,18 @@ export const Button: FC<ButtonProps> = ({
     );
   }
 
-  switch (size) {
-    case 'small':
-      return (
-        <Small
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Small>
-      );
-    case 'medium':
-      return (
-        <Medium
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Medium>
-      );
-    case 'large':
-      return (
-        <Large
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Large>
-      );
-  };
+  return (
+    <Container
+      disabled={disabled}
+      icon={!!icon}
+      isLoading={isLoading}
+      onClick={disabled ? undefined : onClick}
+      outline={variant === 'outline'}
+      size={size}
+      type={type}
+      white={white}
+    >
+      {content()}
+    </Container>
+  );
 };
