@@ -1,19 +1,19 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled';
+import { Size } from 'styled/types';
 
-const Template = styled.button<{ outline: boolean }>`
+const Container = styled.button<{ outline: boolean, size: Size }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: ${({ theme, outline }) => outline ? 'transparent' : theme.gradient.primary};
   border-radius: 50%;
   border: 3px solid ${({ theme, outline }) => outline ? theme.colors.primary : 'transparent'};
   background-clip: padding-box;
   cursor: pointer;
   box-shadow: ${({ theme }): string => theme.colors.shadow};
-  display: flex;
   align-items: center;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+;
   svg {
     cursor: pointer;
     path {
@@ -21,19 +21,41 @@ const Template = styled.button<{ outline: boolean }>`
       stroke: ${({ theme, outline }) => outline ? theme.colors.primary : 'white'}!important;
     }
   }
-`;
-const Small = styled(Template)`
-  padding: 8px;
-`;
-const Medium = styled(Template)`
-  padding: 25px;
-`;
-const Large = styled(Template)`
-  padding: 32px;
+
+  ${({ size }) => {
+    switch (size) {
+      case 'tiny':
+        return `
+          width: 32px;
+          height: 32px;
+          padding: 6px;
+        `;
+      case 'small':
+        return `
+          width: 48px;
+          height: 48px;
+          padding: 8px;
+        `;
+      case 'medium':
+        return `
+          width: 60px;
+          height: 60px;
+          padding: 12px;
+        `;
+      case 'large':
+        return `
+          padding: 20px;
+        `;
+      case 'huge':
+        return `
+          padding: 30px;
+        `;
+    }
+  }}
 `;
 
 export interface IconButtonProps {
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
   variant?: 'primary' | 'secondary' | 'gradient';
   outline?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => any;
@@ -41,33 +63,13 @@ export interface IconButtonProps {
 }
 
 export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', icon, size = 'medium', outline = false, onClick }) => {
-  switch (size) {
-    case 'small':
-      return (
-        <Small
-          onClick={onClick}
-          outline={outline}
-        >
-          {icon}
-        </Small>
-      );
-    case 'medium':
-      return (
-        <Medium
-          onClick={onClick}
-          outline={outline}
-        >
-          {icon}
-        </Medium>
-      );
-    case 'large':
-      return (
-        <Large
-          onClick={onClick}
-          outline={outline}
-        >
-          {icon}
-        </Large>
-      );
-  };
+  return (
+    <Container
+      onClick={onClick}
+      outline={outline}
+      size={size}
+    >
+      {icon}
+    </Container>
+  );
 };

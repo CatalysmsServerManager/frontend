@@ -29,8 +29,10 @@ Basic.args = {
 
 export const Sizes = () => (
   <>
+    <IconButton icon={<Icon />} onClick={() => { }} size="tiny" />
     <IconButton icon={<Icon />} onClick={() => { }} size="small" />
-    <IconButton icon={<Icon />} onClick={() => { }} size="medium" />
-    <IconButton icon={<Icon />} onClick={() => { }} size="large" />
+    <IconButton icon={<Icon size={18} />} onClick={() => { }} size="medium" />
+    <IconButton icon={<Icon size={24} />} onClick={() => { }} size="large" />
+    <IconButton icon={<Icon size={32} />} onClick={() => { }} size="huge" />
   </>
 );
