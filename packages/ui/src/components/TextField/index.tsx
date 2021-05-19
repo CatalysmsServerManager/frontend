@@ -3,6 +3,9 @@ import { Container, LabelContainer, Label, InputContainer, Input, ErrorContainer
 import { FieldProps } from 'components';
 import { useController } from 'react-hook-form';
 
+// TODO: Add pretab and posttab [http]
+// add hint (e.g. for required / optional)
+
 export const TextField: FC<FieldProps> = ({
   control,
   labelText,
@@ -11,7 +14,7 @@ export const TextField: FC<FieldProps> = ({
   error,
   icon,
   readOnly,
-  required = false,
+  hint,
   loading = false
 }) => {
   const [showError, setShowError] = useState(false);
@@ -33,7 +36,7 @@ export const TextField: FC<FieldProps> = ({
       <LabelContainer>
         <Label htmlFor={name} showError={error ? true : false}>
           {labelText}
-          {required && '*'}
+          {hint}
         </Label>
       </LabelContainer>
       <InputContainer>
