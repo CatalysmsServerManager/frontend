@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     background-color: #3CCD6A;
     color: white;
   }
+  :root {
+    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+    box-sizing: border-box;
+  }
 
   html, body {
     width: 100%;
@@ -32,7 +36,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     overflow-x: hidden;
   }
 
-
   *, a, p, div, li, h1, h2, h3, h4, h5, h6, header, footer {
     font-weight: 400; /* Default size */
     font-family: 'Raleway', sans-serif;
@@ -43,6 +46,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     padding: 0;
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.gray};
+  }
+
+  p {
+    font-size: 1.2rem;
   }
 
   h2 {

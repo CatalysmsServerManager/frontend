@@ -25,7 +25,7 @@ export const SnackBarStyles = css<{ theme: ThemeType }>`
   }
   // success
   div[class^="SnackbarItem-variantSuccess-"], div[class*="SnackbarItem-variantSuccess-"] {
-    background-color: ${({ theme }): string => theme.colors.primary}!important;
+    background-color: ${({ theme }): string => theme.colors.success}!important;
     color: white;
   }
   // warning
