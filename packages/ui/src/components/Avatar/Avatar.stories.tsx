@@ -1,7 +1,9 @@
+// TODO: save images locally so when there is no network they are still loaded.
 import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
 import { Avatar, AvatarProps } from 'components';
 import { getInitials } from 'helpers';
+import placeholder01 from 'images/placeholder-01.jpeg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -20,14 +22,14 @@ export default {
 
 const Template: Story<AvatarProps> = (args) => <Avatar {...args} />;
 export const Basic = Template.bind({});
-Basic.args = { alt: 'Harry Potter', size: 'medium', src: 'https://avatars.githubusercontent.com/u/22315101?v=4' };
+Basic.args = { alt: 'Harry Potter', size: 'medium', src: placeholder01 };
 
 export const Sizes = () => (
   <>
-    <Avatar alt="Harry Potter" size="tiny" src="https://avatars.githubusercontent.com/u/22315101?v=4" />
-    <Avatar alt="Harry Potter" size="small" src="https://avatars.githubusercontent.com/u/22315101?v=4" />
-    <Avatar alt="Harry Potter" size="medium" src="https://avatars.githubusercontent.com/u/22315101?v=4" />
-    <Avatar alt="Harry Potter" size="large" src="https://avatars.githubusercontent.com/u/22315101?v=4" />
+    <Avatar alt="Harry Potter" size="tiny" src={placeholder01} />
+    <Avatar alt="Harry Potter" size="small" src={placeholder01} />
+    <Avatar alt="Harry Potter" size="medium" src={placeholder01} />
+    <Avatar alt="Harry Potter" size="large" src={placeholder01} />
   </>
 );
 
