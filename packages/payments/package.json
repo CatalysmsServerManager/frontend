@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^1.3.3",
+    "@csmm/ui": "^0.0.1",
     "@material-ui/core": "^4.11.3",
     "@popperjs/core": "^2.8.2",
     "@sentry/react": "^6.0.3",

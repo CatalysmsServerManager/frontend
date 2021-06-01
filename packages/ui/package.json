@@ -1,6 +1,6 @@
 {
   "name": "@csmm/ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "description": "CSMM Lib is a simple and customizable component library to build React apps faster within the csmm eco system",
   "author": "CSMM Team",

@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lerna": "lerna",
     "lint": "eslint . --cache --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
     "lint:fix": "eslint . --cache --fix --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
     "stylelint": "stylelint --reportInvalidScopeDisables --reportNeedlessDisables 'packages/**/*.{js,jsx,ts,tsx}'",
-    "typescript": "lerna run --no-bail --parallel typescript",
-    "build": "lerna run build"
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "typescript": "lerna run --no-bail --parallel typescript"
   },
   "license": "ISC",
   "devDependencies": {
