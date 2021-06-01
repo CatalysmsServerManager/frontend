@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import { ConfirmationModal } from 'modals';
 import { useModal, useOutsideAlerter } from 'hooks';
 import { createRef } from 'react';
+import { useSnackbar } from 'notistack';
 
 export default {
   title: 'Modals/Confirmation',
@@ -9,25 +10,28 @@ export default {
 } as Meta;
 
 export const Example: Story = () => {
-  const [ModalWrapper, openModal, closeModal] = useModal();
+  const { enqueueSnackbar } = useSnackbar();
+  const [Wrapper, open, close] = useModal();
   const ref = createRef<HTMLDivElement>();
-  useOutsideAlerter(ref, () => closeModal(ref));
+  // @ts-ignore
+  useOutsideAlerter(ref, () => close());
 
   return (
-    <div ref={ref}>
+    <div>
       {/* @ts-ignore */}
-      <ModalWrapper>
+      <Wrapper>
         <ConfirmationModal
-          action={() => { /* dummy */ }}
+          action={() => { enqueueSnackbar('The message has been accepted', { variant: 'success' }); }}
           actionText="Accept"
           // @ts-ignore
-          close={closeModal}
+          close={close}
           description="This is the description of the modal."
+          ref={ref}
           title="This is the title of the modal"
           type="info"
         />
-      </ModalWrapper>
-      <button onClick={openModal}>open modal</button>
+      </Wrapper>
+      <button onClick={open}>open modal</button>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import styled from 'styled';
 import { AlertVariants } from 'styled/types';
-import { lighten } from 'polished';
 
 export const Container = styled.div`
 
@@ -29,13 +28,14 @@ export const IconContainer = styled.div<{ type: AlertVariants }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  svg {
-    fill: ${({ theme, type }): string => theme.colors[type]};
-    stroke: ${({ theme, type }): string => theme.colors[type]};
-  }
-  background-color: ${({ theme, type }): string => lighten(0.2, theme.colors[type])};;
+  background-color: ${({ theme, type }): string => theme.colors[type]};
   padding: 8px;
   border-radius: 50%;
   width: fit-content;
   margin: 0 auto 2rem auto;
+
+  svg {
+    fill: white;
+    stroke: white;
+  }
 `;

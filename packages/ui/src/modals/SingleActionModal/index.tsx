@@ -63,6 +63,7 @@ export const SingleActionModal = forwardRef<HTMLDivElement, SingleActionModalPro
       <h2>{title}</h2>
       <p>{description}</p>
       <Button
+        color={type}
         isLoading={loading}
         onClick={confirmAction}
         size="large"

@@ -39,7 +39,7 @@ export const ConfirmationModal = forwardRef<HTMLDivElement, ConfirmationModalPro
       <Description>{description}</Description>
       <ActionContainer type={type}>
         <Cancel onClick={close}>Cancel</Cancel>
-        <Button isLoading={loading} onClick={confirmAction} size="large" text={actionText} />
+        <Button isLoading={loading} onClick={confirmAction} size="medium" text={actionText} />
       </ActionContainer>
     </Container>
   );
