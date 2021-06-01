@@ -21,10 +21,11 @@ export default {
 const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />;
 
 // Default Button
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   onClick: undefined,
-  size: 'medium'
+  size: 'medium',
+  icon: Icon
 };
 
 export const Sizes = () => (

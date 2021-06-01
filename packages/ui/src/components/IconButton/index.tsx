@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled';
-import { Size } from 'styled/types';
+import { Color, Size, Variant } from 'styled/types';
 
-const Container = styled.button<{ outline: boolean, size: Size }>`
+const Container = styled.button<{ outline: boolean, size: Size, variant: Variant }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,20 +26,14 @@ const Container = styled.button<{ outline: boolean, size: Size }>`
     switch (size) {
       case 'tiny':
         return `
-          width: 32px;
-          height: 32px;
           padding: 6px;
         `;
       case 'small':
         return `
-          width: 48px;
-          height: 48px;
           padding: 8px;
         `;
       case 'medium':
         return `
-          width: 60px;
-          height: 60px;
           padding: 12px;
         `;
       case 'large':
@@ -56,18 +50,26 @@ const Container = styled.button<{ outline: boolean, size: Size }>`
 
 export interface IconButtonProps {
   size?: Size;
-  variant?: 'primary' | 'secondary' | 'gradient';
+  variant?: Variant;
+  color?: Color;
   outline?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => any;
   icon: ReactNode;
 }
 
-export const IconButton: FC<IconButtonProps> = ({ variant = 'gradient', icon, size = 'medium', outline = false, onClick }) => {
+export const IconButton: FC<IconButtonProps> = ({
+  variant = 'default',
+  icon,
+  size = 'medium',
+  outline = false,
+  onClick
+}) => {
   return (
     <Container
       onClick={onClick}
       outline={outline}
       size={size}
+      variant={variant}
     >
       {icon}
     </Container>
