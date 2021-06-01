@@ -37,7 +37,7 @@ Default.args = {
 
 export const Examples = () => (
   <div>
-    <Button onClick={() => { }} text="White Button" white />
+    <Button isWhite onClick={() => { }} text="White Button" />
     <Button icon={<Icon size={20} />} onClick={() => { }} text="Icon Button" />
     <Button disabled onClick={() => { }} text="Disabled Button" />
     <Button isLoading onClick={() => { }} text="Loading Button" />
@@ -60,5 +60,18 @@ export const Sizes = () => (
     <Button onClick={() => { }} size="medium" text="Medium Button" />
     <Button onClick={() => { }} size="large" text="Large Button" />
     <Button onClick={() => { }} size="huge" text="Huge Button" />
+  </div>
+);
+
+export const Colors = () => (
+  <div>
+    <Button color="primary" onClick={() => { }} size="medium" text="Primary Button" />
+    <Button color="secondary" onClick={() => { }} size="medium" text="Secondary Button" />
+    <Button color="tertiary" onClick={() => { }} size="medium" text="Tertiary Button" />
+    <Button color="quaternary" onClick={() => { }} size="medium" text="Quaternary Button" />
+    <Button color="info" onClick={() => { }} size="medium" text="Info Button" />
+    <Button color="success" onClick={() => { }} size="medium" text="Success Button" />
+    <Button color="warning" onClick={() => { }} size="medium" text="Warning Button" />
+    <Button color="error" onClick={() => { }} size="medium" text="Error Button" />
   </div>
 );

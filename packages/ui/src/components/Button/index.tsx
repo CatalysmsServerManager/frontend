@@ -1,7 +1,7 @@
 import { FC, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { Spinner } from 'components';
 import { Container } from './style';
-import { Size, Variant } from 'styled/types';
+import { Color, Size, Variant, AlertVariants } from 'styled/types';
 
 export interface ButtonProps {
   disabled?: boolean;
@@ -11,8 +11,9 @@ export interface ButtonProps {
   size?: Size;
   type?: 'submit' | 'reset' | 'button';
   variant?: Variant;
+  color?: Color | AlertVariants;
   text: string;
-  white?: boolean;
+  isWhite?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -21,15 +22,16 @@ export const Button: FC<ButtonProps> = ({
   type = 'button',
   isLoading = false,
   text,
+  color = 'primary',
   disabled = false,
-  white = false,
+  isWhite = false,
   variant = 'default',
   onClick,
 }) => {
   function content(): JSX.Element {
     return (
       <>
-        { isLoading ? <Spinner /> : icon}
+        { isLoading ? <Spinner color={variant === 'outline' ? color : 'white'} size="small" /> : icon}
         <span>{text}</span>
       </>
     );
@@ -37,6 +39,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <Container
+      color={color}
       disabled={disabled}
       icon={!!icon}
       isLoading={isLoading}
@@ -44,7 +47,7 @@ export const Button: FC<ButtonProps> = ({
       outline={variant === 'outline'}
       size={size}
       type={type}
-      white={white}
+      white={isWhite}
     >
       {content()}
     </Container>

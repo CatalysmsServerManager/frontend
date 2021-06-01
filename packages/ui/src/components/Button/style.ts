@@ -1,11 +1,13 @@
+import { zeroLayout } from 'framer-motion/types/render/utils/state';
 import styled from 'styled';
-import { Size } from 'styled/types';
+import { Color, AlertVariants, Size } from 'styled/types';
 
 export const Container = styled.button<{
   size: Size;
   white: boolean,
   icon: boolean,
   isLoading: boolean,
+  color: Color | AlertVariants;
   outline: boolean
 }>`
   display: flex;
@@ -13,11 +15,21 @@ export const Container = styled.button<{
   justify-content: center;
   width: fit-content;
   border-radius: 2.5rem;
-  background: ${({ theme, outline, white }): string => outline ? 'transparent' : white ? 'white' : theme.gradient.primary};
+
+  background: ${({ theme, outline, white, color }): string => {
+    if (outline) return 'transparent;';
+    else if (white) return 'white;';
+    else return `${theme.colors[color]};`;
+  }};
+
   border: none;
   background-size: 200% auto;
   font-weight: 900;
-  border: 2px solid ${({ theme, outline, white }) => white ? 'white' : outline ? theme.colors.secondary : 'none'};
+  border: 2px solid ${({ theme, outline, white, color }) => {
+    if (white) return 'white;';
+    else if (outline) return `${theme.colors[color]};`;
+    else return 'none;';
+  }};
   cursor: pointer;
   line-height: 19px;
   letter-spacing: 0;
@@ -49,19 +61,18 @@ export const Container = styled.button<{
   svg {
     display: ${({ icon, isLoading }): string => icon || isLoading ? 'block' : 'none'};
     cursor: pointer;
-    fill: ${({ theme, outline, white }): string => outline ? theme.colors.secondary : white ? theme.colors.secondary : 'white'};
-    stroke: ${({ theme, outline, white }): string => outline ? white ? 'white' : theme.colors.secondary : white ? theme.colors.secondary : 'white'};
-
+    fill: ${({ color, theme, outline, white }): string => outline ? theme.colors[color] : white ? theme.colors[color] : 'white'};
+    stroke: ${({ color, theme, outline, white }): string => outline ? white ? 'white' : theme.colors[color] : white ? theme.colors[color] : 'white'};
   }
 
 
   span {
     margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
-    color: ${({ theme, outline, white }) => outline ? white ? 'white' : theme.colors.secondary : white ? theme.colors.secondary : 'white'};
+    color: ${({ color, theme, outline, white }) => outline ? white ? 'white' : theme.colors[color] : white ? 'black' : 'white'};
     font-size: 1.1rem;
     font-weight: 800;
     &:hover {
-      color: ${({ outline, theme, white }): string => white ? outline ? 'white' : theme.colors.secondary : outline ? theme.colors.secondary : 'white'};
+      color: ${({ color, outline, theme, white }): string => white ? outline ? 'white' : theme.colors[color] : outline ? theme.colors[color] : 'white'};
     }
   }
 
