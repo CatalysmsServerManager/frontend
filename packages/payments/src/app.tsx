@@ -56,7 +56,7 @@ const App: FC = () => {
         <ThemeProvider theme={DEFAULT}>
           <Sentry.ErrorBoundary fallback={ErrorFallback}>
             <Container>
-              <Loading fill='white' />
+              <Loading fill="white" />
             </Container>
             <GlobalStyle />
           </Sentry.ErrorBoundary>

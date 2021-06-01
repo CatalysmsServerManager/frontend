@@ -59,7 +59,7 @@ export const SubscriptionList: FC = () => {
 
   if (loading || !subscriptions) {
     return (
-      <ListWrapper center title='Active subscriptions'>
+      <ListWrapper center title="Active subscriptions">
         <Loading />
       </ListWrapper>
     );
@@ -67,14 +67,14 @@ export const SubscriptionList: FC = () => {
 
   if (!subscriptions.length) {
     return (
-      <ListWrapper center title='Active subscriptions' >
+      <ListWrapper center title="Active subscriptions" >
         <div>No subscriptions yet... <span>🧐</span> </div>
       </ListWrapper>
     );
   }
 
   return (
-    <ListWrapper title='Active subscriptions'>
+    <ListWrapper title="Active subscriptions">
       <Header>
         <h4>Product name</h4>
         <h4>Next Due date</h4>
@@ -82,7 +82,7 @@ export const SubscriptionList: FC = () => {
         <h4>Options</h4>
       </Header>
       <SimpleBar style={{ maxHeight: 540 }} >
-        <motion.ul animate='show' initial='hidden' variants={container}>
+        <motion.ul animate="show" initial="hidden" variants={container}>
           <SubscriptionContext.Provider value={providerSubscriptions}>
             {subscriptions.map((subscription) => <SubscriptionItem {...subscription} key={subscription.id} />)}
           </SubscriptionContext.Provider>

@@ -46,7 +46,7 @@ export const PaymentComplete: FC = () => {
         animate={{ scale: 1 }}
         initial={{ scale: 0 }}
       >
-        <img alt='checkmark' src={checkmark} />
+        <img alt="checkmark" src={checkmark} />
       </CheckMarkContainer>
       <h1>Thank you for your purchase!</h1>
       <p>Your payment was successful and your order is complete. We have sent a confirmation e-mail.</p>

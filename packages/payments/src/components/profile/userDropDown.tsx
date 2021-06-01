@@ -91,10 +91,10 @@ export const UserDropDown: FC = () => {
       animate={{ right: '10px' }}
       transition={{ type: 'spring', bounce: 0.6 }}
     >
-      <HeaderIcon><Settings fill='white' /></HeaderIcon>
+      <HeaderIcon><Settings fill="white" /></HeaderIcon>
       <h3>Settings</h3>
       <Content>
-        <Link to='/billing/profile'><Person pointer /> <p>Profile</p></Link>
+        <Link to="/billing/profile"><Person pointer /> <p>Profile</p></Link>
         <li onClick={signOut}><SignOut pointer /> <p>Sign out</p></li>
       </Content>
     </Container>

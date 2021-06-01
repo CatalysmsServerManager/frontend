@@ -49,7 +49,7 @@ export const Signin: FC = () => {
         transition={{ duration: 1, type: 'spring', bounce: 0.6 }}
       >
         <Title
-          id='title'
+          id="title"
           onTap={onTap}
           whileTap={{ scale: 0.95 }}
         >{c1} <br /> {c2}</Title>
@@ -60,10 +60,10 @@ export const Signin: FC = () => {
         transition={{ delay: .7, duration: .5 }}
         url={icon}
       >
-        <AbsoluteIcon alt='csmm icon' src={icon} />
+        <AbsoluteIcon alt="csmm icon" src={icon} />
         <header>
           <Icon
-            alt='csmm icon'
+            alt="csmm icon"
             animate={{ rotate: 360 }}
             drag
             dragConstraints={constraintsRef}
@@ -73,16 +73,16 @@ export const Signin: FC = () => {
           <h2>CSMM Billing</h2>
         </header>
         <ContentContainer>
-          <p className='text'>Setting up a server<br /> is now just a few <strong>clicks</strong> away!</p>
+          <p className="text">Setting up a server<br /> is now just a few <strong>clicks</strong> away!</p>
           <Button
             icon={<Steam />}
             isLoading={loading}
             onClick={signIn}>Sign in</Button>
         </ContentContainer>
         <SocialContainer>
-          <a href='https://discord.com/invite/EwyDdNA' rel='noreferrer noopener' target='_blank'> <Discord outline={false} pointer /></a>
-          <a href='mailto:info@csmm.app' rel='noreferrer noopener' target='_blank'><Mail pointer /></a>
-          <a href='https://github.com/CatalysmsServerManager/7-days-to-die-server-manager' rel='noreferrer noopener' target='_blank'><Github pointer /></a>
+          <a href="https://discord.com/invite/EwyDdNA" rel="noreferrer noopener" target="_blank"> <Discord outline={false} pointer /></a>
+          <a href="mailto:info@csmm.app" rel="noreferrer noopener" target="_blank"><Mail pointer /></a>
+          <a href="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager" rel="noreferrer noopener" target="_blank"><Github pointer /></a>
         </SocialContainer>
       </Right>
     </Container >

@@ -86,7 +86,7 @@ export const Products: React.FC = () => {
         :
         <Fragment>
           <ButtonContainer>
-            <p>By clicking 'Buy plan' you agree with our <a href='https://csmm.app/terms-of-service' rel='noopener noreferrer' target='_blank'>terms of service</a></p>
+            <p>By clicking 'Buy plan' you agree with our <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank">terms of service</a></p>
             <Button isLoading={buyLoading} onClick={buyProduct}>Buy plan</Button>
           </ButtonContainer>
         </Fragment>

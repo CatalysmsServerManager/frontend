@@ -20,7 +20,7 @@ export const ConnectionsWrapper: FC = () => {
     <Container>
       <h2>Connections</h2>
       <ConnectionsContainer>
-        <Connection icon={Discord} source='Discord' />
+        <Connection icon={Discord} source="Discord" />
       </ConnectionsContainer>
     </Container>
   );

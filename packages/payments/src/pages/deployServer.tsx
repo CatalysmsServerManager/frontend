@@ -88,13 +88,13 @@ export const DeployServer: FC = () => {
     <Container>
       <form onSubmit={handleSubmit(deploy)}>
         <h1>Deploy your server!</h1>
-        <p className='info'>
+        <p className="info">
           To automatically deploy your server we need your Steam API key.
-          Go to <a href='https://steamcommunity.com/dev/apikey' rel='noopener noreferrer' target='_blank' >Valve API key page</a>, register a key and copy the key to the field below. If you created a Valve API key in the past, use this existing key.
+          Go to <a href="https://steamcommunity.com/dev/apikey" rel="noopener noreferrer" target="_blank" >Valve API key page</a>, register a key and copy the key to the field below. If you created a Valve API key in the past, use this existing key.
         </p>
-        <TextField error={errors.steamApiKey} labelText='' name='steamApiKey' placeholder='Steam API key' ref={register} />
+        <TextField error={errors.steamApiKey} labelText="" name="steamApiKey" placeholder="Steam API key" ref={register} />
         <br />
-        <Button active={formState.isValid && formState.isDirty} isLoading={loading} type='submit'>deploy server</Button>
+        <Button active={formState.isValid && formState.isDirty} isLoading={loading} type="submit">deploy server</Button>
       </form>
     </Container>
   );

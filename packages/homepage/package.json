@@ -6,8 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:fix": "eslint --fix . -c .eslintrc --ext .ts,.tsx"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@testing-library/react": "^11.2.5",

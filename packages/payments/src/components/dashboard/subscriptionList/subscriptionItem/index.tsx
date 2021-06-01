@@ -3,7 +3,6 @@
 import { createRef, FC, useContext, useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Container, State } from './style';
-import { SUBSCRIPTION_STATES } from '../../../../enums';
 import { DateTime } from 'luxon';
 import { ISubscriptionWithProduct } from '../../../../context';
 import { Menu } from '../../../../icons';
@@ -54,12 +53,12 @@ export const SubscriptionItem: FC<ISubscriptionWithProduct> = ({ product, state,
       ref={containerRef}
       variants={item}
     >
-      <div className='p'>{product.name}</div>
-      <div className='p'>{DateTime.fromISO(paidUntil.toString()).toLocaleString()}</div>
-      <State className='p payment-state'>
+      <div className="p">{product.name}</div>
+      <div className="p">{DateTime.fromISO(paidUntil.toString()).toLocaleString()}</div>
+      <State className="p payment-state">
         <span className={state}>{state}</span>
       </State>
-      <div className='p'> <Menu fill={themeContext.s} onClick={() => setShow(!showSettings)} pointer ref={setReferenceElement} /></div>
+      <div className="p"> <Menu fill={themeContext.s} onClick={() => setShow(!showSettings)} pointer ref={setReferenceElement} /></div>
       {
         createPortal(
           <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>

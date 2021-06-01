@@ -105,10 +105,10 @@ export const MoreInformation: FC = () => {
         <h1>You are almost there!</h1>
         <p>To automatically create and personalize your account we need a few more details.</p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField error={errors.firstName} labelText='' name='firstName' placeholder='First name' ref={register} />
-          <TextField error={errors.lastName} labelText='' name='lastName' placeholder='Last name' ref={register} />
-          <TextField error={errors.email} labelText='' name='email' placeholder='Email address' ref={register} />
-          <Button active={formState.isValid && formState.isDirty} type='submit'>LETSSSSS GETTT ITTT!</Button>
+          <TextField error={errors.firstName} labelText="" name="firstName" placeholder="First name" ref={register} />
+          <TextField error={errors.lastName} labelText="" name="lastName" placeholder="Last name" ref={register} />
+          <TextField error={errors.email} labelText="" name="email" placeholder="Email address" ref={register} />
+          <Button active={formState.isValid && formState.isDirty} type="submit">LETSSSSS GETTT ITTT!</Button>
         </form>
       </ContentContainer>
     </Container>

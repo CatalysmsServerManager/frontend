@@ -48,7 +48,7 @@ export const DeployCard: FC = () => {
         loading={loading}
         onClick={hasDeploy ? startDeploy : undefined}
         textColor={hasDeploy ? '#fff' : themeContext.s}
-        title='Deployment:'
+        title="Deployment:"
       />
     </Fragment>
   );
