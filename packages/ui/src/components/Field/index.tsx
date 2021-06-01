@@ -11,5 +11,6 @@ export interface FieldProps {
   error?: FieldError;
   loading?: boolean;
   control: Control<any>;
+  hint?: string;
   required?: boolean;
 };
