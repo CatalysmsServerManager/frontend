@@ -1,7 +1,6 @@
 name: CI
 
-on:
-  push
+on: push
 
 jobs:
   build:
@@ -15,7 +14,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci 
-      - run: npm run lerna bootstrap
+      - run: npm config set legacy-peer-deps true && npm run lerna bootstrap
       - run: npm run build
       - run: npm run lint
