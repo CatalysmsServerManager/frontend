@@ -1,8 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
-import { Spinner } from 'components';
+import { Spinner, SpinnerProps } from 'components';
 
 const WrapperDecorator = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 5rem;
   border-radius: 1rem;
   background-color: ${({ theme }): string => theme.colors.background};
@@ -17,6 +20,14 @@ export default {
   decorators: [story => <WrapperDecorator>{story()}</WrapperDecorator>],
 } as Meta;
 
-const Template: Story = (args) => <Spinner {...args} />;
-export const Basic = Template.bind({});
-Basic.args = {};
+export const Sizes: Story<SpinnerProps> = () => {
+  return (
+    <>
+      <Spinner size="tiny" />
+      <Spinner size="small" />
+      <Spinner size="medium" />
+      <Spinner size="large" />
+      <Spinner size="huge" />
+    </>
+  );
+};
