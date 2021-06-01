@@ -1,4 +1,6 @@
-import { FC, useState } from 'react';
+// TODO: Improve accessibility
+
+import React, { FC, useEffect, useState } from 'react';
 import { CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
 import { AiOutlineCheck as Icon } from 'react-icons/ai';
 import { Control, useController } from 'react-hook-form';
@@ -25,7 +27,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   onChange
 }) => {
   const [isChecked, setChecked] = useState<boolean>(defaultValue);
-  const { field: { ref, ...inputProps } } = useController({ name, control, defaultValue: defaultValue });
+  const { field: checkbox } = useController({ name, control, defaultValue: defaultValue });
 
   function onCheck(e: React.MouseEvent<HTMLDivElement | HTMLLabelElement>): void {
     if (readOnly) {
@@ -41,41 +43,50 @@ export const Checkbox: FC<CheckboxProps> = ({
     }
   }
 
+  useEffect(() => {
+    checkbox.onChange(isChecked);
+  }, [isChecked]);
+
   if (loading) {
     return (
       <Container>
-        {
-          labelPosition === 'left' && labelText ? <Label onClick={onCheck}>{labelText}</Label> : ''
-        }
+        { /* CASE: Show labelText before <CheckBox /> */}
+        { labelPosition === 'left' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
         <CheckboxContainer className="placeholder" isChecked={isChecked} />
-        {
-          labelPosition === 'right' && labelText ? <Label onClick={onCheck}>{labelText}</Label> : ''
-        }
+        { /* CASE: show labelText after <CheckBox /> */}
+        { labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
       </Container>
     );
   }
 
   return (
     <Container>
-      {labelPosition === 'left' && labelText ? <Label onClick={onCheck}>{labelText}</Label> : null}
-      <CheckboxContainer isChecked={isChecked} onClick={onCheck} >
+      { /* CASE: Show labelText before <CheckBox /> */}
+      {labelPosition === 'left' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
+      <CheckboxContainer isChecked={isChecked} onClick={onCheck}>
         <CheckMarkContainer isChecked={isChecked}>
           <Icon size={18} />
         </CheckMarkContainer>
+
+        {
+          /*
+            ##########################################
+            Ignore this input field it is just here
+            for the controller, but it is not visible for the user.
+            ##########################################
+          */
+        }
         <Input
-          {...inputProps}
+          {...checkbox}
           checked={isChecked}
           id={name}
           name={name}
-          onChange={(): void => { }} /* required to make it controlled */
           readOnly={readOnly}
-          ref={ref}
           type="checkbox"
         />
       </CheckboxContainer>
-      {
-        labelPosition === 'right' && labelText ? <Label onClick={onCheck}>{labelText}</Label> : ''
-      }
+      { /* CASE: show labelText after <CheckBox /> */}
+      { labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
     </Container>
   );
 };

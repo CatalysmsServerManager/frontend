@@ -5,11 +5,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: 2.5rem;
 `;
 
-export const Label = styled.label`
-  margin-left: 25px;
+export const Label = styled.label<{ position: 'left' | 'right' }>`
+  margin: ${({ position }) => position === 'left' ? '0 2.5rem 0 0' : '0 0 0 2.5rem'};
   cursor: pointer;
+  font-size: 1.5rem;
   user-select: none;
 `;
 
@@ -26,7 +28,7 @@ export const CheckboxContainer = styled.div <{ isChecked?: boolean }>`
   height: 24px;
   align-items: center;
   justify-content: center;
-  border: 3px solid ${({ isChecked, theme }): string => isChecked ? theme.colors.primary : theme.colors.secondary};
+  border: 3px solid ${({ isChecked, theme }): string => theme.colors.primary};
   border-radius: 4px;
   background-color: ${({ isChecked, theme }): string => isChecked ? theme.colors.primary : 'transparent'};
   transition: box-shadow .125s linear, border-color .15s linear;
