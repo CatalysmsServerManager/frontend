@@ -55,10 +55,10 @@ export const GetStarted: FC<GetStartedProps> = ({
         <h2>{title2}</h2>
         <p>{description}</p>
         <Button
+          isWhite
           onClick={() => navigate(to)}
           size="huge"
           text="Get Started"
-          white
         />
       </Inner>
     </Container>

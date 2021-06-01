@@ -1,6 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import { ThemeType } from './theme';
 import { SnackBarStyles } from './Snackbar';
+
+const skeletonLoading = keyframes`
+  0% { transform: translateX(-100%); }
+  40%, 100% { transform: translateX(100%); }
+`;
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   *::selection {
@@ -56,6 +61,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     font-weight: 600;
   }
 
+  form {
+    display: block;
+  }
+
   input {
     margin: 0;
     padding: 10px 15px;
@@ -98,6 +107,25 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
       outline: 0;
       outline-style: none;
       -moz-outline-style: none;
+    }
+  }
+
+.placeholder {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    background-color: ${({ theme }): string => theme.colors.placeholder};
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient( 90deg, ${({ theme }): string => theme.colors.placeholderHighlight}d3 0, ${({ theme }): string => theme.colors.placeholderHighlight}4d 20%, ${({ theme }): string => theme.colors.placeholderHighlight}66 60%, ${({ theme }): string => theme.colors.placeholderHighlight}d3);
+      animation: ${skeletonLoading} 2.5s infinite ease-in-out;
     }
   }
 

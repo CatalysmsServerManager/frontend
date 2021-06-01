@@ -39,6 +39,7 @@ export const Container = styled.div<{
   span {
     margin-left: ${({ hasAvatar }) => hasAvatar ? '5px' : 0};
     font-weight: 600;
+    font-size: 1.225rem;
 
     ${({ theme, color, outline }) => {
     if (!outline) {
