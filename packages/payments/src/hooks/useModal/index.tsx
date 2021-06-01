@@ -38,6 +38,6 @@ export const useModal: any = () => {
     setOpen(false);
   }, [setOpen]);
 
-  const ModalWrapper = React.useCallback(({ children }) => (<Modal elementId='modal' isOpen={isOpen}>{children}</Modal>), [isOpen]);
+  const ModalWrapper = React.useCallback(({ children }) => (<Modal elementId="modal" isOpen={isOpen}>{children}</Modal>), [isOpen]);
   return [ModalWrapper, open, close];
 };

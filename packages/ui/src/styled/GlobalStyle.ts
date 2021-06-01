@@ -1,10 +1,20 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import { ThemeType } from './theme';
+import { SnackBarStyles } from './Snackbar';
+
+const skeletonLoading = keyframes`
+  0% { transform: translateX(-100%); }
+  40%, 100% { transform: translateX(100%); }
+`;
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   *::selection {
     background-color: #3CCD6A;
     color: white;
+  }
+  :root {
+    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+    box-sizing: border-box;
   }
 
   html, body {
@@ -31,7 +41,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     overflow-x: hidden;
   }
 
-
   *, a, p, div, li, h1, h2, h3, h4, h5, h6, header, footer {
     font-weight: 400; /* Default size */
     font-family: 'Raleway', sans-serif;
@@ -41,11 +50,19 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     user-select: none;
     padding: 0;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.gray};
+    color: ${({ theme }) => theme.colors.gray};
+  }
+
+  p {
+    font-size: 1.2rem;
   }
 
   h2 {
     font-weight: 600;
+  }
+
+  form {
+    display: block;
   }
 
   input {
@@ -93,40 +110,25 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     }
   }
 
-
-  // snackbar related
-  #notistack-snackbar {
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif
+.placeholder {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    background-color: ${({ theme }): string => theme.colors.placeholder};
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient( 90deg, ${({ theme }): string => theme.colors.placeholderHighlight}d3 0, ${({ theme }): string => theme.colors.placeholderHighlight}4d 20%, ${({ theme }): string => theme.colors.placeholderHighlight}66 60%, ${({ theme }): string => theme.colors.placeholderHighlight}d3);
+      animation: ${skeletonLoading} 2.5s infinite ease-in-out;
+    }
   }
 
-  .mui-snackbar {
-    color: white;
-  }
-
- .MuiSnackbarContent-root {
-    background-color: ${({ theme }): string => theme.primary};
-    color: white;
-  }
-
-  #notistack-snackbar {
-    color: white;
-  }
-
-  div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantWarning-'] {
-    background-color: ${({ theme }): string => theme.error}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantSuccess-'], div[class*='SnackbarItem-variantSuccess-'] {
-    background-color: ${({ theme }): string => theme.primary}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantError-'], div[class*='SnackbarItem-variantError-'] {
-    background-color: ${({ theme }): string => theme.error}!important;
-    color: white;
-  }
-  div[class^='SnackbarItem-variantInfo-'], div[class*='SnackbarItem-variantInfo-'] {
-    background-color: ${({ theme }): string => theme.complement}!important;
-    color: white;
-  }
+  // notistack snackbar styling
+  ${SnackBarStyles}
 `;

@@ -73,15 +73,15 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
       <ul>
         {
           subscriptionState === SUBSCRIPTION_STATES.OVERDUE || subscriptionState === SUBSCRIPTION_STATES.ACTIVE
-            ? <li onClick={openPayModal}><ShoppingCart fill='#fff' pointer /><span>Pay now</span></li>
+            ? <li onClick={openPayModal}><ShoppingCart fill="#fff" pointer /><span>Pay now</span></li>
             : null
         }
         {
           /* Shows cancel button when in active or overdue state. If in cancelled state, the cancel can be reversed.*/
           subscriptionState === SUBSCRIPTION_STATES.ACTIVE || subscriptionState === SUBSCRIPTION_STATES.OVERDUE
-            ? <li onClick={openCancelModal}><StyledPlus fill='#fff' pointer /><span>Cancel subscription</span></li>
+            ? <li onClick={openCancelModal}><StyledPlus fill="#fff" pointer /><span>Cancel subscription</span></li>
             : subscriptionState === SUBSCRIPTION_STATES.CANCELLED
-              ? <li onClick={reverseCancel}><Undo fill='#fff' pointer /><span>Reverse cancellation</span></li>
+              ? <li onClick={reverseCancel}><Undo fill="#fff" pointer /><span>Reverse cancellation</span></li>
               : null
         }
         {
@@ -89,7 +89,7 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
           pterodactylId
             ?
             <li>
-              <a href={`https://panel.csmm.fun/server/${pterodactylId}`} rel='noopener noreferrer' target='_blank'><Link fill='#fff' pointer />
+              <a href={`https://panel.csmm.fun/server/${pterodactylId}`} rel="noopener noreferrer" target="_blank"><Link fill="#fff" pointer />
                 <span>Go to panel</span>
               </a >
             </li >
@@ -101,13 +101,13 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
       < CancelModalWrapper >
         <ConfirmationModal
           action={cancel}
-          actionText='Confirm'
+          actionText="Confirm"
           close={closeCancelModal}
-          description='Are you sure you want to cancel this subscription? This will result in shutting down your server and losing your data when the next due date is reached.'
+          description="Are you sure you want to cancel this subscription? This will result in shutting down your server and losing your data when the next due date is reached."
           icon={AlertTriangle}
           ref={wrapperRef}
-          title='Cancel subscription'
-          type='danger'
+          title="Cancel subscription"
+          type="danger"
         />
       </CancelModalWrapper >
 
@@ -115,13 +115,13 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
       < PayModalWrapper >
         <ConfirmationModal
           action={pay}
-          actionText='Pay now'
+          actionText="Pay now"
           close={closePayModal}
-          description='Are you sure you want to pay for this subscription? By clicking pay now you will be redirected to the payment provider.'
+          description="Are you sure you want to pay for this subscription? By clicking pay now you will be redirected to the payment provider."
           icon={AlertTriangle}
           ref={wrapperRef}
-          title='Pay for current subscription'
-          type='info'
+          title="Pay for current subscription"
+          type="info"
         />
       </PayModalWrapper >
     </Container >

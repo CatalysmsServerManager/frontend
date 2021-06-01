@@ -4,3 +4,4 @@ export { useOutsideAlerter } from './useOutsideAlerter';
 export { useDebounce } from './useDebounce';
 export { useOnScreen } from './useOnScreen';
 export { useLocalStorage } from './useLocalStorage';
+export { useTheme } from './useTheme';

@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  id           String         @id @default(uuid())
+  createdAt    DateTime       @default(now())
+  name         String         @unique
+  description  String
+  price        Int
+  egg          Int
+  envVars      Json
+  panel        Boolean
+  Subscription Subscription[]
+}
+
+model Subscription {
+  id                  String   @id @default(uuid())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  product             Product  @relation(fields: [productId], references: [id])
+  user                User     @relation(fields: [userId], references: [id])
+  productId           String
+  userId              String
+  mandateId           String?  @unique
+  pterodactylId       Int?     @unique
+  pterodactylRemoteId String?  @unique
+  state               String   @default("init")
+  paidUntil           DateTime @default(now())
+  extraFields         String   @default("{}")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  email         String?        @unique
+  discordId     String?        @unique
+  steamId       String         @unique
+  mollieId      String?        @unique
+  pterodactylId Int?           @unique
+  name          String
+  firstName     String?
+  lastName      String?
+  Subscription  Subscription[]
+}

@@ -25,7 +25,7 @@ export const Navbar: FC = () => {
       transition={{ duration: 1, type: 'spring', bounce: 0.6 }}
     >
       <motion.img
-        alt='CSMM icon'
+        alt="CSMM icon"
         animate={{ rotate: 360 }}
         onClick={() => navigate('/billing/dashboard')}
         src={icon}
@@ -33,10 +33,10 @@ export const Navbar: FC = () => {
       />
       <h2 onClick={() => navigate('/billing/dashboard')}>CSMM Billing</h2>
       <Nav>
-        <NavLink to='/billing/dashboard'><Dashboard /><p>Dashboard</p></NavLink>
-        <NavLink to='/billing/products'><ShoppingCart /><p>Product plans</p></NavLink>
-        <a href='https://panel.csmm.fun' rel='noopener noreferrer' target='_blank'><Server /><p>Control panel</p></a>
-        <a href='https://docs.csmm.app' rel='noopener noreferrer' target='_blank'><Book /><p>Documentation</p></a>
+        <NavLink to="/billing/dashboard"><Dashboard /><p>Dashboard</p></NavLink>
+        <NavLink to="/billing/products"><ShoppingCart /><p>Product plans</p></NavLink>
+        <a href="https://panel.csmm.fun" rel="noopener noreferrer" target="_blank"><Server /><p>Control panel</p></a>
+        <a href="https://docs.csmm.app" rel="noopener noreferrer" target="_blank"><Book /><p>Documentation</p></a>
       </Nav>
 
       { !userData?.discordId ?

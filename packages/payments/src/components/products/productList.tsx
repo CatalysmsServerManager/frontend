@@ -102,8 +102,8 @@ export const ProductList: FC<IProps> = ({ loading, setLoading, selected, setSele
         {products.map((product, index) => index === selected ? <p>{product.description}</p> : '')}
       </InfoContainer>
       <Container
-        animate='show'
-        initial='hidden'
+        animate="show"
+        initial="hidden"
         variants={container}
       >
         {

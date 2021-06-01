@@ -1,30 +1,66 @@
-import { FC } from 'react';
+// credits: https://codesandbox.io/s/framer-motion-keyframes-ekks8?fontsize=14&module=/src/Example.tsx&file=/src/Example.tsx:136-445
 
-/* https://github.com/SamHerbert/SVG-Loaders */
-export const Spinner: FC = () => {
-  return (
-    <svg
-      height="24"
-      stroke="#fff"
-      viewBox="0 0 38 38"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g fill="none" fillRule="evenodd">
-        <g strokeWidth="2" transform="translate(1 1)" >
-          <circle cx="18" cy="18" r="18" strokeOpacity=".5" />
-          <path d="M36 18c0-9.94-8.06-18-18-18">
-            <animateTransform
-              attributeName="transform"
-              dur="1s"
-              from="0 18 18"
-              repeatCount="indefinite"
-              to="360 18 18"
-              type="rotate"
-            />
-          </path>
-        </g>
-      </g>
-    </svg>
-  );
+import { FC } from 'react';
+import styled from 'styled';
+import { Color, Size, AlertVariants } from 'styled/types';
+import { motion } from 'framer-motion';
+
+const Container = styled(motion.div) <{ color: Color | AlertVariants | 'white', size: Size }>`
+  width: 15px;
+  height: 15px;
+  background-color: ${({ theme, color }) => theme.colors[color]};
+
+  ${({ size }) => {
+    switch (size) {
+      case 'tiny':
+        return `
+          width: 4px;
+          height: 4px;
+        `;
+      case 'small':
+        return `
+          width: 6px;
+          height: 6px;
+        `;
+      case 'medium':
+        return `
+          width: 8px;
+          height: 8px;
+        `;
+      case 'large':
+        return `
+          width: 13px;
+          height: 13px;
+        `;
+      case 'huge':
+        return `
+          width: 20px;
+          height: 20px;
+        `;
+    }
+  }}
+`;
+
+export interface SpinnerProps {
+  size: Size;
+  color?: Color | AlertVariants | 'white';
 };
+
+export const Spinner: FC<SpinnerProps> = ({ size, color = 'white' }) => (
+  <Container
+    animate={{
+      scale: [1, 2, 2, 1, 1],
+      rotate: [0, 0, 270, 270, 0],
+      borderRadius: ['20%', '20%', '50%', '50%', '20%']
+    }}
+    color={color}
+    size={size}
+    transition={{
+      duration: 1.5,
+      ease: 'easeInOut',
+      times: [0, 0.2, 0.5, 0.8, 1],
+      loop: Infinity,
+      repeatDelay: 0
+    }}
+  />
+);

@@ -1,6 +1,7 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
 import { IconButton, IconButtonProps } from 'components';
+import { AiFillAccountBook as Icon } from 'react-icons/ai';
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,17 +21,19 @@ export default {
 const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />;
 
 // Default Button
-export const Basic = Template.bind({});
-Basic.args = {
-  glyph: 'dashboard',
+export const Default = Template.bind({});
+Default.args = {
   onClick: undefined,
-  size: 'medium'
+  size: 'medium',
+  icon: Icon
 };
 
 export const Sizes = () => (
   <>
-    <IconButton glyph="dashboard" onClick={() => { }} size="small" />
-    <IconButton glyph="dashboard" onClick={() => { }} size="medium" />
-    <IconButton glyph="dashboard" onClick={() => { }} size="large" />
+    <IconButton icon={<Icon />} onClick={() => { }} size="tiny" />
+    <IconButton icon={<Icon />} onClick={() => { }} size="small" />
+    <IconButton icon={<Icon size={18} />} onClick={() => { }} size="medium" />
+    <IconButton icon={<Icon size={24} />} onClick={() => { }} size="large" />
+    <IconButton icon={<Icon size={32} />} onClick={() => { }} size="huge" />
   </>
 );

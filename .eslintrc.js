@@ -2,6 +2,12 @@ module.exports = {
   'extends': [
     'react-app'
   ],
+  'ignorePatterns': [
+    'packages/**/node_modules',
+    'packages/**/dist',
+    'packages/**/build',
+    'packages/ui/storybook-static'
+  ],
   'rules': {
     'eol-last': 2,
     'eqeqeq': 2,
@@ -29,6 +35,7 @@ module.exports = {
     ],
     'no-return-assign': 2,
     'no-trailing-spaces': 2,
+    'no-useless-escape': 0,
     'no-var': 2,
     'no-void': 2,
     'semi': [

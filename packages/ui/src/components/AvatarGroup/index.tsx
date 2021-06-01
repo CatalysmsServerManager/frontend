@@ -27,9 +27,9 @@ export const AvatarGroup: FC<AvatarGroupProps> = ({ max = 3, children }) => {
     return <Container></Container>;
   }
 
-  function getFirstThree() {
+  function getUntilMax() {
     const elements = [];
-    for (let i = 0; i < children.length && i < 3; i++) {
+    for (let i = 0; i < children.length && i < max; i++) {
       elements.push(children[i]);
     }
     return elements;
@@ -45,7 +45,7 @@ export const AvatarGroup: FC<AvatarGroupProps> = ({ max = 3, children }) => {
 
   return (
     <Container>
-      {getFirstThree()}
+      {getUntilMax()}
       {getExtra()}
     </Container>
   );

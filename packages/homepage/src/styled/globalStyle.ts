@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeType } from '@csmm/lib/styled/theme';
+import { ThemeType } from '@csmm/ui/index';
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   *::selection{
     color: white;
-    background-color: ${({ theme }): string => theme.primary};
+    background-color: ${({ theme }): string => theme.colors.primary};
   }
   :root{
     font-size: 62.5%; /* (62.5/100) * 16px = 10px */
@@ -29,10 +29,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     letter-spacing: .5px;
     line-height: 1.5;
     transition: 0.4s color;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.colors.text};
   }
   h1,h2,h3,h4,h5,h6 {
-    color: ${({ theme }): string => theme.secondary};
+    color: ${({ theme }): string => theme.colors.secondary};
   }
   h1 { font-size: 4rem; }
   h2 { font-size: 2.5rem; }
@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     font-weight: 900;
     text-decoration: none;
     font-size: 1.225rem;
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.colors.secondary};
     cursor: pointer;
   }
 
@@ -56,7 +56,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   }
 
   li::marker{
-    color: ${({ theme }): string => theme.primary};
+    color: ${({ theme }): string => theme.colors.primary};
   }
   button, button:active, button:focus button::-moz-focus-inner, a,
   input[type="reset"]::-moz-focus-inner,

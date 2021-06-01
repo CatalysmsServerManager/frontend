@@ -33,8 +33,8 @@ export const PaymentStateCard: FC = () => {
       description={isOverdue ? 'overdue' : 'paid'}
       loading={loading}
       onClick={isOverdue ? pay : undefined}
-      textColor='#fff'
-      title='Payment state: '
+      textColor="#fff"
+      title="Payment state: "
     />
   );
 };

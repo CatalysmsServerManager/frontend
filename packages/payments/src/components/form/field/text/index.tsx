@@ -11,7 +11,7 @@ export const TextField = forwardRef<HTMLInputElement, IInputDefaultProps>(({ lab
         <LabelContainer>
           <Label htmlFor={name} showError={error ? true : false}>{labelText}</Label>
         </LabelContainer>
-        <InputContainer className='placeholder' />
+        <InputContainer className="placeholder" />
       </Container>
     );
   }
@@ -24,8 +24,8 @@ export const TextField = forwardRef<HTMLInputElement, IInputDefaultProps>(({ lab
       <InputContainer>
         {icon ? icon : null}
         <Input
-          autoCapitalize='off'
-          autoComplete='off'
+          autoCapitalize="off"
+          autoComplete="off"
           hasError={error ? true : false}
           hasIcon={icon ? true : false}
           id={name}
@@ -35,7 +35,7 @@ export const TextField = forwardRef<HTMLInputElement, IInputDefaultProps>(({ lab
           placeholder={placeholder}
           readOnly={readOnly}
           ref={ref}
-          type='search' /* required to disable auto-complete*/
+          type="search" /* required to disable auto-complete*/
         />
       </InputContainer>
       {

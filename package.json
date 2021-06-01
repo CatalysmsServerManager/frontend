@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lerna": "lerna",
     "lint": "eslint . --cache --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
+    "lint:fix": "eslint . --cache --fix --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
     "stylelint": "stylelint --reportInvalidScopeDisables --reportNeedlessDisables 'packages/**/*.{js,jsx,ts,tsx}'",
-    "typescript": "lerna run --no-bail --parallel typescript",
-    "build": "lerna run build"
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "typescript": "lerna run --no-bail --parallel typescript"
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/react-dom": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
     "babel-eslint": "^10.1.0",
@@ -27,5 +29,10 @@
     "stylelint-config-recommended": "^4.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "notistack": "^1.0.7",
+    "react-hook-form": "^7.6.0"
   }
 }

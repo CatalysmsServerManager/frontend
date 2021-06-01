@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
 import { Card, CardProps, Empty } from 'components';
 
@@ -20,8 +20,8 @@ export default {
 const Template: Story<CardProps> = (args) => <Card {...args}>example card</Card>;
 
 // Default Button
-export const Basic = Template.bind({});
-Basic.args = { size: 'medium' };
+export const Default = Template.bind({});
+Default.args = { size: 'medium' };
 
 export const Sizes = () => (
   <>

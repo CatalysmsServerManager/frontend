@@ -1,6 +1,10 @@
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react';
 import styled from 'styled';
 import { Avatar, AvatarGroup } from 'components';
+
+import placeholder01 from 'images/placeholder-01.jpeg';
+import placeholder02 from 'images/placeholder-02.jpeg';
+import placeholder03 from 'images/placeholder-03.jpeg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -17,11 +21,21 @@ export default {
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
 
-export const Default = () => (
+export const MoreThanMax = () => (
   <AvatarGroup>
-    <Avatar alt="Harry Potter" size="medium" src="https://avatars.githubusercontent.com/u/22315101?v=4" />
-    <Avatar alt="Ron Weasley" size="medium" src="https://avatars.githubusercontent.com/u/35073890?v=4" />
-    <Avatar alt="Hermione Granger" size="medium" src="https://avatars.githubusercontent.com/u/110087?v=4" />
-    <Avatar alt="Tom Riddle" size="medium" src="https://avatars.githubusercontent.com/u/110087?v=4" />
+    <Avatar alt="Harry Potter" size="medium" src={placeholder01} />
+    <Avatar alt="Ron Weasley" size="medium" src={placeholder02} />
+    <Avatar alt="Hermione Granger" size="medium" src={placeholder03} />
+    <Avatar alt="Tom Riddle" size="medium" src={placeholder03} />
+    <Avatar alt="Tom Riddle" size="medium" src={placeholder03} />
+  </AvatarGroup>
+);
+
+export const LessThanMax = () => (
+  <AvatarGroup max={5}>
+    <Avatar alt="Harry Potter" size="medium" src={placeholder01} />
+    <Avatar alt="Ron Weasley" size="medium" src={placeholder02} />
+    <Avatar alt="Hermione Granger" size="medium" src={placeholder03} />
+    <Avatar alt="Tom Riddle" size="medium" src={placeholder02} />
   </AvatarGroup>
 );

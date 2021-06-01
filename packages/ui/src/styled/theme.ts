@@ -1,16 +1,23 @@
+import baseStyled, { ThemedStyledInterface } from 'styled-components';
+
 export const theme = {
   colors: {
-    primary: '#f6d365',
+    primary: '#00cd6a',
     secondary: '#fda085',
     tertiary: '#be81f6',
     quaternary: '#65f6e8',
+
+    placeholder: '#f5f5f5',
+    placeholderHighlight: '#ffffff',
+
+    white: '#ffffff',
     gray: '#d3d3d3',
     background: '#e8edf5',
     shadow: 'rgb(0 0 0 / 10%) 0px 15px 45px 0px',
     text: '#d5dae0',
 
-    info: '#f6d365',
-    success: '#2ea26f',
+    info: '#1E92F4',
+    success: '#00cd6a',
     warning: '#f57c00',
     error: '#FF4252',
 
@@ -36,3 +43,4 @@ export const theme = {
 };
 
 export type ThemeType = typeof theme;
+export const styled = baseStyled as ThemedStyledInterface<ThemeType>;

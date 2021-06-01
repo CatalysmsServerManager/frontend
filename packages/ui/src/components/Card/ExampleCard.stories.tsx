@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react';
 import { Card } from '.';
 import styled from 'styled';
 import { Button } from 'components';
@@ -66,8 +66,8 @@ export const Example = () => (
           <h2>Drink milk, it is good for you!</h2>
           <p>Reduced Fat and Low Fat Milk (also know as 2% or 1% milk) have the same amount of calcium, protein, vitamins and minerals as whole milk, just less fat and fewer calories.</p>
           <ButtonContainer>
-            <Button onClick={() => { }} text="Drink Fat Milk" white />
-            <Button onClick={() => { }} text="Drink Low Fat Milk" variant="outline" white />
+            <Button isWhite onClick={() => { }} text="Drink Fat Milk" />
+            <Button isWhite onClick={() => { }} text="Drink Low Fat Milk" variant="outline" />
           </ButtonContainer>
         </div>
         <ImageContainer>

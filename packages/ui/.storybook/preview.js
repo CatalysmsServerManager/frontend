@@ -1,14 +1,17 @@
 import { ThemeProvider } from 'styled-components';
-import { theme, GlobalStyle } from '../src/styled';
+import { theme } from '../src/styled/theme';
+import { GlobalStyle } from '../src/styled/GlobalStyle';
 import { MemoryRouter } from 'react-router-dom';
-import { viewports } from './viewports';
+import { SnackbarProvider } from '../src/helpers/getSnackbarProvider';
 
 export const decorators = [
   Story => (
     <ThemeProvider theme={theme}>
       <MemoryRouter initialEntries={['/']}>
-        <GlobalStyle />
-        <Story />
+        <SnackbarProvider>
+          <GlobalStyle />
+          <Story />
+        </SnackbarProvider>
       </MemoryRouter>
     </ThemeProvider>
   )

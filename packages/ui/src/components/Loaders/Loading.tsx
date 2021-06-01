@@ -1,14 +1,13 @@
-import { FC, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { ThemeType } from 'styled/theme';
+import { useTheme } from 'hooks';
+import { FC } from 'react';
 
 export interface LoadingProps {
   fill?: string;
 }
 
 export const Loading: FC<LoadingProps> = ({ fill = undefined }) => {
-  const themeContext = useContext<ThemeType>(ThemeContext);
-  if (!fill) { fill = themeContext.colors.primary; }
+  const theme = useTheme();
+  if (!fill) { fill = theme.colors.primary; }
   return (
     <svg
       fill={fill}

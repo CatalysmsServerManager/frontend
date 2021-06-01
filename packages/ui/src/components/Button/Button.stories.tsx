@@ -1,6 +1,7 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled';
-import { Button, ButtonProps, Icon as I } from 'components';
+import { Button, ButtonProps } from 'components';
+import { AiFillCloud as Icon } from 'react-icons/ai';
 
 const Wrapper = styled.div`
   display: grid;
@@ -26,8 +27,8 @@ export default {
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 // Default Button
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   text: 'Basic Button',
   size: 'medium',
   type: 'button',
@@ -35,18 +36,17 @@ Basic.args = {
 };
 
 export const Examples = () => (
-  <>
-    <Button onClick={() => { }} text="White Button" white />
-    <Button icon={<I glyph="dashboard" />} onClick={() => { }} text="Icon Button" />
+  <div>
+    <Button isWhite onClick={() => { }} text="White Button" />
+    <Button icon={<Icon size={20} />} onClick={() => { }} text="Icon Button" />
     <Button disabled onClick={() => { }} text="Disabled Button" />
     <Button isLoading onClick={() => { }} text="Loading Button" />
-
     {/* Outline */}
     <Button onClick={() => { }} text="Outlined Button" variant="outline" />
-    <Button icon={<I glyph="dashboard" />} onClick={() => { }} text="Icon Button" variant="outline" />
+    <Button icon={<Icon size={20} />} onClick={() => { }} text="Icon Button" variant="outline" />
     <Button disabled onClick={() => { }} text="Disabled Button" variant="outline" />
     <Button isLoading onClick={() => { }} text="Loading Button" variant="outline" />
-  </>
+  </div >
 );
 
 /* ===================================
@@ -55,8 +55,23 @@ export const Examples = () => (
 */
 export const Sizes = () => (
   <div>
+    <Button onClick={() => { }} size="tiny" text="Tiny Button" />
     <Button onClick={() => { }} size="small" text="Small Button" />
     <Button onClick={() => { }} size="medium" text="Medium Button" />
     <Button onClick={() => { }} size="large" text="Large Button" />
+    <Button onClick={() => { }} size="huge" text="Huge Button" />
+  </div>
+);
+
+export const Colors = () => (
+  <div>
+    <Button color="primary" onClick={() => { }} size="medium" text="Primary Button" />
+    <Button color="secondary" onClick={() => { }} size="medium" text="Secondary Button" />
+    <Button color="tertiary" onClick={() => { }} size="medium" text="Tertiary Button" />
+    <Button color="quaternary" onClick={() => { }} size="medium" text="Quaternary Button" />
+    <Button color="info" onClick={() => { }} size="medium" text="Info Button" />
+    <Button color="success" onClick={() => { }} size="medium" text="Success Button" />
+    <Button color="warning" onClick={() => { }} size="medium" text="Warning Button" />
+    <Button color="error" onClick={() => { }} size="medium" text="Error Button" />
   </div>
 );

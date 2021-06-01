@@ -1,17 +1,19 @@
 import { FC, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { Spinner } from 'components';
-import { Small, Medium, Large } from './style';
+import { Container } from './style';
+import { Color, Size, Variant, AlertVariants } from 'styled/types';
 
 export interface ButtonProps {
   disabled?: boolean;
   onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => any;
   isLoading?: boolean;
   icon?: ReactNode;
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
   type?: 'submit' | 'reset' | 'button';
-  variant?: 'default' | 'outline';
+  variant?: Variant;
+  color?: Color | AlertVariants;
   text: string;
-  white?: boolean;
+  isWhite?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -20,62 +22,34 @@ export const Button: FC<ButtonProps> = ({
   type = 'button',
   isLoading = false,
   text,
+  color = 'primary',
   disabled = false,
-  white = false,
+  isWhite = false,
   variant = 'default',
   onClick,
 }) => {
   function content(): JSX.Element {
     return (
       <>
-        { isLoading ? <Spinner /> : icon}
+        { isLoading ? <Spinner color={variant === 'outline' ? color : 'white'} size="small" /> : icon}
         <span>{text}</span>
       </>
     );
   }
 
-  switch (size) {
-    case 'small':
-      return (
-        <Small
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Small>
-      );
-    case 'medium':
-      return (
-        <Medium
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Medium>
-      );
-    case 'large':
-      return (
-        <Large
-          disabled={disabled}
-          icon={!!icon}
-          isLoading={isLoading}
-          onClick={disabled ? undefined : onClick}
-          outline={variant === 'outline'}
-          type={type}
-          white={white}
-        >
-          {content()}
-        </Large>
-      );
-  };
+  return (
+    <Container
+      color={color}
+      disabled={disabled}
+      icon={!!icon}
+      isLoading={isLoading}
+      onClick={disabled ? undefined : onClick}
+      outline={variant === 'outline'}
+      size={size}
+      type={type}
+      white={isWhite}
+    >
+      {content()}
+    </Container>
+  );
 };
