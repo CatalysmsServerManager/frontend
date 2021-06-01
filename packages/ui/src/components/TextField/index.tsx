@@ -3,9 +3,6 @@ import { Container, LabelContainer, Label, InputContainer, Input, ErrorContainer
 import { FieldProps } from 'components';
 import { useController } from 'react-hook-form';
 
-// TODO: Add pretab and posttab [http]
-// add hint (e.g. for required / optional)
-
 export const TextField: FC<FieldProps> = ({
   control,
   labelText,
