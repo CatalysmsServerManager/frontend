@@ -2,8 +2,8 @@
   "name": "@csmm/ui",
   "version": "0.0.0",
   "private": false,
-  "author": "CSMM Team",
   "description": "CSMM Lib is a simple and customizable component library to build React apps faster within the csmm eco system",
+  "author": "CSMM Team",
   "main": "build/src/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -12,7 +12,7 @@
     "copypackage": "cp -rf package.json build",
     "start": "start-storybook -p 6006 --no-manager-cache",
     "build:storybook": "build-storybook",
-    "lint:package": "sort-package-json"
+    "sort-package": "sort-package-json"
   },
   "dependencies": {
     "framer-motion": "^4.0.3",

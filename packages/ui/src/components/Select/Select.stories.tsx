@@ -11,9 +11,7 @@ export const SelectComponent: Story<SelectProps> = () => {
   type FormFields = { carBrand: string }
   const { control, handleSubmit } = useForm<FormFields>();
 
-  const submit: SubmitHandler<FormFields> = ({ carBrand }) => {
-    console.log('about to submit', carBrand);
-  };
+  const submit: SubmitHandler<FormFields> = ({ carBrand }) => { };
 
   return (
     <form onSubmit={handleSubmit(submit)}>

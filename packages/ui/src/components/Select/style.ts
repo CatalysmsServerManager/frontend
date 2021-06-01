@@ -1,5 +1,4 @@
 import styled from 'styled';
-import { lighten } from 'polished';
 import { theme } from 'styled/theme';
 
 export const Container = styled.div`

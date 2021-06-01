@@ -1,4 +1,3 @@
-import { zeroLayout } from 'framer-motion/types/render/utils/state';
 import styled from 'styled';
 import { Color, AlertVariants, Size } from 'styled/types';
 

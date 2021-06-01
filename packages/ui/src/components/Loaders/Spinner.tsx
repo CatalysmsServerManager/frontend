@@ -5,7 +5,7 @@ import styled from 'styled';
 import { Color, Size, AlertVariants } from 'styled/types';
 import { motion } from 'framer-motion';
 
-const Container = styled(motion.div) <{ color: Color | AlertVariants, size: Size }>`
+const Container = styled(motion.div) <{ color: Color | AlertVariants | 'white', size: Size }>`
   width: 15px;
   height: 15px;
   background-color: ${({ theme, color }) => theme.colors[color]};

@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { SingleActionModal } from 'modals';
-import { useModal, useOutsideAlerter } from 'hooks';
+import { useModal } from 'hooks';
 import { createRef } from 'react';
 import { useSnackbar } from 'notistack';
 

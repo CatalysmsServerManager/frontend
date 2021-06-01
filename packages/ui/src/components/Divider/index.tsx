@@ -1,5 +1,3 @@
-// TODO: <Divider/>
-
 import { FC } from 'react';
 import styled from 'styled';
 
@@ -57,8 +55,6 @@ export interface DividerProps {
 }
 
 export const Divider: FC<DividerProps> = ({ label }) => {
-  console.log(label);
-
   return (
     <Container>
       <Line />
