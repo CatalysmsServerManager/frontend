@@ -1,9 +1,16 @@
 {
-  "extends": "../../tsconfig",
-  "include": ["src", "@types", "index.ts"],
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "build",
-    "declaration": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "composite": true,
+    "moduleResolution": "node"
   },
+  "references": [
+    {
+      "path": "../ui/tsconfig.json"
+    }
+  ],
+  "include": [
+    "src"
+  ]
 }

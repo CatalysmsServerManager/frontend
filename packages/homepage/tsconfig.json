@@ -1,13 +1,10 @@
 {
   "extends": "../../tsconfig",
-  "include": [
-    "src",
-    "@types",
-    "index.ts"
-  ],
   "compilerOptions": {
-    "outDir": "build",
-    "declaration": true,
-    "baseUrl": "./src"
-  }
+    "baseUrl": "./src",
+  },
+  "include": [
+    "src"
+  ]
 }
+

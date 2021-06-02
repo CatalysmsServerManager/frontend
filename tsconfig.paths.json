@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "paths": {
-      "@csmm/ui": ["./packages/ui"]
-    }
-  }
-}
