@@ -1,9 +1,8 @@
 import { FC, useState, useEffect, useMemo } from 'react';
-import { styled } from '@csmm/ui';
+import { Empty, styled, Loading } from '@csmm/ui';
 import { httpService } from '../../../services';
 import { SubscriptionItem } from './subscriptionItem';
 import { ListWrapper } from './ListWrapper';
-import { Loading } from '../../loaders/Loading';
 import { ISubscriptionWithProduct, SubscriptionContext } from '../../../context';
 import { motion } from 'framer-motion';
 import SimpleBar from 'simplebar-react';
@@ -37,9 +36,7 @@ const Header = styled.div`
 
 export const SubscriptionList: FC = () => {
   const [subscriptions, setSubscriptions] = useState<ISubscriptionWithProduct[]>();
-  // memo
   const providerSubscriptions = useMemo(() => ({ subscriptions, setSubscriptions }), [subscriptions, setSubscriptions]);
-
   const [loading, setLoading] = useState(true);
 
   async function getSubscriptions() {
@@ -59,7 +56,7 @@ export const SubscriptionList: FC = () => {
 
   if (loading || !subscriptions) {
     return (
-      <ListWrapper center title="Active subscriptions">
+      <ListWrapper center title="Your subscriptions">
         <Loading />
       </ListWrapper>
     );
@@ -67,14 +64,14 @@ export const SubscriptionList: FC = () => {
 
   if (!subscriptions.length) {
     return (
-      <ListWrapper center title="Active subscriptions" >
-        <div>No subscriptions yet... <span>🧐</span> </div>
+      <ListWrapper center title="Your subscriptions" >
+        <Empty description="You have no subscriptions." />
       </ListWrapper>
     );
   }
 
   return (
-    <ListWrapper title="Active subscriptions">
+    <ListWrapper title="Your subscriptions">
       <Header>
         <h4>Product name</h4>
         <h4>Next Due date</h4>
