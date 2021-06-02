@@ -1,29 +1,21 @@
 import { FC, useContext } from 'react';
 import { motion } from 'framer-motion';
 import icon from '../../images/csmm-icon.svg';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { Container, DiscordContainer, Nav, Button, AlertContainer } from './style';
-import { routingService } from '../../services';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Container, Nav } from './style';
 import { UserContext } from '../../context';
-import { setRedirect } from '../../helpers';
+import { ConnectDiscord } from './ConnectDiscord';
 
 import {
   AiOutlineControl as ControlPanel,
   AiOutlineAppstore as Dashboard,
   AiOutlineShoppingCart as ShoppingCart,
   AiOutlineBook as Book,
-  AiOutlineFire as Connect
 } from 'react-icons/ai';
 
 export const Navbar: FC = () => {
   const { userData } = useContext(UserContext);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  function linkDiscord() {
-    setRedirect(location.pathname);
-    routingService.navigateExternal('/auth/discord');
-  };
 
   return (
     <Container
@@ -45,19 +37,10 @@ export const Navbar: FC = () => {
         <a href="https://panel.csmm.fun" rel="noopener noreferrer" target="_blank"><ControlPanel size={24} /><p>Control panel</p></a>
         <a href="https://docs.csmm.app" rel="noopener noreferrer" target="_blank"><Book size={24} /><p>Documentation</p></a>
       </Nav>
-
       {
         !userData?.discordId
         &&
-        <DiscordContainer
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <AlertContainer><Connect size={30} /></AlertContainer>
-          <h4>Connect Discord</h4>
-          <p>By connecting your discord you will receive a custom role in the official CSMM Discord server. </p>
-          <Button onClick={linkDiscord}>Connect it daddy</Button>
-        </DiscordContainer>
+        <ConnectDiscord />
       }
     </Container>
   );

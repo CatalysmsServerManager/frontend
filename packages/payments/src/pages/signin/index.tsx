@@ -29,18 +29,19 @@ export const Signin: FC = () => {
 
   function onTap() {
     setCount(count + 1);
-
-    if (count === 4) {
-      setC1('General');
-      setC2('Kenobi.');
-    }
-    if (count === 15) {
-      setC1('Stop');
-      setC2('it now.');
-    }
-    if (count === 30) {
-      setC1('Drag');
-      setC2('The icon.');
+    switch (count) {
+      case 4:
+        setC1('General');
+        setC2('Kenobi.');
+        break;
+      case 15:
+        setC1('Stop');
+        setC2('it now.');
+        break;
+      case 30:
+        setC1('Drag');
+        setC2('The icon.');
+        break;
     }
   }
 
@@ -80,17 +81,30 @@ export const Signin: FC = () => {
             icon={<Steam size={24} />}
             isLoading={loading}
             onClick={signIn}
+            size="medium"
             text="Sign in"
           />
         </ContentContainer>
         <SocialContainer>
-          <a href="https://discord.com/invite/EwyDdNA" rel="noreferrer noopener" target="_blank">
+          <a
+            href="https://discord.com/invite/EwyDdNA"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
             <Discord size={22} />
           </a>
-          <a href="mailto:info@csmm.app" rel="noreferrer noopener" target="_blank">
+          <a
+            href="mailto:info@csmm.app"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
             <Mail size={24} />
           </a>
-          <a href="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager" rel="noreferrer noopener" target="_blank">
+          <a
+            href="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
             <Github size={26} />
           </a>
         </SocialContainer>

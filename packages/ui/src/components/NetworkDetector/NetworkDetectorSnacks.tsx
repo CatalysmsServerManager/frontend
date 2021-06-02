@@ -16,6 +16,7 @@ const Container = styled.div`
   padding: 1.2rem;
   border-radius: 10px;
   width: 300px;
+  background-color: white;
   box-shadow: ${({ theme }): string => theme.colors.shadow};
   p {
     font-size: 1.325rem;

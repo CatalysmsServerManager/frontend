@@ -30,8 +30,8 @@ const Container = styled.div<{ connected: boolean }>`
 
 const IconContainer = styled.div<{ connected: boolean }>`
   background-color: ${({ connected, theme }) => connected ? theme.colors.primary : theme.colors.gray};
-  width: 100px;
-  height: 100px;
+  width: 8rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,6 +102,7 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
       <ButtonContainer connected={connected}>
         <Button
           onClick={connected ? disconnect : connect}
+          size="medium"
           text={connected ? 'Disconnect' : 'Connect'}
         />
       </ButtonContainer>

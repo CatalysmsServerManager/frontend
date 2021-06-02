@@ -1,10 +1,11 @@
 import { Fragment, useState } from 'react';
 import { styled } from '@csmm/ui';
 import { httpService } from '../services';
-import { Loading, ProductList } from '../components';
-import { Button } from '@csmm/ui';
+import { Button, Loading } from '@csmm/ui';
+import { ProductList } from '../components';
 import { useSnackbar } from 'notistack';
 import * as Sentry from '@sentry/react';
+import { AiOutlineShoppingCart as ShoppingCart } from 'react-icons/ai';
 
 const Container = styled.div`
   h2{
@@ -62,6 +63,9 @@ export const Products: React.FC = () => {
         const json = await response.json();
         window.open(json.url, 'window name');
       }
+      else {
+        enqueueSnackbar('Something went wrong selecting a product, please select again!', { variant: 'error' });
+      }
       return;
     };
     Sentry.captureMessage('Something went wrong selectiong a product');
@@ -85,8 +89,10 @@ export const Products: React.FC = () => {
           <ButtonContainer>
             <p>By clicking 'Buy plan' you agree with our <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank">terms of service</a></p>
             <Button
+              icon={<ShoppingCart size={20} />}
               isLoading={buyLoading}
               onClick={buyProduct}
+              size="large"
               text="Buy plan"
             />
           </ButtonContainer>

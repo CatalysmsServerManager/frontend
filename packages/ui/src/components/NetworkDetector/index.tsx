@@ -10,14 +10,14 @@ export const NetworkDetector: FC = () => {
     if (online) {
       enqueueSnackbar('Your network is back online!', {
         variant: 'success',
-        anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+        anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
         content: (key, message) => <NetworkDetectorOnlineSnack id={key} message={message} />
       });
     } else { // offline
       // TODO: make this persistent, with custom button and custom child
       enqueueSnackbar('You are currently offline.', {
         variant: 'info',
-        anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+        anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
         persist: true,
         content: (key, message) => <NetworkDetectorOfflineSnack id={key} message={message} />
       });

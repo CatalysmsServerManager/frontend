@@ -68,7 +68,7 @@ export const Container = styled.button<{
   span {
     margin-left: ${({ icon, isLoading }): string => icon || isLoading ? '10px' : '0px'};
     color: ${({ color, theme, outline, white }) => outline ? white ? 'white' : theme.colors[color] : white ? 'black' : 'white'};
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 800;
     &:hover {
       color: ${({ color, outline, theme, white }): string => white ? outline ? 'white' : theme.colors[color] : outline ? theme.colors[color] : 'white'};

@@ -10,13 +10,12 @@ const Header = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 10rem;
 `;
 const Name = styled.h2`
   font-weight: 700;
-  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.secondary};
-  margin-left: 50px;
+  margin-left: 5rem;
   text-transform: capitalize;
 `;
 
@@ -26,7 +25,9 @@ export const Profile: FC = () => {
   return (
     <Container>
       <Header>
-        <Avatar alt={`${userData?.firstName} ${userData?.lastName}`} size="huge">{getInitials(userData?.firstName!, userData?.lastName!)}</Avatar>
+        <Avatar alt={`${userData?.firstName} ${userData?.lastName}`} size="huge">
+          {getInitials(userData?.firstName!, userData?.lastName!)}
+        </Avatar>
         <Name>{userData?.firstName} {userData?.lastName}</Name>
       </Header>
       <ConnectionsWrapper />

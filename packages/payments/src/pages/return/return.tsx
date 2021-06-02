@@ -2,7 +2,7 @@ import { FC, useEffect, useContext, useState, Fragment } from 'react';
 import { authenticationService } from '../../services';
 import { IUserData, UserContext } from '../../context';
 import { Redirect } from '../redirect';
-import { Loading } from '../../components';
+import { Loading } from '@csmm/ui';
 
 // everytime we co a return we will update the session
 export const Return: FC = () => {
