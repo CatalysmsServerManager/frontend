@@ -1,4 +1,4 @@
-import styled from 'styled';
+import { styled } from 'styled';
 import { AlertVariants } from '.';
 import { motion } from 'framer-motion';
 import { lighten, darken } from 'polished';

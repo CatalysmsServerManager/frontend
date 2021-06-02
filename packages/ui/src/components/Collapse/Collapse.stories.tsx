@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Collapse, CollapseProps } from 'components';
 
 export default {

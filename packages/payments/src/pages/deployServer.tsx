@@ -4,7 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { httpService } from '../services';
-import { TextField, Button } from '../components';
+import { TextField } from '../components';
+import { Button } from '@csmm/ui';
 import * as Joi from 'joi';
 import { useSnackbar } from 'notistack';
 import { setCustomErrorMessages } from '../helpers';
@@ -94,7 +95,13 @@ export const DeployServer: FC = () => {
         </p>
         <TextField error={errors.steamApiKey} labelText="" name="steamApiKey" placeholder="Steam API key" ref={register} />
         <br />
-        <Button active={formState.isValid && formState.isDirty} isLoading={loading} type="submit">deploy server</Button>
+        <Button
+          disabled={!formState.isValid && !formState.isDirty}
+          isLoading={loading}
+          onClick={() => { /* dummy */ }}
+          text="Deploy Server"
+          type="submit"
+        />
       </form>
     </Container>
   );

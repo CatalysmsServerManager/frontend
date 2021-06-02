@@ -2,8 +2,7 @@ import { createRef, forwardRef, useContext } from 'react';
 import { Container, StyledPlus } from './style';
 import { Link, AlertTriangle, ShoppingCart, Undo } from '../../../../icons';
 import { httpService } from '../../../../services';
-import { useModal, useOutsideAlerter } from '../../../../hooks';
-import { ConfirmationModal } from '../../../modals';
+import { useModal, useOutsideAlerter, ConfirmationModal } from '@csmm/ui';
 import { useSnackbar } from 'notistack';
 import { SubscriptionContext } from '../../../../context';
 import { SUBSCRIPTION_STATES } from '../../../../enums';
@@ -64,8 +63,11 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
     enqueueSnackbar('Something went wrong! We are aware and are looking for a solution. 🤓', { variant: 'error' });
   }
 
+  // TODO: Remove these ts-ignores
   const wrapperRef = createRef<HTMLDivElement>();
+  // @ts-ignore
   useOutsideAlerter(wrapperRef, closeCancelModal);
+  // @ts-ignore
   useOutsideAlerter(wrapperRef, closePayModal);
 
   return (

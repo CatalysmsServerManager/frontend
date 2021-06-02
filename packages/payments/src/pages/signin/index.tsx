@@ -2,7 +2,7 @@ import { FC, useState, useRef } from 'react';
 import { authenticationService, routingService } from '../../services';
 import { Discord, Github, Mail, Steam } from '../../icons';
 import icon from '../../images/csmm-icon.svg';
-import { Button } from '../../components';
+import { Button } from '@csmm/ui';
 import { AbsoluteIcon, Icon, Container, ContentContainer, Left, Right, SocialContainer, Title } from './style';
 import { useNavigate } from 'react-router-dom';
 
@@ -77,7 +77,9 @@ export const Signin: FC = () => {
           <Button
             icon={<Steam />}
             isLoading={loading}
-            onClick={signIn}>Sign in</Button>
+            onClick={signIn}
+            text="Sign in"
+          />
         </ContentContainer>
         <SocialContainer>
           <a href="https://discord.com/invite/EwyDdNA" rel="noreferrer noopener" target="_blank"> <Discord outline={false} pointer /></a>

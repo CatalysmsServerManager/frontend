@@ -1,4 +1,4 @@
-import styled from 'styled';
+import { styled } from 'styled';
 import { AlertVariants } from 'styled/types';
 
 export const Container = styled.div`

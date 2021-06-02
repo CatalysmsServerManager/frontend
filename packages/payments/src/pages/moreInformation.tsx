@@ -6,7 +6,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
 import { httpService } from '../services';
 import { UserContext } from '../context';
-import { TextField, Button } from '../components';
+import { Button } from '@csmm/ui';
+import { TextField } from '../components';
 import { setCustomErrorMessages } from '../helpers';
 import * as Sentry from '@sentry/react';
 import Joi from 'joi';
@@ -108,7 +109,12 @@ export const MoreInformation: FC = () => {
           <TextField error={errors.firstName} labelText="" name="firstName" placeholder="First name" ref={register} />
           <TextField error={errors.lastName} labelText="" name="lastName" placeholder="Last name" ref={register} />
           <TextField error={errors.email} labelText="" name="email" placeholder="Email address" ref={register} />
-          <Button active={formState.isValid && formState.isDirty} type="submit">LETSSSSS GETTT ITTT!</Button>
+          <Button
+            disabled={!formState.isValid && !formState.isDirty}
+            onClick={() => { /* dummy */ }}
+            text="LETSSS GETT ITTT!"
+            type="submit"
+          />
         </form>
       </ContentContainer>
     </Container>

@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { TextField, FieldProps } from 'components';
 import { useForm, SubmitHandler } from 'react-hook-form';
 

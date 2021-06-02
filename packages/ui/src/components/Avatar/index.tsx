@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Size } from 'styled/types';
 
 const Container = styled.div<{ src?: string, size: Size }>`

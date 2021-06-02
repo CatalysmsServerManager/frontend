@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig",
   "include": ["src", "@types", "index.ts"],
-  "exclude": ["./**/*.stories.*", ".storybook", "storybook-static"],
   "compilerOptions": {
     "outDir": "build",
     "declaration": true,

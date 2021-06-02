@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 import { Card } from '.';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Button } from 'components';
 import milk from 'images/milk.png';
 

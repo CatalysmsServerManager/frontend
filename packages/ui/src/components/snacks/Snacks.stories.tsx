@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { useSnackbar } from 'notistack';
-import styled from 'styled';
+import { styled } from 'styled';
 
 const Wrapper = styled.div`
   display: flex;

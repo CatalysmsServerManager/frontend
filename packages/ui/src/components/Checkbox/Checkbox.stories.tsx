@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Checkbox, CheckboxProps } from 'components';
 import { useForm } from 'react-hook-form';
 

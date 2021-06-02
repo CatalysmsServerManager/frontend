@@ -1,5 +1,5 @@
 import { lighten } from 'polished';
-import styled from 'styled';
+import { styled } from 'styled';
 
 export const Container = styled.div`
   width: 100%;

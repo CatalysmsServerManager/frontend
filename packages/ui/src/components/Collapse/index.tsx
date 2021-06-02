@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC, useState } from 'react';
-import styled from 'styled';
+import { styled } from 'styled';
 import {
   AiOutlineRight as ArrowRight,
   AiOutlineDown as ArrowDown,

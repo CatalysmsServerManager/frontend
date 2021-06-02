@@ -1,7 +1,8 @@
 import { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { httpService } from '../services';
-import { Loading, Button, ProductList } from '../components';
+import { Loading, ProductList } from '../components';
+import { Button } from '@csmm/ui';
 import { useSnackbar } from 'notistack';
 import * as Sentry from '@sentry/react';
 
@@ -87,7 +88,11 @@ export const Products: React.FC = () => {
         <Fragment>
           <ButtonContainer>
             <p>By clicking 'Buy plan' you agree with our <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank">terms of service</a></p>
-            <Button isLoading={buyLoading} onClick={buyProduct}>Buy plan</Button>
+            <Button
+              isLoading={buyLoading}
+              onClick={buyProduct}
+              text="Buy plan"
+            />
           </ButtonContainer>
         </Fragment>
       }

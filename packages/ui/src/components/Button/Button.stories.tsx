@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Button, ButtonProps } from 'components';
 import { AiFillCloud as Icon } from 'react-icons/ai';
 

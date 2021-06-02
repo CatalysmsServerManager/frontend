@@ -1,6 +1,5 @@
 export { AuthenticatedRoute } from './authenticatedRoute';
 export { Avatar } from './profile/avatar';
-export { Button } from './button';
 export { DeployCard } from './dashboard';
 export { Header } from './profile/header';
 export { Loading } from './loaders';

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Color, Size, Variant } from 'styled/types';
 
 const Container = styled.button<{ outline: boolean, size: Size, variant: Variant }>`

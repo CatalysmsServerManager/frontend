@@ -1,4 +1,4 @@
-import styled from 'styled';
+import { styled } from 'styled';
 import { Color, AlertVariants, Size } from 'styled/types';
 
 export const Container = styled.button<{

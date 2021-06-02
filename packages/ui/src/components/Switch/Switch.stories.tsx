@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Switch, SwitchProps } from 'components';
 
 const Wrapper = styled.div`

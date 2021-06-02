@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { AnimateSharedLayout, motion } from 'framer-motion';
-import styled from 'styled';
+import { styled } from 'styled';
 
 const Container = styled.div`
   border: 1px solid ${({ theme }): string => theme.colors.primary};

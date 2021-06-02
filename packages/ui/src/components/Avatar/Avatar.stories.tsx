@@ -1,6 +1,6 @@
 // TODO: save images locally so when there is no network they are still loaded.
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Avatar, AvatarProps } from 'components';
 import { getInitials } from 'helpers';
 import placeholder01 from 'images/placeholder-01.jpeg';

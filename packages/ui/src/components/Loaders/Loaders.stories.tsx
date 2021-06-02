@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Spinner, SpinnerProps } from 'components';
 
 const WrapperDecorator = styled.div`

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Avatar, AvatarGroup } from 'components';
 
 import placeholder01 from 'images/placeholder-01.jpeg';

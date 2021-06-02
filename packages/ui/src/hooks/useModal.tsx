@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled';
+import { styled } from 'styled';
 import { motion } from 'framer-motion';
 
 export const Overlay = styled.div`
@@ -31,12 +31,12 @@ export const Container = styled(motion.div)`
   }
 `;
 
-interface IModalProps {
+interface ModalProps {
   isOpen?: boolean;
   elementId: string;
 }
 
-const Modal: React.FC<IModalProps> = ({ children, isOpen = false, elementId }) => {
+const Modal: React.FC<ModalProps> = ({ children, isOpen = false, elementId }) => {
   if (!isOpen) {
     return null;
   }

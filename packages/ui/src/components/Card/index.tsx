@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled';
+import { styled } from 'styled';
 
 const Template = styled.div<{ gradient: boolean }>`
   background: ${({ theme, gradient }) => gradient ? theme.gradient.primary : 'white'};

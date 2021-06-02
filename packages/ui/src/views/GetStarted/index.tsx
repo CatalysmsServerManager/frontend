@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled';
+import { styled } from 'styled';
 import { Button } from 'components';
 import { useNavigate } from 'react-router-dom';
 

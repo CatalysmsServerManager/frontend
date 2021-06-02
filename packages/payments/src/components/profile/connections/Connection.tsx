@@ -1,6 +1,6 @@
 import { FC, useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Button } from '../../button';
+import { Button } from '@csmm/ui';
 import { IUserData, UserContext } from '../../../context';
 import { Spinner } from '../../loaders';
 import { httpService, routingService } from '../../../services';
@@ -100,7 +100,10 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
         <h3>{source}</h3>
       </div>
       <ButtonContainer connected={connected}>
-        <Button onClick={connected ? disconnect : connect}>{connected ? 'Disconnect' : 'Connect'}</Button>
+        <Button
+          onClick={connected ? disconnect : connect}
+          text={connected ? 'Disconnect' : 'Connect'}
+        />
       </ButtonContainer>
     </Container>
   );
