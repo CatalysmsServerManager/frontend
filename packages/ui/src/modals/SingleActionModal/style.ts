@@ -2,13 +2,14 @@ import { styled } from '../../styled';
 import { AlertVariants } from '../../styled/types';
 
 export const Container = styled.div`
-
+  min-width: 300px;
   button {
     margin-top: 1rem;
     width: 100%;
   }
   h2 {
-    color: black;
+    font-size: 2rem;
+    color: ${({ theme }): string => theme.colors.secondary};
     text-align: center;
     margin-bottom: 1rem;
   }

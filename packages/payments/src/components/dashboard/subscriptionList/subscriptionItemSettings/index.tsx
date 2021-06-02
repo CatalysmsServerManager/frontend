@@ -71,9 +71,7 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
 
   // TODO: Remove these ts-ignores
   const wrapperRef = createRef<HTMLDivElement>();
-  // @ts-ignore
   useOutsideAlerter(wrapperRef, closeCancelModal);
-  // @ts-ignore
   useOutsideAlerter(wrapperRef, closePayModal);
 
   return (
@@ -110,7 +108,6 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
         <ConfirmationModal
           action={cancel}
           actionText="Confirm"
-          // @ts-ignore
           close={closeCancelModal}
           description="Are you sure you want to cancel this subscription? This will result in shutting down your server and losing your data when the next due date is reached."
           icon={AlertTriangle}
@@ -124,7 +121,6 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, IProps>(({ pt
         <ConfirmationModal
           action={pay}
           actionText="Pay now"
-          // @ts-ignore
           close={closePayModal}
           description="Are you sure you want to pay for this subscription? By clicking pay now you will be redirected to the payment provider."
           icon={AlertTriangle}

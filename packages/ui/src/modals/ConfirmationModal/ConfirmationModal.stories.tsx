@@ -13,7 +13,6 @@ export const Example: Story = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [Wrapper, open, close] = useModal();
   const ref = createRef<HTMLDivElement>();
-  // @ts-ignore
   useOutsideAlerter(ref, () => close());
 
   return (
@@ -23,7 +22,6 @@ export const Example: Story = () => {
         <ConfirmationModal
           action={() => { enqueueSnackbar('The message has been accepted', { variant: 'success' }); }}
           actionText="Accept"
-          // @ts-ignore
           close={close}
           description="This is the description of the modal."
           ref={ref}

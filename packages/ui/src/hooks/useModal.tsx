@@ -55,7 +55,8 @@ const Modal: FC<ModalProps> = ({ children, isOpen = false, elementId }) => {
   );
 };
 
-export const useModal = () => {
+export const useModal = ():
+  [({ children }: any) => JSX.Element, () => void, () => void] => {
   const [isOpen, setOpen] = useState(false);
 
   const open = useCallback(() => {
