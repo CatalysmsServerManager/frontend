@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import { styled } from 'styled';
-import { Collapse, CollapseProps } from 'components';
+import { styled } from '../../styled';
+import { Collapse, CollapseProps } from '.';
 
 export default {
   title: 'Components/Collapse',

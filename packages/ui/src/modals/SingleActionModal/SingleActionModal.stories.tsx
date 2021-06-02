@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react';
-import { SingleActionModal } from 'modals';
-import { useModal } from 'hooks';
 import { createRef } from 'react';
+import { Story, Meta } from '@storybook/react';
+import { SingleActionModal } from '../../modals';
+import { useModal } from '../../hooks';
 import { useSnackbar } from 'notistack';
 
 export default {

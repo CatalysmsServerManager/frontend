@@ -1,7 +1,7 @@
 import { forwardRef, MutableRefObject, useState } from 'react';
-import { Button } from 'components';
+import { Button } from '../../components';
 import { Container, Header, ActionContainer, Cancel, Description } from './style';
-import { useLockBodyScroll } from 'hooks';
+import { useLockBodyScroll } from '../../hooks';
 import { AiOutlineClose as Close } from 'react-icons/ai';
 
 export interface ConfirmationModalProps {

@@ -2,7 +2,7 @@
 
 import { FC, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { styled } from 'styled';
+import { styled } from '../../styled';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
 import { AnimatePresence, motion } from 'framer-motion';
 

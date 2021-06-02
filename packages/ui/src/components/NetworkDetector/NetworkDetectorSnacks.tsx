@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
-import { DefaultSnackProps } from 'components';
-import { styled } from 'styled';
-import { useTheme } from 'hooks';
+import { DefaultSnackProps } from '../../components';
+import { styled } from '../../styled';
+import { useTheme } from '../../hooks';
 import {
   FiWifi as WifiIcon,
   FiWifiOff as WifiOffIcon,

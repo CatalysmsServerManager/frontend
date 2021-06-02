@@ -1,5 +1,5 @@
-import { styled } from 'styled';
-import { theme } from 'styled/theme';
+import { styled } from '../../styled';
+import { theme } from '../../styled/theme';
 
 export const Container = styled.div`
   width: fit-content;

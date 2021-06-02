@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import { styled } from 'styled';
+import { styled } from '../../styled';
 import { AiOutlineCopy as CopyIcon, AiOutlineCheck as CheckmarkIcon } from 'react-icons/ai';
 import { useSnackbar } from 'notistack';
 

@@ -4,7 +4,7 @@
 import { FC, ReactNode } from 'react';
 import { AiOutlineClose as Icon } from 'react-icons/ai';
 import { Container, Dot } from './style';
-import { Color, Variant } from 'styled/types';
+import { Color, Variant } from '../../styled/types';
 
 export type ChipColor = Color | 'gray';
 

@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import { styled } from 'styled';
-import { Checkbox, CheckboxProps } from 'components';
+import { styled } from '../../styled';
+import { Checkbox, CheckboxProps } from '.';
 import { useForm, useWatch } from 'react-hook-form';
 
 const ResultContainer = styled.div`

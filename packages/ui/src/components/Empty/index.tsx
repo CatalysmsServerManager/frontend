@@ -1,5 +1,5 @@
 import { FC, ReactNode, CSSProperties } from 'react';
-import { styled } from 'styled';
+import { styled } from '../../styled';
 
 const Container = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { Alert, AlertProps } from 'components';
+import { Alert, AlertProps } from '.';
 import { styled } from 'styled';
 
 const Container = styled.div`

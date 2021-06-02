@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { ConfirmationModal } from 'modals';
-import { useModal, useOutsideAlerter } from 'hooks';
+import { ConfirmationModal } from '.';
+import { useModal, useOutsideAlerter } from '../../hooks';
 import { createRef } from 'react';
 import { useSnackbar } from 'notistack';
 

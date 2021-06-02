@@ -1,6 +1,6 @@
 // TODO: <Container/>
 import { FC } from 'react';
-import { styled } from 'styled';
+import { styled } from '../../styled';
 
 export const Wrapper = styled.div``;
 

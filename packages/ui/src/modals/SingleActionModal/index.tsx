@@ -1,8 +1,8 @@
-import { useLockBodyScroll } from 'hooks';
-import { Container, IconContainer } from './style';
 import { forwardRef, MutableRefObject, useState } from 'react';
-import { AlertVariants } from 'styled/types';
-import { Button } from 'components';
+import { Container, IconContainer } from './style';
+import { AlertVariants } from '../../styled/types';
+import { useLockBodyScroll } from '../../hooks';
+import { Button } from '../../components';
 
 // different icons
 import {

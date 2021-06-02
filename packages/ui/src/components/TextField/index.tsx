@@ -1,6 +1,6 @@
 import { FC, cloneElement, useState } from 'react';
 import { Container, LabelContainer, Label, InputContainer, Input, ErrorContainer, Error } from '../Field/style';
-import { FieldProps } from 'components';
+import { FieldProps } from '../../components';
 import { useController } from 'react-hook-form';
 
 export const TextField: FC<FieldProps> = ({

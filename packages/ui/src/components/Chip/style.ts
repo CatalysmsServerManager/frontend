@@ -1,4 +1,4 @@
-import { styled } from 'styled';
+import { styled } from '../../styled';
 import { ChipColor } from '.';
 import { darken } from 'polished';
 

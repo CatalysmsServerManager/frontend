@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { Empty, EmptyProps } from 'components';
+import { Empty, EmptyProps } from '.';
 import { styled } from 'styled';
 
 const Wrapper = styled.div`

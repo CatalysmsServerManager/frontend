@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { DrawerSnack, Button } from 'components';
+import { DrawerSnack, Button } from '../../../components';
 import { useSnackbar } from 'notistack';
 
 import { styled } from 'styled';
