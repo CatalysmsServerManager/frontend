@@ -1,7 +1,7 @@
 {
   "name": "@csmm/homepage",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "craco start",
     "build": "craco build",
