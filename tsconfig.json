@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "module": "esnext",
     "target": "es5",
@@ -13,19 +14,12 @@
     "resolveJsonModule": true,
     "baseUrl": "./",
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "noErrorTruncation": false,
     "allowJs": true,
-    "paths": {
-      "@csmm/lib": ["./packages/lib/src"],
-      "@csmm/lib/*": ["./packages/lib/src/*"],
 
-      "@csmm/homepage": ["./packages/homepage/src"],
-      "@csmm/homepage/*": ["./packages/homepage/src/*"],
-
-      "@csmm/payments": ["./packages/payments/src"],
-      "@csmm/payments/*": ["./packages/payments/src/*"],
-    },
     "types": ["node", "react"],
   },
-    "exclude": ["**/.*/", "**/build", "**/node_modules", "**/dist"]
+  "exclude": ["**/build/", "**/node_modules/", "**/dist/"]
 }
