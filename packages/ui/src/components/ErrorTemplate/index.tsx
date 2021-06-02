@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import { styled } from '@csmm/ui';
+import { styled } from '../../styled';
 
 const Container = styled.div`
   display: flex;
@@ -23,25 +23,20 @@ const Container = styled.div`
     position: absolute;
     font-size: 30rem;
     font-weight: 800;
-    margin-top: -25px;
     opacity: 0.3;
     color: ${({ theme }) => theme.colors.primary}
   }
 `;
 
-interface IProps {
+export interface ErrorTemplateProps {
   title: string;
   description: string;
 }
 
-export const ErrorTemplate: FC<IProps> = ({ title, description }) => {
+export const ErrorTemplate: FC<ErrorTemplateProps> = ({ title, description }) => {
   return (
     <Container>
-      <motion.h1
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ delay: .5 }}
-      >{description}</motion.h1>
+      <motion.h1 animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ delay: .5 }}>{description}</motion.h1>
       <motion.h2
         animate={{ scale: 1 }}
         initial={{ scale: 0 }}

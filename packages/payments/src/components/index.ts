@@ -1,9 +1,7 @@
 export { AuthenticatedRoute } from './authenticatedRoute';
-export { DeployCard } from './dashboard';
+export { DeployTile } from './dashboard';
 export { Header } from './profile/header';
-export { Loading } from './loaders';
 export { Navbar } from './navbar';
-export { PaymentStateCard } from './dashboard';
+export { PaymentStateTile } from './dashboard';
 export { ProductList } from './products';
 export { SubscriptionList } from './dashboard';
-export { TextField } from './form/field/text';

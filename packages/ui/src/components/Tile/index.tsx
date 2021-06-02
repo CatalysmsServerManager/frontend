@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { styled, Color, AlertVariants } from '../../styled';
+import { keyframes } from 'styled-components';
 import { Loading } from '../../components';
 
 const shake = keyframes`
@@ -18,16 +19,7 @@ const shake = keyframes`
   }
 `;
 
-interface IProps {
-  loading?: boolean
-  bgColor: string;
-  title?: string;
-  description?: string;
-  textColor: string;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => any | void;
-}
-
-const Container = styled.div<{ bgColor: string, clickable: boolean, loading: boolean }>`
+const Container = styled.div<{ bgColor: Color | AlertVariants | 'white', clickable: boolean, loading: boolean }>`
   width: 300px;
   height: 285px;
   border-radius: 15px;
@@ -37,14 +29,14 @@ const Container = styled.div<{ bgColor: string, clickable: boolean, loading: boo
   justify-content: center;
   background-color: white;
   margin: 0 0px 25px 50px;
-  background-color: ${({ bgColor, loading }) => loading ? '#fff' : bgColor};
+  background-color: ${({ bgColor, loading, theme }) => loading ? '#fff' : theme.colors[bgColor]};
   cursor: ${({ clickable }): string => clickable ? 'pointer' : 'default'};
   animation: ${({ clickable }) => clickable ? shake : null} 4s cubic-bezier(.36,.07,.19,.97) infinite both;
   transform: translate3d(0,0,0);
   position: relative;
 `;
 
-const ContentContainer = styled.div<{ textColor: string }>`
+const ContentContainer = styled.div<{ textColor: Color | AlertVariants | 'white' }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,11 +51,20 @@ const ContentContainer = styled.div<{ textColor: string }>`
   }
 
   h4, p {
-    color: ${({ textColor }) => textColor};
+    color: ${({ textColor, theme }) => theme.colors[textColor]};
   }
 `;
 
-export const Card: FC<IProps> = ({
+export interface TileProps {
+  loading?: boolean
+  bgColor: Color | AlertVariants | 'white';
+  title?: string;
+  description?: string;
+  textColor: Color | AlertVariants | 'white';
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => any | void;
+}
+
+export const Tile: FC<TileProps> = ({
   loading = false,
   bgColor,
   title,
@@ -82,15 +83,14 @@ export const Card: FC<IProps> = ({
       loading={loading}
       onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => (typeof onClick === 'function' ? onClick(e) : null)}
     >
-      { loading ?
-        <Loading />
-        :
-        <ContentContainer
-          textColor={textColor}
-        >
-          <h4>{title}</h4>
-          <p>{description}</p>
-        </ContentContainer>
+      {
+        loading ?
+          <Loading />
+          :
+          <ContentContainer textColor={textColor}>
+            <h4>{title}</h4>
+            <p>{description}</p>
+          </ContentContainer>
       }
     </Container>
   );

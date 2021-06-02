@@ -1,16 +1,16 @@
 import { FC, useState, useEffect } from 'react';
 import { httpService } from '../../services';
 import { Subscription } from '@prisma/client';
-import { useTheme } from '@csmm/ui';
+import { Tile } from '@csmm/ui';
 import { SUBSCRIPTION_STATES } from '../../enums';
-import { Card } from './card';
 
-export const PaymentStateCard: FC = () => {
+export const PaymentStateTile: FC = () => {
   const [isOverdue, setOverdue] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const theme = useTheme();
 
-  function pay() { }
+  function pay() {
+    /* TODO: implement */
+  }
 
   async function getSubscriptionStates() {
     const response = await httpService.get('/subscription');
@@ -27,12 +27,12 @@ export const PaymentStateCard: FC = () => {
   }, []);
 
   return (
-    <Card
-      bgColor={isOverdue ? theme.colors.error : theme.colors.primary}
+    <Tile
+      bgColor={isOverdue ? 'error' : 'primary'}
       description={isOverdue ? 'overdue' : 'paid'}
       loading={loading}
       onClick={isOverdue ? pay : undefined}
-      textColor="#fff"
+      textColor="white"
       title="Payment state: "
     />
   );

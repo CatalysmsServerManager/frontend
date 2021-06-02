@@ -1,4 +1,3 @@
-export { Card } from './card';
-export { DeployCard } from './deployCard';
-export { PaymentStateCard } from './paymentStateCard';
+export { DeployTile } from './DeployTile';
+export { PaymentStateTile } from './PaymentStateTile';
 export { SubscriptionList } from './subscriptionList';
