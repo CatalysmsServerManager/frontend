@@ -1,8 +1,8 @@
 import { FC, useContext, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { Button } from '@csmm/ui';
 import { IUserData, UserContext } from '../../../context';
-import { Spinner } from '../../loaders';
+import { Spinner } from '@csmm/ui';
 import { httpService, routingService } from '../../../services';
 import { useSnackbar } from 'notistack';
 import { useLocation } from 'react-router-dom';
@@ -29,7 +29,7 @@ const Container = styled.div<{ connected: boolean }>`
 `;
 
 const IconContainer = styled.div<{ connected: boolean }>`
-  background-color: ${({ connected, theme }) => connected ? theme.p : theme.gray};
+  background-color: ${({ connected, theme }) => connected ? theme.colors.primary : theme.colors.gray};
   width: 100px;
   height: 100px;
   display: flex;
@@ -49,7 +49,7 @@ const ButtonContainer = styled.div<{ connected: boolean }>`
   justify-content: center;
 
   button {
-    background-color: ${({ connected, theme }): string => connected ? theme.gray : theme.p}!important;
+    background-color: ${({ connected, theme }): string => connected ? theme.colors.gray : theme.colors.primary}!important;
   }
 `;
 
@@ -73,7 +73,7 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
   }, []);
 
   if (loading) {
-    return <Container connected={false}><Spinner /></Container>;
+    return <Container connected={false}><Spinner size="medium" /></Container>;
   }
 
   async function disconnect() {

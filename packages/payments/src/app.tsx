@@ -1,11 +1,9 @@
 import { FC, useState, useMemo, useEffect, StrictMode } from 'react';
 import * as Sentry from '@sentry/react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { Router } from './router';
-import { SnackbarProvider } from 'notistack';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './constants/globalstyle';
-import { DEFAULT } from './constants/theme';
+import { theme, GlobalStyle, SnackbarProvider } from '@csmm/ui';
 import { UserContext, IUserData } from './context';
 import { authenticationService } from './services';
 import { Loading } from './components';
@@ -20,7 +18,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.p};
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 const App: FC = () => {
@@ -53,7 +51,7 @@ const App: FC = () => {
   if (isLoading) {
     return (
       <StrictMode>
-        <ThemeProvider theme={DEFAULT}>
+        <ThemeProvider theme={theme}>
           <Sentry.ErrorBoundary fallback={ErrorFallback}>
             <Container>
               <Loading fill="white" />
@@ -67,19 +65,10 @@ const App: FC = () => {
 
   return (
     <StrictMode>
-      <ThemeProvider theme={DEFAULT}>
+      <ThemeProvider theme={theme}>
         <Sentry.ErrorBoundary fallback={ErrorFallback}>
           <UserContext.Provider value={providerUserData}>
-            <SnackbarProvider
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right'
-              }}
-              autoHideDuration={5000}
-              hideIconVariant
-              maxSnack={3}
-              preventDuplicate
-            >
+            <SnackbarProvider>
               <GlobalStyle />
               <Router />
             </SnackbarProvider>

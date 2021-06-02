@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const Container = styled.div`
 
   h1 {
     font-size: 5rem;
-    color:${({ theme }) => theme.s};
+    color:${({ theme }) => theme.colors.secondary};
     font-weight: 800;
     z-index: 2;
   }
@@ -25,7 +25,7 @@ const Container = styled.div`
     font-weight: 800;
     margin-top: -25px;
     opacity: 0.3;
-    color: ${({ theme }) => theme.p}
+    color: ${({ theme }) => theme.colors.primary}
   }
 `;
 

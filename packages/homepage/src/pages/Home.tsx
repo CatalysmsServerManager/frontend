@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { size } from '../constants/size';
 import { Header, Landing, Feature, Pricing, Server, Info, Footer } from 'components';
 

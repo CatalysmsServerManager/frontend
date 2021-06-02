@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { httpService } from '../../services';
 import { Product } from '@prisma/client';
 import { ProductItem } from './productItem';

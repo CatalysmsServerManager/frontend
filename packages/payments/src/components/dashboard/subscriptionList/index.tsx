@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, useMemo } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { httpService } from '../../../services';
 import { SubscriptionItem } from './subscriptionItem';
 import { ListWrapper } from './ListWrapper';
@@ -27,7 +27,7 @@ const Header = styled.div`
     width: calc(100%/4);
     font-weight: 800;
     text-align: center;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
 
     &.center {
       text-align: center;

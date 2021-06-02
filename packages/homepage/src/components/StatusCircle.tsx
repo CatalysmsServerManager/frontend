@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 
 const Circle = styled.div`
   display: inline-block;

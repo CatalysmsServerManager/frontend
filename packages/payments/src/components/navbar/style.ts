@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div) <{ toTop: boolean }>`
@@ -22,7 +22,7 @@ export const Container = styled(motion.div) <{ toTop: boolean }>`
   }
 
   h2 {
-    color: ${({ theme }): string => theme.s};
+    color: ${({ theme }): string => theme.colors.secondary};
     font-weight: 800;
     text-align: center;
     width: 100%;
@@ -45,7 +45,7 @@ export const DiscordContainer = styled(motion.div)`
 
   h4 {
     margin-bottom: 10px;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     text-align: center;
     font-size: 1.2rem;
@@ -72,7 +72,11 @@ export const AlertContainer = styled.div`
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  background-color: #e8edf5;
+  background-color: white;
+
+  svg{
+    fill: ${({ theme }) => theme.colors.primary};
+  }
 
   div {
     background-color: white;
@@ -97,7 +101,7 @@ export const Nav = styled.nav`
     padding: 15px;
     display: flex;
     margin: 8px 0;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     transition: 0.2s transform ease-in-out;
 
     &:hover {
@@ -105,11 +109,11 @@ export const Nav = styled.nav`
     }
 
     svg {
-      fill: ${({ theme }) => theme.s};
+      fill: ${({ theme }) => theme.colors.secondary};
     }
 
     &.active {
-      background-color: ${({ theme }) => theme.p};
+      background-color: ${({ theme }) => theme.colors.primary};
       svg, p {
         fill: white;
         color: white;

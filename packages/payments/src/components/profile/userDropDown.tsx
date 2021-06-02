@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { authenticationService } from '../../services';
-import styled from 'styled-components';
-import { Person, Settings, SignOut } from '../../icons';
+import { styled } from '@csmm/ui';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { setRedirect } from '../../helpers';
+
+import { AiOutlineLogout as SignOut, AiOutlineUser as User, AiOutlineSetting as Settings } from 'react-icons/ai';
 
 const Container = styled(motion.div)`
   width: 250px;
@@ -20,7 +21,7 @@ const Container = styled(motion.div)`
   z-index: 10;
   cursor: auto;
   h3 {
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     text-align: center;
     margin-bottom: 15px;
@@ -36,7 +37,7 @@ const HeaderIcon = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.p};
+  background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,13 +50,18 @@ const Content = styled.ul`
   display: flex;
   flex-direction: column;
 
+  svg {
+    cursor: pointer;
+    fill: ${({ theme }): string => theme.colors.primary};
+  }
+
   li,a {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
     padding: 10px 0;
-    color: ${({ theme }): string => theme.s};
+    color: ${({ theme }): string => theme.colors.secondary};
     transition: transform .2s ease-in-out;
     p {
       font-size: 1.2rem;
@@ -91,11 +97,11 @@ export const UserDropDown: FC = () => {
       animate={{ right: '10px' }}
       transition={{ type: 'spring', bounce: 0.6 }}
     >
-      <HeaderIcon><Settings fill="white" /></HeaderIcon>
+      <HeaderIcon><Settings fill="white" size={24} /></HeaderIcon>
       <h3>Settings</h3>
       <Content>
-        <Link to="/billing/profile"><Person pointer /> <p>Profile</p></Link>
-        <li onClick={signOut}><SignOut pointer /> <p>Sign out</p></li>
+        <Link to="/billing/profile"><User size={24} /> <p>Profile</p></Link>
+        <li onClick={signOut}><SignOut size={24} /> <p>Sign out</p></li>
       </Content>
     </Container>
   );

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
@@ -19,8 +19,7 @@ export const Header = styled.div`
   height: 35px;
   h3 {
     font-weight: 700;
-    font-size: 1.325rem;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

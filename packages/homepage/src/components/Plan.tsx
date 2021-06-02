@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { size } from 'constants/size';
 import { lighten } from 'polished';
 

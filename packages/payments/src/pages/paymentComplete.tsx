@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import checkmark from '../images/checkmark-white.png';
 
 const Container = styled.div`
@@ -10,19 +10,19 @@ const Container = styled.div`
 
   h1 {
     text-align: center;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 700;
     margin-bottom: 15px;
   }
   p {
     text-align: center;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 50px;
   }
 `;
 
 const CheckMarkContainer = styled(motion.div)`
-  background-color: ${({ theme }) => theme.p};
+  background-color: ${({ theme }) => theme.colors.primary};
   margin: 0 auto;
   padding: 15px;
   width: 200px;

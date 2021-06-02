@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { Connection } from './Connection';
 import Discord from '../../../images/discord-white.png';
 export const Container = styled.div`

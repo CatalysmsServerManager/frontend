@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Header, Navbar } from '../components';
 import { UserContext } from '../context';

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 
 export const Container = styled(motion.li)`
   background-color: #e8edf5;
@@ -17,7 +17,7 @@ export const Container = styled(motion.li)`
 
   a {
     background-color: white;
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     border-radius: 8px;
     padding: 10px 15px;
@@ -30,7 +30,7 @@ export const Container = styled(motion.li)`
   }
 
   div.p {
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     width: calc(100% / 4);
     display: flex;
@@ -43,7 +43,7 @@ export const Container = styled(motion.li)`
 export const State = styled.div`
   span {
     width: fit-content;
-    background-color:${({ theme }) => theme.p};
+    background-color:${({ theme }) => theme.colors.primary};
     padding: 5px 10px;
     color: white;
     border-radius: 5px;
@@ -51,16 +51,16 @@ export const State = styled.div`
     font-size: 1rem;
 
     &.active{
-      background-color: ${({ theme }) => theme.p}
+      background-color: ${({ theme }) => theme.colors.primary}
     }
     &.deploy {
-      background-color: ${({ theme }) => theme.c};
+      background-color: ${({ theme }) => theme.colors.tertiary};
     }
     &.cancelled {
-      background-color: ${({ theme }) => theme.s};
+      background-color: ${({ theme }) => theme.colors.secondary};
     }
     &.overdue, &.deleted {
-      background-color: ${({ theme }) => theme.error};
+      background-color: ${({ theme }) => theme.colors.error};
     }
   }
 `;

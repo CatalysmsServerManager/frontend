@@ -1,5 +1,5 @@
 import { FC, Fragment, useContext } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { Helmet } from 'react-helmet';
 import { PaymentStateCard, SubscriptionList, DeployCard } from '../components';
 import { UserContext } from '../context';
@@ -10,11 +10,10 @@ const Hello = styled.div`
   padding-bottom: 40px;
 
   h2 {
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.s};
     font-weight: 800;
     margin-bottom: 5px;
     span {
+      font-size: 3rem;
       font-weight: 800;
       text-transform: capitalize;
     }
@@ -23,7 +22,7 @@ const Hello = styled.div`
     opacity: 0.5;
     font-weight: 500;
     margin-left: 5px;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 `;
 

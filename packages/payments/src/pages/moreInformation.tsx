@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { httpService } from '../services';
 import { UserContext } from '../context';
 import { Button } from '@csmm/ui';
@@ -34,7 +34,7 @@ export const Container = styled(motion.div)`
   opacity:0;
   height: 100vh;
   padding: 200px;
-  background-color: ${({ theme }) => theme.p};
+  background-color: ${({ theme }) => theme.colors.primary};
   h1 {
     color: white;
     font-size: 4rem;

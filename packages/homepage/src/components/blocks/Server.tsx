@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { size } from 'constants/size';
 import { darken } from 'polished';
 import { Loading, Chart } from 'components';

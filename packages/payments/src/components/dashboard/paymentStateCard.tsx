@@ -1,15 +1,14 @@
-import { FC, useState, useContext, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { httpService } from '../../services';
 import { Subscription } from '@prisma/client';
+import { useTheme } from '@csmm/ui';
 import { SUBSCRIPTION_STATES } from '../../enums';
-import { ThemeContext } from 'styled-components';
-import { ThemeType } from '../../constants/theme';
 import { Card } from './card';
 
 export const PaymentStateCard: FC = () => {
   const [isOverdue, setOverdue] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const themeContext = useContext<ThemeType>(ThemeContext);
+  const theme = useTheme();
 
   function pay() { }
 
@@ -29,7 +28,7 @@ export const PaymentStateCard: FC = () => {
 
   return (
     <Card
-      bgColor={isOverdue ? themeContext.error : themeContext.p}
+      bgColor={isOverdue ? theme.colors.error : theme.colors.primary}
       description={isOverdue ? 'overdue' : 'paid'}
       loading={loading}
       onClick={isOverdue ? pay : undefined}

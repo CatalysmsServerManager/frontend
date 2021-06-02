@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 
 /* TODO: remove uuid usage */
 import { size } from 'constants/size';

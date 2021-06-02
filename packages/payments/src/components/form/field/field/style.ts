@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 
 export const Container = styled.div`
   width: 100%;
@@ -34,7 +34,7 @@ export const InputContainer = styled.div`
   &:focus{
     .icon path {
       transition: fill .2s ease-in-out;
-      fill: ${({ theme }): string => theme.p};
+      fill: ${({ theme }): string => theme.colors.primary};
     }
   }
 `;
@@ -52,7 +52,7 @@ export const Input = styled.input<{ hasIcon: boolean; hasError: boolean; }>`
 
   ::selection {
     background-color: white;
-    color: ${({ theme }) => theme.p};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &:focus {

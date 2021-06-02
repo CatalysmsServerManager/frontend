@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
-  background-color:${({ theme }) => theme.p};
+  background-color:${({ theme }) => theme.colors.primary};
   height: 100vh;
   display: flex;
   align-items: center;

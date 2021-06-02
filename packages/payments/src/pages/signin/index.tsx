@@ -1,10 +1,12 @@
 import { FC, useState, useRef } from 'react';
 import { authenticationService, routingService } from '../../services';
-import { Discord, Github, Mail, Steam } from '../../icons';
 import icon from '../../images/csmm-icon.svg';
 import { Button } from '@csmm/ui';
 import { AbsoluteIcon, Icon, Container, ContentContainer, Left, Right, SocialContainer, Title } from './style';
 import { useNavigate } from 'react-router-dom';
+
+import { FaDiscord as Discord, FaSteamSymbol as Steam } from 'react-icons/fa';
+import { AiFillMail as Mail, AiFillGithub as Github } from 'react-icons/ai';
 
 export const Signin: FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -75,16 +77,22 @@ export const Signin: FC = () => {
         <ContentContainer>
           <p className="text">Setting up a server<br /> is now just a few <strong>clicks</strong> away!</p>
           <Button
-            icon={<Steam />}
+            icon={<Steam size={24} />}
             isLoading={loading}
             onClick={signIn}
             text="Sign in"
           />
         </ContentContainer>
         <SocialContainer>
-          <a href="https://discord.com/invite/EwyDdNA" rel="noreferrer noopener" target="_blank"> <Discord outline={false} pointer /></a>
-          <a href="mailto:info@csmm.app" rel="noreferrer noopener" target="_blank"><Mail pointer /></a>
-          <a href="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager" rel="noreferrer noopener" target="_blank"><Github pointer /></a>
+          <a href="https://discord.com/invite/EwyDdNA" rel="noreferrer noopener" target="_blank">
+            <Discord size={22} />
+          </a>
+          <a href="mailto:info@csmm.app" rel="noreferrer noopener" target="_blank">
+            <Mail size={24} />
+          </a>
+          <a href="https://github.com/CatalysmsServerManager/7-days-to-die-server-manager" rel="noreferrer noopener" target="_blank">
+            <Github size={26} />
+          </a>
         </SocialContainer>
       </Right>
     </Container >

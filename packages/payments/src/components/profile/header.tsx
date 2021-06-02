@@ -1,8 +1,6 @@
 import { FC, useState, useContext, createRef } from 'react';
-import styled from 'styled-components';
+import { styled, getInitials, useOutsideAlerter } from '@csmm/ui';
 import { UserContext } from '../../context';
-import { useOutsideAlerter } from '../../hooks';
-import { getInitials } from '../../helpers';
 import { UserDropDown } from './userDropDown';
 
 const Container = styled.header`
@@ -28,7 +26,7 @@ const InitialsBlock = styled.div`
   height: 60px;
   margin-right: 10px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.p};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   font-weight: 800;
   text-transform: uppercase;
@@ -38,7 +36,7 @@ const Name = styled.div`
   display: flex;
   flex-direction: column;
   h4 {
-    color: ${({ theme }) => theme.s};
+    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     margin-bottom: 5px;
     text-transform: capitalize;

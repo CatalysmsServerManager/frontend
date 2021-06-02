@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { httpService } from '../services';
 import { Loading, ProductList } from '../components';
 import { Button } from '@csmm/ui';
@@ -8,9 +8,7 @@ import * as Sentry from '@sentry/react';
 
 const Container = styled.div`
   h2{
-    font-size: 3.5rem;
-    color: ${({ theme }) => theme.s};
-    font-weight:800;
+    color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 10px;
     text-align: center;
   }
@@ -19,8 +17,7 @@ const Container = styled.div`
     margin-bottom: 50px;
     font-weight:500;
     opacity: 0.7;
-    font-size: 1.2rem;
-    color:${({ theme }) => theme.s};
+    color:${({ theme }) => theme.colors.secondary};
   }
 
   &.center{
@@ -33,7 +30,7 @@ const Container = styled.div`
 const ButtonContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  border-top-color: ${({ theme }) => theme.s}15;
+  border-top-color: ${({ theme }) => theme.colors.secondary}15;
   border-top-width: 2px;
   border-top-style: solid;
   padding-top: 15px;
@@ -43,10 +40,9 @@ const ButtonContainer = styled.div`
   p{
     opacity: .5;
     margin-bottom: 0;
-    font-size: .9rem;
   }
   a {
-    color: ${({ theme }): string => theme.s};
+    color: ${({ theme }): string => theme.colors.secondary};
     text-decoration: underline;
   }
 `;

@@ -1,11 +1,9 @@
 export { AuthenticatedRoute } from './authenticatedRoute';
-export { Avatar } from './profile/avatar';
 export { DeployCard } from './dashboard';
 export { Header } from './profile/header';
 export { Loading } from './loaders';
 export { Navbar } from './navbar';
 export { PaymentStateCard } from './dashboard';
 export { ProductList } from './products';
-export { Spinner } from './loaders';
 export { SubscriptionList } from './dashboard';
 export { TextField } from './form/field/text';

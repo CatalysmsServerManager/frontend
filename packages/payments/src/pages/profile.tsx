@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
-import styled from 'styled-components';
-import { Avatar } from '../components';
+import { styled, Avatar, getInitials } from '@csmm/ui';
 import { ConnectionsWrapper } from '../components/profile/connections/ConnectionsWrapper';
 import { UserContext } from '../context';
 
@@ -16,7 +15,7 @@ const Header = styled.div`
 const Name = styled.h2`
   font-weight: 700;
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.s};
+  color: ${({ theme }) => theme.colors.secondary};
   margin-left: 50px;
   text-transform: capitalize;
 `;
@@ -27,7 +26,7 @@ export const Profile: FC = () => {
   return (
     <Container>
       <Header>
-        <Avatar />
+        <Avatar alt={`${userData?.firstName} ${userData?.lastName}`} size="huge">{getInitials(userData?.firstName!, userData?.lastName!)}</Avatar>
         <Name>{userData?.firstName} {userData?.lastName}</Name>
       </Header>
       <ConnectionsWrapper />

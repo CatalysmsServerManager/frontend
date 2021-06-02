@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { useParams, useNavigate } from 'react-router-dom';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -14,7 +14,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:${({ theme }) => theme.s};
+  background-color:${({ theme }) => theme.colors.secondary};
   height: 100vh;
 
   form {

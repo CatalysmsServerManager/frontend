@@ -1,16 +1,14 @@
 // @ts-nocheck
 
-import { createRef, FC, useContext, useState, useMemo } from 'react';
+import { createRef, FC, useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Container, State } from './style';
 import { DateTime } from 'luxon';
 import { ISubscriptionWithProduct } from '../../../../context';
-import { Menu } from '../../../../icons';
-import { ThemeContext } from 'styled-components';
-import { ThemeType } from '../../../../constants/theme';
+import { AiOutlineMenu as Menu } from 'react-icons/ai';
 import { SubscriptionItemSettings } from '../subscriptionItemSettings';
 import { usePopper } from 'react-popper';
-import { useOutsideAlerter } from '../../../../hooks';
+import { useOutsideAlerter, useTheme } from '@csmm/ui';
 import { detectOverflow } from '@popperjs/core';
 
 const item = {
@@ -19,7 +17,7 @@ const item = {
 };
 
 export const SubscriptionItem: FC<ISubscriptionWithProduct> = ({ product, state, id, paidUntil, pterodactylId }) => {
-  const themeContext = useContext<ThemeType>(ThemeContext);
+  const theme = useTheme();
 
   /* Because the wrapping container hides the overflowing content, we need to render the settings menu on root level.*/
   const [referenceElement, setReferenceElement] = useState(null);
@@ -58,7 +56,7 @@ export const SubscriptionItem: FC<ISubscriptionWithProduct> = ({ product, state,
       <State className="p payment-state">
         <span className={state}>{state}</span>
       </State>
-      <div className="p"> <Menu fill={themeContext.s} onClick={() => setShow(!showSettings)} pointer ref={setReferenceElement} /></div>
+      <div className="p"> <Menu fill={theme.colors.secondary} onClick={() => setShow(!showSettings)} pointer ref={setReferenceElement} size={24} /></div>
       {
         createPortal(
           <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>

@@ -1,14 +1,17 @@
-import styled from 'styled-components';
+import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
-import { Plus } from '../../../../icons';
 
 export const Container = styled(motion.div)`
   width: 225px;
   border-radius: 10px;
-  background-color: ${({ theme }): string => theme.s};
+  background-color: ${({ theme }): string => theme.colors.secondary};
   z-index: 10;
   padding: 10px 15px;
   transform: translateY(-50%);
+
+  svg {
+    cursor: pointer;
+  }
 
   ul {
     width: 100%;
@@ -42,8 +45,4 @@ export const Container = styled(motion.div)`
       font-weight: 600;
     }
   }
-`;
-
-export const StyledPlus = styled(Plus)`
-  transform: rotate(45deg);
 `;
