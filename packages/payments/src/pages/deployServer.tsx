@@ -1,10 +1,9 @@
 import { FC, useState } from 'react';
-import { styled } from '@csmm/ui';
+import { styled, TextField } from '@csmm/ui';
 import { useParams, useNavigate } from 'react-router-dom';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { httpService } from '../services';
-import { TextField } from '../components';
 import { Button } from '@csmm/ui';
 import * as Joi from 'joi';
 import { useSnackbar } from 'notistack';
@@ -63,7 +62,7 @@ interface IFormInputs {
 export const DeployServer: FC = () => {
   const { subscriptionId } = useParams();
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, errors, formState, reset } = useForm<IFormInputs>({ mode: 'onChange', resolver: joiResolver(schema) });
+  const { control, handleSubmit, formState, reset } = useForm<IFormInputs>({ mode: 'onChange', resolver: joiResolver(schema) });
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
@@ -93,7 +92,13 @@ export const DeployServer: FC = () => {
           To automatically deploy your server we need your Steam API key.
           Go to <a href="https://steamcommunity.com/dev/apikey" rel="noopener noreferrer" target="_blank" >Valve API key page</a>, register a key and copy the key to the field below. If you created a Valve API key in the past, use this existing key.
         </p>
-        <TextField error={errors.steamApiKey} labelText="" name="steamApiKey" placeholder="Steam API key" ref={register} />
+        <TextField
+          control={control}
+          error={formState.errors.steamApiKey}
+          labelText=""
+          name="steamApiKey"
+          placeholder="Steam API key"
+        />
         <br />
         <Button
           disabled={!formState.isValid && !formState.isDirty}

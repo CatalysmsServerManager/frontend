@@ -1,7 +1,7 @@
 import { FC, Fragment, useContext } from 'react';
 import { styled } from '@csmm/ui';
 import { Helmet } from 'react-helmet';
-import { PaymentStateCard, SubscriptionList, DeployCard } from '../components';
+import { DeployTile, SubscriptionList, PaymentStateTile } from '../components';
 import { UserContext } from '../context';
 import { getTOD } from '../helpers';
 
@@ -32,7 +32,7 @@ const GridContainer = styled.div`
   align-items: flex-start;
 `;
 
-const CardContainer = styled.div`
+const TileContainer = styled.div`
   display: flex;
   width: fit-content;
   height: calc(fit-content,'100px');
@@ -53,10 +53,10 @@ export const Dashboard: FC = () => {
       </Hello>
       <GridContainer>
         <SubscriptionList />
-        <CardContainer>
-          <PaymentStateCard />
-          <DeployCard />
-        </CardContainer>
+        <TileContainer>
+          <PaymentStateTile />
+          <DeployTile />
+        </TileContainer>
       </GridContainer>
     </Fragment>
   );

@@ -3,11 +3,10 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { styled } from '@csmm/ui';
+import { styled, TextField } from '@csmm/ui';
 import { httpService } from '../services';
 import { UserContext } from '../context';
 import { Button } from '@csmm/ui';
-import { TextField } from '../components';
 import { setCustomErrorMessages } from '../helpers';
 import * as Sentry from '@sentry/react';
 import Joi from 'joi';
@@ -64,13 +63,14 @@ interface IFormInputs {
 
 export const MoreInformation: FC = () => {
   const { userData, setUserData } = useContext(UserContext);
-  const { register, handleSubmit, errors, formState, reset } = useForm<IFormInputs>({ mode: 'onChange', resolver: joiResolver(schema) });
+  const { control, handleSubmit, formState, reset } = useForm<IFormInputs>({ mode: 'onChange', resolver: joiResolver(schema) });
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
   // check if a user tries to surf to this page while he has already filled in in this information.
   useEffect(() => {
     if (userData?.firstName && userData?.lastName && userData?.email) {
+      enqueueSnackbar('Your information has already been set before.', { variant: 'info' });
       navigate('/billing/dashboard');
     }
   }, []);
@@ -106,9 +106,9 @@ export const MoreInformation: FC = () => {
         <h1>You are almost there!</h1>
         <p>To automatically create and personalize your account we need a few more details.</p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField error={errors.firstName} labelText="" name="firstName" placeholder="First name" ref={register} />
-          <TextField error={errors.lastName} labelText="" name="lastName" placeholder="Last name" ref={register} />
-          <TextField error={errors.email} labelText="" name="email" placeholder="Email address" ref={register} />
+          <TextField control={control} error={formState.errors.firstName} labelText="" name="firstName" placeholder="First name" />
+          <TextField control={control} error={formState.errors.lastName} labelText="" name="lastName" placeholder="Last name" />
+          <TextField control={control} error={formState.errors.email} labelText="" name="email" placeholder="Email address" />
           <Button
             disabled={!formState.isValid && !formState.isDirty}
             onClick={() => { /* dummy */ }}
