@@ -1,6 +1,6 @@
 import { FC, useEffect, useState, Fragment } from 'react';
-import { UserData } from '../../context';
-import { Redirect } from '../redirect';
+import { UserData } from 'context';
+import { Redirect } from 'pages';
 import { Loading } from '@csmm/ui';
 import { useAuth, useUser } from 'hooks';
 

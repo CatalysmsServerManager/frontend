@@ -16,7 +16,7 @@ export const ContentContainer = styled.div`
   box-shadow: ${({ theme }) => theme.colors.shadow};
   border-radius: 2rem;
   width: 800px;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction:row;
   align-items: center;
@@ -45,7 +45,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 4rem;
+  padding: 8rem 4rem;
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
 

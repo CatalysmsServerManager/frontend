@@ -1,14 +1,14 @@
 import { FC, useState, useMemo } from 'react';
 import { Container, Image, ContentContainer, Content } from './style';
-import { TextField, useValidationSchema } from '@csmm/ui';
+import { TextField, useValidationSchema, Button } from '@csmm/ui';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { httpService } from '../../services';
-import { Button } from '@csmm/ui';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
+
+import { httpService } from 'services';
 import { AiOutlineRocket as DeployIcon } from 'react-icons/ai';
-import { REGEXPR_STEAM_API_KEY } from 'enums/regex';
+import { REGEXPR_STEAM_API_KEY } from 'enums';
 
 interface FormFields {
   steamApiKey: string;

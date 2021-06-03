@@ -1,7 +1,7 @@
 import { createContext } from 'react';
-import { setRedirect } from '../helpers';
-import { httpService, routingService } from '../services';
-import { UserData } from './user';
+import { setRedirect } from 'helpers';
+import { httpService, routingService } from 'services';
+import { UserData } from 'context';
 
 export interface IAuthContext {
   signIn: (redirect?: string) => Promise<void>;
@@ -60,7 +60,6 @@ export function AuthProvider(): IAuthContext {
       window.location.pathname = '/';
       return true;
     }
-    //enqueueSnackbar('Something went wrong signing out. Please try again.', { variant: 'error' });
     return false;
   }
   return { signIn, signOut, isAuthenticated, getSession };

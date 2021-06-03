@@ -1,11 +1,10 @@
 import { FC, useState, useRef } from 'react';
-import icon from '../../images/csmm-icon.svg';
-import { Button } from '@csmm/ui';
 import { AbsoluteIcon, Icon, Container, ContentContainer, Left, Right, SocialContainer, Title } from './style';
-
+import { Button } from '@csmm/ui';
+import { useAuth } from 'hooks';
 import { FaDiscord as Discord, FaSteamSymbol as Steam } from 'react-icons/fa';
 import { AiFillMail as Mail, AiFillGithub as Github } from 'react-icons/ai';
-import { useAuth } from 'hooks';
+import icon from 'images/csmm-icon.svg';
 
 export const Signin: FC = () => {
   const { signIn } = useAuth();

@@ -2,23 +2,23 @@ import { FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { styled } from '@csmm/ui';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Header, Navbar } from '../components';
+import { Header, Navbar } from 'components';
 import { useAuth, useUser } from 'hooks';
 
 const Container = styled.div`
   display: flex;
   height: 100%;
-  background-color:#e8edf5;
+  background-color:${({ theme }): string => theme.colors.background};
 `;
 
 const ContentContainer = styled(motion.div)`
-  background-color:#e8edf5;
+  background-color:${({ theme }): string => theme.colors.background};
   width: 100%;
   opacity: 0;
   overflow-y: auto;
 `;
 const Page = styled.div`
-  padding: 30px 80px;
+  padding: 3rem 8rem;
 `;
 
 export const Frame: FC = () => {

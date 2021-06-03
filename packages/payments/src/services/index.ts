@@ -1,2 +1,2 @@
-export { routingService } from './routingService';
-export { httpService } from './httpService';
+export { routingService } from './RoutingService';
+export { httpService } from './HttpService';

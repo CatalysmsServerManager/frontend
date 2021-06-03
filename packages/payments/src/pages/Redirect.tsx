@@ -17,7 +17,6 @@ const Container = styled.div`
 export const Redirect: FC = () => {
   const navigate = useNavigate();
 
-  // check local storage
   useEffect(() => {
     const path = localStorage.getItem('redirect');
     if (path) {

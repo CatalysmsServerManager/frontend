@@ -1,8 +1,8 @@
 import * as ReactDOM from 'react-dom';
-import App from './app';
+import { StrictMode } from 'react';
+import App from './App';
 import reportWebVitals from './testing/reportWebVitals';
 import * as Sentry from '@sentry/react';
-import { StrictMode } from 'react';
 
 ReactDOM.render(
   <StrictMode>

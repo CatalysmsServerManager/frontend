@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { setRedirect } from '../helpers';
-import { routingService } from '../services/routingService';
+import { setRedirect } from 'helpers';
+import { routingService } from 'services';
 
 export const NotAuthenticated: FC = () => {
   const location = useLocation();

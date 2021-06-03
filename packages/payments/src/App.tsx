@@ -1,9 +1,8 @@
 import { FC, useState, useMemo } from 'react';
 import * as Sentry from '@sentry/react';
-import { ErrorFallback, NetworkDetector } from '@csmm/ui';
+import { ErrorFallback, NetworkDetector, theme, GlobalStyle, SnackbarProvider } from '@csmm/ui';
 import { Router } from './router';
 import { ThemeProvider } from 'styled-components';
-import { theme, GlobalStyle, SnackbarProvider } from '@csmm/ui';
 import { UserContext, UserData, AuthContext, AuthProvider } from './context';
 
 // css required for simplebarReact (visually pleasing scrollbars).
