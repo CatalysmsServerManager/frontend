@@ -1,7 +1,7 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { styled, Avatar, getInitials } from '@csmm/ui';
 import { ConnectionsWrapper } from '../components/profile/connections/ConnectionsWrapper';
-import { UserContext } from '../context';
+import { useUser } from 'hooks';
 
 const Container = styled.div`
   height: 100%;
@@ -20,15 +20,15 @@ const Name = styled.h2`
 `;
 
 export const Profile: FC = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useUser();
 
   return (
     <Container>
       <Header>
-        <Avatar alt={`${userData?.firstName} ${userData?.lastName}`} size="huge">
-          {getInitials(userData?.firstName!, userData?.lastName!)}
+        <Avatar alt={`${userData.firstName} ${userData.lastName}`} size="huge">
+          {getInitials(userData.firstName!, userData.lastName!)}
         </Avatar>
-        <Name>{userData?.firstName} {userData?.lastName}</Name>
+        <Name>{userData.firstName} {userData?.lastName}</Name>
       </Header>
       <ConnectionsWrapper />
     </Container>

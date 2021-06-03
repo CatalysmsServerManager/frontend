@@ -1,30 +1,23 @@
 import { FC, useState, useRef } from 'react';
-import { authenticationService, routingService } from '../../services';
 import icon from '../../images/csmm-icon.svg';
 import { Button } from '@csmm/ui';
 import { AbsoluteIcon, Icon, Container, ContentContainer, Left, Right, SocialContainer, Title } from './style';
-import { useNavigate } from 'react-router-dom';
 
 import { FaDiscord as Discord, FaSteamSymbol as Steam } from 'react-icons/fa';
 import { AiFillMail as Mail, AiFillGithub as Github } from 'react-icons/ai';
+import { useAuth } from 'hooks';
 
 export const Signin: FC = () => {
+  const { signIn } = useAuth();
   const [count, setCount] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [c1, setC1] = useState<string>('Hello');
   const [c2, setC2] = useState<string>('There.');
   const constraintsRef = useRef(null);
-  const navigate = useNavigate();
 
-  async function signIn() {
+  async function handleSignIn() {
     setLoading(true);
-    // check if the user already has a session (is already signed in)
-    const hasSession = await authenticationService.hasServerSession();
-    if (hasSession) {
-      navigate('/billing/dashboard');
-      return;
-    }
-    routingService.navigateExternal('/auth/steam');
+    await signIn();
   }
 
   function onTap() {
@@ -80,7 +73,7 @@ export const Signin: FC = () => {
           <Button
             icon={<Steam size={24} />}
             isLoading={loading}
-            onClick={signIn}
+            onClick={handleSignIn}
             size="medium"
             text="Sign in"
           />

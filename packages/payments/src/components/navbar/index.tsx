@@ -1,9 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import icon from '../../images/csmm-icon.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav } from './style';
-import { UserContext } from '../../context';
 import { ConnectDiscord } from './ConnectDiscord';
 import {
   AiOutlineControl as ControlPanel,
@@ -11,15 +10,16 @@ import {
   AiOutlineShoppingCart as ShoppingCart,
   AiOutlineBook as Book,
 } from 'react-icons/ai';
+import { useUser } from 'hooks';
 
 export const Navbar: FC = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useUser();
   const navigate = useNavigate();
 
   return (
     <Container
       animate={{ width: 325 }}
-      toTop={userData?.discordId ? true : false}
+      toTop={userData.discordId ? true : false}
       transition={{ duration: 1, type: 'spring', bounce: 0.6 }}
     >
       <motion.img
@@ -37,7 +37,7 @@ export const Navbar: FC = () => {
         <a href="https://docs.csmm.app" rel="noopener noreferrer" target="_blank"><Book size={24} /><p>Documentation</p></a>
       </Nav>
       {
-        !userData?.discordId
+        !userData.discordId
         &&
         <ConnectDiscord />
       }

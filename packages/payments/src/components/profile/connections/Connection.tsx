@@ -1,12 +1,13 @@
-import { FC, useContext, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { styled } from '@csmm/ui';
 import { Button } from '@csmm/ui';
-import { IUserData, UserContext } from '../../../context';
 import { Spinner } from '@csmm/ui';
 import { httpService, routingService } from '../../../services';
 import { useSnackbar } from 'notistack';
 import { useLocation } from 'react-router-dom';
 import { setRedirect } from '../../../helpers';
+import { useUser } from 'hooks';
+import { UserData } from 'context';
 
 const Container = styled.div<{ connected: boolean }>`
   width: 100%;
@@ -59,7 +60,7 @@ interface IProps {
 }
 
 export const Connection: FC<IProps> = ({ source, icon }) => {
-  const { userData, setUserData } = useContext(UserContext);
+  const { userData, setUserData } = useUser();
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -79,8 +80,8 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
   async function disconnect() {
     const response = await httpService.delete(`/auth/${source}`);
     if (response.ok) {
-      const session = await response.json() as IUserData;
-      if (session && setUserData) setUserData(session);
+      const session = await response.json() as UserData;
+      if (session) setUserData(session);
       setConnected(false);
       enqueueSnackbar(`${source} has been disconnected.`, { variant: 'info' });
       // discord unlinked

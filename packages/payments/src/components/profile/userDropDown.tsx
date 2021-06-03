@@ -1,12 +1,9 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import { authenticationService } from '../../services';
 import { styled } from '@csmm/ui';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSnackbar } from 'notistack';
-import { setRedirect } from '../../helpers';
-
+import { Link } from 'react-router-dom';
 import { AiOutlineLogout as SignOut, AiOutlineUser as User, AiOutlineSetting as Settings } from 'react-icons/ai';
+import { useAuth } from 'hooks';
 
 const Container = styled(motion.div)`
   width: 250px;
@@ -76,21 +73,7 @@ const Content = styled.ul`
 `;
 
 export const UserDropDown: FC = () => {
-  const navigate = useNavigate();
-  const { enqueueSnackbar } = useSnackbar();
-  const location = useLocation();
-
-  function signOut() {
-    authenticationService.logout().then((ok) => {
-      if (ok) {
-        setRedirect(location.pathname);
-        enqueueSnackbar('Successfully signed out.', { variant: 'success' });
-        navigate('/');
-        return;
-      }
-      enqueueSnackbar('Something went wrong signing out. Please try again.', { variant: 'error' });
-    });
-  }
+  const { signOut } = useAuth();
 
   return (
     <Container

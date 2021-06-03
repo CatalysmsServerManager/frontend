@@ -2,9 +2,13 @@ import * as ReactDOM from 'react-dom';
 import App from './app';
 import reportWebVitals from './testing/reportWebVitals';
 import * as Sentry from '@sentry/react';
+import { StrictMode } from 'react';
 
-const root = document.getElementById('root');
-ReactDOM.render(<App />, root);
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('root'));
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({

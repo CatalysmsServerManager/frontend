@@ -1,11 +1,11 @@
-import { createContext } from 'react';
+import { Dispatch, createContext } from 'react';
 
 export interface IUserContext {
-  userData: IUserData;
-  setUserData: React.Dispatch<IUserData>
+  userData: Partial<UserData>;
+  setUserData: Dispatch<Partial<UserData>>
 }
 
-export interface IUserData {
+export interface UserData {
   email: string | null,
   discordId: string | null,
   steamId: string | null,
@@ -13,4 +13,4 @@ export interface IUserData {
   lastName: string | null
 }
 
-export const UserContext = createContext<Partial<IUserContext>>(undefined!);
+export const UserContext = createContext<IUserContext>(undefined!);

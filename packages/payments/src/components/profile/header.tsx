@@ -1,7 +1,7 @@
-import { FC, useState, useContext, createRef } from 'react';
+import { FC, useState, createRef } from 'react';
 import { styled, getInitials, useOutsideAlerter } from '@csmm/ui';
-import { UserContext } from '../../context';
 import { UserDropDown } from './userDropDown';
+import { useUser } from 'hooks';
 
 const Container = styled.header`
   height: 100px;
@@ -47,7 +47,7 @@ const Name = styled.div`
 `;
 
 export const Header: FC = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useUser();
   const [showUserDropDown, setUserDropDownVisibility] = useState(false);
   const containerRef = createRef<HTMLDivElement>();
   useOutsideAlerter(containerRef, (): void => {
@@ -57,12 +57,14 @@ export const Header: FC = () => {
   return (
     <Container>
       <User onClick={() => setUserDropDownVisibility(!showUserDropDown)} ref={containerRef}>
-        <InitialsBlock>{getInitials(userData?.firstName ? userData.firstName : 'u', userData?.lastName ? userData.lastName : 'u')}</InitialsBlock>
+        <InitialsBlock>
+          {getInitials(userData.firstName ? userData.firstName : 'u', userData.lastName ? userData.lastName : 'u')}
+        </InitialsBlock>
         <Name>
-          <h4>{userData?.firstName ? userData.firstName : 'unknown'} {userData?.lastName ? userData.lastName : 'user'}</h4>
-          <p>{userData?.email ? userData.email : 'unknown email'}</p>
+          <h4>{userData.firstName ? userData.firstName : 'unknown'} {userData.lastName ? userData.lastName : 'user'}</h4>
+          <p>{userData.email ? userData.email : 'unknown email'}</p>
         </Name>
-        {showUserDropDown ? <UserDropDown /> : null}
+        {showUserDropDown && <UserDropDown />}
       </User>
     </Container>
 

@@ -19,7 +19,7 @@ export const PaymentState: FC = () => {
 
   const handleClose = () => {
     close();
-    navigate('/billing');
+    navigate('/billing/dashboard');
   };
 
   // TODO: set correct actions
