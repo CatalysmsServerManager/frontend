@@ -23,7 +23,7 @@ export const theme = {
 
   },
   gradient: {
-    primary: 'linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%)',
+    primary: 'linear-gradient(to right, #3CCD6A 0%, #2BBC59 51%, #3CCD6A 100%)',
     secondary: 'linear-gradient(to right, #65f6e8 0%,#be81f6  51%, #65f6e8 100%)',
     white: 'linear-gradient(180deg, #fff 0%, #fff 100%)', // compatibility reasons
   },
