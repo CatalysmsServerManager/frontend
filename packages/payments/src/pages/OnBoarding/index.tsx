@@ -1,4 +1,5 @@
 import { FC, useEffect, useState, useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TextField, Button, useValidationSchema } from '@csmm/ui';
@@ -72,54 +73,59 @@ export const OnBoarding: FC = () => {
   };
 
   return (
-    <Container animate={{ opacity: 1 }}>
-      <ContentWrapper>
-        <ContentContainer>
-          <Image>
-            Thank <br /> you!
-          </Image>
-          <Content>
-            <h2>You are almost there!</h2>
-            <p>To automatically create and personalize your account we need a few more details.</p>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <TextField
-                control={control}
-                error={formState.errors.firstName}
-                labelText="Firstname"
-                loading={loading}
-                name="firstName"
-                placeholder=""
-                required
-              />
-              <TextField
-                control={control}
-                error={formState.errors.lastName}
-                labelText="Lastname"
-                loading={loading}
-                name="lastName"
-                placeholder=""
-                required
-              />
-              <TextField
-                control={control}
-                error={formState.errors.email}
-                labelText="email"
-                loading={loading}
-                name="email"
-                placeholder=""
-                required
-              />
-              <Button
-                disabled={!formState.isValid && !formState.isDirty}
-                isLoading={loading}
-                onClick={() => { /* dummy */ }}
-                text="Lets get started"
-                type="submit"
-              />
-            </form>
-          </Content>
-        </ContentContainer>
-      </ContentWrapper>
-    </Container>
+    <>
+      <Helmet>
+        <title>CSMM | Onboarding</title>
+      </Helmet>
+      <Container animate={{ opacity: 1 }}>
+        <ContentWrapper>
+          <ContentContainer>
+            <Image>
+              Thank <br /> you!
+            </Image>
+            <Content>
+              <h2>You are almost there!</h2>
+              <p>To automatically create and personalize your account we need a few more details.</p>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <TextField
+                  control={control}
+                  error={formState.errors.firstName}
+                  labelText="Firstname"
+                  loading={loading}
+                  name="firstName"
+                  placeholder=""
+                  required
+                />
+                <TextField
+                  control={control}
+                  error={formState.errors.lastName}
+                  labelText="Lastname"
+                  loading={loading}
+                  name="lastName"
+                  placeholder=""
+                  required
+                />
+                <TextField
+                  control={control}
+                  error={formState.errors.email}
+                  labelText="email"
+                  loading={loading}
+                  name="email"
+                  placeholder=""
+                  required
+                />
+                <Button
+                  disabled={!formState.isValid && !formState.isDirty}
+                  isLoading={loading}
+                  onClick={() => { /* dummy */ }}
+                  text="Lets get started"
+                  type="submit"
+                />
+              </form>
+            </Content>
+          </ContentContainer>
+        </ContentWrapper>
+      </Container>
+    </>
   );
 };

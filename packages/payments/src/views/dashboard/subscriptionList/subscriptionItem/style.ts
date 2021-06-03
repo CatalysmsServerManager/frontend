@@ -36,6 +36,10 @@ export const Container = styled(motion.li)`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    svg {
+      cursor: pointer;
+    }
   }
 
 `;

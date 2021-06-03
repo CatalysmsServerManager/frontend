@@ -2,10 +2,12 @@ import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
-  width: 225px;
+  position: absolute;
+  min-width: 140px;
   border-radius: 10px;
-  background-color: ${({ theme }): string => theme.colors.secondary};
-  z-index: 10;
+  background-color: ${({ theme }): string => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.colors.shadow};
+  z-index: 50;
   padding: 10px 15px;
   transform: translateY(-50%);
 
@@ -37,10 +39,9 @@ export const Container = styled(motion.div)`
       padding: 0;
       justify-content: flex-start;
     }
-
     span {
       margin-left: 10px;
-      color: white;
+      color: ${({ theme }): string => theme.colors.secondary};
       font-size: 1rem;
       font-weight: 600;
     }

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Button, styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
-import { routingService } from '../../services';
+import { routingService } from 'services';
 import { useLocation } from 'react-router-dom';
-import { setRedirect } from '../../helpers';
+import { setRedirect } from 'helpers';
 import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 
 export const DiscordContainer = styled(motion.div)`

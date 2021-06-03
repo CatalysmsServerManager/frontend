@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import { GridContainer, Hello, TileContainer } from './style';
 import { Helmet } from 'react-helmet';
-import { DeployTile, SubscriptionList, PaymentStateTile } from 'components';
+import { DeployTile, SubscriptionList, PaymentStateTile } from 'views';
 import { getTOD } from 'helpers';
 import { useUser } from 'hooks';
 

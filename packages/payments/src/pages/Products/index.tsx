@@ -1,8 +1,9 @@
 import { Fragment, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { ButtonContainer, Container } from './style';
-import { httpService } from '../../services';
+import { httpService } from 'services';
 import { Button, Loading } from '@csmm/ui';
-import { ProductList } from '../../components';
+import { ProductList } from 'views';
 import { useSnackbar } from 'notistack';
 import * as Sentry from '@sentry/react';
 import { AiOutlineShoppingCart as ShoppingCart } from 'react-icons/ai';
@@ -33,33 +34,38 @@ export const Products: React.FC = () => {
   }
 
   return (
-    <Container className={loading ? 'center' : ''}>
-      <h2>Product plans</h2>
-      <p>Enjoy gaming! Possible surprise fees.</p>
+    <>
+      <Helmet>
+        <title>CSMM | Products</title>
+      </Helmet>
+      <Container className={loading ? 'center' : ''}>
+        <h2>Product plans</h2>
+        <p>Enjoy gaming! Possible surprise fees.</p>
 
-      <ProductList
-        loading={loading}
-        selected={selected}
-        setLoading={setLoading} setSelected={setSelected} />
+        <ProductList
+          loading={loading}
+          selected={selected}
+          setLoading={setLoading} setSelected={setSelected} />
 
-      {loading ?
-        <Loading />
-        :
-        <Fragment>
-          <ButtonContainer>
-            <p>By clicking 'Buy plan' you agree with our
-              <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank"> terms of service</a>.
-            </p>
-            <Button
-              icon={<ShoppingCart size={20} />}
-              isLoading={buyLoading}
-              onClick={buyProduct}
-              size="large"
-              text="Buy plan"
-            />
-          </ButtonContainer>
-        </Fragment>
-      }
-    </Container >
+        {loading ?
+          <Loading />
+          :
+          <Fragment>
+            <ButtonContainer>
+              <p>By clicking 'Buy plan' you agree with our
+                <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank"> terms of service</a>.
+              </p>
+              <Button
+                icon={<ShoppingCart size={20} />}
+                isLoading={buyLoading}
+                onClick={buyProduct}
+                size="large"
+                text="Buy plan"
+              />
+            </ButtonContainer>
+          </Fragment>
+        }
+      </Container >
+    </>
   );
 };

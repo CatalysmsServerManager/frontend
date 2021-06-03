@@ -1,13 +1,12 @@
 import { FC, useState, useEffect } from 'react';
-import { styled } from '@csmm/ui';
-import { Button } from '@csmm/ui';
-import { Spinner } from '@csmm/ui';
-import { httpService, routingService } from '../../../services';
+import { styled, Button, Spinner } from '@csmm/ui';
+import { httpService, routingService } from '../../services';
 import { useSnackbar } from 'notistack';
 import { useLocation } from 'react-router-dom';
-import { setRedirect } from '../../../helpers';
+import { setRedirect } from '../../helpers';
 import { useUser } from 'hooks';
 import { UserData } from 'context';
+import { ReactNode } from 'react';
 
 const Container = styled.div<{ connected: boolean }>`
   width: 100%;
@@ -54,12 +53,12 @@ const ButtonContainer = styled.div<{ connected: boolean }>`
   }
 `;
 
-interface IProps {
+interface ConnectionProps {
   source: string;
-  icon: string;
+  icon: ReactNode;
 }
 
-export const Connection: FC<IProps> = ({ source, icon }) => {
+export const Connection: FC<ConnectionProps> = ({ source, icon }) => {
   const { userData, setUserData } = useUser();
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
@@ -79,14 +78,16 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
 
   async function disconnect() {
     const response = await httpService.delete(`/auth/${source}`);
-    if (response.ok) {
-      const session = await response.json() as UserData;
-      if (session) setUserData(session);
-      setConnected(false);
-      enqueueSnackbar(`${source} has been disconnected.`, { variant: 'info' });
-      // discord unlinked
+    if (!response.ok) {
+      enqueueSnackbar('Something went wrong trying to disconnect Discord. Please try again!', { variant: 'error' });
+      return;
     }
+    const session = await response.json() as UserData;
+    if (session) setUserData(session);
+    setConnected(false);
+    enqueueSnackbar(`${source} has been disconnected.`, { variant: 'info' });
   }
+
   async function connect() {
     setRedirect(location.pathname);
     routingService.navigateExternal('/auth/discord');
@@ -95,7 +96,7 @@ export const Connection: FC<IProps> = ({ source, icon }) => {
   return (
     <Container connected={connected}>
       <IconContainer connected={connected}>
-        <img alt={`logo ${source}`} src={icon} />
+        {icon}
       </IconContainer>
       <div>
         <h3>{source}</h3>

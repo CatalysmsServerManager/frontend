@@ -34,7 +34,6 @@ export const SubscriptionItem: FC<ISubscriptionWithProduct> = ({ product, state,
     enabled: true,
     phase: 'main',
     fn({ state }) {
-      // TODO: Update render position on scroll. (severity: minor, not breaking)
       detectOverflow(state, { boundary: containerRef });
     }
   }), []);
@@ -56,14 +55,15 @@ export const SubscriptionItem: FC<ISubscriptionWithProduct> = ({ product, state,
       <State className="p payment-state">
         <span className={state}>{state}</span>
       </State>
-      <div className="p"> <Menu fill={theme.colors.secondary} onClick={() => setShow(!showSettings)} pointer ref={setReferenceElement} size={24} /></div>
+      <div className="p" ref={setReferenceElement}>
+        <Menu fill={theme.colors.secondary} onClick={() => setShow(!showSettings)} pointer size={24} />
+      </div>
       {
         createPortal(
           <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
             {
               showSettings
-                ? <SubscriptionItemSettings pterodactylId={pterodactylId} ref={settingsRef} subscriptionId={id} subscriptionState={state} />
-                : null
+              && <SubscriptionItemSettings pterodactylId={pterodactylId} ref={settingsRef} subscriptionId={id} subscriptionState={state} />
             }
           </div>,
           document.querySelector('#popper')

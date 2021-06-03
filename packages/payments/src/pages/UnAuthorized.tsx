@@ -2,17 +2,16 @@ import { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { setRedirect } from 'helpers';
 import { routingService } from 'services';
+import { Error401 } from '@csmm/ui';
 
-export const NotAuthenticated: FC = () => {
+export const UnAuthorized: FC = () => {
   const location = useLocation();
   useEffect(() => {
-    setTimeout(() => {
-      setRedirect(location.pathname);
-      routingService.navigateExternal('/auth/steam');
-    }, 2000);
+    setRedirect(location.pathname);
+    routingService.navigateExternal('/auth/steam');
   }, []);
 
   return (
-    <div>not authenticated, you are being redirected to signin</div>
+    <Error401 />
   );
 };

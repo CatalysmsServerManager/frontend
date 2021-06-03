@@ -1,7 +1,4 @@
-export { AuthenticatedRoute } from './authenticatedRoute';
-export { DeployTile } from './dashboard';
-export { Header } from './profile/header';
-export { Navbar } from './navbar';
-export { PaymentStateTile } from './dashboard';
-export { ProductList } from './products';
-export { SubscriptionList } from './dashboard';
+export { AuthenticatedRoute } from './AuthenticatedRoute';
+export { Navbar } from './SideNav';
+export { Header } from './header';
+export { ConnectionsWrapper } from './connections/ConnectionsWrapper';

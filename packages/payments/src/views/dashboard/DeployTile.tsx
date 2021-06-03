@@ -1,8 +1,8 @@
 import { FC, Fragment, useEffect, useState } from 'react';
-import { httpService } from '../../services';
+import { httpService } from 'services';
 import { Tile } from '@csmm/ui';
 import { Subscription } from '@prisma/client';
-import { SUBSCRIPTION_STATES } from '../../enums';
+import { SUBSCRIPTION_STATES } from 'enums';
 import { useNavigate } from 'react-router-dom';
 
 export const DeployTile: FC = () => {

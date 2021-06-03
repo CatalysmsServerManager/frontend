@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { styled } from '@csmm/ui';
 import { Route } from 'react-router-dom';
-import { NotAuthenticated } from '../pages';
+import { UnAuthorized } from '../pages';
 import { useAuth } from 'hooks';
 import { Loading } from '@csmm/ui';
 
@@ -36,5 +36,5 @@ export const AuthenticatedRoute: FC<AuthenticatedRouteProps> = ({ element, path 
 
   if (loading) return <Container><Loading fill="#fff" /></Container>;
   if (isAuth) return (<Route element={element} path={path} />);
-  return <Route element={<NotAuthenticated />} path={path} />;
+  return <Route element={<UnAuthorized />} path={path} />;
 };

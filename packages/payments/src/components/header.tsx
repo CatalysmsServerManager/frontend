@@ -1,6 +1,6 @@
 import { FC, useState, createRef } from 'react';
 import { styled, getInitials, useOutsideAlerter } from '@csmm/ui';
-import { UserDropDown } from './userDropDown';
+import { UserDropDown } from '../views/profile/userDropDown';
 import { useUser } from 'hooks';
 
 const Container = styled.header`

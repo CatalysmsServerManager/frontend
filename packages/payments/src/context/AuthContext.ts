@@ -15,13 +15,13 @@ export function AuthProvider(): IAuthContext {
     const userSession = window.sessionStorage.getItem('user');
     if (!userSession) {
       const response = await httpService.get('/auth/session');
-      if (response.ok) {
-        window.localStorage.setItem('hasBeenAuthenticatedBefore', JSON.stringify(true));
-        return true;
+      if (!response.ok) {
+        return false;
       }
-      return false;
+      window.localStorage.setItem('hasBeenAuthenticatedBefore', JSON.stringify(true));
+      return true;
     }
-    return await JSON.parse(userSession);
+    return true;
   }
 
   async function signIn(redirect: string = '/billing/dashboard'): Promise<void> {
