@@ -14,7 +14,7 @@ export const Router: FC = () => (
         <Route element={<Products />} path="/products" />
         <Route element={<Profile />} path="/profile" />
         <Route element={<Orders />} path="/orders" />
-        <Route element={<PaymentState />} path="/payment/:state" />
+        <Route element={<PaymentState />} path="/payment/:subscriptionId" />
       </AuthenticatedRoute>
 
       <AuthenticatedRoute element={<DeployServer />} path="/deploy/:subscriptionId" />

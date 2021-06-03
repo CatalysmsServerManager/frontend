@@ -1,7 +1,7 @@
 import { FC, useState, useMemo } from 'react';
 import * as Sentry from '@sentry/react';
 import { ErrorFallback, NetworkDetector, theme, GlobalStyle, SnackbarProvider } from '@csmm/ui';
-import { Router } from './router';
+import { Router } from './Router';
 import { ThemeProvider } from 'styled-components';
 import { UserContext, UserData, AuthContext, AuthProvider } from './context';
 
