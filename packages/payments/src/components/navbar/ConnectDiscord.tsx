@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { routingService } from '../../services';
 import { useLocation } from 'react-router-dom';
 import { setRedirect } from '../../helpers';
-import { AiOutlineFire as Connect } from 'react-icons/ai';
+import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 
 export const DiscordContainer = styled(motion.div)`
   position: relative;
@@ -52,7 +52,7 @@ const AlertContainer = styled.div`
   border: 10px solid ${({ theme }) => theme.colors.background};
 
   svg{
-    fill: ${({ theme }) => theme.colors.tertiary};
+    fill: ${({ theme }) => theme.colors.primary};
   }
 
   div {
@@ -80,12 +80,12 @@ export const ConnectDiscord: FC = () => {
       transition={{ delay: 1 }}
     >
       <AlertContainer>
-        <Connect size={30} />
+        <DiscordIcon size={24} />
       </AlertContainer>
-      <h4>Connect Discord</h4>
+      <h4>Connect Discord!</h4>
       <p>By connecting your discord you will receive a custom role in the official CSMM Discord server. </p>
       <Button
-        color="tertiary"
+        color="primary"
         isWhite
         onClick={linkDiscord}
         size="small"

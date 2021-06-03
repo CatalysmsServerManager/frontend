@@ -5,7 +5,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav } from './style';
 import { UserContext } from '../../context';
 import { ConnectDiscord } from './ConnectDiscord';
-
 import {
   AiOutlineControl as ControlPanel,
   AiOutlineAppstore as Dashboard,
@@ -30,7 +29,7 @@ export const Navbar: FC = () => {
         src={icon}
         transition={{ type: 'tween', duration: 1, repeatType: 'reverse', repeat: Infinity, ease: 'easeInOut', repeatDelay: 5 }}
       />
-      <h2 onClick={() => navigate('/billing/dashboard')}>CSMM Billing</h2>
+      <h2 onClick={() => navigate('/billing/dashboard')}>Billing platform</h2>
       <Nav>
         <NavLink to="/billing/dashboard"><Dashboard size={24} /><p>Dashboard</p></NavLink>
         <NavLink to="/billing/products"><ShoppingCart size={24} /><p>Product plans</p></NavLink>

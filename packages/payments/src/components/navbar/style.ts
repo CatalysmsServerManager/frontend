@@ -22,13 +22,10 @@ export const Container = styled(motion.div) <{ toTop: boolean }>`
   }
 
   h2 {
-    color: ${({ theme }): string => theme.colors.secondary};
-    font-weight: 800;
     text-align: center;
     width: 100%;
     cursor: pointer;
-    text-transform: uppercase;
-    font-size: 1.225rem;
+    font-size: 2rem;
     margin-bottom: 100px;
   }
 `;
