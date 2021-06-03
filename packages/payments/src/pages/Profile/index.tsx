@@ -1,23 +1,8 @@
 import { FC } from 'react';
-import { styled, Avatar, getInitials } from '@csmm/ui';
-import { ConnectionsWrapper } from '../components/profile/connections/ConnectionsWrapper';
+import { Container, Header, Name } from './style';
+import { Avatar, getInitials } from '@csmm/ui';
+import { ConnectionsWrapper } from '../../components/profile/connections/ConnectionsWrapper';
 import { useUser } from 'hooks';
-
-const Container = styled.div`
-  height: 100%;
-`;
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 10rem;
-`;
-const Name = styled.h2`
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.secondary};
-  margin-left: 5rem;
-  text-transform: capitalize;
-`;
 
 export const Profile: FC = () => {
   const { userData } = useUser();

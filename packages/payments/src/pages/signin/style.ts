@@ -36,7 +36,6 @@ export const Right = styled(motion.div) <{ url: string }>`
     h2{
       margin-left: 10px;
       text-transform: uppercase;
-      font-size: 2rem;
       font-weight: 800;
       color: ${({ theme }) => theme.colors.secondary};
       z-index: 2;
@@ -58,23 +57,23 @@ export const ContentContainer = styled.div`
   width: 100%;
   flex-direction: column;
   position: relative;
-  padding: 0 150px;
+  padding: 0 15rem;
   justify-content: center;
   flex-direction: column;
-  p.text{
+  h3 {
     z-index: 2;
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.secondary};
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     line-height: 1.5;
 
     strong {
       background-color: ${({ theme }) => theme.colors.primary};
       color: white;
       font-weight: 800;
-      border: 3px solid ${({ theme }) => theme.colors.primary};
-      border-radius: 5px;
+      border: .3rem solid ${({ theme }) => theme.colors.primary};
+      border-radius: .5rem;
     }
   }
 `;

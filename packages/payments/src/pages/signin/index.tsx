@@ -69,7 +69,7 @@ export const Signin: FC = () => {
           <h2>CSMM Billing</h2>
         </header>
         <ContentContainer>
-          <p className="text">Setting up a server<br /> is now just a few <strong>clicks</strong> away!</p>
+          <h3>Setting up a server<br /> is now just a few <strong>clicks</strong> away!</h3>
           <Button
             icon={<Steam size={24} />}
             isLoading={loading}

@@ -11,7 +11,6 @@ const Container = styled.div`
 
   h1 {
     color: white;
-    font-weight: 800;
   }
 `;
 

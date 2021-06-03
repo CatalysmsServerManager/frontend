@@ -1,52 +1,11 @@
 import { Fragment, useState } from 'react';
-import { styled } from '@csmm/ui';
-import { httpService } from '../services';
+import { ButtonContainer, Container } from './style';
+import { httpService } from '../../services';
 import { Button, Loading } from '@csmm/ui';
-import { ProductList } from '../components';
+import { ProductList } from '../../components';
 import { useSnackbar } from 'notistack';
 import * as Sentry from '@sentry/react';
 import { AiOutlineShoppingCart as ShoppingCart } from 'react-icons/ai';
-
-const Container = styled.div`
-  h2{
-    color: ${({ theme }) => theme.colors.secondary};
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  p{
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight:500;
-    opacity: 0.7;
-    color:${({ theme }) => theme.colors.secondary};
-  }
-
-  &.center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  border-top-color: ${({ theme }) => theme.colors.secondary}15;
-  border-top-width: 2px;
-  border-top-style: solid;
-  padding-top: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  p{
-    opacity: .5;
-    margin-bottom: 0;
-  }
-  a {
-    color: ${({ theme }): string => theme.colors.secondary};
-    text-decoration: underline;
-  }
-`;
 
 export const Products: React.FC = () => {
   const [selected, setSelected] = useState(2);
@@ -65,6 +24,7 @@ export const Products: React.FC = () => {
       }
       else {
         enqueueSnackbar('Something went wrong selecting a product, please select again!', { variant: 'error' });
+        setBuyLoading(false);
       }
       return;
     };
@@ -87,7 +47,9 @@ export const Products: React.FC = () => {
         :
         <Fragment>
           <ButtonContainer>
-            <p>By clicking 'Buy plan' you agree with our <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank">terms of service</a></p>
+            <p>By clicking 'Buy plan' you agree with our
+              <a href="https://csmm.app/terms-of-service" rel="noopener noreferrer" target="_blank"> terms of service</a>.
+            </p>
             <Button
               icon={<ShoppingCart size={20} />}
               isLoading={buyLoading}
