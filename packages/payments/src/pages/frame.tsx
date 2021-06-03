@@ -1,15 +1,16 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { styled } from '@csmm/ui';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Header, Navbar } from '../components';
-import { UserContext } from '../context';
+import { useAuth, useUser } from 'hooks';
 
 const Container = styled.div`
   display: flex;
   height: 100%;
   background-color:#e8edf5;
 `;
+
 const ContentContainer = styled(motion.div)`
   background-color:#e8edf5;
   width: 100%;
@@ -22,13 +23,23 @@ const Page = styled.div`
 
 export const Frame: FC = () => {
   // check if the user has already filled in an email address (initial).
-  const { userData } = useContext(UserContext);
+  const { getSession } = useAuth();
+  const { userData, setUserData } = useUser();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!userData?.email) {
-      navigate('/more-information');
+  async function handleOnBoarding() {
+    if (!userData.email) {
+      const session = await getSession();
+      if (session && session.email) {
+        setUserData(session);
+      } else {
+        navigate('/onboarding');
+      }
     }
+  }
+
+  useEffect(() => {
+    handleOnBoarding();
   }, []);
 
   return (

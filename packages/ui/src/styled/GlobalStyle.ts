@@ -78,6 +78,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
   input {
     margin: 0;
+    outline: 0;
     padding: 10px 15px;
     border-width: 2px;
     border-radius: 5px;
@@ -88,6 +89,9 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
       &:focus {
         border-color: none!important;
       }
+    }
+    &:focus {
+      outline: 0;
     }
   }
 

@@ -1,9 +1,9 @@
-import { FC, Fragment, useContext } from 'react';
+import { FC, Fragment } from 'react';
 import { styled } from '@csmm/ui';
 import { Helmet } from 'react-helmet';
 import { DeployTile, SubscriptionList, PaymentStateTile } from '../components';
-import { UserContext } from '../context';
 import { getTOD } from '../helpers';
+import { useUser } from 'hooks';
 
 const Hello = styled.div`
   width: 100%;
@@ -41,14 +41,14 @@ const TileContainer = styled.div`
 `;
 
 export const Dashboard: FC = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useUser();
   return (
     <Fragment>
       <Helmet>
         <title>CSMM - Homepage</title>
       </Helmet>
       <Hello>
-        <h2> {getTOD()}, <span>{userData?.firstName}</span></h2>
+        <h2> {getTOD()}, <span>{userData.firstName}</span></h2>
         <p>We hope you are having a great day!</p>
       </Hello>
       <GridContainer>

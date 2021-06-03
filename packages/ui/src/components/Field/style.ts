@@ -13,11 +13,19 @@ export const LabelContainer = styled.div`
 `;
 
 export const Label = styled.label<{ showError: boolean }>`
-  color: ${({ theme, showError }): string => showError ? theme.colors.error : theme.colors.gray};
+  color: ${({ theme, showError }): string => showError ? theme.colors.error : theme.colors.text};
   width: 100%;
   user-select: none;
   font-size: 1.2rem;
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    font-size: 1rem;
+    color: ${({ theme, showError }): string => showError ? theme.colors.error : theme.colors.text};
+  }
 `;
 export const InputContainer = styled.div`
   width: 100%;
@@ -45,7 +53,7 @@ export const Input = styled.input<{ hasIcon: boolean; hasError: boolean; }>`
   width: 100%;
   padding-left: ${({ hasIcon }): string => hasIcon ? '60px' : '15px' /* 15 is the standard */};
   background-color: transparent;
-  color: white;
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 1.5rem;
   border-bottom: 2px solid ${({ theme, hasError }): string => hasError ? theme.colors.error : theme.colors.gray};
   font-weight: 600;
@@ -54,7 +62,7 @@ export const Input = styled.input<{ hasIcon: boolean; hasError: boolean; }>`
     color: ${({ theme }) => theme.colors.primary};
   }
   &:focus {
-    border-color: ${({ theme, hasError }): string => hasError ? theme.colors.error : lighten('0.1', theme.colors.gray)};
+    border-bottom: 2px solid ${({ theme, hasError }): string => hasError ? theme.colors.error : theme.colors.primary};
   }
   ::placeholder{
     text-transform: capitalize;
@@ -75,7 +83,6 @@ export const ErrorContainer = styled.div<{ showError: boolean }>`
   height: auto;
   width: ${({ showError }): string => showError ? '100%' : '0'};
   background-color: ${({ theme }): string => theme.colors.error};
-  color: white;
   transition: width 0.2s ease-in-out, transform 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 5px;
@@ -88,8 +95,9 @@ export const Error = styled.span`
   align-items: center;
   min-width: 100%;
   width: 100%;
-  padding: 5px 5px 5px 15px;
-  height: 40px;
+  padding: .5rem .5rem .5rem 1.5rem;
+  height: 4rem;
+  color: white;
   font-weight: 500;
   white-space: nowrap;
 `;

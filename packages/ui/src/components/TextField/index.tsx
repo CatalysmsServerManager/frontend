@@ -12,10 +12,17 @@ export const TextField: FC<FieldProps> = ({
   icon,
   readOnly,
   hint,
+  required,
   loading = false
 }) => {
   const [showError, setShowError] = useState(false);
-  const { field: { ref, ...inputProps } } = useController({ name, control, defaultValue: placeholder });
+  const { field: { ref, ...inputProps } } = useController({ name, control });
+
+  if (!hint && required) {
+    hint = 'Required';
+  } else if (hint && required) {
+    hint += '*';
+  }
 
   if (loading) {
     return (
@@ -33,11 +40,11 @@ export const TextField: FC<FieldProps> = ({
       <LabelContainer>
         <Label htmlFor={name} showError={error ? true : false}>
           {labelText}
-          {hint}
+          <span>{hint}</span>
         </Label>
       </LabelContainer>
       <InputContainer>
-        {icon && cloneElement(icon, { size: 24, className: 'icon' })}
+        {icon && cloneElement(icon, { size: 22, className: 'icon' })}
         <Input
           {...inputProps}
           autoCapitalize="off"
