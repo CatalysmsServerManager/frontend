@@ -5,7 +5,6 @@ import ReactTooltip from 'react-tooltip';
 
 import { Link } from './Link';
 import { FaDiscord as DiscordIcon } from 'react-icons/fa';
-import discord from 'images/discord.svg';
 import mail from 'images/mail.svg';
 import massief from 'images/massief.svg';
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = (config) => {
