@@ -18,7 +18,7 @@ interface IFormInputs {
 }
 
 export const OnBoarding: FC = () => {
-  const { getSession } = useAuth();
+  const { getSession, isAuthenticated } = useAuth();
   const { setUserData } = useUser();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
@@ -29,7 +29,7 @@ export const OnBoarding: FC = () => {
       yup.object({
         firstName: yup.string().required('Firstname is a required field.'),
         lastName: yup.string().required('Lastname is a required field.'),
-        email: yup.string().email('Enter a valid email').required('Email is a required field.')
+        email: yup.string().email('Enter a valid email.').required('Email is a required field.')
       }),
     []
   );
@@ -37,12 +37,20 @@ export const OnBoarding: FC = () => {
 
   // check if a user tries to surf to this page while he has already filled in in this information.
   const checkIfUserHasInformation = async () => {
+    // check if authenticated
+
+    if (!(await isAuthenticated())) {
+      enqueueSnackbar('You are not signed in.', { variant: 'info' });
+      navigate('/');
+    }
+
     const session = await getSession();
     if (session && session.firstName && session.lastName && session.email) {
       enqueueSnackbar('Your information has already been set before.', { variant: 'info' });
       navigate(getRedirect());
     }
   };
+
   useEffect(() => {
     checkIfUserHasInformation();
   }, []);
@@ -62,11 +70,12 @@ export const OnBoarding: FC = () => {
           navigate('/billing/dashboard');
           return;
         }
+      } else {
+        reset(); // clear form
+        enqueueSnackbar('Something went wrong. Please sign in again!', { variant: 'error' });
+        navigate('/'); // if this is reached the user is probably not signed in.
+        setLoading(false);
       }
-      reset(); // clear form
-      enqueueSnackbar('Something went wrong. Please sign in again!', { variant: 'error' });
-      navigate('/'); // if this is reached the user is probably not signed in.
-      setLoading(false);
     } catch (e) {
       Sentry.captureMessage(e);
     }

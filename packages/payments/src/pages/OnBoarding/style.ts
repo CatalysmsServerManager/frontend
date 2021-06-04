@@ -5,20 +5,20 @@ export const Container = styled(motion.div)`
   width: 100%;
   opacity:0;
   height: 100vh;
-  padding: 200px;
+  padding: 20rem;
   background-color: ${({ theme }) => theme.colors.background};
   h1 {
     color: white;
     font-size: 4rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
   }
   p {
     color: white;
     font-size: 1.5rem;
     font-size: 500;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
     text-align: center;
   }
 `;

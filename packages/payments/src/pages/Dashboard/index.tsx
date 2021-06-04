@@ -10,7 +10,7 @@ export const Dashboard: FC = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>CSMM - Homepage</title>
+        <title>CSMM | Dashboard</title>
       </Helmet>
       <Hello>
         <h2> {getTOD()}, <span>{userData.firstName}</span></h2>
