@@ -5,7 +5,7 @@ import { UserData } from 'context';
 
 export interface IAuthContext {
   signIn: (redirect?: string) => Promise<void>;
-  signOut: () => Promise<boolean>;
+  signOut: () => boolean;
   isAuthenticated: () => Promise<boolean>
   getSession: () => Promise<UserData | null>
 }
@@ -45,11 +45,7 @@ export function AuthProvider(): IAuthContext {
     return null;
   }
 
-  async function signOut(): Promise<boolean> {
-    const response = await httpService.get('/auth/logout');
-    if (!response.ok) {
-      return false;
-    }
+  function signOut(): boolean {
     localStorage.removeItem('jwt');
     localStorage.removeItem('hasBeenAuthenticatedBefore');
     localStorage.removeItem('productId');
