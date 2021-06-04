@@ -1,7 +1,7 @@
 import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
 
-export const Container = styled(motion.div)`
+const Container = styled(motion.div)`
   background-color: white;
   opacity: 0;
   border-radius: 10px;
@@ -14,7 +14,7 @@ export const Container = styled(motion.div)`
   transition: max-height 0.3s ease-in-out;
 `;
 
-export const Header = styled.div`
+const Header = styled.div`
   width: 100%;
   height: 35px;
   h3 {
@@ -23,7 +23,7 @@ export const Header = styled.div`
   }
 `;
 
-export const Content = styled.div`
+const Content = styled.div`
   width: 100%;
   height: fit-content;
 
@@ -35,12 +35,12 @@ export const Content = styled.div`
   }
 `;
 
-interface IProps {
+interface ListWrapperProps {
   title: string;
   center?: boolean
 }
 
-export const ListWrapper: React.FC<IProps> = ({ title, center = false, children }) => {
+export const ListWrapper: React.FC<ListWrapperProps> = ({ title, center = false, children }) => {
   return (
     <Container
       animate={{ opacity: 1 }}

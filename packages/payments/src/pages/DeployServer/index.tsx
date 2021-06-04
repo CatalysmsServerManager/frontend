@@ -1,6 +1,6 @@
 import { FC, useState, useMemo } from 'react';
 import { Container, Image, ContentContainer, Content } from './style';
-import { TextField, useValidationSchema, Button } from '@csmm/ui';
+import { TextField, useValidationSchema, Button, REGEXPR_STEAM_API_KEY } from '@csmm/ui';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Helmet } from 'react-helmet';
@@ -9,7 +9,6 @@ import * as yup from 'yup';
 
 import { httpService } from 'services';
 import { AiOutlineRocket as DeployIcon } from 'react-icons/ai';
-import { REGEXPR_STEAM_API_KEY } from 'enums';
 
 type FormFields = { steamApiKey: string; }
 

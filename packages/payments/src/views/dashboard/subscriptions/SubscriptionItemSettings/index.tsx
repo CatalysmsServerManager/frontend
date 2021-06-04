@@ -26,6 +26,8 @@ interface SubscriptionItemSettingsProps {
 export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionItemSettingsProps>(({ pterodactylId, subscriptionId, subscriptionState }, ref) => {
   const [CancelModalWrapper, openCancelModal, closeCancelModal] = useModal();
   const [PayModalWrapper, openPayModal, closePayModal] = useModal();
+  const [ReverseModalWrapper, openReverseModal, closeReverseModal] = useModal();
+
   const { enqueueSnackbar } = useSnackbar();
   const { setSubscriptions, subscriptions } = useContext(SubscriptionContext);
   const location = useLocation();
@@ -34,32 +36,28 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionI
   async function pay() {
     enqueueSnackbar('You are being redirected to the payment platform.', { variant: 'info' });
     const response = await httpService.post('/subscription/pay', { subscriptionId });
-    if (response.ok) {
-      const json = await response.json();
-      setRedirect(location.pathname);
-      window.location.href = json.url;
+    if (!response.ok) {
+      enqueueSnackbar('Something went wrong', { variant: 'error' });
       return;
     }
-    enqueueSnackbar('Something went wrong', { variant: 'error' });
+    const json = await response.json();
+    setRedirect(location.pathname);
+    window.location.href = json.url;
   }
-
-  function deploy() {
-    navigate(`/deploy/${subscriptionId}`);
-  }
+  function deploy() { navigate(`/deploy/${subscriptionId}`); }
 
   async function cancel() {
-    // THIS IS NOT SET CORRECTLY
     const response = await httpService.post('/subscription/state', { subscriptionId, state: SUBSCRIPTION_STATES.CANCELLED });
     if (!response.ok) {
       enqueueSnackbar('Something went wrong! We are aware and are looking for a solution. 🤓', { variant: 'error' });
       return;
     }
-    const newSubscriptionList = subscriptions?.map((subscription) => {
+    const newSubscriptionList = subscriptions.map((subscription) => {
       if (subscription.id === subscriptionId) subscription.state = SUBSCRIPTION_STATES.CANCELLED;
       return subscription;
     });
 
-    if (newSubscriptionList?.length && setSubscriptions) {
+    if (newSubscriptionList.length) {
       setSubscriptions(newSubscriptionList);
     }
     enqueueSnackbar('Subscription cancelled.', { variant: 'info' });
@@ -72,13 +70,11 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionI
       enqueueSnackbar('Something went wrong! We are aware and are looking for a solution. 🤓', { variant: 'error' });
       return;
     }
-    const newSubscriptionList = subscriptions?.map((subscription) => {
+    const newSubscriptionList = subscriptions.map((subscription) => {
       if (subscription.id === subscriptionId) subscription.state = SUBSCRIPTION_STATES.ACTIVE;
       return subscription;
     });
-    if (newSubscriptionList?.length && setSubscriptions) {
-      setSubscriptions(newSubscriptionList);
-    }
+    if (newSubscriptionList.length) { setSubscriptions(newSubscriptionList); }
     enqueueSnackbar('Subscription cancel has successfully been reversed.', { variant: 'success' });
   }
 
@@ -97,7 +93,7 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionI
           </>
         );
       case SUBSCRIPTION_STATES.CANCELLED:
-        return <li onClick={reverseCancel}><UndoIcon size={24} /><span>Reverse cancellation</span></li>;
+        return <li onClick={openReverseModal}><UndoIcon size={24} /><span>Reverse cancellation</span></li>;
       case SUBSCRIPTION_STATES.DEPLOY:
         return <li onClick={deploy}><DeployIcon size={24} /><span>Deploy now</span></li>;
     }
@@ -148,6 +144,20 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionI
           type="info"
         />
       </PayModalWrapper >
+
+      { /* Reverse cancellation Modal */}
+      <ReverseModalWrapper>
+        <ConfirmationModal
+          action={reverseCancel}
+          actionText="Reverse cancel"
+          close={closeReverseModal}
+          description="Are you sure you want to reverse the cancellation of your subscription? This will result in a new payment when your new due date has been reached."
+          icon={AlertTriangleIcon}
+          ref={wrapperRef}
+          title="Reverse subscription cancel"
+          type="error"
+        />
+      </ReverseModalWrapper>
     </Container >
   );
 });
