@@ -12,21 +12,17 @@ export interface IAuthContext {
 
 export function AuthProvider(): IAuthContext {
   async function isAuthenticated(): Promise<boolean> {
-    const userSession = window.sessionStorage.getItem('user');
-    if (!userSession) {
-      const response = await httpService.get('/auth/session');
-      if (!response.ok) {
-        return false;
-      }
-      window.localStorage.setItem('hasBeenAuthenticatedBefore', JSON.stringify(true));
-      return true;
-    }
+    const jwt = localStorage.getItem('jwt');
+    if (!jwt) { return false; }
+
+    const response = await httpService.get('/auth/session');
+    if (!response.ok) { return false; }
     return true;
   }
 
   async function signIn(redirect: string = '/billing/dashboard'): Promise<void> {
-    const hasSession = await isAuthenticated();
-    if (hasSession) {
+    const hasToken = await isAuthenticated();
+    if (hasToken) {
       window.location.pathname = '/billing/dashboard';
       return;
     }
@@ -34,34 +30,32 @@ export function AuthProvider(): IAuthContext {
     routingService.navigateExternal('/auth/steam');
   }
 
+  // This returns the User details (name,email,...)
   async function getSession(): Promise<UserData | null> {
-    const userSession = window.sessionStorage.getItem('user');
+    // If the user has a jwt we can consider him logged in.
+    // It could be expired.
+    const jwt = localStorage.getItem('jwt');
 
-    if (!userSession) {
+    if (jwt) {
       const response = await httpService.get('/auth/session');
-      if (response.ok) {
-        const jsonResult = await response.json();
-        const stringResult = JSON.stringify(jsonResult);
-        window.localStorage.setItem('hasBeenAuthenticatedBefore', JSON.stringify(true));
-        window.sessionStorage.setItem('user', stringResult);
-        return jsonResult;
-      }
-      return null;
+      if (!response.ok) { return null; }
+      const jsonResult = await response.json();
+      return jsonResult;
     }
-    return await JSON.parse(userSession);
+    return null;
   }
 
   async function signOut(): Promise<boolean> {
     const response = await httpService.get('/auth/logout');
-    if (response.ok) {
-      window.sessionStorage.removeItem('user');
-      window.localStorage.removeItem('hasBeenAuthenticatedBefore');
-      window.localStorage.removeItem('productId');
-      window.location.pathname = '/';
-      return true;
+    if (!response.ok) {
+      return false;
     }
-    return false;
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('hasBeenAuthenticatedBefore');
+    localStorage.removeItem('productId');
+    return true;
   }
+
   return { signIn, signOut, isAuthenticated, getSession };
 };
 

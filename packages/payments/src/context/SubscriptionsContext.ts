@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 import { Product, Subscription } from '@prisma/client';
 
-export interface ISubscriptionWithProduct extends Subscription {
+export interface SubscriptionWithProduct extends Subscription {
   product: Product;
 }
 
-interface ISubscriptionContext {
-  subscriptions: ISubscriptionWithProduct[];
-  setSubscriptions: React.Dispatch<ISubscriptionWithProduct[]>
+export interface ISubscriptionContext {
+  subscriptions: SubscriptionWithProduct[];
+  setSubscriptions: React.Dispatch<SubscriptionWithProduct[]>
 }
 
-export const SubscriptionContext = createContext<Partial<ISubscriptionContext>>({});
+export const SubscriptionContext = createContext<ISubscriptionContext>(undefined!);
