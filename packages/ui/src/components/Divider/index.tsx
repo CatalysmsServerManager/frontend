@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled';
+import { styled } from '../../styled';
 
 const Container = styled.div`
   position: relative;

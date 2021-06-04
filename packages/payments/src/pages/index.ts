@@ -1,18 +1,14 @@
-export { Dashboard } from './dashboard';
-export { DeployServer } from './deployServer';
-export { Frame } from './frame';
+export { Dashboard } from './Dashboard';
+export { DeployServer } from './DeployServer';
+export { Frame } from './Frame';
 export { Orders } from './orders';
-export { PaymentState } from './paymentState';
-export { PaymentComplete } from './paymentComplete';
-export { Products } from './products';
-export { Profile } from './profile';
-export { MoreInformation } from './moreInformation';
-export { NotAuthenticated } from './notAuthenticated';
-export { Signin } from './signin';
-
-/* error pages */
-export { ErrorFallback, PageNotFound } from './errors';
+export { PaymentState } from './PaymentState';
+export { Products } from './Products';
+export { Profile } from './Profile';
+export { OnBoarding } from './OnBoarding';
+export { UnAuthorized } from './UnAuthorized';
+export { Signin } from './Signin';
 
 /* redirects */
-export { DiscordReturn } from './return';
-export { Redirect } from './redirect';
+export { DiscordReturn } from './Return';
+export { Redirect } from './Redirect';

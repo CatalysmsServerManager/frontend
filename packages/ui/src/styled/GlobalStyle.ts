@@ -50,15 +50,26 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     user-select: none;
     padding: 0;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.text};
   }
 
-  p {
-    font-size: 1.2rem;
+  h1 {
+    font-size: 4rem;
+    font-weight: 800;
   }
-
   h2 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+  h3 {
+    font-size: 2rem;
     font-weight: 600;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  p, span, div{
+    font-size: 1.4rem;
   }
 
   form {
@@ -67,6 +78,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
   input {
     margin: 0;
+    outline: 0;
     padding: 10px 15px;
     border-width: 2px;
     border-radius: 5px;
@@ -77,6 +89,9 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
       &:focus {
         border-color: none!important;
       }
+    }
+    &:focus {
+      outline: 0;
     }
   }
 

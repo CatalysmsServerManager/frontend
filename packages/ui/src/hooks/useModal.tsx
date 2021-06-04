@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { FC, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled';
+import { styled } from '../styled';
 import { motion } from 'framer-motion';
 
 export const Overlay = styled.div`
@@ -31,12 +31,12 @@ export const Container = styled(motion.div)`
   }
 `;
 
-interface IModalProps {
+export interface ModalProps {
   isOpen?: boolean;
   elementId: string;
 }
 
-const Modal: React.FC<IModalProps> = ({ children, isOpen = false, elementId }) => {
+const Modal: FC<ModalProps> = ({ children, isOpen = false, elementId }) => {
   if (!isOpen) {
     return null;
   }
@@ -55,17 +55,18 @@ const Modal: React.FC<IModalProps> = ({ children, isOpen = false, elementId }) =
   );
 };
 
-export const useModal = () => {
-  const [isOpen, setOpen] = React.useState(false);
+export const useModal = ():
+  [({ children }: any) => JSX.Element, () => void, () => void] => {
+  const [isOpen, setOpen] = useState(false);
 
-  const open = React.useCallback(() => {
+  const open = useCallback(() => {
     setOpen(true);
   }, [setOpen]);
 
-  const close = React.useCallback(() => {
+  const close = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
 
-  const ModalWrapper = React.useCallback(({ children }) => (<Modal elementId="modal" isOpen={isOpen}>{children}</Modal>), [isOpen]);
+  const ModalWrapper = useCallback(({ children }) => (<Modal elementId="modal" isOpen={isOpen}>{children}</Modal>), [isOpen]);
   return [ModalWrapper, open, close];
 };

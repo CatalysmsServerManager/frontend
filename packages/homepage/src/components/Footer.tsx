@@ -4,7 +4,7 @@ import { size } from 'constants/size';
 import ReactTooltip from 'react-tooltip';
 
 import { Link } from './Link';
-import discord from 'images/discord.svg';
+import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 import mail from 'images/mail.svg';
 import massief from 'images/massief.svg';
 
@@ -92,7 +92,7 @@ export const Footer: FC = () => {
     <Container>
       <IconNav>
         <Link isExternal to="/https://discordapp.com/invite/%45wy%44d%4E%41">
-          <img alt="csmm 7 Days to Die discord icon" src={discord} title="csmm 7 Days to Die discord" />
+          <DiscordIcon size={18} />
         </Link>
         <Link isExternal to="mailto:info@csmm.app">
           <img alt="csmm mail" data-tip="info@csmm.app" src={mail} title="csmm 7 Days to Die mail" />

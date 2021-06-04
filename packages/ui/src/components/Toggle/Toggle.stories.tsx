@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
-import { Toggle, ToggleProps } from 'components';
+import { styled } from '../../styled';
+import { Toggle, ToggleProps } from '../../components';
 
 const WrapperDecorator = styled.div`
   padding: 5rem;

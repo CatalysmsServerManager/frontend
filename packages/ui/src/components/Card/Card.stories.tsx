@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
-import { Card, CardProps, Empty } from 'components';
+import { styled } from '../../styled';
+import { Card, CardProps, Empty } from '../../components';
 
 const WrapperDecorator = styled.div`
   padding: 5rem;

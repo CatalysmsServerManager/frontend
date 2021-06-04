@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
-import { Button, ButtonProps } from 'components';
+import { styled } from '../../styled';
+import { Button, ButtonProps } from '.';
 import { AiFillCloud as Icon } from 'react-icons/ai';
 
 const Wrapper = styled.div`

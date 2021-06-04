@@ -1,5 +1,4 @@
 // TODO: Improve accessibility
-
 import React, { FC, useEffect, useState } from 'react';
 import { CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
 import { AiOutlineCheck as Icon } from 'react-icons/ai';

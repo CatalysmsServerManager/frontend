@@ -1,7 +1,7 @@
 import { FC, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
-import { Spinner } from 'components';
+import { Spinner } from '../../components';
 import { Container } from './style';
-import { Color, Size, Variant, AlertVariants } from 'styled/types';
+import { Color, Size, Variant, AlertVariants } from '../../styled/types';
 
 export interface ButtonProps {
   disabled?: boolean;

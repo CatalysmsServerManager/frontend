@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import { Empty, EmptyProps } from 'components';
-import styled from 'styled';
+import { Empty, EmptyProps } from '.';
+import { styled } from 'styled';
 
 const Wrapper = styled.div`
   padding: 5rem;

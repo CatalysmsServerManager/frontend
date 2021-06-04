@@ -1,5 +1,5 @@
 /* Re-export of styled-components styled default export which at typings for the custom theme */
-import { styled } from './theme';
+export { styled, theme } from './theme';
 export type { ThemeType } from './theme';
-
-export default styled;
+export { GlobalStyle } from './GlobalStyle';
+export * from './types';

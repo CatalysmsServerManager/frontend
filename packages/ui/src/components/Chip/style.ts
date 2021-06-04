@@ -1,4 +1,4 @@
-import styled from 'styled';
+import { styled } from '../../styled';
 import { ChipColor } from '.';
 import { darken } from 'polished';
 
@@ -12,7 +12,6 @@ export const Container = styled.div<{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: fit-content;
   padding: 3px 12px;
   border-radius: 1.5rem;
   cursor: ${({ clickable }): string => clickable ? 'pointer' : 'auto'};

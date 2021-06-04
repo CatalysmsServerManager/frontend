@@ -3,8 +3,8 @@ import { createRef, FC, useState } from 'react';
 import { Container, DropDownContainer, SelectedContainer, Option, ArrowContainer, CheckMarkContainer } from './style';
 import { Control, FieldError, useController } from 'react-hook-form';
 import { usePopper } from 'react-popper';
-import { useOutsideAlerter } from 'hooks';
-import { ErrorContainer, Error } from 'components/Field/style';
+import { useOutsideAlerter } from '../../hooks';
+import { ErrorContainer, Error } from '../../components/Field/style';
 import {
   AiOutlineDown as ArrowDownIcon,
   AiOutlineUp as ArrowUpIcon,

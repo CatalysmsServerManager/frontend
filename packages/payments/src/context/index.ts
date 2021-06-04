@@ -1,4 +1,7 @@
-export type { IUserData, IUserContext } from './user';
-export { UserContext } from './user';
-export type { ISubscriptionWithProduct } from './subscriptions';
-export { SubscriptionContext } from './subscriptions';
+export { UserContext } from './UserContext';
+export type { UserData, IUserContext } from './UserContext';
+
+export { SubscriptionContext } from './SubscriptionsContext';
+export type { SubscriptionWithProduct, ISubscriptionContext } from './SubscriptionsContext';
+
+export { AuthContext, AuthProvider } from './AuthContext';

@@ -5,7 +5,7 @@ const snackbarOptions: Partial<SnackbarProviderProps> = {
   anchorOrigin: {
     horizontal: 'center', vertical: 'top'
   },
-  autoHideDuration: 5000,
+  autoHideDuration: 8000,
   hideIconVariant: true,
   maxSnack: 3,
   preventDuplicate: true

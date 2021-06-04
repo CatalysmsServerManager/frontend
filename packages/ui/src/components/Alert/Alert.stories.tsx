@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { Alert, AlertProps } from 'components';
-import styled from 'styled';
+import { Alert, AlertProps } from '.';
+import { styled } from 'styled';
 
 const Container = styled.div`
 `;

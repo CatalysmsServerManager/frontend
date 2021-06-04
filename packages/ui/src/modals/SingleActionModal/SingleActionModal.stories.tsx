@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react';
-import { SingleActionModal } from 'modals';
-import { useModal } from 'hooks';
 import { createRef } from 'react';
+import { Story, Meta } from '@storybook/react';
+import { SingleActionModal } from '../../modals';
+import { useModal } from '../../hooks';
 import { useSnackbar } from 'notistack';
 
 export default {
@@ -15,12 +15,10 @@ export default {
 export const Success: Story = () => {
   const [ModalWrapper, open, close] = useModal();
   const ref = createRef<HTMLDivElement>();
-  // @ts-ignore
   const { enqueueSnackbar } = useSnackbar();
 
   return (
     <div>
-      {/* @ts-ignore */}
       <ModalWrapper>
         <SingleActionModal
           action={() => { enqueueSnackbar('Accept button pressed.', { variant: 'success' }); }}
@@ -45,7 +43,6 @@ export const Error: Story = () => {
 
   return (
     <div>
-      {/* @ts-ignore */}
       <ModalWrapper>
         <SingleActionModal
           action={() => { /* dummy */ }}

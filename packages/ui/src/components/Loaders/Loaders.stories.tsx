@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
-import { Spinner, SpinnerProps } from 'components';
+import { styled } from '../../styled';
+import { Spinner, SpinnerProps, Loading } from '../../components';
 
 const WrapperDecorator = styled.div`
   display: flex;
@@ -29,5 +29,11 @@ export const Sizes: Story<SpinnerProps> = () => {
       <Spinner size="large" />
       <Spinner size="huge" />
     </>
+  );
+};
+
+export const LoadingPage: Story = () => {
+  return (
+    <Loading />
   );
 };

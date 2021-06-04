@@ -4,9 +4,9 @@
 import { FC, ReactNode } from 'react';
 import { AiOutlineClose as Icon } from 'react-icons/ai';
 import { Container, Dot } from './style';
-import { Color, Variant } from 'styled/types';
+import { AlertVariants, Color, Variant } from '../../styled/types';
 
-export type ChipColor = Color | 'gray';
+export type ChipColor = Color | AlertVariants | 'gray';
 
 export interface ChipProps {
   label: string;

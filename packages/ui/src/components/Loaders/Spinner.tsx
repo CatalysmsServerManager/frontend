@@ -1,8 +1,8 @@
 // credits: https://codesandbox.io/s/framer-motion-keyframes-ekks8?fontsize=14&module=/src/Example.tsx&file=/src/Example.tsx:136-445
 
 import { FC } from 'react';
-import styled from 'styled';
-import { Color, Size, AlertVariants } from 'styled/types';
+import { styled } from '../../styled';
+import { Color, Size, AlertVariants } from '../../styled/types';
 import { motion } from 'framer-motion';
 
 const Container = styled(motion.div) <{ color: Color | AlertVariants | 'white', size: Size }>`

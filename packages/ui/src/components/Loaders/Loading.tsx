@@ -1,5 +1,5 @@
-import { useTheme } from 'hooks';
 import { FC } from 'react';
+import { useTheme } from '../../hooks';
 
 export interface LoadingProps {
   fill?: string;

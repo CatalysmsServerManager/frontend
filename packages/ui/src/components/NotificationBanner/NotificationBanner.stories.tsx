@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { NotificationBanner, NotificationBannerProps } from 'components';
+import { NotificationBanner, NotificationBannerProps } from '.';
 
 export default {
   title: 'Components/NotificationBanner',

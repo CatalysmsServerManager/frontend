@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { NetworkDetector } from 'components';
+import { NetworkDetector } from '.';
 
 export default {
   title: 'Components/NetworkDetector',

@@ -61,5 +61,11 @@ export type { NotificationBannerProps } from './NotificationBanner';
 
 export { NetworkDetector } from './NetworkDetector';
 
+export { Tile } from './Tile';
+export type { TileProps } from './Tile';
+
+export { ErrorTemplate } from './ErrorTemplate';
+export type { ErrorTemplateProps } from './ErrorTemplate';
+
 // Custom snacks
 export * from './snacks';

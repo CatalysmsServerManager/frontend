@@ -1,8 +1,9 @@
 import { forwardRef, MutableRefObject, useState } from 'react';
-import { Button } from 'components';
+import { Button } from '../../components';
 import { Container, Header, ActionContainer, Cancel, Description } from './style';
-import { useLockBodyScroll } from 'hooks';
+import { useLockBodyScroll } from '../../hooks';
 import { AiOutlineClose as Close } from 'react-icons/ai';
+import { AlertVariants } from '../../styled';
 
 export interface ConfirmationModalProps {
   title: string;
@@ -12,10 +13,17 @@ export interface ConfirmationModalProps {
   icon?: React.ReactNode;
   close: () => void;
   ref: MutableRefObject<HTMLDivElement>
-  type?: 'danger' | 'info'
+  type?: AlertVariants
 }
 
-export const ConfirmationModal = forwardRef<HTMLDivElement, ConfirmationModalProps>(({ title, description, action, close, actionText, type = 'info' }, ref) => {
+export const ConfirmationModal = forwardRef<HTMLDivElement, ConfirmationModalProps>(({
+  title,
+  description,
+  action,
+  close,
+  actionText,
+  type = 'info'
+}, ref) => {
   useLockBodyScroll();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -39,7 +47,7 @@ export const ConfirmationModal = forwardRef<HTMLDivElement, ConfirmationModalPro
       <Description>{description}</Description>
       <ActionContainer type={type}>
         <Cancel onClick={close}>Cancel</Cancel>
-        <Button isLoading={loading} onClick={confirmAction} size="medium" text={actionText} />
+        <Button color={type} isLoading={loading} onClick={confirmAction} size="medium" text={actionText} />
       </ActionContainer>
     </Container>
   );

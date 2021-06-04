@@ -1,31 +1,30 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "lib": [ "esnext", "dom", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
     "strict":true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
+    "baseUrl": "./packages",
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "outDir": "build",
     "noErrorTruncation": false,
     "allowJs": true,
-    "paths": {
-      "@csmm/lib": ["./packages/lib/src"],
-      "@csmm/lib/*": ["./packages/lib/src/*"],
-
-      "@csmm/homepage": ["./packages/homepage/src"],
-      "@csmm/homepage/*": ["./packages/homepage/src/*"],
-
-      "@csmm/payments": ["./packages/payments/src"],
-      "@csmm/payments/*": ["./packages/payments/src/*"],
-    },
+    "declaration": true,
     "types": ["node", "react"],
+    "paths": {
+      "@csmm/ui": ["ui/src"],
+      "@csmm/payments": ["payments/src"],
+      "@csmm/homepage": ["homepage/src"],
+    }
   },
-    "exclude": ["**/.*/", "**/build", "**/node_modules", "**/dist"]
+  "exclude": ["**/build/", "**/node_modules/", "**/dist/"]
 }

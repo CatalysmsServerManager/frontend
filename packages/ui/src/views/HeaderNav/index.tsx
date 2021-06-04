@@ -1,7 +1,7 @@
 // TODO: Create stripe-like-headernav.
 import { FC, useState } from 'react';
 import { AnimateSharedLayout, motion } from 'framer-motion';
-import styled from 'styled';
+import { styled } from '../../styled';
 
 const Container = styled.div``;
 const Nav = styled.nav`

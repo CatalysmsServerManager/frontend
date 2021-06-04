@@ -1,3 +1,2 @@
-export { useOutsideAlerter } from './useOutsideAlerter';
-export { useModal } from './useModal';
-export { useLockBodyScroll, useLockRefScroll } from './useLockScroll';
+export { useUser } from './useUser';
+export { useAuth } from './useAuth';

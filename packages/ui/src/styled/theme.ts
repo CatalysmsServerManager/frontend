@@ -2,10 +2,10 @@ import baseStyled, { ThemedStyledInterface } from 'styled-components';
 
 export const theme = {
   colors: {
-    primary: '#00cd6a',
-    secondary: '#fda085',
+    primary: '#3CCD6A',
+    secondary: '#3a4763',
     tertiary: '#be81f6',
-    quaternary: '#65f6e8',
+    quaternary: '#1683F7',
 
     placeholder: '#f5f5f5',
     placeholderHighlight: '#ffffff',
@@ -14,16 +14,16 @@ export const theme = {
     gray: '#d3d3d3',
     background: '#e8edf5',
     shadow: 'rgb(0 0 0 / 10%) 0px 15px 45px 0px',
-    text: '#d5dae0',
+    text: '#3a4763',
 
-    info: '#1E92F4',
-    success: '#00cd6a',
+    info: '#1683F7',
+    success: '#3CCD6A',
     warning: '#f57c00',
     error: '#FF4252',
 
   },
   gradient: {
-    primary: 'linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%)',
+    primary: 'linear-gradient(to right, #3CCD6A 0%, #2BBC59 51%, #3CCD6A 100%)',
     secondary: 'linear-gradient(to right, #65f6e8 0%,#be81f6  51%, #65f6e8 100%)',
     white: 'linear-gradient(180deg, #fff 0%, #fff 100%)', // compatibility reasons
   },

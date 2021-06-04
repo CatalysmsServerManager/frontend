@@ -50,6 +50,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
   input{
      display: block;
+     padding: 0;
   }
   button{
     cursor: pointer;

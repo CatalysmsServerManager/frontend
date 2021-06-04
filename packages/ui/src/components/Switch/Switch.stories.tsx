@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import styled from 'styled';
-import { Switch, SwitchProps } from 'components';
+import { styled } from '../../styled';
+import { Switch, SwitchProps } from '.';
 
 const Wrapper = styled.div`
   display: grid;

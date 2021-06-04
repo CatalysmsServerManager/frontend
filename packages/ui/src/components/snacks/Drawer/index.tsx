@@ -1,7 +1,7 @@
 import { useSnackbar } from 'notistack';
 import { useState, forwardRef, ReactNode } from 'react';
 import { DefaultSnackProps } from '../DefaultSnackProps';
-import styled from 'styled';
+import { styled } from '../../../styled';
 import { AiOutlineClose as CloseIcon, AiOutlineDown as ArrowDownIcon } from 'react-icons/ai';
 
 const Wrapper = styled.div`
