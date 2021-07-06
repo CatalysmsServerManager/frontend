@@ -27,7 +27,7 @@ jobs:
         with:
           push: ${{ github.ref == 'refs/heads/master' }}
           tags: ghcr.io/catalysmsservermanager/frontend-${{ matrix.package }}:latest
-          build-args:
-            - package_name=${{ matrix.package }}
+          build-args: |
+            "package_name=${{ matrix.package }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
