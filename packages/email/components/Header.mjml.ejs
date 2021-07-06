@@ -1,0 +1,26 @@
+import mjml2html from 'mjml';
+
+const htmlOutput = mjml2html(`
+<mjml>
+  <mj-body>
+    <mj-section full-width="full-width" background-color="#fff" padding="0">
+      <mj-column>
+        <mj-text color="#3CCD6A" align="center">
+          <h1>CSMM</h1>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section full-width="full-width" background-color="#3CCD6A">
+      <mj-column>
+        <mj-navbar hamburger="hamburger" ico-color="#fff">
+          <mj-navbar-link href="https://csmm.app/" color="#fff">Home</mj-navbar-link>
+          <mj-navbar-link href="https://docs.csmm.app" color="#fff">Documentation</mj-navbar-link />
+          <mj-navbar-link href="https://payments.csmm.app" color="#fff">Billing </mj-navbar-link />
+        </mj-navbar>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+`, {
+keepComments: false,
+})

@@ -1,0 +1,15 @@
+import mjml2html from 'mjml';
+
+const htmlOutput = mjml2html(`
+<mjml>
+  <mj-body>
+    <mj-section full-width="full-width" background-color="#fff" padding="0">
+      <mj-column>
+        <mj-image width="30px" src="https://raw.githubusercontent.com/CatalysmsServerManager/frontend/37db86ea9a16ef98f8f8bcd870683ecd38038872/packages/payments/src/images/csmm-icon.svg" />
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+`, {
+keepComments: false,
+})
