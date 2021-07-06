@@ -1,5 +1,7 @@
 {
   "extends": "../../tsconfig",
   "include": ["src", "@types", "index.ts", "src/**/*.stories.tsx"],
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": "./src"
+  }
 }
