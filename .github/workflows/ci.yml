@@ -19,5 +19,6 @@ jobs:
       - run: npm run lint
 
       - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
         with:
           path: /home/runner/.npm/_logs
