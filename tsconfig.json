@@ -22,7 +22,7 @@
     "types": ["node", "react"],
     "paths": {
       "@csmm/ui": ["ui/src"],
-      "@csmm/payments": ["payments/src"],
+      "@csmm/billing": ["billing/src"],
       "@csmm/homepage": ["homepage/src"],
     }
   },

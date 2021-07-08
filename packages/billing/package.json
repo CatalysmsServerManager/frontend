@@ -1,5 +1,5 @@
 {
-  "name": "@csmm/payments",
+  "name": "@csmm/billing",
   "version": "0.1.0",
   "main": "build/index",
   "types": "build/index",
