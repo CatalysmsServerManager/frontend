@@ -46,7 +46,7 @@ export const PaymentState: FC = () => {
 
   const handleClose = () => {
     close();
-    navigate('/billing/dashboard');
+    navigate('/store/dashboard');
   };
 
   function getModal() {
@@ -54,7 +54,7 @@ export const PaymentState: FC = () => {
       case 'success':
         return (
           <SingleActionModal
-            action={() => { navigate('/billing/dashboard'); }}
+            action={() => { navigate('/store/dashboard'); }}
             actionText="Go back to dashboard"
             close={handleClose}
             description="Your payment has been received. There should be a large deploy button waiting for you on the dashboard."
@@ -66,7 +66,7 @@ export const PaymentState: FC = () => {
       case 'failed':
         return (
           <SingleActionModal
-            action={() => { navigate('/billing/dashboard'); }}
+            action={() => { navigate('/store/dashboard'); }}
             actionText="Go back to dashboard"
             close={handleClose}
             description="Something went wrong while processing your payment. Please try again later."

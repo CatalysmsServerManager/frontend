@@ -67,7 +67,7 @@ export const OnBoarding: FC = () => {
         if (newSession && setUserData) {
           setUserData(newSession); // save new session data
           enqueueSnackbar('Information successfully saved!', { variant: 'success' });
-          navigate('/billing/dashboard');
+          navigate('/store/dashboard');
           return;
         }
       } else {

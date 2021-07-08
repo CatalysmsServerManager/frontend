@@ -37,7 +37,7 @@ export const DeployServer: FC = () => {
     const response = await httpService.post('/subscription/deploy', { subscriptionId: subscriptionId, steamApiKey: steamApiKey });
     if (response.ok) {
       enqueueSnackbar('Server is successfully deploying! This might take a minute. In the meantime you can navigate to the CSMM platform.', { variant: 'info' });
-      navigate('/billing/dashboard');
+      navigate('/store/dashboard');
       return;
     }
     enqueueSnackbar('Something went wrong deploying your server 🥺. Please try again later!', { variant: 'error' });

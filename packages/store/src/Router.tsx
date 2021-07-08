@@ -9,7 +9,7 @@ export const Router: FC = () => (
     <Routes>
       <Route element={<Signin />} path="/" />
       <Route element={<Redirect />} path="/redirect" />
-      <AuthenticatedRoute element={<Frame />} path="/billing">
+      <AuthenticatedRoute element={<Frame />} path="/store">
         <Route element={<Dashboard />} path="/dashboard" />
         <Route element={<Products />} path="/products" />
         <Route element={<Profile />} path="/profile" />

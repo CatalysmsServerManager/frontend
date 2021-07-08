@@ -6,5 +6,5 @@ export function getRedirect() {
   if (redirect) {
     return redirect;
   }
-  return '/billing/dashboard';
+  return '/store/dashboard';
 }

@@ -7,10 +7,10 @@ class RoutingService {
           searchParams.append(key, queryString[key]);
         }
       }
-      window.location.href = `/api${path}?${searchParams.toString()}`;
+      window.location.href = `${process.env.REACT_APP_API}${path}?${searchParams.toString()}`;
       return;
     }
-    window.location.href = `/api${path}`;
+    window.location.href = `${process.env.REACT_APP_API}${path}`;
   }
 }
 
