@@ -83,7 +83,7 @@ export const UserDropDown: FC = () => {
       <HeaderIcon><Settings fill="white" size={24} /></HeaderIcon>
       <h3>Settings</h3>
       <Content>
-        <Link to="/billing/profile"><User size={24} /> <p>Profile</p></Link>
+        <Link to="/Store/profile"><User size={24} /> <p>Profile</p></Link>
         <li onClick={signOut}><SignOut size={24} /> <p>Sign out</p></li>
       </Content>
     </Container>

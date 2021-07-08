@@ -29,7 +29,7 @@ export const Redirect: FC = () => {
   function redirect() {
     const path = localStorage.getItem('redirect');
     if (!path) {
-      navigate('/billing/dashboard');
+      navigate('/store/dashboard');
       return;
     }
     localStorage.removeItem('redirect');

@@ -70,7 +70,7 @@ export const Signin: FC = () => {
               src={icon}
               transition={{ type: 'spring', duration: 5, repeat: Infinity, bounce: .5 }}
             />
-            <h2>CSMM Billing</h2>
+            <h2>CSMM Store</h2>
           </header>
           <ContentContainer>
             <h3>Setting up a server<br /> is now just a few <strong>clicks</strong> away!</h3>

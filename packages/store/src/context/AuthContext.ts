@@ -20,10 +20,10 @@ export function AuthProvider(): IAuthContext {
     return true;
   }
 
-  async function signIn(redirect: string = '/billing/dashboard'): Promise<void> {
+  async function signIn(redirect: string = '/store/dashboard'): Promise<void> {
     const hasToken = await isAuthenticated();
     if (hasToken) {
-      window.location.pathname = '/billing/dashboard';
+      window.location.pathname = '/store/dashboard';
       return;
     }
     setRedirect(redirect);
