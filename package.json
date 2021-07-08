@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --cache --fix --report-unused-disable-directives --ext .js,.ts,.tsx --max-warnings 0",
     "stylelint": "stylelint --reportInvalidScopeDisables --reportNeedlessDisables 'packages/**/*.{js,jsx,ts,tsx}'",
     "test": "lerna run test",
-    "build": "echo 'TIS TVERKEERDE LOOOOL'",
+    "build": "lerna run build",
     "typescript": "lerna run --no-bail --parallel typescript",
     "prepare": "husky install"
   },
