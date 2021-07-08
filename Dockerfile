@@ -11,8 +11,6 @@ USER node
 ARG package_name
 RUN echo "Buildingg $package_name"
 
-ARG REACT_APP_SENTRY_DSN=""
-
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node lerna.json ./
 COPY --chown=node:node tsconfig.json ./
