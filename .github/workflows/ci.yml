@@ -14,6 +14,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm config set legacy-peer-deps true && npm run lerna bootstrap
+      - run: npm config set legacy-peer-deps true && npm run lerna bootstrap --hoist
       - run: npm run build
       - run: npm run lint
