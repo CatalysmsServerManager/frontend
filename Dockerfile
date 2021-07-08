@@ -25,7 +25,7 @@ COPY --chown=node:node ./packages/ui ./packages/ui
 # Copy only the package we want to build
 COPY --chown=node:node ./packages/${package_name} ./packages/${package_name}
 
-RUN npx lerna bootstrap --hoist
+RUN npx lerna bootstrap --hoist --force-local && lerna link --force-local
 
 WORKDIR /app/packages/${package_name}
 
