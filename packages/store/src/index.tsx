@@ -12,8 +12,9 @@ ReactDOM.render(
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
-    dsn: process.env.REACT_APP_SENTRY_DSN,
-    release: process.env.REACT_APP_CLIENT_APP_VERSION
+    dsn: 'https://0d9405985950423baff935f57b1e8eab@o387782.ingest.sentry.io/5855191',
+    release: process.env.REACT_APP_CLIENT_VERSION,
+    tracesSampleRate: 1.0
   });
 }
 
