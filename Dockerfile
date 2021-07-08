@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:14-alpine as builder
+FROM node:16-alpine as builder
 
 
 # set working directory
@@ -36,7 +36,7 @@ RUN npm run build
 # Place build files in an easy to find location :)
 RUN cp -r ./build /app/build
 
-FROM node:14-alpine as runtime
+FROM node:16-alpine as runtime
 
 RUN npm i -g serve
 USER node
