@@ -13,7 +13,7 @@
     "@csmm/ui": "*",
     "@material-ui/core": "^4.11.3",
     "@popperjs/core": "^2.8.2",
-    "@sentry/react": "^6.8.3",
+    "@sentry/react": "^6.8.0",
     "@sentry/tracing": "^6.8.0",
     "currency.js": "^2.0.3",
     "jsonwebtoken": "^8.5.1",
