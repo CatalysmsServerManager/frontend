@@ -1,14 +1,13 @@
 name: docker
 
-on:
-  [push]
+on: [push]
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: [payments]
+        package: [store]
 
     steps:
       - name: Set up QEMU
