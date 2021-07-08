@@ -17,3 +17,7 @@ jobs:
       - run: npm config set legacy-peer-deps true && npm run lerna bootstrap --hoist
       - run: npm run build
       - run: npm run lint
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: /home/runner/.npm/_logs
