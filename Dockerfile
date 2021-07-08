@@ -10,6 +10,7 @@ USER node
 
 ARG package_name
 RUN echo "Buildingg $package_name"
+ARG REACT_APP_API
 
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node lerna.json ./
@@ -28,8 +29,7 @@ RUN npx lerna bootstrap --hoist
 WORKDIR /app/packages/${package_name}
 
 ENV SKIP_PREFLIGHT_CHECK=true
-
-ENV REACT_APP_SENTRY_DSN="$REACT_APP_SENTRY_DSN" 
+ENV REACT_APP_API="$REACT_APP_API"
 
 RUN npm run build
 

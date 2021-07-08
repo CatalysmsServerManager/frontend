@@ -28,5 +28,6 @@ jobs:
           tags: ghcr.io/catalysmsservermanager/frontend-${{ matrix.package }}:latest
           build-args: |
             "package_name=${{ matrix.package }}"
+            "REACT_APP_API=https://store.csmm.fun"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
