@@ -1,11 +1,5 @@
 import mjml2html from 'mjml';
 
-/* TODO:
-- image of balloons should be changed to version on master.
-- image of rocket should be changed to version on master.
-- Dynamic href for button.
-*/
-
 const htmlOutput = mjml2html(`
 <mjml>
   <mj-head>
@@ -26,12 +20,6 @@ const htmlOutput = mjml2html(`
       <mj-section border-radius="5px" background-color="#3CCD6A" background-url="https://github.com/CatalysmsServerManager/frontend/blob/emielvanseveren/issue11/packages/email/images/balloon.png?raw=true" background-repeat="repeat" background-size="12%" padding="40px 5px">
         <mj-column>
           <mj-text font-family="Montserrat" font-weight="800" font-size="25px" color="white" align="center" letter-spacing="1px">Welcome to CSMM!</mj-text>
-        </mj-column>
-      </mj-section>
-
-      <mj-section border-radius="0" background-color="#fafafa" padding="50px 0 0 0">
-        <mj-column>
-          <mj-image width="120px" src="https://github.com/CatalysmsServerManager/frontend/blob/emielvanseveren/issue11/packages/email/images/rocket.png?raw=true" />
         </mj-column>
       </mj-section>
 
