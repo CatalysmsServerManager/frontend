@@ -4,16 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@csmm/ui": "*",
     "ejs": "^3.1.6",
     "mjml": "^4.9.3"
   },
   "devDependencies": {
     "@types/ejs": "^3.0.6",
-    "@types/mjml": "^4.7.0"
+    "@types/jest": "^26.0.24",
+    "@types/mjml": "^4.7.0",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "winston": "^3.3.3"
   }
 }
