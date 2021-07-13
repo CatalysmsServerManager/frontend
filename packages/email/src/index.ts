@@ -43,7 +43,6 @@ export async function paymentConfirmation(data: { name: string, username: string
 }
 
 // deleted
-// TODO: add discord invite link here.
 export async function instanceDeleted(data: { name: string }): Promise<string> {
   const result = render({
     name: 'generic',
@@ -54,7 +53,7 @@ export async function instanceDeleted(data: { name: string }): Promise<string> {
       Simply join our discord and explain your issue or give feedback in the support channel, and we will get right back to you.`,
       button: {
         color: theme.colors.primary,
-        href: 'discord-link-here',
+        href: 'https://discordapp.com/invite/%45wy%44d%4E%41',
         text: 'Join our Discord'
       }
     }
