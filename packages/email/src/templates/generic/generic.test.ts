@@ -21,10 +21,16 @@ it('Should contain all variables', async () => {
   expect(result).toContain('This is the second paragraph');
 });
 
-it('should fail, when no data is provided', async () => {
+it('Should fail, when no data is provided', async () => {
   // TODO
 });
 
-it('Should fail when mjml cannot be parsed', async () => {
-  // TODO
+it('Should fail when MJML cannot be parsed', async () => {
+});
+
+describe('Load external images', () => {
+  // Although this will not prevent a broken link, it will fail when there is a broken link.
+  it('Should be able to request logo in header', async () => {
+    // TODO
+  });
 });
