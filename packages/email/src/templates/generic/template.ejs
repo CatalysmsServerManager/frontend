@@ -1,0 +1,71 @@
+import mjml2html from 'mjml';
+
+const htmlOutput = mjml2html(`
+<mjml>
+  <mj-head>
+    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
+    <mj-title>CSMM</mj-title>
+    <mj-style>
+      .box-shadow-bottom div {
+        box-shadow: 0 7px 6px hsla(0, 0%, 46%, 0.1);
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#e8edf5">
+    <mj-wrapper full-width="full-width" background-color="#e8edf5" padding="25px">
+      <mj-section border-radius="5px" background-color="#e8e8e8" padding="25px 0 25px 0">
+        <mj-column>
+          <mj-text align="center" font-size="25px" font-weight="700" font-family="Montserrat" color="#858585">
+            <img width="25px" src="https://github.com/CatalysmsServerManager/frontend/blob/emielvanseveren/issue11/packages/email/images/csmm-icon-gray.png?raw=true" />
+            <span>CSMM</span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fafafa" padding="25px 15px 0 25px">
+        <mj-column>
+          <mj-text padding="25px 15px 0 25px" font-family="Montserrat" font-weight="700" font-size="12px" color="#3a4763">
+            <h2>Hi
+              <%= name %>,
+            </h2>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fafafa" padding="0px 25px 0 25px">
+        <mj-column>
+          <mj-text line-height="17px" color="#3a4763" font-family="Montserrat" font-weight="500">
+            <p>
+              <%= paragraph_1 %>
+            </p>
+            <p>
+              <%= paragraph_2 %>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fafafa" border-radius="5px" padding="10px 0 0 0">
+        <mj-column padding="0">
+          <mj-button font-family="Montserrat" font-weight="600" href="<%= button.href %>" background-color="<%= button.color %>">
+            <%= button.text %>
+          </mj-button>
+          <mj-divider border-width="1px" border-color="lightgray" />
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#fafafa" border-radius="5px" padding="0">
+        <mj-column padding="0 0 10px 0">
+          <mj-text font-size="11px" color="gray">
+            Need help? Look at our documentation or contact our support team on <a href="https://discordapp.com/invite/%45wy%44d%4E%41">Discord</a>.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    </mj-wrapper>
+    <mj-include path="src/components/Footer.mjml">
+  </mj-body>
+</mjml>
+`, {
+keepComments: false,
+});
