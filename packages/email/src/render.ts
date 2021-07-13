@@ -3,7 +3,7 @@ import * as fs from 'fs/promises';
 import mjmml2html from 'mjml';
 import winston from 'winston';
 
-import { Template } from '../template.type';
+import { Template } from './templates/template.type';
 import { Generic } from './templates/generic';
 import { welcomeMessage } from './templates/welcomeMessage';
 

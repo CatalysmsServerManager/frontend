@@ -1,4 +1,4 @@
-import { Template } from '../../../template.type';
+import { Template } from '../template.type';
 
 interface Data {
   name: string;
