@@ -12,12 +12,12 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   body{
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     transition: 0.4s background-color;
     overflow-x: hidden;
   }
   h1,h2,h3,h4,h5,h6,p,a,button,label,input,div,textarea{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
     outline: 0;
