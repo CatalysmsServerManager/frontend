@@ -80,7 +80,7 @@ export const UserDropDown: FC = () => {
 
   async function handleSignOut() {
     if (!await signOut()) {
-      enqueueSnackbar('An error occurred while trying to sing out.', { variant: 'error' });
+      enqueueSnackbar('An error occurred while trying to sign out.', { variant: 'error' });
     } else {
       navigate('/');
     }
