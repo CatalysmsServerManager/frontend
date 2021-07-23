@@ -1,7 +1,6 @@
 import { render } from './render';
 import { theme } from '@csmm/ui';
 
-// cancel
 export async function cancelSubscriptionConfirmation(data: { name: string, undoCancelLink: string }): Promise<string> {
   const result = render({
     name: 'generic',
@@ -22,7 +21,6 @@ export async function cancelSubscriptionConfirmation(data: { name: string, undoC
   return result;
 }
 
-// payment
 export async function paymentConfirmation(data: { name: string, username: string }): Promise<string> {
   const result = render({
     name: 'generic',
@@ -34,7 +32,7 @@ export async function paymentConfirmation(data: { name: string, username: string
       Click the button below to see all your invoices.`,
       button: {
         color: theme.colors.info,
-        href: `shop.csmm.app/profile/${data.username}`,
+        href: `store.csmm.app/profile/${data.username}`,
         text: 'Your profile'
       }
     }
@@ -42,7 +40,6 @@ export async function paymentConfirmation(data: { name: string, username: string
   return result;
 }
 
-// deleted
 export async function instanceDeleted(data: { name: string }): Promise<string> {
   const result = render({
     name: 'generic',
