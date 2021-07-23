@@ -19,7 +19,6 @@ export const Container = styled(motion.div)`
     width: 100%;
   }
 
-
   li {
     display: flex;
     width: 100%;

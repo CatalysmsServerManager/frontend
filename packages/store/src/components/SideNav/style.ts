@@ -2,7 +2,7 @@ import { styled } from '@csmm/ui';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div) <{ toTop: boolean }>`
-  width: 0px;
+  width: 0;
   position: relative;
   height: 100vh;
   background-color: white;
@@ -37,7 +37,6 @@ export const Nav = styled.nav`
 
   a {
     width: 100%;
-    color: black;
     border-radius: 8px;
     padding: 15px;
     display: flex;
@@ -55,16 +54,16 @@ export const Nav = styled.nav`
 
     &.active {
       background-color: ${({ theme }) => theme.colors.primary};
+      p {
+        font-weight: 800;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+      }
       svg, p {
         fill: white;
         color: white;
       }
-    }
-    p {
-      font-weight: 800;
-      margin-left: 10px;
-      display: flex;
-      align-items: center;
     }
   }
 `;

@@ -16,7 +16,6 @@ export const Container = styled.div<{
   border-radius: 1.5rem;
   cursor: ${({ clickable }): string => clickable ? 'pointer' : 'auto'};
 
-
   svg {
     margin-left: .5rem;
     cursor: pointer;

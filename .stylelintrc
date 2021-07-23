@@ -23,6 +23,7 @@
     "value-list-max-empty-lines": 0
   },
   "ignoreFiles": [
-    "./node_modules/*.tsx"
+    "./node_modules/*.tsx",
+    "./packages/**/storybook-static/*.{js,jsx,ts,tsx}"
   ]
 }
