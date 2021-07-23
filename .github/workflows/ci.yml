@@ -4,16 +4,21 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [14.x]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm config set legacy-peer-deps true && npm run lerna bootstrap
+      - run: npm config set legacy-peer-deps true && npm run lerna bootstrap --hoist
       - run: npm run build
       - run: npm run lint
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          path: /home/runner/.npm/_logs
