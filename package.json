@@ -12,6 +12,7 @@
     "stylelint": "stylelint --reportInvalidScopeDisables --reportNeedlessDisables 'packages/**/*.{js,jsx,ts,tsx}'",
     "test": "lerna run test",
     "build": "lerna run build",
+    "sort-package-json": "lerna run sort-package-json",
     "typescript": "lerna run --no-bail --parallel typescript",
     "prepare": "husky install"
   },
