@@ -37,7 +37,7 @@ export const SubscriptionItemSettings = forwardRef<HTMLDivElement, SubscriptionI
     enqueueSnackbar('You are being redirected to the payment platform.', { variant: 'info' });
     const response = await httpService.post('/subscription/pay', { subscriptionId });
     if (!response.ok) {
-      enqueueSnackbar('Something went wrong', { variant: 'error' });
+      enqueueSnackbar('Something went wrong while creating a payment url.', { variant: 'error' });
       return;
     }
     const json = await response.json();

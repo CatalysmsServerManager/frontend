@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { ButtonContainer, Container } from './style';
 import { httpService } from 'services';
@@ -9,9 +9,9 @@ import * as Sentry from '@sentry/react';
 import { AiOutlineShoppingCart as ShoppingCart } from 'react-icons/ai';
 
 export const Products: React.FC = () => {
-  const [selected, setSelected] = useState(2);
-  const [loading, setLoading] = useState(true);
-  const [buyLoading, setBuyLoading] = useState(false);
+  const [selected, setSelected] = useState<number>(2);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [buyLoading, setBuyLoading] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
 
   async function buyProduct() {
@@ -21,7 +21,7 @@ export const Products: React.FC = () => {
       const response = await httpService.post('/product/buy', { productId: productId });
       if (response.ok) {
         const json = await response.json();
-        window.open(json.url, 'window name');
+        window.location.href = json.url;
       }
       else {
         enqueueSnackbar('Something went wrong selecting a product, please select again!', { variant: 'error' });
@@ -29,7 +29,7 @@ export const Products: React.FC = () => {
       }
       return;
     };
-    Sentry.captureMessage('Something went wrong selectiong a product');
+    Sentry.captureMessage('Something went wrong selecting a product');
     enqueueSnackbar('Something went wrong selecting a product, please select again!', { variant: 'error' });
   }
 

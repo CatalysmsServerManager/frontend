@@ -18,14 +18,6 @@ export const Redirect: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  function setJWT() {
-    const queryString = new URLSearchParams(location.search);
-    const token = queryString.get('jwt');
-    if (token) {
-      localStorage.setItem('jwt', token);
-    }
-  }
-
   function redirect() {
     const path = localStorage.getItem('redirect');
     if (!path) {
@@ -37,7 +29,6 @@ export const Redirect: FC = () => {
   }
 
   useEffect(() => {
-    setJWT();
     redirect();
   }, []);
 

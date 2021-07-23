@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { styled } from '@csmm/ui';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineLogout as SignOut, AiOutlineUser as User, AiOutlineSetting as Settings } from 'react-icons/ai';
 import { useAuth } from 'hooks';
+import { useSnackbar } from 'notistack';
 
 const Container = styled(motion.div)`
   width: 250px;
@@ -74,6 +75,16 @@ const Content = styled.ul`
 
 export const UserDropDown: FC = () => {
   const { signOut } = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
+
+  async function handleSignOut() {
+    if (!await signOut()) {
+      enqueueSnackbar('An error occurred while trying to sign out.', { variant: 'error' });
+    } else {
+      navigate('/');
+    }
+  }
 
   return (
     <Container
@@ -84,7 +95,7 @@ export const UserDropDown: FC = () => {
       <h3>Settings</h3>
       <Content>
         <Link to="/Store/profile"><User size={24} /> <p>Profile</p></Link>
-        <li onClick={signOut}><SignOut size={24} /> <p>Sign out</p></li>
+        <li onClick={handleSignOut}><SignOut size={24} /> <p>Sign out</p></li>
       </Content>
     </Container>
   );

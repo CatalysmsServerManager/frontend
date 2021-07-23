@@ -5,16 +5,13 @@ import { UserData } from 'context';
 
 export interface IAuthContext {
   signIn: (redirect?: string) => Promise<void>;
-  signOut: () => boolean;
+  signOut: () => Promise<boolean>;
   isAuthenticated: () => Promise<boolean>
   getSession: () => Promise<UserData | null>
 }
 
 export function AuthProvider(): IAuthContext {
   async function isAuthenticated(): Promise<boolean> {
-    const jwt = localStorage.getItem('jwt');
-    if (!jwt) { return false; }
-
     const response = await httpService.get('/auth/session');
     if (!response.ok) { return false; }
     return true;
@@ -32,21 +29,15 @@ export function AuthProvider(): IAuthContext {
 
   // This returns the User details (name,email,...)
   async function getSession(): Promise<UserData | null> {
-    // If the user has a jwt we can consider him logged in.
-    // It could be expired.
-    const jwt = localStorage.getItem('jwt');
-
-    if (jwt) {
-      const response = await httpService.get('/auth/session');
-      if (!response.ok) { return null; }
-      const jsonResult = await response.json();
-      return jsonResult;
-    }
-    return null;
+    const response = await httpService.get('/auth/session');
+    if (!response.ok) { return null; }
+    const jsonResult = await response.json();
+    return jsonResult;
   }
 
-  function signOut(): boolean {
-    localStorage.removeItem('jwt');
+  async function signOut(): Promise<boolean> {
+    const response = await httpService.get('/auth/logout');
+    if (!response.ok) { return false; }
     localStorage.removeItem('hasBeenAuthenticatedBefore');
     localStorage.removeItem('productId');
     return true;
