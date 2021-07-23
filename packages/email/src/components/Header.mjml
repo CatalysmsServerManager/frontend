@@ -1,0 +1,19 @@
+import mjml2html from 'mjml';
+
+const htmlOutput = mjml2html(`
+<mjml>
+  <mj-body>
+    <mj-wrapper full-width="full-width" padding="0 35px 0 35px">
+      <mj-section background-color="#e8edf5" padding="25px">
+        <mj-column>
+          <mj-text font-weight="700" color="black" css-class="inline" align="center">add
+            <img width="25px" src="https://github.com/CatalysmsServerManager/frontend/blob/master/packages/email/src/images/csmm-icon-original.svg?raw=true" />
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+`, {
+keepComments: false,
+})

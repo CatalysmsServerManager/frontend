@@ -1,0 +1,31 @@
+import mjml2html from 'mjml';
+
+const htmlOutput = mjml2html(`
+<mjml>
+  <mj-head>
+    <mj-style>
+      .link a {
+        color: #3CCD6A !important;
+        text-decoration: none;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-wrapper full-width="full-width" padding="0px 50px 0px 50px">
+      <mj-section padding="0">
+        <mj-column vertical-align="middle">
+          <mj-text line-height="10px" font-size="10px" css-class="link" align="center" color="#3a4763" font-family="Montserrat">
+            <span>Sent by CSMM ∙</span>
+            <a href="https://docs.csmm.app">documentation</a>
+            <span>∙</span>
+            <a href="https://discord.csmm.app/">Official Discord</a>
+            <p>The <strong>best</strong> 7 days to Die server manager.</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+`, {
+keepComments: false,
+})
