@@ -13,17 +13,11 @@ winston.add(console);
 export async function render(template: Generic): Promise<string>;
 export async function render(template: welcomeMessage,): Promise<string>;
 export async function render(template: Template): Promise<string> {
-  try {
-    const result = await ejs.renderFile(`src/templates/${template.name}/template.ejs`, template.data, { async: true });
-    const out = mjmml2html(result);
-    if (out.errors.length > 0) {
-      winston.error(`Email template ${template.name} generated the following errors: `, out.errors);
-      return '';
-    }
-    return out.html;
+  const result = await ejs.renderFile(`src/templates/${template.name}/template.ejs`, template.data, { async: true });
+  const out = mjmml2html(result);
+  if (out.errors.length > 0) {
+    winston.error(`Email template ${template.name} generated the following errors: `, out.errors);
+    return '';
   }
-  catch (err) {
-    winston.error(`unexpected error: ${err}`);
-  }
-  return '';
+  return out.html;
 };
