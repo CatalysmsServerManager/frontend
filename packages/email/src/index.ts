@@ -28,14 +28,14 @@ export async function paymentConfirmation(data: { name: string, username: string
     name: 'generic',
     data: {
       name: data.name,
-      paragraph_1: 'This email confirms your subscription purchase. ',
+      paragraph_1: 'This email confirms your subscription purchase.',
       paragraph_2: `The invoice is attached to this email.
       You can also download a copy on the invoice overview located on your profile.
       Click the button below to see all your invoices.`,
       button: {
         color: theme.colors.info,
         href: `shop.csmm.app/profile/${data.username}`,
-        text: 'text here'
+        text: 'Your profile'
       }
     }
   });

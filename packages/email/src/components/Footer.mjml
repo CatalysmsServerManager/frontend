@@ -16,9 +16,9 @@ const htmlOutput = mjml2html(`
         <mj-column vertical-align="middle">
           <mj-text line-height="10px" font-size="10px" css-class="link" align="center" color="#3a4763" font-family="Montserrat">
             <span>Sent by CSMM ∙</span>
-            <a href="#">documentation</a>
+            <a href="https://docs.csmm.app">documentation</a>
             <span>∙</span>
-            <a href="#">Official Discord</a>
+            <a href="https://discord.csmm.app/">Official Discord</a>
             <p>The <strong>best</strong> 7 days to Die server manager.</p>
           </mj-text>
         </mj-column>
@@ -29,4 +29,3 @@ const htmlOutput = mjml2html(`
 `, {
 keepComments: false,
 })
-
