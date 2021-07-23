@@ -2,13 +2,14 @@
   "name": "@csmm/email",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc --project ./tsconfig.json"
+    "build": "tsc --project ./tsconfig.json",
+    "sort-package-json": "sort-package-json"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@csmm/ui": "*",
     "ejs": "^3.1.6",

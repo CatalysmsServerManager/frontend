@@ -5,15 +5,16 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sort-package-json": "sort-package-json"
   },
   "dependencies": {
+    "@csmm/ui": "^0.0.1",
     "@nivo/core": "^0.70.1",
     "@nivo/line": "^0.70.1",
     "react-responsive-carousel": "^3.2.16",
     "react-scripts": "4.0.3",
-    "uuid": "^8.3.2",
-    "@csmm/ui": "^0.0.1"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/react-tooltip": "^4.2.4",
