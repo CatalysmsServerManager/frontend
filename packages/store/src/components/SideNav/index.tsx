@@ -29,7 +29,7 @@ export const Navbar: FC = () => {
         src={icon}
         transition={{ type: 'tween', duration: 1, repeatType: 'reverse', repeat: Infinity, ease: 'easeInOut', repeatDelay: 5 }}
       />
-      <h2 onClick={() => navigate('/store/dashboard')}>Store platform</h2>
+      <h2 onClick={() => navigate('/store/dashboard')}>CSMM Store</h2>
       <Nav>
         <NavLink to="/store/dashboard"><Dashboard size={24} /><p>Dashboard</p></NavLink>
         <NavLink to="/store/products"><ShoppingCart size={24} /><p>Product plans</p></NavLink>
