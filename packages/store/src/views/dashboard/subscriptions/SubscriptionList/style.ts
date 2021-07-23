@@ -16,7 +16,7 @@ export const Header = styled.div`
   padding: 20px;
   h4 {
     font-size: 1rem;
-    width: calc(100%/4);
+    width: calc(100% / 4);
     font-weight: 800;
     text-align: center;
     color: ${({ theme }) => theme.colors.secondary};

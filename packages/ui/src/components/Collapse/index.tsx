@@ -13,9 +13,9 @@ const Container = styled.div`
 const TitleWrapper = styled.div<{ visible: boolean }>`
   display: flex;
   padding: 1rem;
-  border-radius: .7rem;
   align-items: center;
   min-height: 40px;
+  border-radius: ${({ visible }): string => visible ? '.7rem .7rem 0 0' : '.7rem'};
   background-color: ${({ theme }): string => theme.colors.primary};
   cursor: pointer;
 
@@ -28,18 +28,17 @@ const TitleWrapper = styled.div<{ visible: boolean }>`
     fill: white;
     margin-right: 1rem;
   }
-  border-radius: ${({ visible }): string => visible ? '.7rem .7rem 0 0' : '.7rem'};
 
 `;
 const ContentContainer = styled(motion.div)`
-  border-radius: 0rem 0rem 1rem 1rem;
+  border-radius: 0 0 1rem 1rem;
   border: 1px solid ${({ theme }): string => theme.colors.gray};
   display: flex;
   align-items: center;
   min-height: 40px;
   padding: 0 4rem;
   overflow-y: hidden;
- `;
+`;
 
 export interface CollapseProps {
   title: string;

@@ -27,8 +27,7 @@ const Container = styled.div<{ bgColor: Color | AlertVariants | 'white', clickab
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  margin: 0 0px 25px 50px;
+  margin: 0 0 25px 50px;
   background-color: ${({ bgColor, loading, theme }) => loading ? '#fff' : theme.colors[bgColor]};
   cursor: ${({ clickable }): string => clickable ? 'pointer' : 'default'};
   animation: ${({ clickable }) => clickable ? shake : null} 4s cubic-bezier(.36,.07,.19,.97) infinite both;

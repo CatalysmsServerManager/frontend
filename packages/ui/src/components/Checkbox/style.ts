@@ -50,7 +50,6 @@ export const CheckMarkContainer = styled.div<{ isChecked: boolean }>`
   align-items: center;
   justify-content: center;
 
-
   svg {
     fill: white;
     stroke: white;

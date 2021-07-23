@@ -20,7 +20,7 @@ export const SelectedContainer = styled.div<{ hasError: boolean }>`
   background-color: transparent;
   color: white;
   font-size: 1.3rem;
-  border: 2px solid ${({ theme }): string => theme.colors.gray};
+  /* border: 2px solid ${({ theme }): string => theme.colors.gray}; fix this later */
   text-align: center;
   font-weight: 600;
   cursor: pointer;

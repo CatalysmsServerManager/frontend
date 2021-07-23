@@ -53,14 +53,13 @@ export const Title = styled(motion.h1)`
 `;
 
 export const ContentContainer = styled.div`
-  display: flex;
   width: 100%;
-  flex-direction: column;
   position: relative;
-  padding: 0 15rem;
+  display: flex;
   justify-content: center;
   flex-direction: column;
-  h3 {
+  padding: 0 15rem;
+    h3 {
     z-index: 2;
     font-size: 3rem;
     font-weight: 700;

@@ -14,6 +14,9 @@ const Container = styled.div<{ expanded: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 0;
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 1.2rem;
   border-radius: 10px;
 
   ${({ expanded }) => {
@@ -25,9 +28,6 @@ const Container = styled.div<{ expanded: boolean }>`
     }
   }}
 
-  min-height: 0px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  padding: 1.2rem;
   h5 {
     color: white;
     font-size: 1.5rem;

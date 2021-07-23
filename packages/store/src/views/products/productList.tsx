@@ -28,7 +28,7 @@ const InfoContainer = styled(motion.div)`
   border-radius: 15px;
   background-color: white;
   box-shadow: 1px 14px 15px -12px #00000023;
-  min-height: calc(100%-10px);
+  min-height: calc(100% - 10px);
   padding: 50px 25px;
 
   &.hide{

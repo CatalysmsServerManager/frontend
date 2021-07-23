@@ -2,9 +2,7 @@
 import { FC } from 'react';
 import { styled } from '../../styled';
 
-export const Container = styled.div`
-
-`;
+export const Container = styled.div``;
 
 export const ActionCard: FC = () => {
   return (

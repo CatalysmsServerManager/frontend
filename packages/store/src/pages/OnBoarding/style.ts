@@ -77,7 +77,7 @@ export const Content = styled.div`
   }
   p {
     color: ${({ theme }) => theme.colors.text};
-    width: 62%; // fix this
+    width: 62%;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 5rem;

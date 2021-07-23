@@ -12,9 +12,9 @@ const Container = styled.button<{ outline: boolean, size: Size, variant: Variant
   background-clip: padding-box;
   cursor: pointer;
   box-shadow: ${({ theme }): string => theme.colors.shadow};
-  align-items: center;
-;
+
   svg {
+    /* stylelint-disable */
     cursor: pointer;
     path {
       fill: ${({ theme, outline }) => outline ? theme.colors.primary : 'white'}!important;
@@ -45,7 +45,7 @@ const Container = styled.button<{ outline: boolean, size: Size, variant: Variant
           padding: 30px;
         `;
     }
-  }}
+  }};
 `;
 
 export interface IconButtonProps {

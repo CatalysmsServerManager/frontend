@@ -9,7 +9,7 @@ const skeletonLoading = keyframes`
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   *::selection {
-    background-color: #3CCD6A;
+    background-color: #3ccd6a;
     color: white;
   }
   :root {
@@ -83,7 +83,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     border-width: 2px;
     border-radius: 5px;
     border-color: transparent;
-    outline: 0;
     &[readOnly]{
       cursor: not-allowed;
       &:focus {
@@ -143,7 +142,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
       animation: ${skeletonLoading} 2.5s infinite ease-in-out;
     }
   }
-
-  // notistack snackbar styling
+  /* notistack snackbar styling */
   ${SnackBarStyles}
 `;
