@@ -6,7 +6,7 @@ import {
 
 export default {
   title: 'Views/GetStarted',
-  component: GetStartedComponent
+  component: GetStartedComponent,
 } as Meta;
 
 export const Default: Story<GetStartedProps> = () => (

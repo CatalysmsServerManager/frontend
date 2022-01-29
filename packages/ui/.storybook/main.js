@@ -6,13 +6,31 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-links",
     "@storybook/preset-create-react-app",
     "@storybook/addon-a11y",
   ],
-  webpackFinal: async (config) => {
-    config.resolve.plugins.push(new TsconfigPathsPlugin({}));
-    return config;
+  features: {
+    //storyStoreV7: true, // Optmize story loading
   },
+
+  core: { builder: 'webpack5' },
+  webpackFinal: async (config) => {
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions,
+      }),
+    ];
+    return {
+      ...config,
+      plugins: config.plugins.filter(plugin => {
+        if (plugin.constructor.name === 'ESLintWebpackPlugin') {
+          return false
+        }
+        return true
+      }),
+    };
+  }
 }

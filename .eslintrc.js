@@ -1,12 +1,22 @@
 module.exports = {
   'extends': [
-    'react-app'
+    'react-app',
+    //'plugin:jsx-a11y/recommended',
+  ],
+  "parser": "@typescript-eslint/parser",
+  'plugins': [
+    //'jsx-a11y',
+    'react-hooks',
+    //'import',
   ],
   'ignorePatterns': [
     'packages/**/node_modules',
     'packages/**/dist',
     'packages/**/build',
-    'packages/ui/storybook-static'
+    'packages/ui/storybook-static',
+    ".eslintrc.js",
+    "config-overrides.js",
+    "jest.config.js",
   ],
   'rules': {
     'eol-last': 2,

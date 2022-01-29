@@ -19,7 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "luxon": "^1.25.0",
     "react-popper": "^2.2.4",
-    "react-scripts": "4.0.1",
+    "react-scripts": "5.0.0",
     "simplebar-react": "^2.3.0",
     "tippy.js": "^6.2.7",
     "yup": "^0.32.9"

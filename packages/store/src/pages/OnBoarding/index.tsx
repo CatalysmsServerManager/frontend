@@ -77,7 +77,7 @@ export const OnBoarding: FC = () => {
         setLoading(false);
       }
     } catch (e) {
-      Sentry.captureMessage(e);
+      Sentry.captureException(e);
     }
   };
 

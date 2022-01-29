@@ -3,13 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "composite": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noImplicitAny": false,
   },
-  "references": [
-    {
-      "path": "../ui/tsconfig.json"
-    }
-  ],
+  "paths": {
+    "@csmm/ui": ["packages/ui/src/index.ts"],
+  },
   "include": [
     "src"
   ]

@@ -28,7 +28,7 @@ export const AvatarGroup: FC<AvatarGroupProps> = ({ max = 3, children }) => {
   }
 
   function getUntilMax() {
-    const elements = [];
+    const elements: ReactNode[] = [];
     for (let i = 0; i < children.length && i < max; i++) {
       elements.push(children[i]);
     }

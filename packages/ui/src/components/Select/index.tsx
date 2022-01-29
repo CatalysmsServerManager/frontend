@@ -1,5 +1,5 @@
 // TODO: <Select/>
-import { createRef, FC, useState } from 'react';
+import { createRef, CSSProperties, FC, useState } from 'react';
 import { Container, DropDownContainer, SelectedContainer, Option, ArrowContainer, CheckMarkContainer } from './style';
 import { Control, FieldError, useController } from 'react-hook-form';
 import { usePopper } from 'react-popper';
@@ -82,7 +82,7 @@ export const Select: FC<SelectProps> = ({
         visible &&
         <DropDownContainer
           ref={setPopperElement}
-          style={styles.popper}
+          style={styles.popper as CSSProperties}
           {...attributes.popper}
         >
           <SimpleBar style={{ maxHeight: '40vh' }}>

@@ -12,7 +12,7 @@ export const useValidationSchema = (validationSchema: any) =>
           values,
           errors: {}
         };
-      } catch (errors) {
+      } catch (errors: any) {
         return {
           values: {},
           errors: errors.inner.reduce(

@@ -3,5 +3,10 @@
   "include": ["src", "@types", "index.ts", "src/**/*.stories.tsx"],
   "compilerOptions": {
     "baseUrl": "./src"
-  }
+  },
+  "references": [
+    {
+      "path": "./packages/ui/tsconfig.json"
+    }
+  ],
 }

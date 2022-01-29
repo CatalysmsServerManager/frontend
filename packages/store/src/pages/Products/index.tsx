@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef } from 'react';
+import { Fragment, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { ButtonContainer, Container } from './style';
 import { httpService } from 'services';
