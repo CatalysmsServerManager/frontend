@@ -1,8 +1,9 @@
 // TODO: Improve accessibility
 import React, { FC, useEffect, useState } from 'react';
-import { CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
+import { BackgroundContainer, CheckboxContainer, CheckMarkContainer, Container, Label, Input } from './style';
 import { AiOutlineCheck as Icon } from 'react-icons/ai';
 import { Control, useController } from 'react-hook-form';
+import { getTransition } from '../../../helpers';
 
 export interface CheckboxProps {
   name: string;
@@ -14,6 +15,11 @@ export interface CheckboxProps {
   labelPosition?: 'left' | 'right';
   onChange?: (e: React.MouseEvent<HTMLDivElement | HTMLLabelElement>) => void;
 }
+
+const variants = {
+  checked: { scale: 1 },
+  unchecked: { scale: 0, opacity: 0 }
+};
 
 export const Checkbox: FC<CheckboxProps> = ({
   control,
@@ -50,10 +56,10 @@ export const Checkbox: FC<CheckboxProps> = ({
     return (
       <Container>
         { /* CASE: Show labelText before <CheckBox /> */}
-        { labelPosition === 'left' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
+        {labelPosition === 'left' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
         <CheckboxContainer className="placeholder" isChecked={isChecked} />
         { /* CASE: show labelText after <CheckBox /> */}
-        { labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
+        {labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
       </Container>
     );
   }
@@ -63,6 +69,11 @@ export const Checkbox: FC<CheckboxProps> = ({
       { /* CASE: Show labelText before <CheckBox /> */}
       {labelPosition === 'left' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
       <CheckboxContainer isChecked={isChecked} onClick={onCheck}>
+        <BackgroundContainer
+          animate={isChecked ? 'checked' : 'unchecked'}
+          transition={getTransition()}
+          variants={variants}
+        />
         <CheckMarkContainer isChecked={isChecked}>
           <Icon size={18} />
         </CheckMarkContainer>
@@ -85,7 +96,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         />
       </CheckboxContainer>
       { /* CASE: show labelText after <CheckBox /> */}
-      { labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
+      {labelPosition === 'right' && labelText && <Label onClick={onCheck} position={labelPosition}>{labelText}</Label>}
     </Container>
   );
 };

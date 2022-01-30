@@ -1,4 +1,5 @@
 import { styled } from '../../../styled';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   position: relative;
@@ -20,7 +21,14 @@ export const Input = styled.input`
   visibility: hidden;
 `;
 
-// this is the container
+export const BackgroundContainer = styled(motion.div)`
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  z-index: 0;
+`;
+
 export const CheckboxContainer = styled.div <{ isChecked?: boolean }>`
   display: flex;
   position: relative;
@@ -28,11 +36,11 @@ export const CheckboxContainer = styled.div <{ isChecked?: boolean }>`
   height: 24px;
   align-items: center;
   justify-content: center;
-  border: 3px solid ${({ isChecked, theme }): string => theme.colors.primary};
+  border: 3px solid ${({ theme }): string => theme.colors.primary};
   border-radius: 4px;
-  background-color: ${({ isChecked, theme }): string => isChecked ? theme.colors.primary : 'transparent'};
   transition: box-shadow .125s linear, border-color .15s linear;
   cursor: pointer;
+  z-index: 1;
   overflow: visible;
   &.placeholder {
     border: none; /* Otherwise the border does not have the animation */
@@ -49,6 +57,9 @@ export const CheckMarkContainer = styled.div<{ isChecked: boolean }>`
   height: 100%;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  opacity: ${({ isChecked }): number => isChecked ? 1 : 0};
+  transition: 0.2s opacity ease-in-out cubic-bezier(0.215, 0.610, 0.355, 1);
 
   svg {
     fill: white;

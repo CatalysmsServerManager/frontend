@@ -5,8 +5,8 @@
   "types": "build/index",
   "scripts": {
     "postinstall": "npx prisma generate",
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "DISABLE_ESLINT_PLUGIN=true react-app-rewired start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
     "eject": "react-scripts eject"
   },
   "dependencies": {

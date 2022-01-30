@@ -1,5 +1,5 @@
 // TODO: <Select/>
-import { createRef, CSSProperties, FC, useState } from 'react';
+import { createRef, FC, useState } from 'react';
 import { Container, DropDownContainer, SelectedContainer, Option, ArrowContainer, CheckMarkContainer } from './style';
 import { Control, FieldError, useController } from 'react-hook-form';
 import { usePopper } from 'react-popper';
@@ -46,7 +46,7 @@ export const Select: FC<SelectProps> = ({
   const [showError, setShowError] = useState(false);
   const [selected, setSelected] = useState<OptionType | undefined>(defaultValue);
 
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+  const { /*styles,*/attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
       { name: 'offset', options: { offset: [0, 10] } }
     ],
@@ -82,7 +82,7 @@ export const Select: FC<SelectProps> = ({
         visible &&
         <DropDownContainer
           ref={setPopperElement}
-          style={styles.popper as CSSProperties}
+          //style={styles.popper as CSSProperties} temporary disabled cause fails
           {...attributes.popper}
         >
           <SimpleBar style={{ maxHeight: '40vh' }}>

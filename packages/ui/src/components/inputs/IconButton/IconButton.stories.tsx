@@ -25,7 +25,7 @@ export const Default = Template.bind({});
 Default.args = {
   onClick: undefined,
   size: 'medium',
-  icon: Icon
+  icon: <Icon />
 };
 
 export const Sizes = () => (
