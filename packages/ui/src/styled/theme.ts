@@ -33,12 +33,15 @@ export const theme = {
     large: '2rem'
   },
   fontSize: {
-    tiny: '1rem',
-    small: '1.3rem',
-    medium: '1.825rem',
-    mediumLarge: '2.825rem',
-    large: '4.25rem',
-    huge: '6rem'
+    title: {
+      tiny: '1rem',
+      small: '1.3rem',
+      medium: '1.825rem',
+      mediumLarge: '2.825rem',
+      large: '4.25rem',
+      huge: '6rem'
+
+    }
   }
 };
 

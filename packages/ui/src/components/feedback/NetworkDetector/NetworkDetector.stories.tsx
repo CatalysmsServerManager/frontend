@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import { NetworkDetector } from '.';
 
 export default {
-  title: 'Components/NetworkDetector',
+  title: 'Feedback/NetworkDetector',
   component: NetworkDetector,
 } as Meta;
 

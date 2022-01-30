@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Snacks/Default',
+  title: 'Feedback/Snacks/Default',
   component: undefined
 } as Meta;
 

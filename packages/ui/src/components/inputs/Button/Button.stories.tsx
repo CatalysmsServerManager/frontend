@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Button',
+  title: 'Inputs/Button',
   component: Button,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

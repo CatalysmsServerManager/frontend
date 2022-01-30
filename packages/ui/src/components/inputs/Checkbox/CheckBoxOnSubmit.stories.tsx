@@ -9,7 +9,7 @@ const ResultContainer = styled.div`
 `;
 
 export default {
-  title: 'Components/Form/Checkbox/OnSubmit',
+  title: 'Inputs/Checkbox/OnSubmit',
   component: Checkbox,
 } as Meta;
 

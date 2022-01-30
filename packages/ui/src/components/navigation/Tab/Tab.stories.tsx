@@ -53,7 +53,7 @@ export const TabSwitchThreeItems = () => (
 );
 
 export default {
-  title: 'Components/TabList',
+  title: 'Navigation/TabList',
   component: TabSwitch,
   subcomponents: { TabSwitchTwoItems, TabSwitchThreeItems },
   decorators: [story => <Wrapper>{story()}</Wrapper>]

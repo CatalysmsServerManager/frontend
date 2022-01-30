@@ -9,7 +9,7 @@ export const Container = styled(motion.div) <{ variant: AlertVariants, hasTitle:
   border-radius: 1rem;
   margin: 1.5rem auto 1.5rem auto;
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.825rem;
     display: flex;
     align-items: center;
     font-weight: 700;

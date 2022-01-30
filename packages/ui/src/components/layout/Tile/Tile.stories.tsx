@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import { Tile, TileProps } from '.';
 
 export default {
-  title: 'Components/Tile',
+  title: 'Layout/Tile',
   component: Tile,
 } as Meta;
 

@@ -53,7 +53,7 @@ const ImageContainer = styled.div`
 `;
 
 export default {
-  title: 'Components/Card/Example',
+  title: 'Layout/Card/Example',
   component: Card,
   decorators: [story => <WrapperDecorator>{story()}</WrapperDecorator>],
 } as Meta;

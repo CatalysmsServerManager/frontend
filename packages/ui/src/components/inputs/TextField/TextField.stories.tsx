@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Form/TextField',
+  title: 'Inputs/TextField',
   component: TextField,
 } as Meta;
 

@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Data/Avatar',
   component: Avatar,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
@@ -41,6 +41,6 @@ export const Initials = () => (
     <Avatar alt="Harry Potter" size="small">{getInitials('Albus', 'Severus Potter')}</Avatar>
     <Avatar alt="Harry Potter Vanmiet" size="medium">{getInitials('James ', 'Sirius Potter ')}</Avatar>
     <Avatar alt="Harry Potter" size="large">{getInitials('Lily', 'Luna Potter')}</Avatar>
-    <Avatar alt="Harry Potter" size="large">{getInitials('Lily', 'Luna Potter')}</Avatar>
+    <Avatar alt="Harry Potter" size="huge">{getInitials('Lily', 'Luna Potter')}</Avatar>
   </>
 );

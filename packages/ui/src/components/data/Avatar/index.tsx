@@ -30,14 +30,14 @@ const Container = styled.div<{ src?: string, size: Size, isCircle: boolean }>`
         `;
       case 'small':
         return `
-          width: 2.5rem;
-          height: 2.5rem;
-          font-size: 1.5rem;
+          width: 3.125rem;
+          height: 3.125rem;
+          font-size: 1.325rem;
         `;
       case 'medium':
         return `
-          width: 4.5rem;
-          height: 4.5rem;
+          width: 6rem;
+          height: 6rem;
           font-size: 2rem;
         `;
       case 'large':

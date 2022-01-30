@@ -8,7 +8,7 @@ const ResultContainer = styled.div`
 `;
 
 export default {
-  title: 'Components/Form/Checkbox/onChange',
+  title: 'Inputs/Checkbox/onChange',
   component: Checkbox,
 } as Meta;
 

@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Empty',
+  title: 'Other/Empty',
   component: Empty,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

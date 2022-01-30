@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/AvatarGroup',
+  title: 'Data/AvatarGroup',
   component: AvatarGroup,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

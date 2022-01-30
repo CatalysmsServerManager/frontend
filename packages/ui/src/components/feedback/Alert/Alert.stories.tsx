@@ -6,7 +6,7 @@ const Container = styled.div`
 `;
 
 export default {
-  title: 'Components/Alert',
+  title: 'Feedback/Alert',
   component: Alert,
 } as Meta;
 

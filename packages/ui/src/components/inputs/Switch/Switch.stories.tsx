@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Form/Switch',
+  title: 'Inputs/Switch',
   component: Switch,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

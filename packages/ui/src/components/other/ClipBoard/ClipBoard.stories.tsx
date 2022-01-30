@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import { ClipBoard, ClipBoardProps } from '.';
 
 export default {
-  title: 'Components/ClipBoard',
+  title: 'Other/ClipBoard',
   component: ClipBoard,
 } as Meta;
 

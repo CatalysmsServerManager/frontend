@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Chip',
+  title: 'Data/Chip',
   component: Chip,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;
@@ -45,6 +45,5 @@ export const Examples = () => (
     <Chip dot label="Chip with dot" />
     <Chip color="primary" dot label="Chip with dot" />
     <Chip color="secondary" dot label="Chip with dot" variant="outline" />
-
   </>
 );

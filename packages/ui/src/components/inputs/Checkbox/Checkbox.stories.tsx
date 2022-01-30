@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/Form/Checkbox/Default',
+  title: 'Inputs/Checkbox/Default',
   component: Checkbox,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

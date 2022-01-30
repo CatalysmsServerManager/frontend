@@ -12,7 +12,7 @@ const WrapperDecorator = styled.div`
 `;
 
 export default {
-  title: 'Components/Toggle',
+  title: 'Inputs/Toggle',
   component: Toggle,
   decorators: [story => <WrapperDecorator>{story()}</WrapperDecorator>],
 } as Meta;

@@ -12,7 +12,7 @@ const WrapperDecorator = styled.div`
 `;
 
 export default {
-  title: 'Components/Card',
+  title: 'Layout/Card',
   component: Card,
   decorators: [story => <WrapperDecorator>{story()}</WrapperDecorator>],
 } as Meta;

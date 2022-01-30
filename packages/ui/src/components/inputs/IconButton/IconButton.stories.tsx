@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components/IconButton',
+  title: 'Inputs/IconButton',
   component: IconButton,
   decorators: [story => <Wrapper>{story()}</Wrapper>]
 } as Meta;

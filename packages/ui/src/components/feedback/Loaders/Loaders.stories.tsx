@@ -15,7 +15,7 @@ const WrapperDecorator = styled.div`
 `;
 
 export default {
-  title: 'Components/Spinner',
+  title: 'Feedback/Spinner',
   component: Spinner,
   decorators: [story => <WrapperDecorator>{story()}</WrapperDecorator>],
 } as Meta;

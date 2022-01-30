@@ -3,7 +3,7 @@ import { styled } from '../../../styled';
 import { Collapse, CollapseProps } from '.';
 
 export default {
-  title: 'Components/Collapse',
+  title: 'Layout/Collapse',
   component: Collapse,
 } as Meta;
 
