@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { getTransition } from '../../../helpers';
 import { Container, Dot, Line, Label } from './style';
 
 export interface SwitchProps {
@@ -8,12 +9,6 @@ export interface SwitchProps {
   disabled?: boolean;
   onChange?: (isChecked: boolean) => void;
 }
-
-const spring = {
-  type: 'spring',
-  stiffness: 700,
-  damping: 30
-};
 
 export const Switch: FC<SwitchProps> = ({ name, defaultChecked = false, disabled = false, onChange }) => {
   const [isChecked, setChecked] = useState(defaultChecked);
@@ -42,7 +37,7 @@ export const Switch: FC<SwitchProps> = ({ name, defaultChecked = false, disabled
             disabled={disabled}
             isChecked={isChecked}
             layout
-            transition={spring}
+            transition={getTransition()}
           />
         </Line>
       </Label>

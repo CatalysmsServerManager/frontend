@@ -1,7 +1,7 @@
 import { FC, useState, ReactElement, ReactNode, useContext } from 'react';
 import { styled } from '../../../styled';
 import { ThemeType } from '../../../styled/theme';
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 import { ThemeContext } from 'styled-components';
 
 const Container = styled.div`
@@ -31,7 +31,7 @@ const List = styled.ul<{ color: string }>`
   margin-bottom: 50px;
 `;
 
-const Content = styled.div`
+const TabContentContainer = styled(motion.div)`
   width: 100%;
 `;
 export interface TabSwitchProps {
@@ -41,6 +41,7 @@ export interface TabSwitchProps {
 
 export const TabSwitch: FC<TabSwitchProps> = ({ children, color = 'primary' }) => {
   const [selected, setSelected] = useState<string>(children[0].props.label);
+
   return (
     <Container>
       <AnimateSharedLayout>
@@ -56,9 +57,17 @@ export const TabSwitch: FC<TabSwitchProps> = ({ children, color = 'primary' }) =
           ))}
         </List>
       </AnimateSharedLayout>
-      <Content>
-        {children.filter((child) => child.props.label === selected ? child.props.children : undefined)}
-      </Content>
+      <AnimatePresence exitBeforeEnter>
+        <TabContentContainer
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
+          style={{ backgroundColor: 'orange' }}
+          transition={{ duration: 0.15 }}
+        >
+          {children.filter((child) => child.props.label === selected ? child.props.children : null)}
+        </TabContentContainer>
+      </AnimatePresence>
     </Container>
   );
 };
