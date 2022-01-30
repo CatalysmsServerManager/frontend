@@ -27,6 +27,7 @@ export const theme = {
     secondary: 'linear-gradient(to right, #65f6e8 0%,#be81f6  51%, #65f6e8 100%)',
     white: 'linear-gradient(180deg, #fff 0%, #fff 100%)', // compatibility reasons
   },
+
   spacing: {
     small: '1rem',
     medium: '1.5rem',

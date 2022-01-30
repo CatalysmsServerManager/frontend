@@ -1,7 +1,7 @@
 export { Container } from './Container';
 
-export { Collapse } from './Collapse';
-export type { CollapseProps } from './Collapse';
+export { Accordion } from './Accordion';
+export type { AccordionProps } from './Accordion';
 
 export { Card } from './Card';
 export type { CardProps } from './Card';
