@@ -42,13 +42,13 @@ const Region = styled.div`
   text-transform: uppercase;
   cursor: pointer;
   &:hover{
-    color: ${({ theme }) => theme.main}
+    color: ${({ theme }) => theme.colors.primary}
   }
 
   &.selected{
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme }) => theme.colors.primary};
     &:hover{
-      color: ${({ theme }) => darken(0.1, theme.main)};
+      color: ${({ theme }) => darken(0.1, theme.colors.primary)};
     }
   }
 `;

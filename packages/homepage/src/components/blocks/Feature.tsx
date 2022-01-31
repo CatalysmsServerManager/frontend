@@ -12,7 +12,7 @@ const Container = styled.section`
   margin-top: 200px;
   margin-bottom: 200px;
   padding: 15px 0 0 0;
-  background-color: ${({ theme }) => theme.shade};
+  background-color: ${({ theme }) => theme.colors.shade};
   border-radius: 10px;
   h2 {
     font-size: 3rem;
@@ -36,7 +36,7 @@ const Circle = styled.div`
   display: inline-block;
   width: 12px;
   height: 12px;
-  background-color: ${({ theme }) => theme.main};
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
   margin: 0 10px;
   transition: background-color .3s ease-in-out;
@@ -46,7 +46,7 @@ const Circle = styled.div`
 
   &:hover{
     &:first-child{
-    background-color: ${({ theme }) => theme.title};
+    background-color: ${({ theme }) => theme.colors.secondary};
     }
   }
   @media ${size.md}{
@@ -103,10 +103,10 @@ const StyledCarousel = styled(Carousel)`
       height: 12px;
       border: none;
       box-shadow: none;
-      background-color: ${({ theme }) => theme.main};
+      background-color: ${({ theme }) => theme.colors.primary};
       opacity: 1;
       &.selected{
-        background-color: ${({ theme }) => theme.title};
+        background-color: ${({ theme }) => theme.colors.secondary};
       }
     }
   }
@@ -132,7 +132,7 @@ const Block = styled.div`
 const FeatureBlock = styled.div`
   text-align: left;
   h3{
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme }) => theme.colors.primary};
     font-size: 1.1rem;
   }
   @media ${size.md}{

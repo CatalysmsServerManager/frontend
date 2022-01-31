@@ -20,7 +20,7 @@ const Landing = styled.div`
 
   h1{
     font-size: 5rem;
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme }) => theme.colors.primary};
     @media ${size.sm}{
       font-size: 3rem;
       text-align: center;
@@ -55,7 +55,7 @@ const Chapter = styled.div`
   margin: 100px 25px;
   h2{
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme }) => theme.colors.primary};
   }
   p{
     margin-bottom: 15px;

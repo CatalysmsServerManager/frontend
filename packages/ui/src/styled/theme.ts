@@ -9,7 +9,7 @@ export const theme = {
 
     placeholder: '#f5f5f5',
     placeholderHighlight: '#ffffff',
-
+    shade: '#EAF8F0',
     white: '#ffffff',
     gray: '#d3d3d3',
     background: '#e8edf5',

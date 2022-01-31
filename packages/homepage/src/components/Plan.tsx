@@ -12,7 +12,7 @@ const Container = styled.div<{ isPopular: boolean }>`
   flex-direction: column;
   height: 550px;
   width: 300px;
-  border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.title) : theme.shade};
+  border: 5px solid ${({ theme, isPopular }) => isPopular ? lighten(0.65, theme.colors.secondary) : theme.colors.shade};
   border-radius: 20px;
 
   @media ${size.xxs}{
@@ -44,7 +44,7 @@ const Price = styled.div<{ isPopular: boolean }>`
   flex-direction: row;
   width: 100%;
   height: 130px;
-  background-color: ${({ theme, isPopular }) => isPopular ? theme.title : theme.shade};
+  background-color: ${({ theme, isPopular }) => isPopular ? theme.colors.primary : theme.colors.primary};
   .symbol{
       position: relative;
       width: 40px;
@@ -53,14 +53,14 @@ const Price = styled.div<{ isPopular: boolean }>`
         position: absolute;
         top: -20px;
         left: 10px;
-        color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.main};
+        color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.colors.primary};
         font-size: 1.5rem;
         font-weight: 400;
       }
   }
   .price{
     position: relative;
-    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.main};
+    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.colors.primary};
     font-size: 3.5rem;
     font-weight: 600;
     }
@@ -69,7 +69,7 @@ const Price = styled.div<{ isPopular: boolean }>`
     text-align: center;
     margin-left: 15px;
     margin-right: 15px;
-    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.text};
+    color: ${({ theme, isPopular }) => isPopular ? 'white' : theme.colors.text};
   }
 `;
 const Details = styled.div`

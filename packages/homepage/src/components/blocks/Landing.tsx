@@ -37,7 +37,7 @@ const TextContainer = styled.div`
   h1 {
     font-size: 1.5rem;
     margin-bottom: 50px;
-    color: ${({ theme }) => theme.main};
+    color: ${({ theme }) => theme.colors.primary};
     font-weight: 500;
   }
   p{
