@@ -4,10 +4,12 @@
     "baseUrl": "./src",
     "composite": true,
     "moduleResolution": "node",
-    "noImplicitAny": false,
+    "noImplicitAny": false
   },
   "paths": {
-    "@csmm/ui": ["packages/ui/src/index.ts"],
+    "@csmm/ui": [
+      "packages/ui/src/index.ts"
+    ]
   },
   "include": [
     "src"

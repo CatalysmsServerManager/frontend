@@ -3,7 +3,14 @@ module.exports = {
     'react-app',
     //'plugin:jsx-a11y/recommended',
   ],
-  "parser": "@typescript-eslint/parser",
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true
+    },
+    'ecmaVersion': 'latest',
+    'tsConfigRootDir': './packages/**/tsconfig.json',
+  },
   'plugins': [
     'jsx-a11y',
     'react-hooks',

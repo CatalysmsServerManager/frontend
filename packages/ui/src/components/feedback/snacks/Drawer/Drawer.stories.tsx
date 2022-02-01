@@ -19,7 +19,7 @@ const CustomContent = styled.div`
 `;
 
 export default {
-  title: 'Components/Snacks/DrawerSnack',
+  title: 'Feedback/Snacks/DrawerSnack',
   component: undefined,
 } as Meta;
 

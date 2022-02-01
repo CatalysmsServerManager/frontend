@@ -30,7 +30,6 @@ export const GridContainer = styled.div`
 export const TileContainer = styled.div`
   display: flex;
   width: fit-content;
-  /* stylelint-disable */
   height: calc('fit-content' -'100px');
   flex-direction: column;
   justify-content: space-between;

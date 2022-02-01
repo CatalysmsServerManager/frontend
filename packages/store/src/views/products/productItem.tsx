@@ -9,6 +9,18 @@ const item = {
   show: { opacity: 1, x: 0 }
 };
 
+const PriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  h3 {
+    color: ${({ theme }) => theme.colors.secondary};
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 5px;
+  }
+`;
+
 export const Container = styled(motion.li)`
   border-radius: 15px;
   background-color: white;
@@ -66,18 +78,6 @@ export const CheckMarkContainer = styled.div`
     color: white;
     border-color: white;
     background-color: white;
-  }
-`;
-
-const PriceContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  h3 {
-    color: ${({ theme }) => theme.colors.secondary};
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-right: 5px;
   }
 `;
 

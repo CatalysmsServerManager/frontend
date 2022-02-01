@@ -19,12 +19,14 @@
     "noErrorTruncation": false,
     "allowJs": true,
     "declaration": true,
+    "composite": true,
     "types": ["node", "react"],
     "paths": {
       "@csmm/ui": ["ui/src"],
       "@csmm/store": ["store/src"],
       "@csmm/homepage": ["homepage/src"],
-    }
+    },
   },
+  "references": [ { "path": "./packages/ui/tsconfig.json" }],
   "exclude": ["**/build/", "**/node_modules/", "**/dist/"]
 }

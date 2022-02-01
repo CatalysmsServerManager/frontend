@@ -59,7 +59,8 @@ export const Spinner: FC<SpinnerProps> = ({ size, color = 'white' }) => (
       duration: 1.5,
       ease: 'easeInOut',
       times: [0, 0.2, 0.5, 0.8, 1],
-      loop: Infinity,
+      repeat: Infinity,
+      repeatType: 'loop',
       repeatDelay: 0
     }}
   />

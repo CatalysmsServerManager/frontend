@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { styled } from '../../../styled';
-import { Avatar, Chip, ChipProps } from '../..';
+import { Avatar, Chip, ChipProps } from '../../data';
 
 const Wrapper = styled.div`
   display: grid;

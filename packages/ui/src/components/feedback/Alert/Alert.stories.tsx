@@ -1,9 +1,5 @@
 import { Story, Meta } from '@storybook/react';
 import { Alert, AlertProps } from '.';
-import { styled } from 'styled';
-
-const Container = styled.div`
-`;
 
 export default {
   title: 'Feedback/Alert',
@@ -12,9 +8,9 @@ export default {
 
 const Template: Story<AlertProps> = (args) => {
   return (
-    <Container>
+    <div>
       <Alert {...args} />
-    </Container>
+    </div>
   );
 };
 

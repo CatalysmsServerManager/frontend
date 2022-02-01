@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { styled, Color, AlertVariants } from '../../../styled';
 import { keyframes } from 'styled-components';
-import { Loading } from '../../../';
+import { Loading } from '../../feedback';
 
 const shake = keyframes`
   2.5%, 22.5% {

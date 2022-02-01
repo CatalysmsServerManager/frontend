@@ -28,7 +28,8 @@ export const Loading: FC<LoadingProps> = ({ width = 50, height = 50 }) => {
         duration: 2,
         ease: 'easeInOut',
         times: [0, 0.2, 0.5, 0.8, 1],
-        loop: Infinity,
+        repeat: Infinity,
+        repeatType: 'loop',
         repeatDelay: 1
       }}
       width={width}>

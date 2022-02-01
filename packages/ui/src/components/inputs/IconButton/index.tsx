@@ -14,7 +14,6 @@ const Container = styled.button<{ outline: boolean, size: Size, variant: Variant
   box-shadow: ${({ theme }): string => theme.colors.shadow};
 
   svg {
-    /* stylelint-disable */
     cursor: pointer;
     path {
       fill: ${({ theme, outline }) => outline ? theme.colors.primary : 'white'}!important;

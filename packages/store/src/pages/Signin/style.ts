@@ -80,6 +80,7 @@ export const ContentContainer = styled.div`
 export const Icon = styled(motion.img)`
   width: 40px;
   height: auto;
+  user-select: none;
   z-index: 10;
 `;
 

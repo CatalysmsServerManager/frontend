@@ -22,7 +22,7 @@ const App: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Sentry.ErrorBoundary fallback={ErrorFallback}>
+      <Sentry.ErrorBoundary fallback={<ErrorFallback />}>
         <UserContext.Provider value={providerUserData}>
           <SnackbarProvider>
             <AuthContext.Provider value={AuthProvider()}>

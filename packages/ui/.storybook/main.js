@@ -12,10 +12,11 @@ module.exports = {
     "@storybook/addon-a11y",
   ],
   features: {
-    //storyStoreV7: true, // Optmize story loading
+    storyStoreV7: true, // Optimize story loading with baabel mode 7
   },
 
   core: { builder: 'webpack5' },
+
   webpackFinal: async (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),

@@ -67,6 +67,8 @@ export const Signin: FC = () => {
               animate={{ rotate: 360 }}
               drag
               dragConstraints={constraintsRef}
+              dragMomentum={true}
+              onMouseDown={(e) => { e.preventDefault(); }}
               src={icon}
               transition={{ type: 'spring', duration: 5, repeat: Infinity, bounce: .5 }}
             />
