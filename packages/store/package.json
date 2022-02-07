@@ -27,7 +27,7 @@
   "devDependencies": {
     "@prisma/client": "^3.8.1",
     "@types/luxon": "^2.0.9",
-    "http-proxy-middleware": "^1.0.6",
+    "http-proxy-middleware": "^2.0.3",
     "@craco/craco": "6.4.3"
   }
 }
